@@ -1,0 +1,36 @@
+
+The new scheme is that variables can be declared to be reference types
+("pointers", if you will), by writing e.g.
+
+var x: ref(int);
+
+Variables like x can be assigned values that are references, so e.g. the
+following is allowed:
+
+var y: int;
+y := 42;
+x := ref(y);
+
+Correspondingly, you can follow a reference r by using deref(r), so that,
+given the previous definitions, the following is legal:
+
+y := deref(x);
+
+Expressions with deref can also be used as L-values, so that we can assign
+values to the location that they are pointing to, e.g.:
+
+deref(x) := y;
+
+This means that the Swap example procedure from the language spec in
+Compila17 will be like this:
+
+proc Swap(a : ref(int), b : ref(int))
+begin
+var tmp : int;
+tmp := deref(a);
+deref(a) := deref(b);
+deref(b) := tmp;
+end;
+
+
+______________________________

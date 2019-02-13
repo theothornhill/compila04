@@ -1,0 +1,8 @@
+program abc
+begin
+    var x : ref (bool);
+    var x2 : ref (int);
+    var x3 : ref (ref (int));
+   struct r_x { var x : ref(float); }; 
+end;
+

@@ -1,0 +1,21 @@
+program SwapExample
+  begin
+    proc swap (ref a:  int, ref b : int) 
+    begin
+      var tmp : int;
+      tmp := a;
+      a := b;
+      b := tmp;
+    end;
+
+    proc main ( ) 
+      begin
+        var x : int;
+        var y : int;
+        x := 42;
+        y := 84;
+        swap (ref x, ref y)
+        // now, x = 84 and y = 42
+      end
+  end
+ 

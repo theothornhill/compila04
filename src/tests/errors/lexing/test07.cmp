@@ -1,0 +1,7 @@
+program main 
+begin
+    proc x() 
+    begin 
+       begin := 1  /* keyword != identifier */
+    end 
+end 

@@ -1,0 +1,118 @@
+#+OPTIONS: H:3
+#+DESCRIPTION: compiler construction
+#+KEYWORDS: compiler, compiler construction
+#+LANGUAGE:  en
+#+OPTIONS:   num:t toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:nil
+#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+OPTIONS: tex:t 
+#+LATEX_CLASS: beamer
+#+COLUMNS: %45ITEM %10BEAMER_env(Env) %10BEAMER_act(Act) %4BEAMER_col(Col) %8BEAMER_opt(Opt)
+#+BEAMER_THEME: default
+#+BEAMER_COLOR_THEME:
+#+BEAMER_FONT_THEME:
+#+BEAMER_INNER_THEME:
+#+BEAMER_OUTER_THEME:
+#+BEAMER_HEADER:
+
+#+MACRO: gopaperpath  ~/papers/go/semantics/
+
+# (setq org-export-exclude-tags '("private" "noexport" "B_note"  "todo" "handout" "ARCHIVE" "script"))
+# (setq org-export-select-tags  '("export"  "slides"  "B_frame" "B_againframe"))
+# #####################################################################
+
+
+#+latex_header: \input{switches}
+
+#+latex_header: \input{style/style-common}
+#+latex_header: \input{style/style-presentation}
+#+latex_header: \input{preamble} 
+#+latex_header: \input{macros}
+#+LaTeX_header: \input{macros-tmp}        
+#+LaTeX_header: \renewcommand{\maketitle}{}
+
+#   \setbeameroption{show notes}
+
+#+TITLE:     INF5110 -- Oblig 1 + 2
+#+AUTHOR:    
+#+EMAIL:     msteffen@ifi.uio.no
+#+DATE:      Spring 2018
+#+LINK: gohome https://golang.org/
+#+LINK: tigersrc      /home/msteffen/PMA/trunk/teaching/ocaml/compiler/tiger/src/%s
+#+LINK: tigerlibsrc  /home/msteffen/Collectionofreposes/GITUIO/staticanalysis-admin/dfa/src/ocaml/lib/%s
+
+# #### course data 
+
+
+
+#+latex_header: \def\mytitle{Compiler Construction}    %% what for
+#+LaTeX_header: \def\myauthor{Martin Steffen}   %% what for
+#+LaTeX_header: \def\mydate{Spring 2018}        %% what for
+
+
+#+include: "./content.org"  
+
+
+
+
+# ##### ##### ##### ##### ##### ##### ##### ##### ######### ####
+#                                                    #
+#  +include: "./intro.org" 
+# +include: "./scanning.org"  
+# +latex: \setcounter{chapter}{2}
+# +include: "./grammars.org"
+# +latex: \setcounter{part}{3}  %% that's how it works, not chapter 
+# +include: "./semanticanalysis.org"
+# +include: "./symboltable.org"
+# +include: "./typechecking.org"
+# +include: "./runtimeenvs.org"
+# +include: "./ircodegen.org"
+# +include: "./codegen.org"
+
+
+
+** References                                                        :export:
+
+#+BEGIN_EXPORT LATEX
+\begin{frame}[allowframebreaks]
+  \frametitle{References}
+  {\tiny
+    \bibliographystyle{apalike}
+%    \bibliography{extracted,local} 
+    \bibliography{string,semantics,etc,mobile,crossref}  %general PMA
+  }
+\end{frame}
+
+#+END_EXPORT
+
+
+ 
+*** 						     :B_ignoreheading:export:
+    :PROPERTIES:
+    :BEAMER_env: ignoreheading
+    :END:
+#   :BEAMER_env: fullframe
+#+BEGIN_COMMENT
+%%%%%%%%%%%%%%%%%%%%%% A terrible hack %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Local Variables: 
+%%% mode: org
+%%% End: 
+#+END_COMMENT
+#+BEGIN_EXPORT LATEX
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 
+#+END_EXPORT
+
+
+
+
+
+
+
+
+
+

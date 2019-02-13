@@ -1,0 +1,295 @@
+\documentclass[11pt,freeform]{handout}[2014/08/13]
+
+\input{coursedata}
+\input{preamble}
+\pgfdeclareimage[height=2.4cm,interpolate=true]{uio}{uiologo}%% relative
+%\usepackage[german]{babel} 
+%\usepackage{german}
+
+\handouttitle{Oblig 2}
+\handoutnumber{2}
+\issuedate{18.\ 04.\ 2018}
+\topic{Oblig 2}
+
+
+
+
+\begin{document}
+\thispagestyle{empty}
+
+
+
+\section{Official }
+\label{sec:official-info}
+
+
+
+
+\hrulefill{}
+
+The \textbf{deadline/frist}  for the second oblig is
+
+\begin{quote}
+  \textbf{\deadlinetwo, 23:59}
+\end{quote}
+
+
+
+
+
+\section{What and how to hand in}
+\label{sec:what-how}
+
+
+\subsection{Git}
+\label{sec:git}
+
+You will continue in the group/ git-repos you did in the first oblig
+(unless really convincing reasons speak against it).  Basically, you
+continue with your previous code, add the new functionality, push a
+solution before the deadline, and inform me when it's done so that I can
+update. It's important to tell me, as I don't want to repeetedly update in
+the hope that it's done.
+
+
+If a change in arrangement is needed (merge of groups, or a split of
+groups), you need to ask for that re-arrangement (not just that on the day
+of the deadline it's ``announced'' that there is now a new group \ldots).
+
+
+\subsection{What to include into a solution}
+\label{sec:what-include-into}
+
+
+\begin{itemize}
+\item A top-level \emph{Readme-file} containing
+  \begin{itemize}
+  \item  containing names and emails of the authors
+  \item instructions how to build the compiler and how to run it.
+  \item test-output for running the compiler on \texttt{compila.cmp} as
+    input
+  \item of course, all code needed to run your package. That includes
+    \begin{itemize}
+    \item \textsl{JFlex}-code for the scanner
+    \item \textsl{CUP}-cpde for the 2 variants of the syntax
+    \item the Java-classes for the syntax-tree
+    \item the build-script \texttt{build.xml}
+    \end{itemize}
+  \end{itemize}
+
+
+\end{itemize}
+
+
+
+\section{Purpose and goal}
+\label{sec:x}
+
+The goal of the task is to collect more practical experience implementing a
+compiler, in particular, a taste of phases after parsing. It's only a
+taste, as we don't have the time to get a full-scale compiler on its
+feet. The language we are compiling is (as before) described in the
+\emph{compila18 language specification.} This time, also the later sections
+about type checking etc, what were irrelevant for oblig 1, specify the
+scope of the task as far as the language features are concerned.
+
+
+As in oblig 1, it's necessariy that a solution is equipped
+
+\begin{quote}
+  with ``automatic test-cases''
+\end{quote}
+That can be done (as before) via ant targets. Those tests have to be
+executable on the RHEL linux pool at the university.\footnote{That should
+  actually not be a big restriction, as Java (and the task) is to a big
+  extent platform independent (``write once, run everywhere''
+  \ldots). Nonetheless: Based on experience with the first obligs: it's
+  advised to make this ``test'' setup early on (not after the deadline), to
+  design the code \emph{with the goal that it runs also at a different
+    place than one's own platform} and to test that this goal is actually
+  met. The reason for that ``testability'' requirment is that correction
+  will again not be based on reading code from my side, but in first
+  approximation: running the test. In that sense, it's also not of primary
+  importance, whether it's \texttt{ant} or perhaps \emph{make} or some
+  script. Important is, that I can execute it at the RHEL machines by
+  invoking a simple command.  I don't have the time to figure out how one
+  particular solution is configured, started, etc. I don't even want to
+  look around and try whether I find a \texttt{main} method somewhere\ldots
+}
+
+
+
+
+
+
+\section{Tools}
+%\label{sec:tools}
+
+
+The tools are basically the same as for the previous oblig, and typically
+you will continue anyway with the previous set-up..
+
+
+
+
+\section{Task more specifically: Type checking and }
+\label{sec:task-more-spec}
+
+
+The overal task is to 
+
+\begin{quote}
+  implement a parser for the \textsl{Compila 18} language.
+\end{quote}
+The language specification is given in a separate document. Oblig 1 is
+concerned with checking \emph{syntactic correctness}, which means, not all
+of the language specification is relevant right now: semantic correctness,
+type checking etc. will become relevant only later for the second oblig.
+
+
+\subsection{Syntax tree}
+\label{sec:syntax-tree}
+
+The result of a successful parse is an \emph{abstract syntax tree}. That
+data structure needs to be appropriately ``designed''. In a Java
+implementation, that involves the definition of appropriately chosen
+classes arranged in some class hierarchy. Make also use if \emph{abstract
+  classes}. In the lecture, there had been some ``design guidelines'' that
+may be helpful. Carefully chosen names for classes will help in a
+conceptually clear implementation. A definitely \emph{non-recommended} way
+is to have one single class \texttt{Node} lumping together all kinds of
+nodes and syntactic categories in the syntax tree.
+
+
+
+
+
+
+
+\subsection{Print out of the AST}
+\label{sec:print-out-ast}
+
+
+The AST should be ``printed''. The easiest and recommeded form of printout
+is in \emph{prefix form}. In the provided ``starting point'', there is an
+example compila input file and a corresping file containing a possible
+output. The two files are called
+
+\begin{itemize}
+\item \texttt{compila.cmp}
+\item \texttt{compila.ast}
+\end{itemize}
+
+
+Note: the two files are meant as inspiration. Each year the syntax of
+\textsl{compila} slightly changes (wrt. keywords, associativity etc). So it
+might not 100\% in accordance with the 2018 version.
+
+It's allowed (but not necessary) to print it in other forms than prefix
+form. But the output must indicate the AST in readable form (``readable''
+as in human-readble that is \ldots). Note, the task is not that the output
+is a syntactically correct \textsl{compila} program again (that might be a
+formatting tool), we just need a way to look at the syntax tree, which
+comes in handy for debugging,
+
+
+%\bibliographystyle{apalike}
+%{\small
+% \bibliography{string,semantics,crossref}
+%% \bibliography{extracted}
+% }
+
+\subsection{Two grammars}
+\label{sec:two-grammars}
+
+
+As mentioned shortly, the task requires 2 grammars, representing 2 ways
+dealing with precendence and associativity.
+
+\begin{enumerate}
+\item an \emph{unambiguuous} grammar resolving precedence and associativity
+  by ``baking it in'' directly into the grammar. The grammar is in plain
+  BNF (in the form required by the tools)
+\item the second grammar is ambiguous and relies on \emph{CUP} to resolve
+  the associativity and precendence. This second grammar will probably look
+  nicer and will be shorter. It's therefore probably best to take that one
+  as \emph{default} (for instance for oblig 2).
+\end{enumerate}
+
+\subsubsection*{Comparison and discussion}
+\label{sec:comparison}
+
+Investigate and characterise \emph{conflicts} of the \emph{original}
+grammar. How many states do the 2 generated CUP grammars have? That
+requires a look into the CUP-generated code. Discuss also whether the
+choice of the two grammars influences the generation of the AST: is one of
+the two approaches easier to work with when it comes to generate an AST
+(resp. your chosen AST data structure.
+
+
+\textbf{Note:} It's not required to provide code to build \emph{two}
+versions of AST-generation, one is enough. In other words, for one of the
+two grammars, you don't need ``action code'' in the grammar to produce an
+AST, plain \emph{checking} is sufficient.
+
+\subsection{Lexical analysis}
+\label{sec:lexical-analysis}
+
+As mentioned, \textsl{JFLex} is the tool of choice for lexical analysis. It
+delivers a token to the parser via the method \texttt{next\_token()}.  
+
+As far the the ``theoretical'' task concerning \textsl{compila 18} is
+concerned, the lexer is responsible for ignoring comment, white-space etc,
+find keywords and the like. 
+
+Besides that, one has to make the parser and the lexer ``work together''
+hand in hand. Information about that can be found in the corresponding
+manual. There should also be examples for inspiration. A crucial ingredient
+is the interface \texttt{java\_cup.runtime.Scanner} which needs to be
+implemented by the actual scanner. The scanner will hand over tokens of the
+type \texttt{Symbol} and one can use \texttt{Symbol.value} to pass ``text''
+or other objects from the lexer to the parser.
+
+
+
+\subsection{Error handling}
+\label{sec:error-handling}
+
+Error handling can be done simple: When hitting an error, parsing should
+stop (as opposed to try to continue and give back an avalanche of
+subsequent errors). Some meaningfull error message (at least wrt. which
+syntactic class caused the error) would be welcome, as opposed to a plain
+``sorry, bad program''. It's not required to give back line numbers
+referrring to the original source code or positions in the original
+file. In practice that's definitely useful (and not very hard either), but
+not required for the oblig.
+
+
+
+
+\section{Resources}
+\label{sec:resources}
+
+The course web-page contais an html file \texttt{resources.html} which
+collects clickable links to \textsl{JFlex} \textsl{CUP} and corresponding
+manuals.
+
+
+
+
+
+
+
+\end{document}
+
+Model Checking Cache Coherence Protocols for Distributed File Systems
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

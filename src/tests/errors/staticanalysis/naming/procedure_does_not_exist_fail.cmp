@@ -1,0 +1,12 @@
+program procedure_does_not_exist_fail
+begin
+
+	proc xx()
+	begin
+	end;
+    	proc main()
+	begin
+	   yy(); /* Fail: Procedure does not exist. */
+	end
+
+end

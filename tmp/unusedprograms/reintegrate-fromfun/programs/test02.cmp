@@ -1,0 +1,9 @@
+program abc
+begin
+    var x : float ;
+    var x : float ;
+    var x_2 : int ;
+    var xxx2:string;
+    var a : bool;
+end;
+

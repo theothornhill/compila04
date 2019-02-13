@@ -1,0 +1,26 @@
+program abc
+begin
+  proc X (x : bool, x : bool ) begin end;
+  proc X (x : bool) begin end;
+  proc X ()
+  begin
+  x := x && x;
+  x := x || x;
+  x := not x || x;
+  x := not x || not x;
+  x := not not x || not x;
+  x := (not not x) || not x;
+  x := x || xy && x;
+  x := x || (not xy && x);
+  x := x = y;
+  x := x = (not x);
+  x := x < x ;
+  x := x > x > y ;
+  x := x + (new x) + x;
+  x := (new x) + (new x);
+  x := f();
+  x := true && false || null;
+  x := 1 + 5 + 6;
+  x := 1.05;  end; 
+end;
+

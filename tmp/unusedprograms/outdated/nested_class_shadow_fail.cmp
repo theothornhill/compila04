@@ -1,0 +1,21 @@
+program nested_class_shadow_fail
+begin
+
+	class Bogus begin var outerScope : int; end;
+
+	proc Main()
+	begin
+	    var outer : Bogus;
+    
+	    proc dummy() begin
+	         class Bogus begin var innerScope : int ; end;
+	         var inner : Bogus;
+	         inner := new Bogus;
+	         inner.outerScope := 123; // error, refers to local class object.
+	    end;
+	    outer := new Bogus;
+	    outer.outerScope := 1337;
+	    dummy();
+	end;
+
+end;

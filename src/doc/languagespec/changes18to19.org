@@ -1,0 +1,16 @@
+* Changes from 2018 -> 2019 
+
+
+** Lexical
+
+   - new keywords FI and OD (for conditionals)
+  
+** Grammar
+
+- Make ";" as separator, not terminator 
+   (PROGRAM and PROC_DECL changed) 
+
+
+- DECL: remove ";" and the end
+- if then begin ... end  -> if then ... fi
+- while do begin .. end -> while do ... od

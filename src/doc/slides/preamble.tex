@@ -1,0 +1,548 @@
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage[normalem]{ulem}  %%% redefines emph!!!!!!!!!!!!!!!!!!!!!!
+\usepackage{soul}
+\usepackage{import}                      %% relative path in "inputs"
+\usepackage{etex}
+\usepackage{graphics}
+\graphicspath{{./figures/}}                %% cool!
+\usepackage{psfrag}
+\usepackage{cancel}
+\usepackage{MnSymbol}    %% for liveness 
+
+\usepackage{xcolor}
+\definecolor{electricblue}{HTML}{05ADF3}
+
+
+\usepackage{amsmath}
+
+\usepackage[dvipsnames]{colortbl}
+\def\grayscale{0.8}                              %% defaul gray
+\newcommand{\gcell}{\cellcolor[gray]{\grayscale}}   %% gray cell                   
+
+\def\scalefactor{0.6}                     %% for pictures
+\usepackage{tikz}
+\usepackage{tikz-qtree}                   %% for more elegant trees
+\usetikzlibrary{matrix,arrows}  %%% for diagrams
+\usetikzlibrary{chains,fit,shapes}
+\usetikzlibrary{arrows,automata}
+\usetikzlibrary{graphs}
+%\usepackage[nocolor]{drawstack}   %% currently does not work 
+%\usepackage{drawstack}
+
+
+\usepackage{cancel}
+
+\usetikzlibrary{arrows, decorations.markings}
+
+
+%%%%%%%%%%%%%%%%% for LR-NFA's 
+\tikzstyle{inititem}=[fill=blue!10]
+\tikzstyle{completeitem}=[fill=red!10]
+\tikzstyle{conflictitem}=[fill=red!45]
+\tikzstyle{initcompleteitem}=[fill=violet!20]
+%%%%%%%%%%%%%%%% for stacks
+
+\tikzstyle{sframerest}=[fill=black!05]
+\tikzstyle{sframe0}=[fill=orange!10]
+\tikzstyle{sframe1}=[fill=blue!10]
+\tikzstyle{sframe1p}=[fill=blue!20]
+\tikzstyle{sframe2}=[fill=green!10]
+\tikzstyle{sframe2p}=[fill=green!20]
+\tikzstyle{sframe3}=[fill=red!10]
+
+\usepackage{listings}[2003/06/21] % for typesetting code, take care of the version
+
+\iffalse
+\lstloadaspects{keywordcomments}  %% hack for algol
+\usepackage{lstassem}
+\usepackage{lsttiny}
+\usepackage{lsttac}
+\usepackage{lstpcode}
+\usepackage{lstasurmcode}   %% old dragon book register machine code
+\usepackage{lstrmcode}      %% new dragon book register machine code
+%\lstset{language=tac}
+\usepackage{lstpseudo}
+\lstset{mathescape=true}
+\lstset{language=pseudo} 
+%\lstset{basicstyle=\tt}
+\lstset{basicstyle=\scriptsize}
+\lstset{frame=trBL}
+
+\lstset{numberstyle=\tiny,numberfirstline=true,stepnumber=1,numbers=left}
+\lstset{emphstyle={\bfseries\textcolor{beamerblue}}}
+\lstset{emphstyle=[2]{\bfseries\textcolor{beamerred}}}
+\fi
+
+\usepackage{makeidx}
+\makeindex
+
+
+
+
+
+
+\usepackage{varioref}
+\newtheorem{remark}            {Remark} %% only in slides
+
+
+\usepackage{makecell}
+
+\ifslides  %% I set the minitoc depth
+\newcounter{minitocdepth}
+\fi
+
+
+\iffalse  %%%%% rest %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%XXX\usepackage{multicol}
+
+
+
+
+
+%\usepackage{xcolor}
+%\PassOptionsToPackage{hyperref,x11names}{xcolor}
+%% electric blue = #2C75FF?
+
+%\usepackage{tocloft}
+%\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+%\usepackage[breaklinks=true,xetex]{hyperref} 
+% \usepackage{hyperref}   %% Does not work in the exam
+%\hypersetup{colorlinks}
+%\hypersetup{colorlinks, citecolor=electricblue,filecolor=electricblue,linkcolor=electricblue,urlcolor=electricblue}
+
+
+
+%\usepackage{bm}
+
+
+
+
+
+\ifhandout\else
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Beamer styling %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamercolor{alerted text}{fg=beamerred}
+\useinnertheme[shadow]{rounded}
+\setbeamertemplate{sections/subsections in toc}[sections numbered]  %% I don't like the bullets
+
+\definecolor{Descitem}{RGB}{0, 0, 139}
+
+\definecolor{StdTitle}{RGB}{26, 33, 141}
+\definecolor{StdBody}{RGB}{213,24,0}
+
+\definecolor{AlTitle}{RGB}{255, 190, 190}
+\definecolor{AlBody}{RGB}{213,24,0}
+
+\definecolor{ExTitle}{RGB}{201, 217, 217}
+\definecolor{ExBody}{RGB}{213,24,0}
+
+\setbeamercolor{block title}{fg = Descitem, bg = StdTitle!15!white}
+\setbeamercolor{block title}{fg=red!67!black,bg=blue!06!white}
+
+\AtBeginSection[]%
+{%
+\begin{frame}[plain]%
+  \begin{center}%
+    \usebeamerfont{section title}\insertsection%
+  \end{center}%
+\end{frame}%
+}
+
+
+
+
+
+\useoutertheme{split}
+\useoutertheme{shadow}
+
+\setbeamercolor{frametitle}{fg=red!67!black,bg=blue!06!white}
+
+
+
+% \setbeamercolor{alerted text}{fg=beamerred}
+% \useinnertheme[shadow]{rounded}
+% \setbeamertemplate{sections/subsections in toc}[sections numbered]  %% don't like the bullets
+
+% \definecolor{Descitem}{RGB}{0, 0, 139}
+
+% \definecolor{StdTitle}{RGB}{26, 33, 141}
+% \definecolor{StdBody}{RGB}{213,24,0}
+
+% \definecolor{AlTitle}{RGB}{255, 190, 190}
+% \definecolor{AlBody}{RGB}{213,24,0}
+
+% \definecolor{ExTitle}{RGB}{201, 217, 217}
+% \definecolor{ExBody}{RGB}{213,24,0}
+
+% \setbeamercolor{block title}{fg = Descitem, bg = StdTitle!15!white}
+% \setbeamercolor{block title}{fg=yellow!67!black,bg=blue!02!white}
+% \setbeamercolor{frametitle} {fg=yellow!67!black,bg=blue!02!white}
+
+%\usetikzlibrary{automata}
+%\usetikzlibrary{shadows}      %% drop shadow
+%\usetikzlibrary{positioning}
+
+
+\fi
+
+
+%\newcommand{\bcell}{}
+
+
+\usepackage{comment}
+\ifhandout\else
+\pgfdeclareimage[height=2cm,interpolate=true]{uio}{../tex/inputs/uiologo}%%
+\titlegraphic{
+  \begin{center}
+    \pgfuseimage{uio}
+  \end{center}}
+\fi
+
+
+\ifhandout
+\usepackage[draft]{fixme}[2013/01/28]
+
+%\fxusetheme{color}
+
+
+
+
+
+
+\renewcommand\fxenglishnotename{}
+%\fxsetup{mode=}
+%\fxsetup{targetlayout=color}
+\fxsetface{margin}{\tiny\textcolor{red}}
+%\fxsetface{env}{\XXXolor}
+\fxsetface{inline}{\color}
+\fxsetface{target}{\color}
+%\fxsetup{envface=\scriptsize\tt\textcolor{red}}  %% must be after the color
+%\fxusetheme{color}
+
+\FXRegisterAuthor{ms}{ems}{ms}
+\else
+
+\newenvironment{emserror}{}{}
+\newenvironment{emsnote}{}{}
+
+
+
+\usepackage{textcomp}
+%\excludecomment{emsnote}
+%\excludecomment{emserror}
+\fi
+
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{2}
+%\usepackage{multirow}  %%  vertical multicolumn
+
+
+% \AtBeginSection[]%
+% {%
+% \begin{frame}[plain]%
+%   \begin{center}%
+%     \usebeamerfont{section title}\insertsection%
+%   \end{center}%
+% \end{frame}%
+% }
+
+
+% \AtBeginSection[]{%
+%   \begin{frame}<beamer>
+%     \frametitle{Outline}
+%     \tableofcontents[sectionstyle=show/hide,subsectionstyle=hide/show/hide]
+%   \end{frame}
+%   \addtocounter{framenumber}{-1}% If you don't want them to affect the slide number
+% }
+
+
+\usepackage{url}
+
+%\usepackage{epsfig}
+\input{prooftree}
+%\usepackage{bussproofs}
+
+\ifhandout\else
+\beamertemplatedotitem
+\beamertemplatetextbibitems     %% real citations!
+\beamertemplatetransparentcoveredmedium
+\setbeamertemplate{blocks}[rounded][shadow=true]
+
+
+\setbeamercolor{alerted text}{fg=beamerred}
+\useinnertheme[shadow]{rounded}
+
+%\AtBeginSection[]%
+%{%
+%\begin{frame}[plain]%
+%  \begin{center}%
+%    \usebeamerfont{section title}\insertsection%
+%  \end{center}%
+%\end{frame}%
+%}
+
+
+%\AtBeginSubsection[]
+%{ 
+%  \begin{frame}<beamer>
+%    \frametitle{Outline}
+%    \tableofcontents[currentsection,currentsubsection]
+%  \end{frame}
+%}
+
+%\X
+\setbeamertemplate{section page}
+{
+    \begin{centering}
+    \begin{beamercolorbox}[sep=12pt,center]{part title}
+      \Large \inserttitle 
+      \\[2em]
+      \normalsize \insertsection 
+      \\[1em]
+      \normalsize \insertdate 
+    \end{beamercolorbox}
+    \end{centering}
+
+  \begin{center}
+    \pgfuseimage{uio}
+  \end{center}
+}
+
+
+\AtBeginSection[]{%
+  \frame{\sectionpage}
+\begin{frame}<beamer>
+    \frametitle{Outline}
+    \tableofcontents[currentsection,currentsubsection]
+  \end{frame}
+  
+}%
+
+\AtBeginSubsection[]{%
+\begin{frame}<beamer>
+    \frametitle{Outline}
+    \tableofcontents[currentsection,currentsubsection]
+  \end{frame}
+  
+}%
+
+
+\useoutertheme{split}
+\useoutertheme{shadow}
+
+
+
+
+\setlength{\itemsep}{9mm}
+%\setbeamertemplate{itemize item}{$\Rightarrow$}
+
+
+
+\setbeamertemplate{footline}[page number] %%% empty footline
+\setbeamertemplate{headline}[default] %%% empty headline
+\setbeamertemplate{enumerate items}[default]
+
+
+
+\fi
+
+
+
+
+%\AtBeginSection[]{\tableofcontents[current]\mbox{}}
+%\usetheme{Malmoe}  %%% MALMOE does not work well with
+                    %%  the tree overlays.
+
+
+%\usepackage{mathptm}
+%\usepackage{utopia} % utopia does not work  pifont euler bookman avant
+%\useoutertheme{infolines}
+
+%%%%
+
+
+
+
+
+%\ifhandout
+%
+%\newtheorem{remark}            {Remark} %% only in slides
+%\else
+%
+%\excludecomment{remark}
+%\fi
+
+\newcommand{\finish}[1]{}
+\usepackage{graphicx}
+\graphicspath{{./figurer/}}    %% cool!
+
+\usepackage{textcomp}
+
+
+%\usepackage{pgf,pgfpages}
+
+%%\pgfpagesuselayout{4 on 1}[a4paper,landscape,border shrink=5mm] \nofiles
+%\usepackage{xspace}
+
+%\usepackage{alltt}
+
+
+
+
+%\usepackage[upright]{fourier}
+%\usepackage{tkz-graph}
+%\usepackage{tkz-berge}
+
+
+
+%\usepackage{fourier}
+%\usepackage{tikz}
+%\usetikzlibrary{arrows,%
+%               shapes,positioning}
+
+
+%\usetikzlibrary{shadows}
+%usetikzlibrary{shapes.geometric}
+
+% \usetikzlibrary{shapes.multipart}
+% \usetikzlibrary{arrows,automata}
+
+
+%%%% It's a hack for parially uncovering graphs (trees etc)
+%%%% opacity = 0 means: invisible
+%%%% be careful, it might not work, some pdf-latex
+%%%% seem to have problems with it.
+% \tikzset{
+%   invisible/.style={opacity=0},   
+%   visible on/.style={alt=#1{}{invisible}},
+%   alt/.code args={<#1>#2#3}{%
+%     \alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}} % \pgfkeysalso doesn't change the path
+%   },
+% }
+
+%tikzset{hide on/.code={\only<#1>{\color{white}}}} %% just the node content
+
+
+%XXXX\usepackage{color}
+
+
+%\lstset{basicstyle=\color{rawsienna}\footnotesize,%
+%        frame=single,mathescape, inputencoding=latin1, extendedchars}
+%\lstset{emphstyle=\bf\underline}%
+
+
+
+%\lstset{basicstyle=\color{rawsienna}, fontsize=\footnotesize,%
+%        frame=single,mathescape, inputencoding=latin1, extendedchars}
+
+
+%\lstset{emphstyle=\bf\underline}
+
+
+
+
+
+
+\makeatletter
+\newcommand*{\overlaynumber}{\number\beamer@slideinframe}
+\makeatother
+
+
+
+\makeatletter
+%newenvironment<>{btHighlight}[1][]
+%\begin{onlyenv}#2\begingroup\tikzset{bt@Highlight@par/.style={#1}}\begin{lrbox}{\@tempboxa}}
+%\end{lrbox}\bt@HL@box[bt@Highlight@par]{\@tempboxa}\endgroup\end{onlyenv}}
+
+%newcommand<>\btHL[1][]{%
+% \only#2{\begin{btHighlight}[#1]\bgroup\aftergroup\bt@HL@endenv}%
+%
+%def\bt@HL@endenv{%
+% \end{btHighlight}%   
+% \egroup
+%
+%newcommand{\bt@HL@box}[2][]{%
+% \tikz[#1]{%
+%   \pgfpathrectangle{\pgfpoint{1pt}{0pt}}{\pgfpoint{\wd #2}{\ht #2}}%
+%   \pgfusepath{use as bounding box}%
+%   \node[anchor=base west, fill=yellow!10,outer sep=0pt,inner xsep=1pt, inner ysep=0pt, rounded corners=3pt, minimum height=\ht\strutbox+1pt,#1]{\raisebox{1pt}{\strut}\strut\usebox{#2}};
+% }%
+%
+%makeatother
+
+
+
+%\lstset{moredelim={**[is][\btHL<1>]{@1}{@}},
+%  moredelim={**[is][{\btHL<2>}]{@2}{@}},name=X,
+%  basicstyle=\scriptsize}
+
+
+
+
+
+
+%%{[2]\color{rawsienna}\footnotesize}
+
+
+\newcommand{\npl}{\mathit{npl}}
+%\fi
+
+
+
+
+%%% The chain library is for doing ``chains'' of nodes.
+
+\usepackage{calc}
+\usetikzlibrary{calc,trees,positioning,arrows,chains,shapes.geometric,%
+    decorations.pathreplacing,decorations.pathmorphing,shapes,%
+    matrix,shapes.symbols}
+
+%%%% The following is the style for the compiler architecture figure.
+%%% I found stuff on the net and adapted it.
+
+
+\tikzstyle{every node}=[font=\scriptsize] 
+\tikzset{
+>=stealth',
+  chainelement/.style={
+    rectangle, 
+    rounded corners, 
+    fill=black!10,
+    draw=black, very thick,
+%    font=\footnotesize,
+    text width=10em, 
+    minimum height=1.5em, 
+    text centered, 
+    on chain},
+  line/.style={draw, thick, <-},
+  element/.style={
+    tape,
+    top color=white,
+    bottom color=blue!50!black!60!,
+    minimum width=8em,
+    draw=blue!40!black!90, very thick,
+    text width=10em, 
+    minimum height=3.5em, 
+    text centered, 
+    on chain},
+  every join/.style={->, thick,shorten >=1pt},
+  decoration={brace},
+  tuborg/.style={decorate},
+  tubnode/.style={midway, left=2pt},  %%left=position of the node (= text)
+}
+
+\fi %%%%
+
+%\usepackage[matrix,arrow,curve,all,2cell,ps]{xy}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "main-script"
+%%% End: 
+

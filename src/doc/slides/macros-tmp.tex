@@ -1,0 +1,213 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% SOME MACROS, THEY ARE FOR THE GRAMMARS. THE MACROS ARE NOT GOOD and
+%% should ble CLEANNED UP IT ALSO UNCLEAR WHERE THEY COME FROM.
+
+%\newcommand{\IF}{{\bf{if}}~}
+%\newcommand{\THEN}{~{\bf{then}}~}
+%\newcommand{\ELSE}{~{\bf{else}}~}
+%\newcommand{\FI}{~{\bf{fi}}~}
+
+
+\mathchardef\mhyphen="2D     %% hyphen
+
+%  \newcommand{\TELSE}{\ensuremath{\gt{else}}}
+\newcommand{\PROGRAM}     {\ensuremath{\gnt{program}}}
+\newcommand{\NASSIGN}     {\gnt{assign}}
+\newcommand{\CLASS}       {\gnt{class}}
+\newcommand{\TCLASS}      {\gt{class}}
+\newcommand{\IMPLEMENTS}  {\gt{implements}}
+\newcommand{\SUPERCLASS}  {\gnt{superclass}}
+\newcommand{\REST}        {\gnt{rest}}
+\newcommand{\STMTSEQ}     {\ensuremath{\gnt{stmt\mhyphen seq}}}
+\newcommand{\STMTS}       {\ensuremath{\gnt{stmts}}}
+\newcommand{\IFSTMT}      {\ensuremath{\gnt{if\mhyphen stmt}}}
+\newcommand{\REPEATSTMT}  {\ensuremath{\gnt{repeat\mhyphen stmt}}}
+\newcommand{\WHILE}       {\gt{while}}
+\newcommand{\DO}          {\gt{do}}
+\newcommand{\CONST}       {\gt{const}}
+\newcommand{\WHILESTMT}   {\ensuremath{\gnt{while\mhyphen stmt}}}
+\newcommand{\ASSIGNSTMT}  {\ensuremath{\gnt{assign\mhyphen stmt}}}
+\newcommand{\CALLSTMT}    {\ensuremath{\gnt{call\mhyphen stmt}}}
+\newcommand{\WRITESTMT}   {\ensuremath{\gnt{write\mhyphen stmt}}}
+\newcommand{\READSTMT}    {\ensuremath{\gnt{read\mhyphen stmt}}}
+\newcommand{\EXPR}        {\ensuremath{\gnt{expr}}}
+\newcommand{\AEXP}        {\gnt{aexp}}
+%\newcommand{\TRUE}        {\gt{true}}
+\newcommand{\TRUE}        {\gt{true}}
+\newcommand{\FALSE}       {\gt{false}}
+\newcommand{\OR}          {\gt{or}}
+
+\newcommand{\EPRIME}     {\ensuremath{\gnt{exp}'}}
+
+\newcommand{\BEGIN}            {\gt{begin}}
+\newcommand{\INTERFACES}       {\gnt{interfaces}}
+\newcommand{\INTERFACE}        {\gnt{interface}}
+\newcommand{\NCLASS}           {\gnt{class}}
+\newcommand{\NSUPERCLASS}      {\gnt{superclass}}
+\newcommand{\BOOL}             {\gt{bool}}
+\newcommand{\NAME}             {\gt{name}}
+\newcommand{\REAL}             {\gt{real}}
+\newcommand{\INTEGER}          {\gt{integer}}
+\newcommand{\CHAR}             {\gt{char}}
+\newcommand{\VOID}             {\gt{void}}
+\newcommand{\TOF}              {\gt{of}}
+\newcommand{\TO}               {\gt{to}}
+\newcommand{\UPTO}             {\gt{upto}}
+
+\newcommand{\UNION}            {\gt{union}}
+\newcommand{\BREAK}            {\gt{break}}
+\newcommand{\OTHER}            {\gt{other}}
+\newcommand{\DECLS}            {\gnt{decls}}
+\newcommand{\VARDECLS}         {\gnt{var\mhyphen decls}}
+\newcommand{\FUNDECLS}         {\gnt{fun\mhyphen decls}}
+\newcommand{\FUN}              {\gt{fun}}
+\newcommand{\EXPS}             {\gnt{exps}}
+\newcommand{\SUBS}             {\gnt{subs}}
+\newcommand{\VARDECL}     {\gnt{var\mhyphen decl}}
+\newcommand{\TYPEDECLS}     {\gnt{type\mhyphen decls}}
+\newcommand{\TYPEDECL}     {\gnt{type\mhyphen decl}}
+\newcommand{\TYPEEXP}     {\gnt{type\mhyphen exp}}
+\newcommand{\TYPEEXPS}        {\gnt{type\mhyphen exps}}
+\newcommand{\SIMPLETYPEEXP}     {\gnt{simple\mhyphen type\mhyphen exp}}
+\newcommand{\SIMPLETYPE}  {\gnt{simple\mhyphen type}}
+\newcommand{\STRUCTUREDTYPE}  {\gnt{structured\mhyphen type}}
+\newcommand{\RECORD}          {\gt{record}}
+\newcommand{\ARRAY}           {\gt{array}}
+\newcommand{\POINTERTO}       {\gt{pointer to}}
+\newcommand{\PROCEDURE}       {\gnt{procedure}}
+\newcommand{\PROC}            {\gt{proc}}
+\newcommand{\PROG}            {\gt{prog}}
+\newcommand{\EXPRPRIME}       {\ensuremath{\gnt{expr}'}}
+\newcommand{\SIMPLEEXPR}{\ensuremath{\gnt{simple\mhyphen expr}}}
+\newcommand{\COMPARISONOP}{\ensuremath{\gnt{comparison\mhyphen op}}}
+\newcommand{\ADDOP}{\ensuremath{\gnt{addop}}}
+\newcommand{\OP}{\gnt{op}}
+\newcommand{\ID}{\ensuremath{\gt{id}}}
+\newcommand{\PRINT}{\ensuremath{\gt{print}}}
+\newcommand{\COMMA}{\ensuremath{\gt{,}}}
+\newcommand{\LE}{\ensuremath{L}}
+\newcommand{\DECL}{\gnt{decl}}
+\newcommand{\IN}                    {\gt{in}}
+\newcommand{\DECLIST}               {\gnt{dec}\mhyphen\gnt{list}}
+\newcommand{\LET}                   {\gt{let}}
+\newcommand{\TYPE}{\gnt{type}}
+\newcommand{\VARLIST}{\gnt{var\mhyphen list}}
+\newcommand{\INT}{\gt{int}}
+\newcommand{\FLOAT}{\gt{float}}
+\newcommand{\BASEDNUM}{\gnt{based\mhyphen num}}
+\newcommand{\BASECHAR}{\gnt{base\mhyphen char}}
+\newcommand{\ARITOP}      {\gnt{aritop}}
+\newcommand{\RESULT}      {\gt{result}}
+\newcommand{\REF}         {\gt{ref}}
+\newcommand{\CALL}        {\gnt{call}}
+\newcommand{\NUM}         {\gnt{num}}
+\newcommand{\TNUM}        {\gt{num}}
+\newcommand{\BCOCT}       {\gt{o}}
+\newcommand{\BCDIG}       {\gt{d}}
+\newcommand{\DIGIT}       {\gnt{digit}}
+\newcommand{\PARAMS}      {\gnt{params}}
+\newcommand{\PARAM}       {\gnt{param}}
+\newcommand{\METHOD}      {\gnt{method}}
+\newcommand{\METHODDECL}  {\gnt{method\mhyphen decl}}
+\newcommand{\VARIABLEDECL}  {\gnt{variable\mhyphen decl}}
+\newcommand{\BODY}          {\gnt{body}}
+  
+  
+  \newcommand{\COMMAND}   {\ensuremath{command}}
+  \newcommand{\IDENTIFIER}{\ensuremath{\mathbf{identifier}}}
+  \newcommand{\READ}     {\ensuremath{\mathbf{read}}}
+  \newcommand{\WRITE}     {\ensuremath{\mathbf{write}}}
+  \newcommand{\ASSIGN}      {\ensuremath{\gts{:=}}}
+  \newcommand{\TASSIGNSTMT} {\gt{assign}}
+  \newcommand{\LESS}    {\ensuremath{\gts{<}}}
+  \newcommand{\EQ}    {\ensuremath{\gts{=}}}
+  \newcommand{\REPEAT}   {\ensuremath{\mathbf{repeat}}}
+  \newcommand{\UNTIL}    {\ensuremath{\mathbf{until}}}
+  \newcommand{\VAR}      {\ensuremath{\gnt{var}}}
+  \newcommand{\TVAR}      {\gt{var}}
+  \newcommand{\IF}       {\gt{if}}
+  \newcommand{\THEN}     {\gt{then}}
+  \newcommand{\ELSE}     {\gt{else}}
+  \newcommand{\END}      {\gt{end}}
+
+   %%%%%%%%%%%%%%%%%%%%%% BE CAREFUL
+  \newcommand{\E}          {\gnt{exp}}
+  \newcommand{\EXP}        {\gnt{exp}}
+  \newcommand{\N}{\ensuremath{\mathbf{n}}}
+  \newcommand{\NUMBER}{\ensuremath{\mathbf{number}}}
+   %%%%%%%%%%%%%%%%%%%%%% 
+  \renewcommand{\O}{\ensuremath{\gnt{op}}}
+  \newcommand{\HASH}                      {\ensuremath{\gts{\#}}}
+  \newcommand{\SLASH}                     {\ensuremath{\gts{/}}}
+  \newcommand{\ATSIGN}                    {\ensuremath{\gts{@}}}
+  \newcommand{\KLAMMERAFFE}               {\ensuremath{\gts{@}}}
+  \newcommand{\LPAREN}                    {\ensuremath{\gts{(}}}
+  \newcommand{\RPAREN}                    {\ensuremath{\gts{)}}}
+  \newcommand{\LBRACKET}                  {\ensuremath{\gts{[}}}
+  \newcommand{\RBRACKET}                  {\ensuremath{\gts{]}}}
+  \newcommand{\LBRACE}                    {\ensuremath{\gts{\{}}}
+  \newcommand{\RBRACE}                    {\ensuremath{\gts{\}}}}
+  \newcommand{\MINUS}                     {\ensuremath{\gts{-}}}
+  \newcommand{\PLUS}                      {\ensuremath{\gts{+}}}
+  \newcommand{\TIMES}                     {\ensuremath{\gts{*}}}
+  \newcommand{\DIV}                       {\ensuremath{\gts{/}}}
+  \newcommand{\UPARROW}                   {\ensuremath{\gts{\uparrow}}}
+  \newcommand{\EXPONENT}                  {\ensuremath{\gts{\uparrow}}}
+  \newcommand{\COLON}                     {\gts{:}}
+  \newcommand{\DOT}                       {\gts{.}}
+
+
+
+  \newcommand{\EXPOP}                    {\gnt{expop}}
+  \newcommand{\EXPON}{\ensuremath{\gnt{expon}}}
+  \newcommand{\EOP}{\ensuremath{\gnt{eop}}}
+  
+  \newcommand{\STMT}{\ensuremath{\gnt{stmt}}}
+%  \newcommand{\IFSTMT}{\ensuremath{\gnt{if{\_}stmt}}}
+  \newcommand{\ENDIF}{\ensuremath{\mathbf{endif}}}
+
+  \newcommand{\ZERO}{\ensuremath{\gt{0}}}
+  \newcommand{\SIGN}{\ensuremath{\gnt{sign}}}
+  \newcommand{\SBNUMBER}{\ensuremath{\gnt{number}}}
+  \newcommand{\LIST}{\ensuremath{list}}
+  \newcommand{\ONE}{\ensuremath{\gt{1}}}
+  \newcommand{\BIT}{\ensuremath{\gnt{bit}}}
+  \newcommand{\EMPTY}{\ensuremath{\epsilon}}
+  \newcommand{\ELSEPART}{\ensuremath{\gnt{else{-}part}}}
+  \newcommand{\COND}{\ensuremath{\mathbf{COND}}}
+  \newcommand{\RELOP}{\ensuremath{\gnt{relop}}}
+  \newcommand{\MULOP}{\ensuremath{\gnt{mulop}}}
+  \newcommand{\FACTOR}                 {\gnt{factor}}
+  \newcommand{\TERM} {\gnt{term}}
+  \newcommand{\TERMPRIME}{\ensuremath{\gnt{term}'}}
+  \newcommand{\SEMICOLON}{\ensuremath{\gt{;}}}
+
+  \newcommand{\MSTMT}{\ensuremath{\gnt{matched\_stmt}}}
+  \newcommand{\UMSTMT}{\ensuremath{\gnt{unmatch\_stmt}}}
+
+
+
+
+  \newcommand{\NTNUMBER}{\mathit{number}}
+  \newcommand{\NTDIGIT}{\mathit{digit}}
+
+
+  \newcommand{\gnoden}[2]{\ensuremath{{#1}^{{#2}}}}
+
+  \newcommand{\En}[1]{\ensuremath{{}^{#1}\E}}
+%  \newcommand{\Nn}[1]{\ensuremath{\gt{number}}}
+  \newcommand{\On}[1]{\ensuremath{{}^{#1}\OP}}
+
+
+  \newcommand{\agval}   {\gatt{val}}  %%%% replace
+  \newcommand{\gatta}   {\gatt{a}}
+  \newcommand{\gattb}   {\gatt{b}}
+  \newcommand{\gatts}   {\gatt{s}}
+  \newcommand{\gatti}    {\gatt{i}}
+  \newcommand{\gattdtype}{\gatt{dtype}}
+  \newcommand{\gattbase} {\gatt{base}}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "main"
+%%% End: 

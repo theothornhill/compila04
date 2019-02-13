@@ -1,0 +1,59 @@
+PROGRAM            -> "program" NAME "begin" { DECL ";" }  "end" ";"
+
+DECL               -> VAR_DECL | PROC_DECL | REC_DECL
+
+VAR_DECL           -> "var" NAME ":" TYPE
+
+PROC_DECL          -> "proc" NAME 
+                      "(" [ PARAM_DECL { "," PARAM_DECL } ] ")"
+                      [ ":" TYPE ]
+                      "begin" { DECL ";" } { STMT ";" } "end"
+
+REC_DECL           -> "struct" NAME "{" { VAR_DECL ";" } "}"
+
+PARAM_DECL         -> NAME ":" TYPE
+
+EXP                -> EXP LOG_OP EXP
+                    | "not" EXP
+                    | EXP REL_OP EXP
+                    | EXP ARIT_OP EXP
+                    | "(" EXP ")"
+                    | LITERAL
+                    | CALL_STMT
+                    | "new" NAME
+                    | VAR
+                    | REF_VAR
+                    | DEREF_VAR
+
+REF_VAR            -> "ref" "(" VAR ")"
+DEREF_VAR          -> "deref" "(" VAR ")" | "deref" "(" DEREF_VAR ")"
+
+VAR                -> NAME | EXP "." NAME
+
+LOG_OP             -> "&&" | "||"
+
+REL_OP             -> "<" | "<=" | ">" | ">=" | "=" | "<>"
+
+ARIT_OP            -> "+" | "-" | "*" | "/" | "^"
+
+LITERAL            -> FLOAT_LITERAL | INT_LITERAL | STRING_LITERAL
+                    | "true" | "false" | "null"
+
+STMT               -> ASSIGN_STMT
+                    | IF_STMT
+                    | WHILE_STMT
+                    | RETURN_STMT
+                    | CALL_STMT
+
+ASSIGN_STMT        -> VAR ":=" EXP | DEREF_VAR ":=" EXP
+
+IF_STMT            -> "if" EXP "then" "begin" { STMT ";" } "end"
+                      [ "else" "begin" { STMT ";" } "end" ]
+WHILE_STMT         -> "while" EXP "do" "begin" { STMT ";" } "end"
+
+RETURN_STMT        -> "return" [ EXP ]
+
+CALL_STMT          -> NAME "(" [ EXP { "," EXP } ] ")"
+
+TYPE               -> "float" | "int" | "string" | "bool" | NAME
+                    | "ref" "(" TYPE ")"

@@ -1,0 +1,743 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% macros %%%%%%%%%%%%%%%%%%%%5
+
+
+\newcommand{\Cplusplus}                    {C$^{++}$}
+\newcommand{\Csharp}                       {C$^\sharp$}
+\newcommand{\Tinylang}                     {TINY}
+
+\ifhandout
+%\renewcommand{\bcell}{}  %% something's wrong here
+\fi
+
+
+\newcommand\doubleplus{+\kern-1.3ex+\kern0.8ex}
+\newcommand\mdoubleplus{\ensuremath{\mathbin{+\mkern-10mu+}}}
+
+\ifhandout
+\else
+\renewcommand<>{\emph}[1]{{\only#2{\itshape}\blue{#1}}}
+\fi
+
+
+
+\newcommand{\Aut}                          {\mathcal{A}}
+\newcommand{\Lang}                         {\mathcal{L}}
+\newcommand{\midtilde}{\raisebox{0.5ex}{\texttildelow}}
+
+\newcommand{\many}                         {*}
+\newcommand{\p}                            {\vdash}
+\newcommand{\T}                            {T}
+\newcommand{\Gp}                           {\Gamma\p}
+\newcommand{\OFF}                          {::}
+
+%%%%%%%%%%%%%%%%%%% tac %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\tatf}[1]                      {\mathop{\mathbf{#1}}}
+\newcommand{\taf}[1]                       {\mathtt{#1}}
+\newcommand{\taread}                       {\mathop{\taf{read}}}
+\newcommand{\tawrite}                      {\mathop{\taf{write}}}
+\newcommand{\taiffalse}                    {\mathop{\taf{if\_false}}}
+\newcommand{\tagoto}                       {\mathop{\taf{goto}}}
+\newcommand{\talabel}                      {\mathop{\taf{label}}}
+\newcommand{\taand}                        {\mathop{\taf{and}}}
+\newcommand{\taor}                         {\mathop{\taf{or}}}
+\newcommand{\taop}                         {\mathop{\tatf{op}}}
+
+%%%%%%%%%%%%%%%%%%% pcode %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\ptf}[1]                      {\mathop{\mathbf{#1}}}
+\newcommand{\pf}[1]                       {\mathtt{\mathbf{#1}}}
+
+\newcommand{\agpf}{\gatt{pf}}
+\newcommand{\agstrval}{\gatt{strval}}
+\newcommand{\gapcode}{\gatt{pcode}}
+\newcommand{\gastrval}{\gatt{strval}}
+
+\newcommand{\pcodelit}[1]{\red{"#1"}}
+
+
+\newcommand{\plda}                        {\pf{lda}} 
+\newcommand{\pstn}                        {\pf{stn}}
+\newcommand{\psto}                        {\pf{sto}}
+\newcommand{\padi}                        {\pf{adi}} 
+\newcommand{\pldc}                        {\pf{ldc}} 
+\newcommand{\plod}                        {\pf{lod}} 
+\newcommand{\pujp}                        {\pf{ujp}}
+\newcommand{\pfjp}                        {\pf{fjp}}
+\newcommand{\plab}                        {\pf{lab}}
+\newcommand{\pneq}                        {\pf{neq}}
+\newcommand{\pequ}                        {\pf{equ}}
+\newcommand{\pcconc}                      {\doubleplus}
+\newcommand{\pcconcone}                   {\textasciicircum}
+\newcommand{\ganame}                      {\gatt{name}}
+
+
+
+%%%%%%%%%%%%%%%%% three-address code
+
+\newcommand{\ptactf}[1]                     {\mathop{\mathbf{#1}}}
+\newcommand{\tacf}[1]                       {\mathtt{\mathbf{#1}}}
+\newcommand{\taclit}[1]                     {\red{"#1"}}
+\newcommand{\tacassign}                     {\tacf{=}}
+%\renewcommand{\tacassign}                    {\leftarrow}
+\newcommand{\tacplus}                       {\tacf{+}}
+\newcommand{\tacempty}                      {\tacf{}}
+\newcommand{\gatacode}                    {\gatt{tacode}}
+\newcommand{\newtemp}                     {\mathit{newtemp}} 
+
+
+\newcommand{\rmgoto}                      {\mathop{\mathbf{GOTO}}}
+
+%%%%%%%%%%%%%%%%%%% regular expressions 
+\newcommand{\renonterm}                    {r}
+\newcommand{\renontermr}                   {r}
+\newcommand{\renonterms}                   {s}
+\newcommand{\re}[1]                        {\boldsymbol{#1}}
+\newcommand{\rechar}[1]                    {\mathbf{#1}}
+\newcommand{\renot}                        {\re{\midtilde}}
+\newcommand{\reemptyword}                  {\re{\emptyword}}
+\newcommand{\reemptyset}                   {\re{\emptyset}}
+\newcommand{\remany}                       {{\re{\many}}}
+\newcommand{\reoneormore}                  {{\re{+}}}
+\newcommand{\reor}                         {\re{\mid}}
+\newcommand{\reopt}                        {\re{?}}
+\newcommand{\reempty}                      {\re{\emptyset}}
+\newcommand{\reall}                        {\mathbf{.}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Asucc}[2]                     {#1_{#2}}
+\newcommand{\Adet}[1]                      {\overline{#1}}
+\newcommand{\Aeclosure}                    {\mathit{close}_{\epsilon}}    %% epsilon-closure
+\newcommand{\Aeclosureof}[1]               {\Aeclosure(#1)}
+
+
+
+\newcommand{\gasetto}                      {=}
+%\renewcommand{\gasetto}                    {\leftarrow}
+\newcommand{\gts}[1]                        {\mathop{\boldsymbol{#1}}}  %% not nice
+\newcommand{\gt}[1]                        {\mathit{\boldsymbol{\mathrm{#1}}}}  %% not nice
+%\newcommand{\gt}[1]                        {\mathbf{#1}}  %% not nice
+\newcommand{\gatt}[1]                      {\mathtt{#1}}
+\newcommand{\gnt}[1]                       {\mathop{\mathit{#1}}}   %% mathop: subscripts not good
+\newcommand{\bnfprod}                      {\rightarrow}
+\newcommand{\bnfmany}[1]                   {\{\; #1  \;\}}
+\newcommand{\Gdstep}                       {\Rightarrow}
+\newcommand{\Gdstepwith}[1]                {\Rightarrow_{#1}}
+\newcommand{\Gdstepreverse}                {\Leftarrow}
+\newcommand{\Gdstepl}                      {\Gdstep_l}        %% left derivation
+\newcommand{\Gdsteplmany}                  {\Gdstepmany_l}        %% left derivation
+\newcommand{\Gdstepr}                      {\Gdstep_r}        %% right derivation
+\newcommand{\Gdsteprreverse}               {\Gdstepreverse_r}        %% right derivation
+\newcommand{\Gdsteprmany}                  {\Gdstepmany_r}        %% right derivation
+\newcommand{\Gdstepmany}                   {\Rightarrow^{\many}}
+\newcommand{\Gdstepmanyusing}[1]           {\Rightarrow_{#1}^{\many}}
+\newcommand{\Gdstepusing}[1]               {\Gdstep_{#1}}
+
+\newcommand{\Gred}{\hookrightarrow}       
+
+%%% grammars
+\newcommand{\gtoken}[2] {\angles{{\mathtt{#1}, #2}}}
+\newcommand{\gtokenname}[1] {\mathtt{#1}}
+\newcommand{\gtokenatt}[1]  {#1}
+
+
+\newcommand{\Gfirst}                       {\mathit{First}}
+\newcommand{\Gfollow}                      {\mathit{Follow}}
+
+\newcommand{\Galphabet}                    {\Alphabet}
+\newcommand{\Gterms}                       {\Alphabet_T}
+\newcommand{\Gnonterms}                    {\Alphabet_N}
+\newcommand{\Gprods}                       {P}
+\newcommand{\Gstart}                       {S}
+\newcommand{\ghandle}[2]                   {\angles{#1,#2}}
+
+\newcommand{\gemptyword}                   {\boldsymbol{\emptyword}}
+\newcommand{\gtword}                       {w}
+\newcommand{\gtwordw}                      {w}
+\newcommand{\gtwordv}                      {v}
+\newcommand{\gword}                        {\alpha}     % terminals & non-terminals, also called string
+\newcommand{\gworda}                       {\alpha}     % terminals & non-terminals, also called string
+\newcommand{\gwordb}                       {\beta}      % terminals & non-terminals, also called string
+\newcommand{\gwordc}                       {\gamma}     % terminals & non-terminals, also called string
+\newcommand{\gworde}                       {\eta}       % terminals & non-terminals, also called string
+\newcommand{\gsymbol}                      {X}
+\newcommand{\gsymboly}                     {Y}
+\newcommand{\gnonterm}                     {A}
+\newcommand{\gnonterma}                    {A}
+\newcommand{\gnontermb}                    {B}
+\newcommand{\gnontermc}                    {C}
+\newcommand{\gendmark}                     {\gts{\$}}
+\newcommand{\parsepos}                     {\gt{.}}
+
+
+
+\newcommand{\first}                        {\mathit{first}}
+
+\newcommand{\sclos}[2]                     {\angles{#1,#2}}
+
+\newtheorem{proposition}{Proposition}
+
+
+\ifhandout
+\newcommand{\hofootnote}[1]{\footnote{#1}}
+
+\else
+
+\newcommand{\hofootnote}[1]{}
+\fi
+
+
+\newcommand{\Sig}                            {\Sigma}
+\newcommand{\Alphabet}                       {\Sigma}
+\newcommand{\Astates}                        {Q}
+\newcommand{\Aistates}                       {I}
+\newcommand{\Afstates}                       {F}
+\newcommand{\Atransrel}                      {\delta}
+\newcommand{\Atransfun}                      {\delta}
+\newcommand{\Atrans}[1]                      {\trans{#1}}
+
+\newcommand{\emptyword}                      {\epsilon}
+
+
+
+
+%%%% Some general math 
+\newcommand{\eqdef}                          {\triangleq}
+\newcommand{\eqisit}                         {=^?}
+\newcommand{\redex}[1]                       {\underline{#1}}
+\newcommand{\eat}[1]                         {\text{\sout{\ensuremath{#1}}}}  %%% have to be careful with math
+\newcommand{\substfor}[2]                    {{}_{#2 \leftarrow #1}}
+\renewcommand{\substfor}[2]                  {[#1/#2]}
+\newcommand{\OF}                             {\mathrel{:}}
+\newcommand{\of}                             {:}
+\ifhandout\else
+\renewcommand{\complement}[1]                {\overline{#1}}
+\fi
+\newcommand{\intersect}                      {\cap}
+\newcommand{\union}                          {\cup}
+\newcommand{\dunion}                         {+}
+\newcommand{\conc}                           {\circ}
+\newcommand{\sconc}{\parallel}
+\newcommand{\without}                        {\backslash}
+
+
+\newcommand{\bnfdef}               {::=}
+\newcommand{\bnfbar}               {\ \mathrel{|}\ }
+%%% % logic, start with l, such as \land and \lor
+%%
+\newcommand{\ltop}                         {\top}
+\newcommand{\lbot}                         {\bot}
+\newcommand{\ltrue}                        {\mathit{true}}
+\newcommand{\lfalse}                       {\mathit{false}}
+\newcommand{\limplies}                     {\rightarrow}
+\newcommand{\limpliesback}                 {\leftarrow}
+\newcommand{\lequivalent}                  {\lequiv}  %%
+\newcommand{\lequiv}                       {\leftrightarrow}
+\newcommand{\ltest}[1]                     {#1?}
+
+%% LTL
+\newcommand{\luntil}                       {\mathit{U}}
+\newcommand{\lrelease}                     {\mathit{R}}
+\newcommand{\lwaitingfor}                  {\mathit{W}}
+\newcommand{\lwaitingforp}                 {\lwaitingfor^{-1}}
+\newcommand{\lnext}                        {\bigcirc}
+
+\newcommand{\until}[2]                     {#1 \luntil #2}
+\newcommand{\release}[2]                   {#1 \lrelease #2}
+
+
+\newcommand{\lalways}                      {\Box}%% {\oblong}
+\newcommand{\leventually}                  {\Diamond}
+\newcommand{\lalwaysp}                     {\lalways^{-1}}
+\newcommand{\leventuallyp}                 {\leventually^{-1}}
+%\DeclareMathOperator{\hf}{\oblong}  %% henceforth
+
+%%%  modal logics
+\newcommand{\lbox}                         {\Box}
+
+\newcommand{\ldiamond}                     {\Diamond}
+%%%
+\newcommand{\sem}[1]                       {{#1}^I}
+\newcommand{\sat}                          {\models}
+
+%%%%  Hoare logic
+\newcommand{\ssat}                         {\mid\!\models}   %% do we need that?
+
+%%%% 
+\newcommand{\rmcontents}                   {\mathit{contents}}
+
+\newcommand{\dlbox}[1]                     {[#1]}            %% dynamic logics}
+\newcommand{\dldiamond}[1]                 {\langle#1\rangle}
+%%% t for temporal
+\newcommand{\tpath}                        {\sigma}          %%  path conflicts with tikz
+\newcommand{\tsat}                         {\models}
+\newcommand{\lrstate}[2]                   {{#1}_{#2}}
+\newcommand{\lroneitem}[2]                 {[#1,#2]}
+
+%%%%%%%%%%%%%%%%%  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\gnode}[1]{$\begin{aligned}\textstyle#1\end{aligned}$}
+%%%%%%%%%%%%%%%%%  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%% inf5140.sty + some others
+\newcommand{\emptyseq}                      {\epsilon}
+\newcommand{\terminated}                    {\mathit{terminated}}
+\newcommand{\lang}[1][]{\mathcal{L}_{#1}}
+\newcommand{\langfol}                       {\lang^{1}}
+\newcommand{\langtl}                        {\lang[T]}
+
+\newcommand{\atstate}[1]                    {\mathit{at}(#1)}
+
+
+\newcommand{\bindsto}[2]                   {#1 \mapsto #2}
+\newcommand{\stenv}                        {\sigma}
+\newcommand{\stlookup}                     {\mathit{lookup}}
+\newcommand{\stdelete}                     {\mathit{delete}}
+\newcommand{\stinsert}                     {\mathit{insert}}
+\newcommand{\stdecl}                       {\mathit{decl}}
+\newcommand{\stname}                       {\mathit{name}}
+
+% %\newcommand{\xyseq}[1]{%
+%   \begin{figure}[H]
+%     \xymatrixcolsep{5ex}
+%     \xymatrixrowsep{-1ex}
+%     \fbox{\xymatrix{#1}}
+% \end{figure}}
+\newcommand{\tlnode}[2] {\bullet^{#1}_{#2}}
+
+
+
+%%%% PGF 3.0
+\tikzset{mycomplexfigure/.pic={
+        \draw[rounded corners] (0,0) rectangle (5,2);
+        \draw (1,1) circle (0.3);
+        \draw (4,1) circle (0.3);
+        \node at (2.5,1.0)  {$\ldots$};
+        \node at (2.5,1.2)  {$r$};
+    }
+}
+
+
+\tikzset{
+    pics/thompson/.style args={#1,#2,#3,#4}{
+        code={
+        \draw[rounded corners, very thick] (0,0) rectangle (5,2);
+        \node (#1) [state] at (1,1) {};
+        \node (#3) [state,#4] at (4,1) {};
+%        \draw (1,1) circle (0.3);
+%        \draw (4,1) circle (0.3);
+        \node at (2.5,1.0)  {$\ldots$};
+        \node at (2.5,1.2)  {#2};
+%        \node (#2) at (1,1) {X};
+    }}}
+
+\tikzset{
+    pics/mysymbol/.style args={#1 scale #2 with #3}{
+        code={\node at (1,1) {};}}}
+
+
+
+
+\newcommand{\tlgraph}{
+  \begin{tikzpicture}[descr/.style={fill=white,inner sep=2.5pt}]
+    \matrix (m) [matrix of math nodes,row sep=3em,column sep=2.5em,text height=1.5ex,text depth=0.25ex]
+    { 
+        \tlnode{1}{}
+        & 
+        \tlnode{2}{}
+        & 
+        \tlnode{3}{}
+        & 
+        \tlnode{4}{}
+        & 
+        \tlnode{5}{}
+        &
+        \ldots
+        \\   %% new line is necessary
+      }
+      ; 
+      \path[->,font=\scriptsize]
+      (m-1-1) edge (m-1-2) 
+      (m-1-2) edge (m-1-3)
+      (m-1-3) edge (m-1-4)
+      (m-1-4) edge (m-1-5)
+      (m-1-5) edge (m-1-6)
+      ;
+    \end{tikzpicture}
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%% for CFG
+
+
+\tikzset{
+    cfgnode/.style={
+           rectangle,
+           fill=black!04,
+           rounded corners,
+           draw=black, very thick,
+           minimum height=2em,
+           inner sep=2pt,
+           text centered,
+           },
+}
+
+
+\tikzstyle{cfgedge} = [->,very thick,black]
+
+\newcommand{\codenode}[3]{
+  \begin{tabular}[t]{l}
+    #2
+  \end{tabular}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%% for dags 
+
+
+\tikzstyle{dagedge} = [-,very thick,black]
+\tikzset{
+    dagopnode/.style={
+           fill=black!10,
+           circle,
+           rounded corners,
+           draw=black, very thick,
+           minimum height=2em,
+           inner sep=2pt,
+           text centered,
+           },
+}
+
+
+\tikzset{
+    dagdeadopnode/.style={
+           fill=red!25,
+           circle,
+           rounded corners,
+           draw=black, very thick,
+           minimum height=2em,
+           inner sep=2pt,
+           text centered,
+           },
+}
+
+\tikzset{
+    dagliveopnode/.style={
+           fill=green!25,
+           circle,
+           rounded corners,
+           draw=black, very thick,
+           minimum height=2em,
+           inner sep=2pt,
+           text centered,
+           },
+}
+
+
+\tikzset{
+    dagleafnode/.style={
+           circle,
+           fill=black!3,
+           rounded corners,
+           draw=black,%dotted,
+           minimum height=2em,
+           inner sep=2pt,
+           text centered,
+           },
+}
+
+
+%\renewcommand{\xyseq}[1]{---}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% not done yet
+
+
+
+
+
+%\newcommand{\leadsfromto}                         {???}  %%% \triple
+%\newcommand{\corrp}                         {?}
+%\newcommand{\corrt}                         {?}
+\newcommand{\Nat}                           {-}
+\newcommand{\entails}{???\Rightarrow??}
+\newcommand{\stl}  {~s.th.~}
+\renewcommand{\powerset}[1]                   {2^{#1}}
+
+\newcommand{\scoord}[2]                    {\angles{#1,#2}}   %% static coordinate
+
+
+\newcommand{\kw}[1]                           {\mathtt{#1}}
+
+\newcommand{\Tok}                             {\kw{ok}}
+\newcommand{\Treal}                           {\kw{real}}
+\newcommand{\Tbool}                           {\kw{bool}}
+\newcommand{\Tvoid}                           {\kw{void}}
+\newcommand{\Tint}                            {\mathrel{\kw{int}}}
+\newcommand{\Tarray}[2]                       {\kw{array} #1 \kw{of} #2}
+\newcommand{\Terror}                          {\mathrel{\kw{error}}}
+\newcommand{\Tunion}                          {\mathrel{+}}
+
+\newcommand{\ifs}                             {\mathrel{\kw{if}}}
+\newcommand{\ins}                             {\mathrel{\kw{in}}}
+\newcommand{\nis}                             {\mathrel{\kw{ni}}}
+\newcommand{\thens}                           {\mathrel{\kw{then}}}
+\newcommand{\elses}                           {\mathrel{\kw{else}}}
+\newcommand{\fis}                             {\mathrel{\kw{fi}}}
+\newcommand{\whiles}                          {\mathrel{\kw{while}}}
+\newcommand{\dos}                             {\mathrel{\kw{do}}}
+\newcommand{\fors}                            {\mathrel{\kw{for}}}
+\newcommand{\tos}                             {\mathrel{\kw{to}}}
+\newcommand{\trues}                           {\kw{true}}
+\newcommand{\falses}                          {\kw{false}}
+\newcommand{\conds}                           {\kw{cond}}
+\newcommand{\calls}                           {\kw{call}}
+\newcommand{\signals}                         {\kw{signal}}
+\newcommand{\signalalls}                      {\kw{signal\_all}}
+\newcommand{\waits}                           {\kw{wait}}
+\newcommand{\emptys}                          {\kw{empty}}
+\newcommand{\choices}                         {[\;]}
+\newcommand{\sendatos}[2]                     {\kw{send}\ #1:#2}
+
+\newcommand{\precond}[1]                      {\{\;#1\;\}}
+\newcommand{\postcond}[1]                     {\{\;#1\;\}}
+\newcommand{\cond}[1]                         {\{\;#1\;\}}
+\newcommand{\triple}[3]                       {\cond{#1}\; #2\; \cond{#3}}
+\newcommand{\ctriple}[3]                      {\triple{#1}{\mathtt{#2}}{#3}}  %%% concrete triple: code in tt
+
+\newcommand{\awaits}                          {\kw{await}}
+\newcommand{\skips}                           {\kw{skip}}
+\newcommand{\await}[2]                        {\atomic{\awaits (#1)\ #2}}
+\newcommand{\sends}                           {\kw{send}}
+
+
+
+
+
+\ifslides
+\newcommand{\important}[1]{{\blue{#1}}}
+\else
+\providecommand{\important}[1]{\colorbox{yellow}{#1}}
+\renewcommand{\important}[1]{{\blue{#1}}}
+\fi
+\newcommand{\importantx}[1]{\red{#1}}
+
+
+\newcommand{\numberofprocs}[1]   {\# #1}
+
+
+%%%%% Liveness (intra-block & also global)
+
+\newcommand{\inlive}                    {\mathit{inLive}}
+\newcommand{\outlive}                   {\mathit{outLive}}
+\newcommand{\samedesc}                  {$\cdot$}
+\newcommand{\canceldesc}[1]             {\cancel{#1}}
+\newcommand{\tempdesc}[1]               {[#1]}                  %% ? 
+\newcommand{\getreg}                    {\mathit{getreg}}
+\newcommand{\codegen}                   {\mathit{codegen}}
+\newcommand{\livenextlocal}[1]          {L(#1)}  
+%\newcommand{\livenextnonlocal}         {L(\downVdash)}
+\newcommand{\livenextnonlocal}          {L(\bot)}
+%\newcommand{\livenextdeadlocal}        {\bot}
+%\newcommand{\livenextdeadnonlocal}     {\upVdash}
+\newcommand{\livenextdeadlocal}         {D}
+\newcommand{\livenextdeadnonlocal}      {D}
+
+
+%%%%% code generation
+\newcommand{\locsof}[2]        {#2(#1)}
+\newcommand{\tablerd}          {T_{\mathit{r}}}
+\newcommand{\tablelive}        {T_{\mathit{live}}}
+\newcommand{\tableliveat}[2]   {\tablelive[#1,#2]}
+\newcommand{\tablead}          {T_{\mathit{a}}}
+\newcommand{\setto}[2]         {[#1 \mapsto #2]}
+\newcommand{\setaddto}[2]      {[#1 \mapsto_{{\union}}  #2]}
+\newcommand{\setwithoutto}[2]  {\without (#1 \mapsto  #2)}
+\newcommand{\Reg}              {\mathit{Reg}}
+\newcommand{\Id}               {\mathit{Id}}
+\newcommand{\Loc}              {\mathit{Loc}}
+\newcommand{\Toption}[1]       {#1_{\undef}}
+%%%%%%%%%%%%%%%%%%%%%%%%5%%%%%%
+
+
+\newenvironment{ruleset}{
+  \noindent\mbox{}\noindent\hrulefill
+  \begin{displaymath}
+    \renewcommand{\arraystretch}{1.3}\begin{array}[b]{l}}{
+  \end{array}\end{displaymath}\hrulefill\mbox{}}
+
+\newenvironment{rulesetnolines}{
+  \mbox{}\noindent\begin{displaymath}
+    \renewcommand{\arraystretch}{1.3}\begin{array}[b]{l}}{
+  \end{array}\end{displaymath}\mbox{}}
+
+\newenvironment{ruleenv}{\begin{displaymath}}{\end{displaymath}}
+
+\newcommand{\ruleskip}   {\\ \\[-1.1em]}
+
+\newcommand{\axskip}   {\\[-0.3em]}
+
+\newcommand{\treefont}{\small}
+\newcommand{\leaf}[1]{{\begin{array}{c} #1 \end{array}}}
+\newenvironment{proofleaf}{\begin{array}[t]{c}}{\end{array}}
+
+\newenvironment{treeenv}{\begin{displaymath}}{\end{displaymath}}
+
+
+\newcommand{\namedruletree}[3]{{
+     \treefont\textstyle
+     \prooftree 
+       {\leaf{#2}}
+     \justifies
+     \textstyle #3
+     \using \rn{#1}
+     \endprooftree
+     }}                             
+
+\newcommand{\namedaxiomtree}[2]{{
+     \treefont
+     \prooftree 
+       #2
+     \using \rn{#1}
+     \endprooftree
+     }}
+
+\newcommand{\ruletree}[2]{\namedruletree{}{#1}{#2}}
+
+
+
+
+\newcommand{\qqquad}  {\quad\quad\quad}
+\newcommand{\andalso}{\quad\quad}
+\newcommand{\infaxiom}[2]{\namedaxiomtree{#1}{#2}}
+\newcommand{\infrule}[3]{\namedruletree{#1}{#2}{#3}\andalso}
+\newcommand{\scinfrule}[4]{\namedruletree{\mbox{$#4$}\quad\quad #1}{#2}{#3}\andalso}
+\newcommand{\infax}[2]{ %%% old
+  \treefont
+  #2\quad\quad \rn{#1}\andalso
+  \andalso
+  }
+
+
+\renewcommand{\infax}[2]{
+  {\mbox{\treefont \ensuremath{#2}}}\quad\treefont\rn{#1}\andalso\andalso}
+
+\newcommand{\scinfax}[3]{
+  \treefont
+  #2\quad \mbox{$#3$\quad#1}
+  \andalso
+}
+
+\newcommand{\rn}[1]{\mbox{\textsc{#1}}}        %% rule name
+
+\newcommand{\pre}{\mathit{pre}}
+
+
+
+\newcommand{\transpose}[1]                  {#1^t}
+
+\newcommand{\suchthat}                      {\ | \ }
+\newcommand{\unimportant}[1]                {\textcolor{gray}{#1}}
+%\newcommand{\falses}                        {F}
+\newcommand{\undefs}                         {\bot}   %% // undef causes errors, renew as well
+\newcommand{\sizeof}[1]                     {|#1|}
+\newcommand{\lengthof}[1]                   {|#1|}
+\newcommand{\R}                             {\mathbb{R}}
+\newcommand{\set}[1]                        {\{#1\}}
+\newcommand{\angles}[1]                     {\langle #1 \rangle}
+
+\newcommand{\bigO}                          {\mathcal{O}}
+
+\newcommand{\dist}                          {d}
+\newcommand{\weight}                        {w}
+\newcommand{\transmany}[1]                  {\longrightarrow^{\ast}}
+\newcommand{\trans}[1]                      {\xrightarrow{#1}}
+\newcommand{\Asem}[1]                       {\mathcal{L}(#1)}
+%\newcommand{\to}                            {\rightarrow}
+
+
+
+
+\definecolor{beamerblue}{rgb}{0.2,0.2,0.7}  %% found in beamer.cls
+\definecolor{beamerred}{rgb}{0.7,0.2,0.2}   
+\definecolor{beamergreen}{rgb}{0.0,0.40,0}    % dark green
+
+%red, green, blue, yellow, cyan, magenta, black, white
+\newcommand{\blue}[1]{\textcolor{beamerblue}{#1}}
+\newcommand{\red}[1]{\textcolor{beamerred}{#1}}
+\newcommand{\green}[1]{\textcolor{beamergreen}{#1}}%forrestgreen
+\definecolor{rawsienna}{cmyk}{0,0.72,1,0.45}
+\newcommand{\rawsienna}[1]{\textcolor{rawsienna}{#1}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%OLD
+
+
+
+\newcommand{\pstate}[1] {\angles{#1}}
+
+
+%\let\myem=\em
+%\renewcommand{\em}{\myem\color{red}}
+
+\newcommand{\header}[1]{\Blue{\Large{\bf #1}}}
+
+
+\newcommand{\ra}{\ensuremath{\rightarrow}}
+
+%% NOOOOOO \newcommand{\mybox}[1]{\epsfig{file=figures/boks.eps,scale=.6}\hspace{-15pt}\raisebox{2mm}{\ensuremath{#1}}\hspace{1mm}}
+
+
+
+
+\ifslides\else
+%\newtheorem{example}             {Example}
+\fi
+\newenvironment{answer}{%
+  \trivlist 
+\item[\hskip \labelsep{\bf Answer:
+    }]%
+  }{\endtrivlist}
+\newtheorem{question}           {Question} [section] 
+\ifslides\else
+%\newtheorem{example}            {Example} [question] 
+\fi
+
+
+\makeatletter
+\newif\if@qeded\global\@qededfalse
+\def\proof{\global\@qededfalse\@ifnextchar[{\@xproof}{\@proof}}
+\def\endproof{\if@qeded\else\qed\fi\endtrivlist}
+\def\qed{\unskip \hfill{\unitlength1pt\linethickness{.4pt}\framebox(6,6){}}
+\global\@qededtrue}
+\def\@proof{\noindent\trivlist \item[\hskip %10pt\hskip 
+ \labelsep{\bf Proof:}]\ignorespaces}
+\def\@xproof[#1]{\trivlist \item[\hskip %10pt\hskip 
+ \labelsep{\bf Proof #1:}]\ignorespaces}
+\makeatother
+
+%%%%%%%%%%%%%%%%% draw stack hacks
+
+%% the following is a change of \cellprt. The pointer now points not in the
+%% middle of the cell, but to the ``start''. That coincides to the
+%% representation in the book. It's achieved by inserting a ``y-offset'' of
+%% "0.5+..." to the pointer and the annotation. I also made a
+%% cell-end-pointer, for convenience (the pointers only work on
+%% standard-sized cells).
+
+%% In the picts, the real pointer is supposed the end pointer?
+
+\newcommand{\cellstartptr}[1]{
+  \draw[<-,line width=0.7pt] (0,\value{cellnb}) +(2,0.5+\value{ptrnb}*0.1) -- +(2.5,0.5+\value{ptrnb}*0.45);
+  \draw (2.5,0.5+\value{ptrnb}*0.5+\value{cellnb}) node[anchor=west] {#1};
+  \addtocounter{ptrnb}{1}
+}
+
+\newcommand{\cellendptr}[1]{
+  \draw[<-,line width=0.7pt] (0,\value{cellnb}) +(2,-0.5+\value{ptrnb}*0.1) -- +(2.5,-0.5+\value{ptrnb}*0.45);
+  \draw (2.5,-0.5+\value{ptrnb}*0.5+\value{cellnb}) node[anchor=west] {#1};
+  \addtocounter{ptrnb}{1}
+}
+
+
+\newcommand{\cellrealptr}[1]{\cellendptr{#1}}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "main"
+%%% End: 

@@ -1,0 +1,115 @@
+#+LINK: srcbytecode ../../../material/oblig2-patch/src/bytecode/%s
+#+LINK: srcruntime ../../../material/oblig2-patch/src/runtime/%s
+
+* Introduction
+
+This report presents the local variant of /bytecode/, /bytecode
+interpreter/, and /bytecode construction library/ written for the compiler
+construction course INF5110 and the University of Oslo. The bytpecode
+library and intepreter were developed to be used in the /code generation/
+and /runtime/ part of the obligatory exercises in the course. The objective
+of this exercise is to write a compiler for a simple example language.
+
+
+Bytecodes in general similar to machine code, but instead of being run
+directly on a machine, they are usually interpreted by a bytecode
+interpreter. They may also be translated into machine code before being
+run. A bytpecode nstruction library is a library to simplify the task of
+generating bytecode for a bytecode interpreter. Bytecode is name exactly
+that because each instruction is the size of a byte.
+
+Our bytecode is quite similar to Java bytecode and our bytecode library is
+based on the [[http://commons.apache.org/proper/commons-bcel/][Byte Code Engineering Library]].[fn:bcel] We choose to write a
+simpler, stripped-down version that, for instance, does not support
+classes, virtual procedures, and all the other things that Java's bytecode
+has. We did that so that it would be simpler to work with, and there would
+be less code. For instance, one does not need to create classes like, since
+our language does not have them, just for ``some reasons
+unexplained''. Still, we encorange students to look at BCEL, as it's a nice
+tool and very well designed.
+
+
+
+
+The bytecode library and the interpreter are, not surprisingly, written in
+Java. All the code is written in source form and consists of the following
+packages.
+
+- ~bytecode.*~:    classes to create bytecode
+- ~bytecode.instructions.*~  instruction classes, supporting the above
+- ~bytecode.type.*~  type classes, supporting the above
+- ~runtime.*~ : classes of the runtime system
+
+** The interpreter
+
+The interpreter is /stack based/ and it interprets about 40 different
+instructions of our bytecode.  The interpreter ``automatically'' handles
+allocation of struct types, method calls and access of variables in a
+struct when instructed to, by the bytecode instructions. In the first
+version it does /not/ have a garbage collector and allocates memory
+sequentially as long as there is memory left.
+
+The operators or instructions are so called stack operations. It means that
+whe the intpreter executes an instruction, it pops off a number of operands
+from the stack (0 or more), performs the task specified by the instruction,
+and leaves a number of result values on the stack (typically just one such
+value).
+
+The interpreter is not written for efficiency, by rather for readability
+and ease of creating runnable bytecode. For instance, the types are kept on
+the stack together with the calculated values and the interpreter decides
+what kind of operation to perform based on the types as well as the current
+instruction. For example, an ~ADD~ instruction, representing addition, will
+be performed differently if there are two integers on the stack, two
+floats, or one of each. That's different from Java bytecode, which has an
+~ADDINT~ and an ~ADDFLOAT~ instruction and wher type casting has to be done
+explicitly in the bytecode (for example with the ~i2f~ instruction, which
+does the corresponding conversion).
+
+** Interpreting bytecode
+
+
+As mentioned, the interpreter is stack based. The parameters from right to
+left in an operation (including user defined functions) must be placed on
+the stack with the leftmost on the bottom and the rightmost on the top of
+the stack before the instruction itself is interpreted. For example, the
+~SUB~ (subtraction) instruction requires that the two operands the ~SUB~
+instruction will be applied to are on the stack and in the right order
+beforehand. The number to subtract must be on the top and the number to
+subtract from below it. We may denote the elements on the stack before an
+instruction is interpreted with $s_n$, where $n$ is the index from the top,
+with the top as $n = 0$. Then, the result of the ~SUB~ instruction is that
+the two values on the top of the stack is removed and replaced by $s_1 -
+s_0$.
+
+** The library
+
+The library has a class [[srcbytecode:CodeFile.java][CodeFile]] that is the based class for creating a
+progran with ``runnable'' sequences of instructions, i.e. a (binary or
+~.bin~) file executable by the virtual machine, or more specifically by the
+virtual machine interpreter.
+
+
+#+include: "codesnippets/useofcodefile.javaoid" src java
+
+In that example, first an object of the class ~CodeFile~ is created. Then,
+the procedure ~"main"~ is added to it. More procedures, structs, global
+variables, and constants by be added to it. Then one can get the bytecode,
+which is an array of bytes, and write it to a file, as shown in the code
+snippet.
+
+The generated bytecode file can then be inspected, for instance with an
+editor for binary files like the Eclipse Hex Editor Plugin ([[http://ehep.sourceforge.net/][EHEP]]).[fn:ehep]
+
+** Using the virtual machine
+
+There are two ways to runa program from a bytecode file Both are provided
+by the class [[srcruntime:VirtualMachine.java][VirtualMachine]].
+
+[fn:bcel] ~http://commons.apache.org/proper/commons-bcel/~, formerly as
+part of the Jakarta project.
+
+[fn:ehep]  For Ehep, see ~http://ehep.sourceforge.net/~ or
+~https://marketplace.eclipse.org/content/ehep-eclipse-hex-editor-plugin~.
+
+

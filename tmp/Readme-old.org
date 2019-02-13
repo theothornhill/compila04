@@ -1,0 +1,49 @@
+* Starting points for /your/ oblig (resp. your goup's)
+
+
+
+
+In general, the starting points are meant a the name implies. They are
+meant as /inspiration/ concerning the arragnement of code as well as an
+indication that the code may well be organized in packages or
+subdirectories. It's /not/ meant as mandatory structure or as files which
+need to be filled out. Indeed, once finished (with the first oblig or
+both), it's strange to have a compiler that resides in a directory called
+with the curious name ~oblig1-starting-point~. There are better choices
+(like ~compila~ or ~parser~ (for the first oblig) or similar. Of course a
+rearrangement would require adaptation of the build-file etc. Also, your
+solution will have a Readme (maybe like this ~Readme.org~ which is a kind
+of markdown solution), and again, /your/ readme reflect /your/ structure
+(and carries the name of the author(s)), not necessarily the one from the
+starting point. 
+
+
+** Starting point for oblig 1
+
+The starting point for oblig 1 is simply a subdirectory, namely
+[[./oblig1-starting-point]]. To get hold of it, one typically just clones the
+whole repository.
+
+** Starting pount for oblig 2
+
+The starting point for oblig 2 is also available as subdirectory, namely
+[[./oblig2-patch]]. But perhaps the best way to get hold of it is not to clone
+the whole thing again (or update the previously cloned one), as your own
+directory structure may have evolved in the meantime, i.e., from the time
+you cloned it at the beginning of oblig-1.  Since one cannot clone a
+respository partially, and since you are probably interested only in the
+``additional'' material for oblig 2, you might simply click on the zip-file
+and download that one without cloning (or updating) the whole
+compila-repository one more time. Anyway, you will need to ``incorporate''
+the new subbidrectory and the new files into /your/ current state of
+development. And again, it's meant as insporational starting point, i,e.,
+by ``incorporating'' it's not meant that your solution should have a
+subdectory ~oblig2-patch~ what needs to ``filled out'' and compiled
+together with the rest of your solution. Anyway, 
+
+- here is the zip file for patch for oblig2: [[./material/oblig2_patch.zip]]
+
+
+it corresponds to the mentioned [[./oblig2-patch][subdirectory oblig2-patch]] (zipped for easier access if wished).
+
+

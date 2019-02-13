@@ -1,0 +1,7 @@
+program abc
+begin
+  proc X (x : bool, y : bool ) begin end ;
+  proc X (x : bool) begin end ;
+  proc X () begin end;
+end;
+

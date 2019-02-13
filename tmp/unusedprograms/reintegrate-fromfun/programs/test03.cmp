@@ -1,0 +1,9 @@
+program abc
+begin
+    struct r { } ;
+    struct r_x { var x : float; }; 
+    struct r_y { var x : float; var y:int; var y: bool; var y: bool;}; 
+
+    
+end;
+

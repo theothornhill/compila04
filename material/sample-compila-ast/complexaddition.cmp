@@ -1,0 +1,50 @@
+program ComplexAddition
+begin
+  class Complex {
+     Real : float;
+     Imag : float
+  };
+
+  proc Swap(a : ref (int), b : ref(int))
+  begin
+     var tmp : int
+  in
+     tmp := a;
+     a := b;
+     b := tmp
+  end;
+
+  proc Add (a : Complex, b : Complex) : Complex
+  begin
+     var retval : Complex
+  in
+     retval := new Complex;
+     retval.Real := a.Real + b.Real;
+     retval.Imag := a.Imag + b.Imag;
+     return retval
+  end;
+
+  proc Max (a : int, b : int) : int 
+  begin
+     if a > b then
+        return a
+     fi;
+     return b
+  end;
+
+  proc main()
+  begin
+     proc Square (val : float) : float 
+     begin
+        return val ^ 2.0
+     end;
+     var num : float
+  in
+     num := 6.480740;
+     print_float( num );
+     print_str( " squared is " );
+     print_float( Square( num ) );
+    return
+  end
+end
+

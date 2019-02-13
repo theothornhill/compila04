@@ -1,0 +1,24 @@
+program test4
+begin
+
+	proc Sum( v1 : float, v2 : float ) : float
+	begin
+	    return v1 + v2;
+	end;
+
+	proc Main()
+	begin
+	    proc InnerSum( v1 : int , v2 : int ) : int 
+	    begin
+	        return v1 + v2;
+	    end;
+        
+	    var f : float;
+	    var v : int;
+	    f := Sum( 41.5, 0.5 );
+	    v := InnerSum( 40, 2 );
+	    printfloat( f );
+	    printint( v );
+	end;
+
+end;

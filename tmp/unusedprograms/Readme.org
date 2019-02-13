@@ -1,0 +1,11 @@
+
+
+* changes 2019
+* changes 2018
+
+
+ - no (internal) capitalization (to avoild platform problems)
+ - RunMe.cmp
+    - class -> struct 
+    - begin/end -> { }
+    - comment removed

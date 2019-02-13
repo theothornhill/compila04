@@ -1,0 +1,1498 @@
+
+
+UNIVERSITY OF OSLO
+Department of Informatics
+
+\Gamma \Delta \Theta \Lambda \Xi \Pi \Xi \Lambda \Theta \Lambda \Xi  \Sigma \Delta d
+by\Theta \Lambda \Upsilon \Phi d\Lambda  \Psi \Phi \Xi 
+\Gamma \Omega ff5110
+
+fiflffifflflik jo/flffi`'ffi`,
+
+j^ffii` Kfl*gffl_hl _`ffl
+Biflgffifl
+Mo/llffifl-Pffifflffifl'ffi`
+
+26t* ,ass 2aeae8
+
+Contents
+1 I\Gamma \Delta r\Theta duc\Delta i\Theta \Gamma  2
+
+\Lambda .\Lambda  Th\Xi  \Pi \Sigma \Upsilon \Xi \Phi p\Phi \Xi \Upsilon \Xi \Phi  . . . . . . . . . . . . . . . . . . . . . . . . . . \Psi 
+\Lambda .\Psi  \Omega \Sigma \Upsilon \Xi \Phi p\Phi \Xi \Upsilon \Pi \Sigma g by\Upsilon \Xi fffifl\Xi  . . . . . . . . . . . . . . . . . . . . . . 3
+\Lambda .3 Th\Xi  l\Pi b\Phi a\Phi y . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3
+\Lambda .4 Uffi\Pi \Sigma g \Upsilon h\Xi  V\Pi \Phi \Upsilon fflal Maffh\Pi \Sigma \Xi  . . . . . . . . . . . . . . . . . . . . 5
+\Lambda .5 Sfiffl\Phi ff\Xi  fffifl\Xi  fiv\Xi \Phi v\Pi \Xi w . . . . . . . . . . . . . . . . . . . . . . . 6
+
+2 Buiidi\Gamma j ` c\Theta m'i^\Delta ^ 'r\Theta jr`m 7
+* H\Theta _ \Delta *^ i\Gamma \Delta ^r'r^\Delta ^r _\Theta rk, 1*
+ss ae\Theta m^ \Delta oe'ic`i \Delta `,k, 1o/
+
+o/ AE*^ i\Gamma ,\Delta ruc\Delta i\Theta \Gamma , 19
+OE Fi\Gamma `iioe - R^m^mO/^r \Delta *i, 27
+
+\Lambda 
+
+1 Introduction
+Th\Gamma s \Delta ep\Theta \Delta \Lambda  p\Delta ese\Xi \Lambda s \Lambda he l\Theta \Pi al va\Delta \Gamma a\Xi \Lambda  \Theta f by\Sigma \Upsilon \Phi \Psi \Omega \Upsilon , by\Sigma \Upsilon \Phi \Psi \Omega \Upsilon  fffi\Sigma \Upsilon flffifl\Upsilon \Sigma \Upsilon fl a\Xi ffl
+
+by\Sigma \Upsilon \Phi \Psi \Omega \Upsilon  \Phi \Psi fii\Sigma flj\Phi \Sigma ff\Psi fi `ffbfl'fly w\Delta \Gamma \Lambda \Lambda e\Xi  f\Theta \Delta  \Lambda he \Pi \Theta ^\Delta se *NF5__0 (C\Theta mp\Gamma le\Delta  C\Theta \Xi -
+s\Lambda \Delta ^\Pi \Lambda \Gamma \Theta \Xi ) a\Lambda  \Lambda he U\Xi \Gamma ve\Delta s\Gamma \Lambda * \Theta f Osl\Theta . The ,*\Lambda e\Pi \Theta ffle l\Gamma ,\Delta a\Delta * a\Xi ffl \Gamma \Xi \Lambda e\Delta p\Delta e\Lambda e\Delta 
+we\Delta e fflevel\Theta peffl \Lambda \Theta  ,e ^seffl \Gamma \Xi  \Lambda he \Phi \Psi \Omega \Upsilon  g\Upsilon fi\Upsilon fl'\Sigma ff\Psi fi a\Xi ffl fljfi\Sigma ffss\Upsilon  pa\Delta \Lambda  \Theta f \Lambda he
+
+\Theta ,l\Gamma aea\Lambda \Theta \Delta * exe\Delta \Pi \Gamma se \Gamma \Xi  \Lambda he \Pi \Theta ^\Delta se. The \Theta ,je\Pi \Lambda \Gamma ve \Theta f \Lambda h\Gamma s exe\Delta \Pi \Gamma se \Gamma s \Lambda \Theta  w\Delta \Gamma \Lambda e a
+\Pi \Theta mp\Gamma le\Delta  f\Theta \Delta  a s\Gamma mple example la\Xi ae^aaee.
+
+B*\Lambda e\Pi \Theta ffles \Gamma \Xi  aee\Xi e\Delta al a\Delta e s\Gamma m\Gamma la\Delta  \Lambda \Theta  ma\Pi h\Gamma \Xi e \Pi \Theta ffle, ,^\Lambda  \Gamma \Xi s\Lambda eaffl \Theta f ,e\Gamma \Xi ae \Delta ^\Xi 
+
+ffl\Gamma \Delta e\Pi \Lambda l* \Theta \Xi  a ma\Pi h\Gamma \Xi e, \Lambda he* a\Delta e ^s^all* \Gamma \Xi \Lambda e\Delta p\Delta e\Lambda effl ,* a ,*\Lambda e\Pi \Theta ffle \Gamma \Xi \Lambda e\Delta -
+p\Delta e\Lambda e\Delta . The* ma* als\Theta  ,e \Lambda \Delta a\Xi sla\Lambda effl \Gamma \Xi \Lambda \Theta  ma\Pi h\Gamma \Xi e \Pi \Theta ffle ,ef\Theta \Delta e ,e\Gamma \Xi ae \Delta ^\Xi . A
+,*\Lambda e\Pi \Theta ffle \Pi \Theta \Xi s\Lambda \Delta ^\Pi \Lambda \Gamma \Theta \Xi  l\Gamma ,\Delta a\Delta * \Gamma s a l\Gamma ,\Delta a\Delta * ^seffl \Lambda \Theta  s\Gamma mpl\Gamma f* \Lambda he \Lambda ask \Theta f aee\Xi e\Delta -
+a\Lambda \Gamma \Xi ae ,*\Lambda e\Pi \Theta ffle f\Theta \Delta  a ,*\Lambda e\Pi \Theta ffle \Gamma \Xi \Lambda e\Delta p\Delta e\Lambda e\Delta . B*\Lambda e\Pi \Theta ffle \Gamma s \Xi ameffl exa\Pi \Lambda l* \Lambda ha\Lambda 
+,e\Pi a^se ea\Pi h \Gamma \Xi s\Lambda \Delta ^\Pi \Lambda \Gamma \Theta \Xi  \Gamma s \Lambda he s\Gamma ze \Theta f a ,*\Lambda e.
+
+O^\Delta  ,*\Lambda e\Pi \Theta ffle \Gamma s ve\Delta * s\Gamma m\Gamma la\Delta  \Lambda \Theta  Java ,*\Lambda e\Pi \Theta ffle a\Xi ffl \Theta ^\Delta  ,*\Lambda \Pi \Theta ffle l\Gamma ,\Delta a\Delta * \Gamma s
+,aseffl \Theta \Xi  \Lambda he B*\Lambda e C\Theta ffle E\Xi ae\Gamma \Xi ee\Delta \Gamma \Xi ae L\Gamma ,\Delta a\Delta * (BCEL)oe. We \Pi h\Theta se \Lambda \Theta  w\Delta \Gamma \Lambda e
+a s\Gamma mple\Delta , s\Lambda \Delta \Gamma ppeffl ffl\Theta w\Xi  ve\Delta s\Gamma \Theta \Xi  \Lambda ha\Lambda  ffl\Theta es \Xi \Theta \Lambda  s^pp\Theta \Delta \Lambda  \Pi lasses, v\Gamma \Delta \Lambda ^al p\Delta \Theta -
+
+\Pi effl^\Delta es a\Xi ffl all \Lambda he \Lambda h\Gamma \Xi aes Java's ,*\Lambda e\Pi \Theta ffle has. We ffl\Gamma ffl \Lambda h\Gamma s s\Theta  \Lambda ha\Lambda  \Gamma \Lambda  w\Theta ^lffl
+,e s\Gamma mple\Delta  \Lambda \Theta  w\Theta \Delta k w\Gamma \Lambda h a\Xi ffl \Lambda he\Delta e w\Theta ^lffl ,e less \Pi \Theta ffle. F\Theta \Delta  example, \Theta \Xi e
+
+ffl\Theta es \Xi \Theta \Lambda  \Xi eeffl \Lambda \Theta  \Pi \Delta ea\Lambda e \Pi lasses l\Gamma ke, s\Gamma \Xi \Pi e \Theta ^\Delta  la\Xi ae^aaee ffl\Theta es \Xi \Theta \Lambda  have \Lambda hem,
+j^s\Lambda  f\Theta \Delta  "s\Theta me ^\Xi expla\Gamma \Xi effl \Delta eas\Theta \Xi ". S\Lambda \Gamma ll, we e\Xi \Pi \Theta ^\Delta aaee \Lambda he s\Lambda ^ffle\Xi \Lambda s \Lambda \Theta  l\Theta \Theta k
+a\Lambda  BCEL, ,e\Pi a^se \Gamma \Lambda  \Gamma s a \Xi \Gamma \Pi e \Lambda \Theta \Theta l a\Xi ffl ve\Delta * well ffles\Gamma ae\Xi effl.
+
+The ,*\Lambda e\Pi \Theta ffle l\Gamma ,\Delta a\Delta * a\Xi ffl \Lambda he \Gamma \Xi \Lambda e\Delta p\Delta e\Lambda e\Delta  a\Delta e ,\Theta \Lambda h w\Delta \Gamma \Lambda \Lambda e\Xi  \Gamma \Xi  Java. All \Lambda he
+
+\Pi \Theta ffle \Gamma s ha\Xi ffleffl \Theta ^\Lambda  \Gamma \Xi  s\Theta ^\Delta \Pi e f\Theta \Delta m a\Xi ffl \Pi \Theta \Xi s\Gamma s\Lambda s \Theta f \Lambda he pa\Pi kaaees:
+
+o/ AEOEO/!#$%*: \Lambda he \Pi lasses \Lambda \Theta  \Pi \Delta ea\Lambda e ,*\Lambda e\Pi \Theta ffle
+o/ AEOEO/!#$%&+/O/23!O/&#+/%*: \Gamma \Xi s\Lambda \Delta ^\Pi \Lambda \Gamma \Theta \Xi  \Pi lasses (s^pp\Theta \Delta \Lambda \Gamma \Xi ae \Lambda he a,\Theta ve)
+o/ AEOEO/!#$%O/OE4%*: \Lambda *pe \Pi lasses (s^pp\Theta \Delta \Lambda \Gamma \Xi ae \Lambda he a,\Theta ve)
+o/ 23+&6%*: all \Lambda he \Pi lasses \Theta f \Lambda he \Delta ^\Xi \Lambda \Gamma me s*s\Lambda em
+
+787 9;! =??!@D@!?!@
+The \Gamma \Xi \Lambda e\Delta p\Delta e\Lambda e\Delta  \Gamma s s\Lambda a\Pi k ,aseffl a\Xi ffl \Gamma \Lambda  \Gamma \Xi \Lambda e\Delta p\Delta e\Lambda s \Lambda he a,\Theta ^\Lambda  G0 ffl\Gamma He\Delta e\Xi \Lambda  \Gamma \Xi s\Lambda \Delta ^\Pi -
+
+\Lambda \Gamma \Theta \Xi s \Theta f \Theta ^\Delta  ,*\Lambda e\Pi \Theta ffle. The \Gamma \Xi \Lambda e\Delta p\Delta e\Lambda e\Delta  "a^\Lambda \Theta ma\Lambda \Gamma \Pi all*" ha\Xi fflles all\Theta \Pi a\Lambda \Gamma \Theta \Xi  \Theta f
+
+KMPPQRVVXYZY[PY]YQY^M.]`[qV-^.--V
+
+""
+
+struct types, method calls and access of variables in a struct when instruc-
+ted to, by the bytecode instructions. In the first version it does not have
+
+a garbage collector and allocates memory sequencially as long as there is
+memory left for it.
+
+The operators (instructions) are so-called "stack operations". It means that
+when the interpreter executes an instruction it pops a number of operands
+(zero or more) from the stack, performs the task required by the instruction
+
+and leaves a number (usually just one) of result values on the stack.
+
+The interpreter is not written for efficiency, but rather for readability and
+
+ease of creating runnable bytecode. For example, the types are kept on the
+stack together with the calculated values and the interpreter decides what
+
+kind of operation to perform based on the types as well as the current in-
+struction. For example, an ADD (addition) instruction will be performed
+differently if there are two integers on the stack, two floats, or one of each.
+This is different from Java bytecode, which has an ADDINT and an ADD-
+FLOAT instruction, and where type casting has to be done explicitly in the
+
+bytecode (for example with the \Gamma 2\Delta  instruction, which converts an int to a
+float).
+
+1\Theta \Lambda  \Xi \Pi \Sigma \Upsilon \Phi \Psi \Phi \Upsilon \Sigma \Omega \Pi ffl ij\Sigma \Upsilon `'^\Upsilon 
+As mentioned, the interpreter is stack based. The parameters from right
+to left in an operation (including user defined functions) must be placed on
+the stack with the leftmost on the bottom and the rightmost on the top of
+the stack before the instruction itself is interpreted. For example, the SUB
+(subtraction) instruction requires that the two operands the SUB instruction
+will be applied to are on the stack and in the right order beforehand. The
+
+number to subtract must be on the top and the number to subtract from
+below it. We may denote the elements on the stack before an instruction
+is interpreted with *_, where n is the index from the top, with the top as
+* = 0. Then, the result of the ,ssae instruction is that the two values on the
+top of the stack is removed and replaced by *oe o/ *AE.
+
+1\Theta 3 OEO/\Upsilon  \Omega i\Phi !\Phi j
+The library has a class C#$%&\Gamma '% that is the base for creating a program
+with "runnable" sequences of instructions, that is, a (binary or .bin) file
+that can be executed by the virtual machine or more specifically by the
+
+*
+
+virtual machines interpreter.
+To create such a bytecode file, one must create an object of the class C\Gamma \Delta \Theta -
+F\Lambda \Xi \Theta , and add procedures, structs and global variables using the procedures
+
+of the C\Gamma \Delta \Theta F\Lambda \Xi \Theta  object. Objects that represent local variables and instruc\Pi 
+tions are created using the library and added to the procedure objects, which
+are of class C\Gamma \Delta \Theta P\Sigma \Gamma \Upsilon \Theta \Delta \Phi \Sigma \Theta . When the program is complete, that is, when
+all the elements of the program has been added to the C\Gamma \Delta \Theta F\Lambda \Xi \Theta  object and
+
+its C\Gamma \Delta \Theta P\Sigma \Gamma \Upsilon \Theta \Delta \Phi \Sigma \Theta  objects, the actual bytecode can be extracted by using
+the procedure \Psi \Theta \Omega Bff\Omega \Theta \Upsilon \Gamma \Delta \Theta () of a C\Gamma \Delta \Theta F\Lambda \Xi \Theta  object. The array of bytes that
+is then created, is usually written to a file, which can then be read by the
+virtual machine and run by its interpreter.
+
+A typical use of the flodeffiile class will be something like this:
+
+fflij`'^*` _ij`'^*` = *`, fflij`'^*`ssae;
+Soeo/^*AE OE^*`*O/` = "`!O/#*`$%^*";
+
+// &'^*j^*AE oe*` %+oe`_ij` ,^oe* ^*0oeo/'_oe^i*0 *^1`
+_ij`'^*`$O/jj2o/i_`j'o/`ss"MO/^*"ae;
+fflij`2o/i_`j'o/` O/^* = *`, fflij`2o/i_`j'o/`ss"MO/^*"3 Vi^j4+#`$4Y2E3
+
+_ij`'^*`ae;
+O/^*$O/jjI*0oeo/'_oe^i*ss*`, RE4URNssaeae;
+_ij`'^*`$'#jO/oe`2o/i_`j'o/`ssO/^*ae;
+
+// $$$ O/*j io/` $$$
+
+%+oe`[] %+oe`_ij` = _ij`'^*`$AE`oe&+oe`_ij`ssae;
+DO/oeO/5'oe#'oeSoeo/`O/ 0oeo/`O/ = *`, DO/oeO/5'oe#'oeSoeo/`O/ss
+
+*`, '^*`5'oe#'oeSoeo/`O/ ssOE^*`*O/`aeae;
+0oeo/`O/$,o/^oe`ss%+oe`_ij`ae;
+0oeo/`O/$_*i0`ssae;
+
+6n the example, an object of the class C\Gamma \Delta \Theta F\Lambda \Xi \Theta  is first created. Then, the
+
+procedure "main7 is added to it. 8ore procedures, structs, global variables
+and constanst may be added to it. Then one can get the bytecode 9an array
+
+of bytes! and write it to a file, as shown.
+
+The bytecode file can then, for example, be inspected with an editor for
+
+binary files, like the ?clipse Hex ?ditor ?lugin 9?H??!@.
+
+GJKKLQXXZJZL^.`qz-Z--`z""Z^~ZKX
+
+"
+
+1.4 Using the Virtual Machine
+T\Gamma \Delta \Theta \Delta  \Lambda \Theta \Delta  \Xi wo w\Lambda y\Pi  \Xi o \Theta \Sigma \Upsilon  \Lambda  p\Theta o\Phi \Theta \Lambda m f\Theta om \Lambda  by\Xi \Delta \Psi od\Delta  fi\Omega \Delta ff Bo\Xi \Gamma  \Lambda \Theta \Delta  wfl\Xi \Gamma 
+\Xi \Gamma \Delta  \Psi \Omega \Lambda \Pi \Pi  ffifflij`'^*_`ffijffl*,ss*aeoe`i^ff
+
+o/ O\Upsilon \Delta  fl\Pi  \Xi o \Sigma \Pi \Delta  \Xi \Gamma \Delta  \Psi omm\Lambda \Upsilon d \Omega fl\Upsilon \Delta  \Lambda \Upsilon d w\Theta fl\Xi \Delta 
+
+jAEvAE OEO/!"#$%&"OE!O/AE'(AE)*"$ !FILENA(E?
+
+o/ T\Gamma \Delta  o\Xi \Gamma \Delta \Theta  fl\Pi  \Xi o \Sigma \Pi \Delta  \Xi \Gamma \Delta  \Psi \Omega \Lambda \Pi \Pi  +fl\Theta \Xi \Sigma \Lambda \Omega ,\Lambda \Psi \Gamma fl\Upsilon \Delta  fl\Upsilon  \Lambda  p\Theta o\Phi \Theta \Lambda m \Lambda \Upsilon d \Psi \Theta \Delta \Lambda \Xi \Delta 
+
+\Lambda \Upsilon  ob-\Delta \Psi \Xi  of fl\Xi  \Lambda \Upsilon d \Psi \Lambda \Omega \Omega  \Xi \Gamma \Delta  "\Theta \Sigma \Upsilon / p\Theta o\Psi \Delta d\Sigma \Theta \Delta ff
+
+&"OE!O/AE'(AE)*"$ v# = $0 &"OE!O/AE'(AE)*"$23!FILENA(E?35;
+
+v#%OEO/25;
+
+T\Gamma \Delta  \Psi \Omega \Lambda \Pi \Pi  +fl\Theta \Xi \Sigma \Lambda \Omega ,\Lambda \Psi \Gamma fl\Upsilon \Delta  \Psi \Lambda \Upsilon  \Lambda \Omega \Pi o \Omega fl\Pi \Xi  \Xi \Gamma \Delta  \Psi o\Upsilon \Xi \Delta \Upsilon \Xi  of \Xi \Gamma \Delta  by\Xi \Delta \Psi od\Delta  fi\Omega \Delta  fl\Upsilon  \Lambda 
+\Xi \Delta x\Xi \Sigma \Lambda \Omega  fo\Theta mff T\Gamma fl\Pi  \Lambda \Omega \Pi o6 \Psi \Lambda \Upsilon  b\Delta  do\Upsilon \Delta  fl\Upsilon  \Xi wo w\Lambda y\Pi :
+
+o/ O\Upsilon \Delta  fl\Pi  \Xi o \Sigma \Pi \Delta  \Xi \Gamma \Delta  \Psi omm\Lambda \Upsilon d \Omega fl\Upsilon \Delta  \Lambda \Upsilon d w\Theta fl\Xi \Delta 
+
+jAEvAE OEO/!"#$%&"OE!O/AE'(AE)*"$ 7' !FILENA(E?
+
+o/ T\Gamma \Delta  o\Xi \Gamma \Delta \Theta  fl\Pi  \Xi o \Sigma \Pi \Delta  \Xi \Gamma \Delta  \Psi \Omega \Lambda \Pi \Pi  fl\Upsilon  \Lambda  p\Theta o\Phi \Theta \Lambda m \Lambda \Upsilon d \Psi \Theta \Delta \Lambda \Xi \Delta  \Lambda \Upsilon  ob-\Delta \Psi \Xi  \Lambda \Upsilon d
+
+\Psi \Lambda \Omega \Omega  \Xi \Gamma \Delta  \Omega fl\Pi \Xi  p\Theta o\Psi \Delta d\Sigma \Theta \Delta ff
+
+&"OE!O/AE'(AE)*"$ v# = $0 &"OE!O/AE'(AE)*"$23!FILENA(E?35;
+
+v#%'"8!25;
+
+9f w\Delta  \Gamma \Lambda d \Lambda  p\Theta o\Phi \Theta \Lambda m \Omega flk\Delta  \Xi \Gamma fl\Pi  ffffff
+?? F"'$@ %?S"#C'$%D
+8!OEO/)! GH#C'$J -
+
+vAEOE K'HAE! R$AE';
+vAEOE K'HAE! I#AEP;
+""
+
+vAEOE GH#C'$J DO/##Q;
+KO/) (AE"25 - ""
+
+W
+
+... listing the generated bytecode with the "-l" option would look like this:
+L\Gamma \Delta \Theta \Lambda \Xi \Pi  f\Sigma \Gamma m f\Lambda \Upsilon \Phi \Psi  \Omega /S\Lambda mff\Upsilon \Phi \Omega fi\Lambda \Xi 
+V\Delta \Sigma \Lambda \Delta fi\Upsilon \Phi fl\Psi 
+0\Psi  v\Delta \Sigma  C\Gamma mff\Upsilon \Phi x \Theta ffimmffl
+P\Sigma \Gamma i\Phi \Theta ffi\Sigma \Phi fl\Psi 
+0\Psi  M\Delta \Lambda \Xi ()
+
+0\Psi  \Sigma \Phi jffi\Sigma \Xi 
+Sj\Sigma ffiijfl\Psi 
+0\Psi  C\Gamma mff\Upsilon \Phi x
+
+0\Psi  f\Upsilon \Gamma \Delta j
+1\Psi  f\Upsilon \Gamma \Delta j
+C\Gamma \Xi flj\Delta \Xi jfl\Psi 
+STARTWITH\Psi  M\Delta \Lambda \Xi 
+
+`'5 ^*_*,ss ,*aess *oess*oeo/ssAE
+OEhe O/ost iO/portant classes and packages o the bytecode library are !#$%&
+F'*% +the O/ain class or creating bytecode,2 !#$%34#6%$74% +the class or
+
+creating a procedure in the bytecode,2 !#$%894769 +the class or creating
+a struct in the bytecode,2 ;!9%6#$%='??94769'#??=@ +the package with all the
+bytecode instruction classes, and ;!9%6#$%=9!B%=@ +the package with all the
+
+classes or the types used in the bytecode,.
+
+Dlthough they are usually not used by a prograO/O/er2 it is nice to know the
+O/ain classes o the Eirtual Gachine. Jt could be useul to look at the Eirtual
+
+Gachine code2 and one O/ay need to add to it or debug it. OEhe O/ain classes o
+the runtiO/e systeO/ +the Eirtual Gachine, are K'497N*ON6Q'?% +the starting
+point or running a prograO/,2 U#N$%4 +the class that loads the prograO/
+roO/ a Xle,2 Y?9%4B4%9%4 +the class that actually does the interpretation o
+
+the bytecode,2 89N6Z +the class that handles the single stack in a prograO/,2
+[%NB2+the class that allocates2 stores and retrie]es the structs and their
+
+Xelds, and ^69'.N9'#?`*#6Z +the class that handles and stores the prograO/
+counter2 local ]ariables and so on and handles the call and return o a
+procedure in conjunction with the Jnterpreter,.
+
+q
+
+2 Building a complete program
+W\Gamma  h\Delta v\Gamma  sh\Theta w\Gamma \Lambda  \Xi h\Gamma  b\Delta s\Pi \Sigma s \Theta f h\Theta w \Delta  by\Xi \Gamma \Sigma \Theta \Lambda \Gamma  \Upsilon \Phi \Theta \Psi \Phi \Delta \Omega  (b\Pi ff\Delta \Phi y fifl\Gamma ) \Pi s bffi\Pi fl\Xi 
+
+ffis\Pi ff\Psi  \Xi h\Gamma  by\Xi \Gamma \Sigma \Theta \Lambda \Gamma  fl\Pi b\Phi \Delta \Phi y. Iff \Xi h\Pi s s\Gamma \Sigma \Xi \Pi \Theta ff w\Gamma  w\Pi flfl sh\Theta w s\Theta \Omega \Gamma  \Theta f \Xi h\Gamma  \Lambda \Gamma \Xi \Delta \Pi fls
+by \Sigma \Theta v\Gamma \Phi \Pi ff\Psi  \Gamma \Delta \Sigma h \Theta f \Xi h\Gamma  \Sigma fl\Delta ss\Gamma s \Pi ff \Xi h\Gamma  fl\Pi b\Phi \Delta \Phi y \Delta ff\Lambda  wh\Delta \Xi  \Xi h\Gamma y \Sigma \Delta ff \Lambda \Theta . D\Gamma \Xi \Delta \Pi fls
+
+\Delta b\Theta ffi\Xi  \Delta flfl \Xi h\Gamma  \Pi ffs\Xi \Phi ffi\Sigma \Xi \Pi \Theta ffs w\Pi flfl \Sigma \Theta \Omega \Gamma  \Pi ff s\Gamma \Sigma \Xi \Pi \Theta ff 5.
+
+Th\Gamma  \Omega \Delta \Pi ff \Upsilon \Delta \Phi \Xi s \Theta f \Omega \Delta k\Pi ff\Psi  \Delta  ff\Gamma w \Upsilon \Phi \Theta \Psi \Phi \Delta \Omega  \Delta \Phi \Gamma ; \Omega \Delta k\Pi ff\Psi  \Delta ff \Theta bj\Gamma \Sigma \Xi  \Theta f \Xi h\Gamma 
+\Sigma fl\Delta ss CfflijF`'j, \Xi h\Gamma ff \Delta \Lambda \Lambda \Pi ff\Psi  \Xi h\Gamma  \Upsilon \Phi \Theta \Sigma \Gamma \Lambda ffi\Phi \Gamma s (\Theta bj\Gamma \Sigma \Xi s \Theta f \Sigma fl\Delta ss CfflijP^ffl*ji_^j)
+
+\Delta ff\Lambda  s\Xi \Phi ffi\Sigma \Xi s (\Theta bj\Gamma \Sigma \Xi s \Theta f \Sigma fl\Delta ss CfflijS*^_**) \Delta ff\Lambda  s\Theta  \Theta ff. ,\Pi ff\Delta flfly, wh\Gamma ff \Xi h\Gamma  ssj*-
+aeoe*j*fflijo/AE \Upsilon \Phi \Theta \Sigma \Gamma \Lambda ffi\Phi \Gamma  \Pi s \Sigma \Delta flfl\Gamma \Lambda , \Xi h\Gamma  by\Xi \Gamma \Sigma \Theta \Lambda \Gamma  fl\Pi b\Phi \Delta \Phi y w\Pi flfl \Psi \Gamma ff\Gamma \Phi \Delta \Xi \Gamma  \Xi h\Gamma  \Delta \Sigma \Xi ffi\Delta fl
+by\Xi \Gamma \Sigma \Theta \Lambda \Gamma  by\Xi \Gamma s f\Phi \Theta \Omega  \Xi h\Gamma  \Theta bj\Gamma \Sigma \Xi s \Xi h\Delta \Xi  h\Delta s b\Gamma \Gamma ff \Sigma \Phi \Gamma \Delta \Xi \Gamma \Lambda  \Delta ff\Lambda  \Xi h\Gamma  \Upsilon \Phi \Theta \Upsilon \Gamma \Phi \Xi \Pi \Gamma s
+
+\Psi \Pi v\Gamma ff \Xi \Theta  \Xi h\Theta s\Gamma  \Theta bj\Gamma \Sigma \Xi s.
+
+N\Theta \Xi \Gamma  \Xi h\Delta \Xi  \Xi h\Gamma \Phi \Gamma  \Delta \Phi \Gamma  f\Theta ffi\Phi  \Upsilon \Delta \Phi \Xi s \Xi \Theta  \Omega \Delta k\Pi ff\Psi  \Delta  \Upsilon \Phi \Theta \Sigma \Gamma \Lambda ffi\Phi \Gamma  (\Theta \Phi  s\Xi \Phi ffi\Sigma \Xi  \Theta \Phi  \Psi fl\Theta b\Delta fl
+
+v\Delta \Phi \Pi \Delta bfl\Gamma ):
+
+1. A\Lambda \Lambda \Pi ff\Psi  \Xi h\Gamma  \Lambda \Gamma fiff\Pi \Xi \Pi \Theta ff \Xi \Theta  \Xi h\Gamma  OE\Theta \Lambda \Gamma ,\Pi fl\Gamma  \Theta bj\Gamma \Sigma \Xi  (O/iiP^ffl*ji_^j).
+. OE\Phi \Gamma \Delta \Xi \Pi ff\Psi  \Xi h\Gamma  OE\Theta \Lambda \Gamma !\Phi \Theta \Sigma \Gamma \Lambda ffi\Phi \Gamma  \Theta bj\Gamma \Sigma \Xi  ("j# CfflijP^ffl*ji_^j).
+3. A\Lambda \Lambda \Pi ff\Psi  \Xi h\Gamma  \Upsilon \Phi \Theta \Upsilon \Gamma \Phi \Xi \Pi \Gamma s, fl\Pi k\Gamma  \Xi h\Gamma  \Pi ffs\Xi \Phi ffi\Sigma \Xi \Pi \Theta ffs, \Xi \Theta  \Xi h\Gamma  OE\Theta \Lambda \Gamma !\Phi \Theta \Sigma \Gamma \Lambda ffi\Phi \Gamma 
+
+\Theta bj\Gamma \Sigma \Xi .
+
+4. U\Upsilon \Lambda \Delta \Xi \Pi ff\Psi  \Xi h\Gamma  OE\Theta \Lambda \Gamma !\Phi \Theta \Sigma \Gamma \Lambda ffi\Phi \Gamma  \Theta bj\Gamma \Sigma \Xi  \Pi ff \Xi h\Gamma  OE\Theta \Lambda \Gamma ,\Pi fl\Gamma  (_$iO/*jP^ffl*ji-
+
+_^j).
+
+T\Theta  s\Gamma \Gamma  \Xi h\Gamma  \Lambda \Gamma \Xi \Delta \Pi fls \Theta f \Xi h\Gamma s\Gamma  f\Theta ffi\Phi  s\Xi \Gamma \Upsilon s, \Phi \Gamma \Delta \Lambda  \Xi h\Gamma  f\Theta flfl\Theta w\Pi ff\Psi  \Gamma x\Delta \Omega \Upsilon fl\Gamma .
+% &'*++ /0*'6+/
+7\Gamma fl\Theta w \Pi s \Delta  s\Omega \Delta flfl \Gamma x\Delta \Omega \Upsilon fl\Gamma . Aflfl \Xi h\Gamma  \Sigma fl\Delta ss\Gamma s \Delta ff\Lambda  \Upsilon \Phi \Theta \Sigma \Gamma \Lambda ffi\Phi \Gamma s ffis\Gamma \Lambda  \Pi ff \Xi h\Pi s \Gamma x\Delta \Omega \Upsilon fl\Gamma 
+
+w\Pi flfl b\Gamma  \Gamma x\Upsilon fl\Delta \Pi ff\Gamma \Lambda  fl\Delta \Xi \Gamma \Phi  \Pi ff \Xi h\Pi s s\Gamma \Sigma \Xi \Pi \Theta ff. Th\Gamma  \Gamma x\Delta \Omega \Upsilon fl\Gamma  \Sigma \Theta \Lambda \Gamma  \Sigma \Phi \Gamma \Delta \Xi \Gamma s \Delta  \Upsilon \Phi \Theta \Psi \Phi \Delta \Omega 
+\Delta ff\Lambda  fi\Phi s\Xi  \Delta \Lambda \Lambda s \Xi h\Gamma  ff\Delta \Omega \Gamma  \Theta f \Delta  fl\Pi b\Phi \Delta \Phi y \Upsilon \Phi \Theta \Sigma \Gamma \Lambda ffi\Phi \Gamma  \Xi \Theta  b\Gamma  ffis\Gamma \Lambda . I\Xi  \Xi h\Gamma  \Delta \Lambda \Lambda s \Delta 
+\Upsilon \Phi \Theta \Sigma \Gamma \Lambda ffi\Phi \Gamma  "M\Delta \Pi ff8, \Delta  \Psi fl\Theta b\Delta fl v\Delta \Phi \Pi \Delta bfl\Gamma  "\Omega yGfl\Theta b\Delta flV\Delta \Phi 8, \Delta  \Upsilon \Phi \Theta \Sigma \Gamma \Lambda ffi\Phi \Gamma  "\Xi \Gamma s\Xi 8 \Delta ff\Lambda 
+
+\Delta  s\Xi \Phi ffi\Sigma \Xi  "OE\Theta \Omega \Upsilon fl\Gamma x8 (I). Th\Gamma  \Upsilon \Phi \Theta \Sigma \Gamma \Lambda ffi\Phi \Gamma  "M\Delta \Pi ff8 h\Delta s \Phi \Gamma \Xi ffi\Phi ff \Xi y\Upsilon \Gamma  "V\Theta \Pi \Lambda 8, ff\Theta 
+\Upsilon \Delta \Phi \Delta \Omega \Gamma \Xi \Gamma \Phi s, ff\Theta  fl\Theta \Sigma \Delta fl v\Delta \Phi \Pi \Delta bfl\Gamma s \Delta ff\Lambda  \Theta fffly h\Delta s \Delta  s\Pi ff\Psi fl\Gamma  \Pi ffs\Xi \Phi ffi\Sigma \Xi \Pi \Theta ff RETURN
+(II).
+
+Th\Gamma  \Psi fl\Theta b\Delta fl v\Delta \Phi \Pi \Delta bfl\Gamma  \Pi s \Xi y\Upsilon \Gamma \Lambda  w\Pi \Xi h \Xi h\Gamma  s\Xi \Phi ffi\Sigma \Xi  \Xi y\Upsilon \Gamma  \Theta f OE\Theta \Omega \Upsilon fl\Gamma x (III).
+Th\Gamma  \Upsilon \Phi \Theta \Sigma \Gamma \Lambda ffi\Phi \Gamma  "\Xi \Gamma s\Xi 8 h\Delta s \Xi w\Theta  \Upsilon \Delta \Phi \Delta \Omega \Gamma \Xi \Gamma \Phi s; \Theta ff\Gamma  \Theta f \Xi y\Upsilon \Gamma  ,fl\Theta \Delta \Xi  \Delta ff\Lambda  \Theta ff\Gamma  \Theta f
+\Phi \Gamma f\Gamma \Phi \Gamma ff\Sigma \Gamma  \Xi y\Upsilon \Gamma  OE\Theta \Omega \Upsilon fl\Gamma x. Th\Gamma  \Upsilon \Phi \Theta \Sigma \Gamma \Lambda ffi\Phi \Gamma  fl\Theta \Delta \Lambda s \Xi h\Gamma  fi\Phi s\Xi  \Upsilon \Delta \Phi \Delta \Omega \Gamma \Xi \Gamma \Phi  \Theta ff\Xi \Theta  \Xi h\Gamma 
+s\Xi \Delta \Sigma k \Delta ff\Lambda  \Xi h\Gamma  \Sigma \Delta flfls \Xi h\Gamma  \Upsilon \Phi \Theta \Sigma \Gamma \Lambda ffi\Phi \Gamma  "\Upsilon \Phi \Pi ff\Xi  9\Theta \Delta \Xi 8 \Xi \Theta  \Upsilon \Phi \Pi ff\Xi  \Xi h\Gamma  v\Delta flffi\Gamma  (IV).
+
+!
+
+The struct "Complex" is created and the two fields, both of type Float, are
+
+added to it (V).
+
+The procedure print float must be added, but without instructions. Read
+
+more about library procedures in section 4 (VI).
+
+Finally, the main method must be set before the bytecode can be extracted
+
+and written to a file (VII).
+
+At the end of the section is a listing of the bytecode file created from this.
+
+// M\Gamma k\Delta  \Theta \Lambda \Xi \Delta :
+\Pi \Lambda \Xi \Delta \Sigma \Upsilon \Phi \Delta  \Theta \Lambda \Xi \Delta \Sigma \Upsilon \Phi \Delta  = \Psi \Delta \Omega  \Pi \Lambda \Xi \Delta \Sigma \Upsilon \Phi \Delta ffffi;
+\Theta \Lambda \Xi \Delta \Sigma \Upsilon \Phi \Delta ffl\Gamma \Xi \Xi Pi\Lambda \Theta \Delta \Xi ji\Delta ff`'i\Upsilon \Psi ^.*\Phi \Lambda \Gamma ^`ffi;
+
+// _:
+\Theta \Lambda \Xi \Delta \Sigma \Upsilon \Phi \Delta ffl\Gamma \Xi \Xi Pi\Lambda \Theta \Delta \Xi ji\Delta ff`M\Gamma \Upsilon \Psi `ffi;
+\Theta \Lambda \Xi \Delta \Sigma \Upsilon \Phi \Delta ffl\Gamma \Xi \Xi *\Gamma i\Upsilon \Gamma ,\Phi \Delta ff`ssaeG\Phi \Lambda ,\Gamma \Phi *\Gamma i`ffi;
+\Theta \Lambda \Xi \Delta \Sigma \Upsilon \Phi \Delta ffl\Gamma \Xi \Xi Pi\Lambda \Theta \Delta \Xi ji\Delta ff`^\Delta oe^`ffi;
+\Theta \Lambda \Xi \Delta \Sigma \Upsilon \Phi \Delta ffl\Gamma \Xi \Xi S^ij\Theta ^ff`\Pi \Lambda ss'\Phi \Delta o/`ffi;
+
+// __:
+\Pi \Lambda \Xi \Delta Pi\Lambda \Theta \Delta \Xi ji\Delta  ss\Gamma \Upsilon \Psi  = \Psi \Delta \Omega  \Pi \Lambda \Xi \Delta Pi\Lambda \Theta \Delta \Xi ji\Delta ff`M\Gamma \Upsilon \Psi `AE *\Lambda \Upsilon \Xi OEae'\Delta fflOEYPEAE
+
+\Theta \Lambda \Xi \Delta \Sigma \Upsilon \Phi \Delta ffi;
+ss\Gamma \Upsilon \Psi ffl\Gamma \Xi \Xi _\Psi oe^ij\Theta ^\Upsilon \Lambda \Psi ff\Psi \Delta \Omega  O/EOEUO/Nffffiffi;
+\Theta \Lambda \Xi \Delta \Sigma \Upsilon \Phi \Delta fflj'\Xi \Gamma ^\Delta Pi\Lambda \Theta \Delta \Xi ji\Delta ffss\Gamma \Upsilon \Psi ffi;
+
+// ___:
+\Theta \Lambda \Xi \Delta \Sigma \Upsilon \Phi \Delta fflj'\Xi \Gamma ^\Delta *\Gamma i\Upsilon \Gamma ,\Phi \Delta ff`ssaeG\Phi \Lambda ,\Gamma \Phi *\Gamma i`AE \Psi \Delta \Omega  O/\Delta *OEae'\Delta ff
+
+\Theta \Lambda \Xi \Delta \Sigma \Upsilon \Phi \Delta ffloe^ij\Theta ^Njss,\Delta iff`\Pi \Lambda ss'\Phi \Delta o/`ffiffiffi;
+
+// _*:
+\Pi \Lambda \Xi \Delta Pi\Lambda \Theta \Delta \Xi ji\Delta  ^\Delta oe^ = \Psi \Delta \Omega  \Pi \Lambda \Xi \Delta Pi\Lambda \Theta \Delta \Xi ji\Delta ff`^\Delta oe^`AE *\Lambda \Upsilon \Xi OEae'\Delta fflOEYPEAE
+
+\Theta \Lambda \Xi \Delta \Sigma \Upsilon \Phi \Delta ffi;
+^\Delta oe^ffl\Gamma \Xi \Xi P\Gamma i\Gamma ss\Delta ^\Delta iff`*\Upsilon ioe^P\Gamma i`AE \Sigma \Phi \Lambda \Gamma ^OEae'\Delta fflOEYPEffi;
+^\Delta oe^ffl\Gamma \Xi \Xi P\Gamma i\Gamma ss\Delta ^\Delta iff`oe\Delta \Theta \Lambda \Psi \Xi P\Gamma i`AE \Psi \Delta \Omega  O/\Delta *OEae'\Delta ff
+
+^\Delta oe^ffloe^ij\Theta ^Njss,\Delta iff`\Pi \Lambda ss'\Phi \Delta o/`ffiffiffi;
+^\Delta oe^ffl\Gamma \Xi \Xi _\Psi oe^ij\Theta ^\Upsilon \Lambda \Psi ff\Psi \Delta \Omega  LODLO\Pi Lff
+
+^\Delta oe^fflv\Gamma i\Upsilon \Gamma ,\Phi \Delta Njss,\Delta iff`*\Upsilon ioe^P\Gamma i`ffiffiffi;
+^\Delta oe^ffl\Gamma \Xi \Xi _\Psi oe^ij\Theta ^\Upsilon \Lambda \Psi ff\Psi \Delta \Omega  \Pi LLff
+
+^\Delta oe^ffl'i\Lambda \Theta \Delta \Xi ji\Delta Njss,\Delta iff`'i\Upsilon \Psi ^.*\Phi \Lambda \Gamma ^`ffiffiffi;
+^\Delta oe^ffl\Gamma \Xi \Xi _\Psi oe^ij\Theta ^\Upsilon \Lambda \Psi ff\Psi \Delta \Omega  O/EOEUO/Nffffiffi;
+\Theta \Lambda \Xi \Delta \Sigma \Upsilon \Phi \Delta fflj'\Xi \Gamma ^\Delta Pi\Lambda \Theta \Delta \Xi ji\Delta ff^\Delta oe^ffi;
+
+8
+
+// V:
+CodeStruct complex = new CodeStruct("Complex");
+complex.addVariable("Real", FloatType.TYPE);
+complex.addVariable("Imag", FloatType.TYPE);
+codeFile.updateStruct(complex);
+
+// VI:
+CodeProcedure printFloat = new CodeProcedure("print.float",
+
+VoidType.TYPE, codeFile);
+test.addParameter("f", FloatType.TYPE);
+
+codeFile.updateProcedure(printFloat);
+
+// VII:
+codeFile.setMain("Main");
+byte[] bytecode = codeFile.getBytecode();
+
+// ... Write the bytes to a file.
+
+\Gamma \Delta \Theta \Lambda \Xi \Pi \Sigma \Lambda 
+\Upsilon \Phi \Psi \Omega  \Psi \Omega  ff\Phi fi flffiffl\Omega \Omega  ff\Phi fi ijfffifl`'fi \Psi \Omega  fl^fifflfffi' *^`_ ffl*' fflffiffi ff\Phi fi fiffifi_fi*ff\Omega  `* ff\Phi fi
+,^`ss^ffl_ _ae\Omega ff ifi ffl''fi' ff` ff\Phi \Psi \Omega  `ijfiflffoe o/ff fflffi\Omega ` ,^`v\Psi 'fi\Omega  ff\Phi fi \Omega fi^v\Psi flfi `* ^fiffae^*-
+
+\Psi *ss \Psi *'\Psi flfi\Omega  ss\Psi vfi* ff` ff\Phi fi fiffifi_fi*ff\Omega AE ffl\Omega  OEfi OE\Psi ffiffi \Omega fifi ae\Omega fi' ffifflfffi^oe \Upsilon \Phi fi\Omega fi \Psi *'\Psi flfi\Omega  ffl^fi
+*fifi'fi' OE\Phi fi* \Psi *\Omega ff^aeflff\Psi `* flffiffl\Omega \Omega fi\Omega  ffl^fi fl^fifflfffi'oe \Upsilon \Phi fij ^fi*fi^fi*flfi ff\Phi fi fiffifi_fi*ff\Omega 
+OE\Psi ff\Phi \Psi * ff\Phi fi ,^`ss^ffl_oe A''\Psi *ss \Omega `_fiff\Phi \Psi *ss ff` ffl O/!#$%&# `ijfiflff \Psi \Omega  '`*fi \Psi * ffOE`
+
+\Omega fffflssfi\Omega ' *^\Omega ff ff\Phi fi fiffifi_fi*ff \Psi \Omega  ffl''fi' ae\Omega \Psi *ss \Omega `_fiff\Phi \Psi *ss ffi\Psi kfi ff\Phi fi ffl''+^`flfi'ae^fi
+,^`flfi'ae^fiAE \Omega ae,,ffij\Psi *ss `*ffij ff\Phi fi *ffl_fioe \Upsilon \Phi fi* ffifflfffi^ ff\Phi fi ae,'fflfffi+^`flfi'ae^fi _ae\Omega ff
+
+ifi flfflffiffifi' OE\Psi ff\Phi  ffl ^fi*fi^fi*flfi ff` ff\Phi fi fflflffaefflffi ,^`flfi'ae^fi `ijfiflffoe A*fffi^ ffl ,^`flfi'ae^fi
+\Phi ffl\Omega  ififi* ffl''fi' 0iaeff ifi*`^fi \Psi ff \Phi ffl\Omega  ififi* ae,'fflfffi'1 \Psi ff\Omega  \Psi *'fi2 flffl* ifi *`ae*' ffl*'
+
+ae\Omega fi'AE *`^ fi2ffl_,ffifi ff` fl^fifflfffi ffl flfflffiffi ff` \Psi ffAE ffl\Omega  OEfi OE\Psi ffiffi \Omega fifioe
+
+A* `ijfiflff `* ff\Phi fi 3`'fi4\Psi ffifi flffiffl\Omega \Omega  \Psi \Omega  ffj,\Psi flfflffiffij \Omega fifi* ij fflffiffi ff\Phi fi *`'fi\Omega  \Psi * ff\Phi fi
+ffli\Omega ff^fflflff \Omega j*ffffl2 ff^fifiAE ij *`^ fi2ffl_,ffifi ,ffl\Omega \Omega \Psi *ss ffl^`ae*' ffl ^fi*fi^fi*flfi ff` \Psi ffoe A*
+
+fiffifi_fi*ff \Psi * ff\Phi fi \Omega j*ffffl2 ff^fifi \Psi \Omega  ffj,\Psi flfflffiffij ^fi\Omega ,`*\Omega \Psi iffifi *`^ ffl''\Psi *ss \Psi ff\Omega fiffi* ff` ff\Phi fi
+fl`_,\Psi ffifi' ^fi\Omega aeffiff ij ae\Omega \Psi *ss ff\Phi fi ,^`flfi'ae^fi\Omega  `* ff\Phi fi 3`'fi4\Psi ffifi `^ 3`'fi+^`flfi'ae^fi
+flffiffl\Omega \Omega fi\Omega oe
+
+A 567896 !9??986@ \Psi \Omega  ffl''fi' ij ae\Omega \Psi *ss ff\Phi fi ,^`flfi'ae^fi DGHJ KJJLKNHKOQUX
+Z"NH^` ^KqUzoe A*fffi^ ffl ssffi`ifflffi vffl^\Psi ffliffifi \Phi ffl\Omega  ififi* ffl''fi'AE \Psi ff\Omega  \Psi *'fi2 0\Psi '1 \Psi *
+
+ff\Phi fi ,^`ss^ffl_ _fflj ifi *`ae*' ij ae\Omega \Psi *ss \Psi ff\Omega  *ffl_fiAE flfflffiffi\Psi *ss ff\Phi fi ,^`flfi'ae^fi H^"
+`QGOKQLKNHKOQU---qOUN XZ"NH^` ^KqUzoe \Upsilon \Phi fi ffj,fi `* ff\Phi fi vffl^\Psi ffliffifi ""~"A*
+
+ifi \Omega ae,,ffi\Psi fi' ifi*`^fi ff\Phi fi ijfffifl`'fi \Psi \Omega  ssfi*fi^fflfffi'oe o/ff \Psi \Omega  '`*fi ij flfflffiffi\Psi *ss DGHJ
+--A,JK"ULKNHKOQUX Z"NH^` ^KqUC' C^GJUD^E^A,U "E^A,Uzoe Affiffi ssffi`ifflffi vffl^\Psi ffliffifi\Omega  _ae\Omega ff
+\Phi fflvfi ae*\Psi E,aefi *ffl_fi\Omega oe
+
+G*
+
+A procedure is a\Gamma \Gamma \Delta \Gamma  by \Theta sing th\Delta  \Lambda \Xi \Pi \Sigma \Delta \Gamma \Theta \Xi \Delta  v\Upsilon \Phi \Psi  \Omega \Psi \Psi Pff\Upsilon fifl\Psi ffifffl(Sfflff\Phi ij
+
+i\Omega mfl). Aft\Delta \Xi  a \Lambda \Xi \Pi \Sigma \Delta \Gamma \Theta \Xi \Delta  has b\Delta \Delta n a\Gamma \Gamma \Delta \Gamma , its in\Gamma \Delta x `i\Gamma ' in th\Delta  \Lambda \Xi \Pi g\Xi a^ ^ay
+b\Delta  f\Pi \Theta n\Gamma  by \Theta sing its na^\Delta , \Sigma alling th\Delta  \Lambda \Xi \Pi \Sigma \Delta \Gamma \Theta \Xi \Delta  \Phi iffl *ff\Upsilon fifl\Psi ffiffflNffim_flff(
+Sfflff\Phi ij i\Omega mfl). Th\Delta  \Gamma \Delta tails \Pi f th\Delta  \Lambda \Xi \Pi \Sigma \Delta \Gamma \Theta \Xi \Delta  ^\Theta st b\Delta  s\Theta \Lambda \Lambda li\Delta \Gamma  b\Delta f\Pi \Xi \Delta  th\Delta 
+
+byt\Delta \Sigma \Pi \Gamma \Delta  is g\Delta n\Delta \Xi at\Delta \Gamma . It is \Gamma \Pi n\Delta  by \Sigma alling *ffi_*\Phi fi v\Upsilon \Phi \Psi  ffi*\Psi \Omega fflflPff\Upsilon fifl\Psi ffifffl(
+C\Upsilon \Psi flPff\Upsilon fifl\Psi ffifffl fi\Upsilon \Psi flPff\Upsilon fifl\Psi ffifffl).
+
+F\Pi \Xi  a ,ssrucss th\Delta \Xi \Delta  a\Xi \Delta  si^ila\Xi  \Lambda \Xi \Pi \Sigma \Delta \Gamma \Theta \Xi \Delta s *ffi_*\Phi fi v\Upsilon \Phi \Psi  \Omega \Psi \Psi Sfflffffififfl(Sfflff\Phi ij
+
+i\Omega mfl), \Phi iffl aefflffffififflNffim_flff(Sfflff\Phi ij i\Omega mfl) an\Gamma  v\Upsilon \Phi \Psi  ffi*\Psi \Omega fflflSfflffffififfl(C\Upsilon \Psi fl-
+Sfflffffififfl fi\Upsilon \Psi flSfflffffififfl). In a\Gamma \Gamma iti\Pi n, g\Delta tting th\Delta  in\Gamma \Delta x \Pi f a oe\Delta l\Gamma  in a st\Xi \Theta \Sigma t is
+\Gamma \Pi n\Delta  by \Sigma alling \Phi iffl o/\Phi fl*\Psi Nffim_flff(Sfflff\Phi ij aefflffffififflN\Omega mflAE Sfflff\Phi ij v\Omega ffN\Omega mfl)
+\Theta sing th\Delta  na^\Delta  \Pi f th\Delta  st\Xi \Theta \Sigma t an\Gamma  th\Delta  na^\Delta  \Pi f th\Delta  oe\Delta l\Gamma .
+
+A ,ssrOEO/ coO/,ss!O/ss is a\Gamma \Gamma \Delta \Gamma  by \Theta sing th\Delta  \Lambda \Xi \Pi \Sigma \Delta \Gamma \Theta \Xi \Delta  \Phi iffl \Omega \Psi \Psi Sfflff\Phi ijC\Upsilon i-
+
+aeffl\Omega iffl(Sfflff\Phi ij v\Omega *ffifl). "\Pi t\Delta  that this \Lambda \Xi \Pi \Sigma \Delta \Gamma \Theta \Xi \Delta  \Xi \Delta t\Theta \Xi ns th\Delta  in\Gamma \Delta x `i\Gamma ' \Pi f
+th\Delta  \Sigma \Pi nstant \Gamma i\Xi \Delta \Sigma tly an\Gamma  th\Delta \Xi \Delta  is n\Pi  \Lambda \Xi \Pi \Sigma \Delta \Gamma \Theta \Xi \Delta  t\Pi  f\Delta t\Sigma h th\Delta  in\Gamma \Delta x \Pi f a \Sigma \Pi nstnt
+
+lat\Delta \Xi . Th\Delta  in\Gamma \Delta x is \Theta s\Delta \Gamma  wh\Delta n \Pi n\Delta  wants t\Pi  a\Sigma \Sigma \Delta ss a \Gamma \Delta oen\Delta \Gamma  \Sigma \Pi nstant an\Gamma 
+\Lambda \Theta sh it \Pi n th\Delta  sta\Sigma k. This is \Theta s\Delta \Gamma  f\Pi \Xi  st\Xi ing lit\Delta \Xi als by a \Sigma \Pi ^\Lambda il\Delta \Xi .
+
+Aft\Delta \Xi  all th\Delta  \Delta l\Delta ^\Delta nts a\Xi \Delta  a\Gamma \Gamma \Delta \Gamma  it is i^\Lambda \Pi \Xi tant t\Pi  l\Delta t th\Delta  int\Delta \Xi \Lambda \Xi \Delta t\Delta \Xi  kn\Pi w
+whi\Sigma h \Lambda \Xi \Pi \Sigma \Delta \Gamma \Theta \Xi \Delta  t\Pi  sta\Xi t with. This is \Gamma \Pi n\Delta  by \Theta sing th\Delta  na^\Delta  \Pi f th\Delta 
+
+\Lambda \Xi \Pi \Sigma \Delta \Gamma \Theta \Xi \Delta  `ty\Lambda i\Sigma ally "^ain#' an\Gamma  \Sigma alling v\Upsilon \Phi \Psi  aeflfflM\Omega \Phi i(Sfflff\Phi ij i\Omega mfl).
+
+$%&'*+%/'&0+'
+A \Lambda \Xi \Pi \Sigma \Delta \Gamma \Theta \Xi \Delta  in th\Delta  \Lambda \Xi \Pi g\Xi a^ is ^a\Gamma \Delta  by oe\Xi st a\Gamma \Gamma ing th\Delta  na^\Delta  t\Pi  th\Delta  1\Pi \Gamma \Delta Fil\Delta 
+\Pi bj\Delta \Sigma t, th\Delta n \Sigma \Xi \Delta ating an \Pi bj\Delta \Sigma t \Pi f this \Sigma lass, th\Delta n a\Gamma \Gamma ing th\Delta  \Lambda a\Xi a^\Delta t\Delta \Xi s,
+
+l\Pi \Sigma al 2a\Xi iabl\Delta s an\Gamma  inst\Xi \Theta \Sigma ti\Pi ns t\Pi  th\Delta  \Pi bj\Delta \Sigma t an\Gamma  oenally by \Theta \Lambda \Gamma ating th\Delta 
+1\Pi \Gamma \Delta Fil\Delta  \Pi bj\Delta \Sigma t with th\Delta  1\Pi \Gamma \Delta 3\Xi \Pi \Sigma \Delta \Gamma \Theta \Xi \Delta  \Pi bj\Delta \Sigma t.
+
+A procedure o45ecss is \Sigma \Xi \Delta at\Delta \Gamma  by \Theta sing th\Delta  \Sigma \Pi nst\Xi \Theta \Sigma t\Pi \Xi  C\Upsilon \Psi flPff\Upsilon fifl\Psi ffifffl(
+Sfflff\Phi ij i\Omega mflAE C\Upsilon \Psi fl67*fl ffflfflffiffi67*flAE C\Upsilon \Psi fl8\Phi *fl fi\Upsilon \Psi fl8\Phi *fl). This tak\Delta s
+th\Delta  \Theta niq\Theta \Delta  na^\Delta  \Pi f th\Delta  \Lambda \Xi \Pi \Sigma \Delta \Gamma \Theta \Xi \Delta , th\Delta  \Xi \Delta t\Theta \Xi n ty\Lambda \Delta  `9\Delta \Delta  1\Pi \Gamma \Delta Ty\Lambda \Delta  b\Delta l\Pi w'
+an\Gamma  th\Delta  \Sigma \Pi \Gamma \Delta oel\Delta  that it will b\Delta  a\Gamma \Gamma \Delta \Gamma  t\Pi . Th\Delta  \Xi \Delta as\Pi n that th\Delta  \Sigma \Pi \Gamma \Delta oel\Delta  is
+in\Sigma l\Theta \Gamma \Delta \Gamma  is that it is n\Delta \Delta \Gamma \Delta \Gamma  by th\Delta  \Lambda \Xi \Pi \Sigma \Delta \Gamma \Theta \Xi \Delta  \Pi bj\Delta \Sigma t t\Pi  \Lambda \Xi \Pi 2i\Gamma \Delta  s\Pi ^\Delta  \Pi f th\Delta 
+
+\Sigma \Pi \Gamma \Delta oel\Delta s s\Delta \Xi 2i\Sigma \Delta s th\Xi \Pi \Theta gh \Gamma \Delta l\Delta gati\Pi n.
+
+A p!r!:esser \Pi \Xi  ;oc!; !!rOE!4;e is a\Gamma \Gamma \Delta \Gamma  by \Theta sing th\Delta  \Lambda \Xi \Pi \Sigma \Delta \Gamma \Theta \Xi \Delta s v\Upsilon \Phi \Psi 
+\Omega \Psi \Psi P\Omega ff\Omega mflfflflff(Sfflff\Phi ij i\Omega mflAE C\Upsilon \Psi fl67*fl ffl7*fl) \Pi \Xi  v\Upsilon \Phi \Psi  \Omega \Psi \Psi L\Upsilon fi\Omega *V\Omega ff\Phi \Omega -
+_*fl(Sfflff\Phi ij i\Omega mflAE C\Upsilon \Psi fl67*fl ffl7*fl).
+
+An OEO/,ssrucssOEoO/ is a\Gamma \Gamma \Delta \Gamma  t\Pi  th\Delta  \Lambda \Xi \Pi \Sigma \Delta \Gamma \Theta \Xi \Delta  \Pi bj\Delta \Sigma t by \Theta sing \Phi iffl \Omega \Psi \Psi =iaefflffffifi-
+
+ffl\Phi \Upsilon i(=iaefflffffififfl\Phi \Upsilon i \Phi iaefflffffififfl\Phi \Upsilon i). Th\Delta  \Xi \Delta t\Theta \Xi n 2al\Theta \Delta  \Pi f this is th\Delta  in\Gamma \Delta x \Pi f
+th\Delta  inst\Xi \Theta \Sigma ti\Pi n in th\Delta  \Lambda \Xi \Pi \Sigma \Delta \Gamma \Theta \Xi \Delta s list \Pi f inst\Xi \Theta \Sigma ti\Pi ns. 9\Pi ^\Delta ti^\Delta s \Pi n\Delta  wants t\Pi 
+
+\Xi \Delta \Lambda la\Sigma \Delta  an \Delta a\Xi li\Delta \Xi  ins\Delta \Xi t\Delta \Gamma  inst\Xi \Theta \Sigma ti\Pi n. This is \Gamma \Pi n\Delta  by \Theta sing v\Upsilon \Phi \Psi  fffl**\Omega fifl-
+
+??
+
+Instruction(int place, Instruction instruction). F\Gamma \Delta  \Theta x\Lambda m\Xi \Pi \Theta \Sigma  \Gamma \Upsilon \Phi 
+m\Lambda y \Psi \Upsilon \Omega \Theta \Delta \Phi  \Lambda  NOP \Psi \Upsilon \Omega \Phi \Delta fffi\Phi \Psi \Gamma \Upsilon \Sigma  \Phi \Gamma  \Pi \Lambda \Phi \Theta \Delta  b\Theta  \Delta \Theta \Xi \Pi \Lambda fi\Theta d by \Lambda  JMP. R\Theta \Lambda d m\Gamma \Delta \Theta 
+\Psi \Upsilon  \Omega \Theta fi\Phi \Psi \Gamma \Upsilon  4 \Gamma \Upsilon  jffm\Xi \Omega . A \Xi \Delta \Gamma fi\Theta dff\Delta \Theta  mff\Omega \Phi  h\Lambda v\Theta  \Lambda \Phi  \Pi \Theta \Lambda \Omega \Phi  \Gamma \Upsilon \Theta  \Psi \Upsilon \Omega \Phi \Delta fffi\Phi \Psi \Gamma \Upsilon \Sigma  \Lambda \Upsilon d
+\Lambda \Pi \Omega \Gamma \Sigma  \Phi h\Lambda \Phi  \Psi \Upsilon \Omega \Phi \Delta fffi\Phi \Psi \Gamma \Upsilon  h\Lambda \Omega  \Phi \Gamma  b\Theta  \Lambda  fl\Upsilon \Lambda \Pi  RETURN \Psi \Upsilon \Omega \Phi \Delta fffi\Phi \Psi \Gamma \Upsilon .
+
+Th\Theta  ffifflij` 'f ^ *^_ffi^*,j \Gamma \Delta  \Xi \Lambda \Delta \Lambda m\Theta \Phi \Theta \Delta  fi\Lambda \Upsilon  b\Theta  ss\Gamma ff\Upsilon d by ff\Omega \Psi \Upsilon g int aear-
+
+iaoeleo/uAEoeer(StrinOE naAEe). N\Gamma \Phi \Theta  \Phi h\Lambda \Phi  \Pi \Gamma fi\Lambda \Pi  v\Lambda \Delta \Psi \Lambda b\Pi \Theta \Omega  mff\Omega \Phi  h\Lambda v\Theta  ff\Upsilon \Psi qff\Theta 
+\Upsilon \Lambda m\Theta \Omega  \Psi \Upsilon  \Lambda \Upsilon y b\Pi \Gamma fik \Lambda \Upsilon d \Phi h\Lambda \Phi  \Phi h\Theta  \Xi \Lambda \Delta \Lambda m\Theta \Phi \Theta \Delta \Omega  \Lambda \Delta \Theta  \Psi \Upsilon fi\Pi ffd\Theta d \Psi \Upsilon  \Phi h\Psi \Omega . Th\Theta 
+\Xi \Lambda \Delta \Lambda m\Theta \Phi \Theta \Delta \Omega  \Lambda \Delta \Theta  g\Psi v\Theta \Upsilon  \Phi h\Theta  fl\Delta \Omega \Phi  \Psi \Upsilon d\Psi fi\Theta \Omega  O/\Psi d\Omega  ss\Delta \Gamma m \Pi \Theta ss\Phi  \Phi \Gamma  \Delta \Psi gh\Phi \Sigma  \Omega \Phi \Lambda \Delta \Phi \Psi \Upsilon g ss\Delta \Gamma m 0.
+Th\Theta \Upsilon  \Phi h\Theta  v\Lambda \Delta \Psi \Lambda b\Pi \Theta \Omega  \Lambda \Delta \Theta  g\Psi v\Theta \Upsilon  \Phi h\Theta  \Omega ffb\Omega \Theta qff\Theta \Upsilon \Phi  \Psi \Upsilon d\Psi fi\Theta \Omega  \Psi \Upsilon  \Gamma \Delta d\Theta \Delta  \Gamma ss d\Theta fi\Pi \Lambda \Delta \Lambda \Phi \Psi \Gamma \Upsilon .
+
+A C\Gamma d\Theta P\Delta \Gamma fi\Theta dff\Delta \Theta  \Gamma bj\Theta fi\Phi  fi\Lambda \Upsilon  fl\Upsilon d \Phi h\Theta  \Psi \Upsilon d\Psi fi\Theta \Omega  \Gamma ss \Theta \Pi \Theta m\Theta \Upsilon \Phi \Omega  ff\Omega \Psi \Upsilon g \Psi \Phi \Omega  C\Gamma d\Theta !
+
+F\Psi \Pi \Theta  \Gamma bj\Theta fi\Phi \Sigma  \Omega \Gamma  \Psi \Phi  \Lambda \Pi \Omega \Gamma  h\Lambda \Omega  \Phi h\Theta  \Xi \Delta \Gamma fi\Theta dff\Delta \Theta \Omega  g\Pi \Gamma b\Lambda \Pi V\Lambda \Delta \Psi \Lambda b\Pi \Theta Nffmb\Theta \Delta \Sigma  \Xi \Delta \Gamma fi\Theta d!
+ff\Delta \Theta Nffmb\Theta \Delta \Sigma  \Omega \Phi \Delta fffi\Phi Nffmb\Theta \Delta  \Lambda \Upsilon d fl\Theta \Pi dNffmb\Theta \Delta . "\Phi  \Lambda \Pi \Omega \Gamma  h\Lambda \Omega  \Lambda \Upsilon d d\Theta \Pi \Theta g\Lambda \Phi \Theta \Omega  \Phi h\Theta 
+\Lambda dd#\Phi \Delta \Psi \Upsilon gC\Gamma \Upsilon \Omega \Phi \Lambda \Upsilon \Phi  \Xi \Delta \Gamma fi\Theta dff\Delta \Theta .
+
+$%&'*+/12+
+A 35_675 \Psi \Omega  fi\Delta \Theta \Lambda \Phi \Theta d w\Psi \Phi h \Phi h\Theta  fi\Gamma \Upsilon \Omega \Phi \Delta fffi\Phi \Gamma \Delta  8o9eStruct(StrinOE naAEe) \Xi \Delta \Gamma v\Psi d!
+\Psi \Upsilon g \Phi h\Theta  \Upsilon \Lambda m\Theta  \Gamma ss \Phi h\Theta  \Omega \Phi \Delta fffi\Phi . A fl\Theta \Pi d \Psi \Omega  \Lambda dd\Theta d \Phi \Gamma  \Phi h\Theta  \Omega \Phi \Delta fffi\Phi  by ff\Omega \Psi \Upsilon g aeoi9
+a99:ariaoele( StrinOE naAEe, 8o9e;!pe t!pe). T\Gamma  \Delta \Theta \Phi \Delta \Psi \Theta v\Theta  \Phi h\Theta  \Psi \Upsilon d\Theta x \Gamma ss
+\Lambda  fl\Theta \Pi d \Lambda dd\Theta d \Phi \Gamma  \Phi h\Theta  \Omega \Phi \Delta fffi\Phi  \Gamma \Upsilon \Theta  m\Lambda y ff\Omega \Theta  int =iel9o/uAEoeer(StrinOE naAEe).
+
+#\Theta \Theta  \Lambda \Pi \Omega \Gamma  \Phi h\Theta  ??@BDGHK?L \Xi \Delta \Gamma fi\Theta dff\Delta \Theta  \Gamma ss QWB?XY@?.
+
+$%&'Z["'
+Th\Psi \Omega  \Psi \Omega  \Lambda \Upsilon  \Lambda b\Omega \Phi \Delta \Lambda fi\Phi  fi\Pi \Lambda \Omega \Omega  \Lambda \Upsilon d \Psi \Phi  h\Lambda \Omega  \Lambda \Omega  fi\Gamma \Upsilon fi\Delta \Theta \Phi \Theta  \Omega ffbfi\Pi \Lambda \Omega \Omega \Theta \Omega  \Phi h\Theta  d\Psi ]\Theta \Delta \Theta \Upsilon \Phi  fi\Pi \Lambda \Omega \Omega \Theta \Omega 
+
+\Gamma ss \Phi y\Xi \Theta \Omega ^ .WYB`z-? O/ff\Omega \Theta d wh\Theta \Upsilon  \Lambda  \Xi \Delta \Gamma fi\Theta dff\Delta \Theta  h\Lambda \Omega  \Upsilon \Gamma  \Delta \Theta \Phi ff\Delta \Upsilon  \Phi y\Xi \Theta \Sigma  --WW@`z-?\Sigma 
+""~"`z-?\Sigma  X@WA*"`z-?\Sigma  A,"LY~C'`z-? \Lambda \Upsilon d C^?D^`z-? O/E^h\Theta \Upsilon  \Phi h\Theta  \Phi y\Xi \Theta  \Psi \Omega  \Lambda  \Delta \Theta ss\Theta \Delta \Theta \Upsilon fi\Theta 
+
+\Phi \Gamma  \Lambda  \Omega \Phi \Delta fffi\Phi .
+
+Th\Theta  b\Lambda \Omega \Psi fi \Phi y\Xi \Theta \Omega  h\Lambda v\Theta  \Lambda  \Omega \Psi \Upsilon g\Pi \Theta \Phi \Gamma \Upsilon  \Gamma bj\Theta fi\Phi  O/ss\Gamma \Delta  \Theta x\Lambda m\Xi \Pi \Theta  StrinOE;!peE,;G*L'L^
+wh\Psi fih \Psi \Omega  ff\Omega \Theta d \Lambda \Omega  \Lambda \Upsilon  \Lambda fi\Phi ff\Lambda \Pi  \Xi \Lambda \Delta \Lambda m\Theta \Phi \Theta \Delta  wh\Theta \Upsilon \Theta v\Theta \Delta  \Phi h\Lambda \Phi  \Psi \Omega  \Upsilon \Theta \Theta d\Theta d\Sigma  ss\Gamma \Delta  \Theta x\Lambda m\Xi \Pi \Theta 
+
+\Phi \Gamma  d\Theta fl\Upsilon \Theta  \Phi h\Theta  \Delta \Theta \Phi ff\Delta \Upsilon  \Phi y\Xi \Theta  \Gamma ss \Lambda  \Xi \Delta \Gamma fi\Theta dff\Delta \Theta  \Gamma \Delta  \Phi h\Theta  \Phi y\Xi \Theta  \Gamma ss \Lambda  fl\Theta \Pi d \Psi \Upsilon  \Lambda  \Omega \Phi \Delta fffi\Phi .
+
+Th\Theta  C^?D^`z-? fi\Pi \Lambda \Omega \Omega  \Psi \Omega  \Lambda  \Pi \Psi \Phi \Phi \Pi \Theta  d\Psi ]\Theta \Delta \Theta \Upsilon \Phi . Th\Theta \Delta \Theta  \Psi \Omega  \Upsilon \Gamma  \Omega \Psi \Upsilon g\Pi \Theta \Phi \Gamma \Upsilon  \Lambda \Upsilon d \Psi \Phi \Omega  fi\Gamma \Upsilon !
+
+\Omega \Phi \Delta fffi\Phi \Gamma \Delta  h\Lambda \Omega  \Lambda \Upsilon  \Psi \Upsilon \Phi \Theta g\Theta \Delta  \Xi \Lambda \Delta \Lambda m\Theta \Phi \Theta \Delta  wh\Psi fih \Psi \Omega  \Phi h\Theta  \Psi \Upsilon d\Theta x \Gamma ss \Phi h\Theta  \Omega \Phi \Delta fffi\Phi  ss\Gamma \Delta  wh\Psi fih
+\Phi h\Psi \Omega  \Phi y\Xi \Theta  \Psi \Omega  \Lambda  \Delta \Theta ss\Theta \Delta \Theta \Upsilon fi\Theta . Th\Theta  R\Theta ssTy\Xi \Theta  \Psi \Omega  ff\Omega \Theta d by fi\Delta \Theta \Lambda \Phi \Psi \Upsilon g \Lambda \Upsilon  \Gamma bj\Theta fi\Phi  w\Psi \Phi h \Phi h\Theta 
+\Psi \Upsilon d\Theta x O/\Psi d ss\Gamma \Delta  \Phi h\Theta  \Omega \Phi \Delta fffi\Phi  \Lambda \Omega  \Phi h\Theta  \Omega \Psi \Upsilon g\Pi \Theta  \Xi \Lambda \Delta \Lambda m\Theta \Phi \Theta \Delta . O\Upsilon \Theta  m\Lambda y m\Lambda k\Theta  m\Lambda \Upsilon y \Omega fffih
+
+\Gamma bj\Theta fi\Phi \Omega  ss\Gamma \Delta  \Phi h\Theta  \Omega \Lambda m\Theta  \Phi y\Xi \Theta  O/\Omega \Lambda m\Theta  \Psi \Upsilon d\Theta x \Psi ss \Phi h\Lambda \Phi  \Psi \Omega  m\Gamma \Delta \Theta  fi\Gamma \Upsilon v\Theta \Upsilon \Psi \Theta \Upsilon \Phi \Sigma  \Gamma \Delta  jff\Omega \Phi 
+\Delta \Theta ff\Omega \Theta  \Phi h\Theta  \Omega \Lambda m\Theta  \Gamma bj\Theta fi\Phi  ss\Gamma \Delta  \Phi h\Theta  \Phi y\Xi \Theta . A\Upsilon  \Gamma bj\Theta fi\Phi  \Gamma ss \Phi h\Theta  \Delta \Theta ss\Theta \Delta \Theta \Upsilon fi\Theta  \Phi y\Xi \Theta  \Phi \Gamma  \Phi h\Theta 
+\Omega \Phi \Delta fffi\Phi  L/C\Gamma m\Xi \Pi \Theta xN' fi\Lambda \Upsilon  b\Theta  fi\Delta \Theta \Lambda \Phi \Theta d \Pi \Psi k\Theta  \Phi h\Psi \Omega ^
+
+N^N^
+
+CodeFile cf = !...? ;
+...
+cf.addStruct("Complex");
+...
+
+RefType rt = new RefType(cf.structNumber("Complex");
+
+V\Gamma \Delta \Theta \Lambda \Xi \Pi  M\Xi \Sigma h\Gamma \Upsilon \Phi  \Pi \Gamma \Psi \Theta \Gamma \Upsilon g \Omega ff \Theta h\Phi  \Phi fi\Xi flffi\Pi \Phi  ff\Delta \Omega fl \Phi \Xi \Delta \Pi \Gamma \Phi \Delta  \Gamma \Upsilon  \Theta h\Gamma \Psi 
+
+\Psi \Phi \Sigma \Theta \Gamma \Omega \Upsilon 
+
+Loadinffl from file: ./example.bin
+iariables:
+0: var Complex myGlobaliar
+Procedures:
+0: func void print.float()
+1: func void jain()
+
+0: return
+2: func void test(float 0, Complex 1, float 2)
+
+0: loadlocal 0
+3: call print.float -0""
+6: return
+Structs:
+0: Complex
+
+0: float
+1: float
+Constants:
+STARTWITH: jain
+
+`'
+
+3 How the interpreter works
+W\Gamma \Delta \Theta  \Lambda \Gamma \Delta  v\Xi \Pi \Lambda ual mac\Gamma \Xi \Theta \Delta  \Xi \Sigma  \Sigma \Lambda a\Pi \Lambda \Delta d, \Lambda \Gamma \Delta  \Xi \Theta \Lambda \Delta \Pi \Upsilon \Pi \Delta \Lambda \Delta \Pi  \Xi \Sigma  \Sigma \Delta \Lambda  u\Upsilon  by \Lambda \Gamma \Delta  l\Phi ad\Delta \Pi .
+I\Lambda  \Gamma a\Sigma  a va\Pi \Xi abl\Delta  \Upsilon \Phi \Phi l, \Psi \Gamma \Xi c\Gamma  \Gamma \Phi ld\Sigma  \Lambda \Gamma \Delta  \Lambda y\Upsilon \Delta  \Phi f \Delta ac\Gamma  gl\Phi bal va\Pi \Xi abl\Delta . I\Lambda  \Gamma a\Sigma 
+
+a \Upsilon \Pi \Phi c\Delta du\Pi \Delta  \Upsilon \Phi \Phi l \Psi \Gamma \Xi c\Gamma  c\Phi \Theta \Lambda a\Xi \Theta \Sigma  all \Lambda \Gamma \Delta  \Upsilon \Pi \Phi c\Delta du\Pi \Delta \Sigma : \Lambda \Gamma \Delta \Xi \Pi  \Upsilon a\Pi am\Delta \Lambda \Delta \Pi  a\Theta d
+l\Phi cal va\Pi \Xi abl\Delta  \Lambda y\Upsilon \Delta \Sigma , \Pi \Delta \Lambda u\Pi \Theta  \Lambda y\Upsilon \Delta  a\Theta d \Xi \Theta \Sigma \Lambda \Pi uc\Lambda \Xi \Phi \Theta \Sigma . I\Lambda  \Gamma a\Sigma  a \Sigma \Lambda \Pi uc\Lambda  \Upsilon \Phi \Phi l \Psi \Xi \Lambda \Gamma 
+\Lambda \Gamma \Delta  lay\Phi u\Lambda  \Phi f \Lambda \Gamma \Delta  \Sigma \Lambda \Pi uc\Lambda \Sigma ; \Lambda \Gamma \Delta \Xi \Pi  \Theta am\Delta \Sigma  a\Theta d \Lambda \Gamma \Delta  \Lambda y\Upsilon \Delta \Sigma  (bu\Lambda  \Theta \Phi \Lambda  \Theta am\Delta \Sigma ) \Phi f \Lambda \Gamma \Delta 
+fi\Delta ld\Sigma . I\Lambda  al\Sigma \Phi  \Gamma a\Sigma  a c\Phi \Theta \Sigma \Lambda a\Theta \Lambda  \Upsilon \Phi \Phi l \Psi \Xi \Lambda \Gamma  all \Lambda \Gamma \Delta  c\Phi \Theta \Sigma \Lambda a\Theta \Lambda \Sigma  f\Pi \Phi m \Lambda \Gamma \Delta  by\Lambda \Delta c\Phi d\Delta 
+fil\Delta . All \Lambda \Gamma \Delta \Sigma \Delta  \Upsilon \Phi \Phi l\Sigma  a\Pi \Delta  \Xi \Theta d\Delta x\Delta d by \Theta umb\Delta \Pi \Sigma  (\Xi d\Sigma ), \Psi \Gamma \Xi c\Gamma  a\Pi \Delta  \Lambda \Gamma \Delta  \Theta umb\Delta \Pi \Sigma 
+u\Sigma \Delta d \Xi \Theta  \Lambda \Gamma \Delta  \Xi \Theta \Sigma \Lambda \Pi uc\Lambda \Xi \Phi \Theta \Sigma .
+
+W\Gamma \Delta \Theta  \Lambda \Gamma \Delta  \Xi \Theta \Lambda \Delta \Pi \Upsilon \Pi \Delta \Lambda \Delta \Pi  \Xi \Sigma  \Sigma \Lambda a\Pi \Lambda \Delta d, \Sigma \Upsilon ac\Delta  \Xi \Sigma  all\Phi ca\Lambda \Delta d f\Phi \Pi  \Lambda \Gamma \Delta  gl\Phi bal va\Pi \Xi abl\Delta \Sigma 
+
+a\Theta d \Lambda \Gamma \Delta y a\Pi \Delta  \Xi \Theta \Xi \Lambda \Xi al\Xi z\Delta d \Psi \Xi \Lambda \Gamma  \Lambda \Gamma \Delta  \Xi \Theta \Xi \Lambda \Xi al valu\Delta \Sigma  f\Phi \Pi  \Lambda \Gamma \Delta \Xi \Pi  \Lambda y\Upsilon \Delta \Sigma  (S\Delta \Delta  fu\Pi \Lambda \Gamma \Delta \Pi 
+d\Phi \Psi \Theta  f\Phi \Pi  m\Phi \Pi \Delta  \Phi \Theta  \Xi \Theta \Xi \Lambda \Xi al valu\Delta \Sigma ). T\Gamma \Delta \Theta  a \Sigma \Lambda ac\Omega  a\Theta d a \Gamma \Delta a\Upsilon  \Xi \Sigma  c\Pi \Delta a\Lambda \Delta d a\Theta d
+
+a\Theta  ac\Lambda \Xi va\Lambda \Xi \Phi \Theta  bl\Phi c\Omega  f\Phi \Pi  \Lambda \Gamma \Delta  ma\Xi \Theta  \Upsilon \Pi \Phi c\Delta du\Pi \Delta  \Xi \Sigma  c\Pi \Delta a\Lambda \Delta d a\Theta d \Lambda \Gamma \Delta  \Xi \Theta \Lambda \Delta \Pi \Upsilon \Pi \Delta \Lambda \Delta \Pi 
+\Sigma \Lambda a\Pi \Lambda \Sigma  \Xi \Theta \Lambda \Delta \Pi \Upsilon \Pi \Delta \Lambda \Xi \Theta g \Lambda \Gamma \Delta  by\Lambda \Delta c\Phi d\Delta  \Phi f \Lambda \Gamma a\Lambda  \Upsilon \Pi \Phi c\Delta du\Pi \Delta  a\Lambda  \Lambda \Gamma \Delta  fi\Pi \Sigma \Lambda  by\Lambda \Delta  (S\Delta \Lambda \Lambda \Xi \Theta g
+\Lambda \Gamma \Delta  \Upsilon \Pi \Phi g\Pi am c\Phi u\Theta \Lambda \Delta \Pi  \Phi \Pi  \Upsilon c \Lambda \Phi  0).
+
+T\Gamma \Delta  \Xi \Theta \Sigma \Lambda \Pi uc\Lambda \Xi \Phi \Theta \Sigma  d\Phi  \Lambda \Gamma \Xi \Theta g\Sigma  l\Xi \Omega \Delta  l\Phi ad a gl\Phi bal va\Pi \Xi abl\Delta  (LOADGLOBAL) \Phi \Theta \Lambda \Phi 
+\Lambda \Gamma \Delta  \Sigma \Lambda ac\Omega . T\Gamma \Delta  LOADGLOBAL \Xi \Theta \Sigma \Lambda \Pi uc\Lambda \Xi \Phi \Theta  \Gamma a\Sigma  2 \Delta x\Lambda \Pi a by\Lambda \Delta \Sigma  \Psi \Gamma \Xi c\Gamma  c\Phi \Theta \Lambda a\Xi \Theta 
+\Lambda \Gamma \Delta  \Xi d \Phi f \Lambda \Gamma \Delta  va\Pi \Xi abl\Delta  \Lambda \Phi  \Upsilon u\Sigma \Gamma  \Lambda \Phi  \Lambda \Gamma \Delta  \Sigma \Lambda ac\Omega  f\Pi \Phi m \Lambda \Gamma \Delta  gl\Phi bal va\Pi \Xi abl\Delta \Sigma . W\Gamma \Delta \Theta 
+\Lambda \Gamma a\Lambda  \Xi \Theta \Sigma \Lambda \Pi uc\Lambda \Xi \Phi \Theta  \Xi \Sigma  \Upsilon \Delta \Pi f\Phi \Pi m\Delta d, ff mu\Sigma \Lambda  b\Delta  add\Delta d \Lambda \Phi  \Lambda \Gamma \Delta  \Upsilon c \Lambda \Phi  m\Phi v\Delta  \Lambda \Phi  \Lambda \Gamma \Delta 
+\Theta \Delta x\Lambda  \Xi \Theta \Sigma \Lambda \Pi uc\Lambda \Xi \Phi \Theta . T\Gamma \Xi \Sigma  \Xi \Theta c\Pi \Delta m\Delta \Theta \Lambda  d\Xi fl\Delta \Pi \Sigma  f\Pi \Phi m \Xi \Theta \Sigma \Lambda \Pi uc\Lambda \Xi \Phi \Theta  \Lambda \Phi  \Xi \Theta \Sigma \Lambda \Pi uc\Lambda \Xi \Phi \Theta  a\Theta d
+\Xi \Sigma  \Lambda \Gamma \Delta  "\Sigma \Xi z\Delta " \Xi \Theta  \Lambda \Gamma \Delta  \Lambda abl\Delta  \Psi \Xi \Lambda \Gamma  all \Lambda \Gamma \Delta  \Xi \Theta \Sigma \Lambda \Pi uc\Lambda \Xi \Phi \Theta \Sigma  \Xi \Theta  \Sigma \Delta c\Lambda \Xi \Phi \Theta  5. A\Theta \Phi \Lambda \Gamma \Delta \Pi 
+\Xi \Theta \Sigma \Lambda \Pi uc\Lambda \Xi \Phi \Theta  \Xi \Sigma  ADD. W\Gamma \Delta \Theta  \Lambda \Gamma a\Lambda  \Xi \Sigma  \Xi \Theta \Lambda \Delta \Pi \Upsilon \Pi \Delta \Lambda \Delta d, \Lambda \Gamma \Delta  \Lambda \Psi \Phi  valu\Delta \Sigma  \Phi \Theta  \Lambda \Phi \Upsilon  \Phi f \Lambda \Gamma \Delta 
+
+\Sigma \Lambda ac\Omega  \Xi \Sigma  add\Delta d \Lambda \Phi  \Delta ac\Gamma  \Phi \Lambda \Gamma \Delta \Pi . W\Gamma a\Lambda  \Omega \Xi \Theta d \Phi f add\Xi \Lambda \Xi \Phi \Theta  d\Delta \Upsilon \Delta \Theta d\Sigma  \Phi \Theta  \Lambda \Gamma \Delta  \Lambda y\Upsilon \Delta \Sigma  \Phi f
+\Lambda \Gamma \Delta  \Lambda \Psi \Phi , \Psi \Gamma \Xi c\Gamma  \Xi \Sigma  d\Delta \Lambda \Delta \Pi m\Xi \Theta \Delta d a\Lambda  \Pi u\Theta \Lambda \Xi m\Delta . T\Gamma \Delta  \Pi \Delta \Sigma ul\Lambda  \Xi \Sigma  \Upsilon u\Sigma \Gamma \Delta d \Phi \Theta  \Lambda \Gamma \Delta  \Sigma \Lambda ac\Omega 
+a\Theta d \Sigma \Xi \Theta c\Delta  \Lambda \Gamma \Delta  \Sigma \Xi z\Delta  \Xi \Sigma  \Phi \Theta ly \Phi \Theta \Delta  (\Lambda \Gamma \Delta  \Xi \Theta \Sigma \Lambda \Pi uc\Lambda \Xi \Phi \Theta  by\Lambda \Delta  \Phi \Theta ly), \Phi \Theta \Delta  \Xi \Sigma  add\Delta d \Lambda \Phi 
+\Lambda \Gamma \Delta  \Upsilon c.
+
+Bl\Phi c\Omega  l\Delta v\Delta l\Sigma  a\Pi \Delta  \Theta \Phi \Lambda  \Sigma u\Upsilon \Upsilon \Phi \Pi \Lambda \Delta d by \Lambda \Gamma \Delta  v\Xi \Pi \Lambda ual mac\Gamma \Xi \Theta \Delta  a\Theta d \Phi \Theta ly gl\Phi bal \Phi \Pi  l\Phi cal
+
+va\Pi \Xi abl\Delta \Sigma  ca\Theta  b\Delta  u\Sigma \Delta d (LOADGLOBAL, LOADLOCAL, STOREGLOBAL,
+STORELOCAL). All \Theta am\Delta \Sigma  \Phi f \Upsilon \Pi \Phi c\Delta du\Pi \Delta \Sigma , \Sigma \Lambda \Pi uc\Lambda \Sigma  a\Theta d va\Pi \Xi abl\Delta \Sigma  mu\Sigma \Lambda  b\Delta 
+u\Theta \Xi qu\Delta . A \Upsilon \Pi \Phi c\Delta du\Pi \Delta  mu\Sigma \Lambda  al\Psi ay\Sigma  \Delta \Theta d \Psi \Xi \Lambda \Gamma  a RETURN \Xi \Theta \Sigma \Lambda \Pi uc\Lambda \Xi \Phi \Theta . If a
+
+\Upsilon \Pi \Phi c\Delta du\Pi \Delta  f\Phi u\Theta d \Xi \Theta  \Lambda \Gamma \Delta  b\Xi \Theta a\Pi y fil\Delta  a\Lambda  l\Phi ad\Lambda \Xi m\Delta  \Xi \Sigma  \Psi \Xi \Lambda \Gamma \Phi u\Lambda  \Xi \Theta \Sigma \Lambda \Pi uc\Lambda \Xi \Phi \Theta \Sigma  \Xi \Lambda  \Xi \Sigma 
+a\Sigma \Sigma um\Delta d \Lambda \Phi  b\Delta  a l\Xi b\Pi a\Pi y \Upsilon \Pi \Phi c\Delta du\Pi \Delta , a\Theta d a call \Lambda \Phi  \Xi \Lambda  \Pi \Delta \Sigma ul\Lambda \Sigma  \Xi \Theta  a l\Phi \Phi \Omega u\Upsilon  \Xi \Theta  a
+\Lambda abl\Delta  \Phi f l\Xi b\Pi a\Pi y \Upsilon \Pi \Phi c\Delta du\Pi \Delta \Sigma .
+
+All va\Pi \Xi abl\Delta \Sigma ; \Xi \Theta  \Sigma \Lambda \Pi uc\Lambda \Sigma , gl\Phi bal a\Theta d l\Phi cal a\Pi \Delta  all\Phi ca\Lambda \Delta d \Psi \Xi \Lambda \Gamma  \Xi \Theta \Xi \Lambda \Xi al valu\Delta \Sigma ;
+\Psi \Gamma \Xi c\Gamma  d\Delta \Upsilon \Delta \Theta d \Phi \Theta  \Lambda \Gamma \Delta \Xi \Pi  \Lambda y\Upsilon \Delta \Sigma . A\Theta  \Xi \Theta \Lambda  \Xi \Sigma  \Sigma \Delta \Lambda  \Lambda \Phi  0, a ffi\Phi a\Lambda  \Lambda \Phi  0.0, a \Sigma \Lambda \Pi \Xi \Theta g \Lambda \Phi  ""
+
+a\Theta d a \Pi \Delta f\Delta \Pi \Delta \Theta c\Delta  \Xi \Sigma  \Sigma \Delta \Lambda  \Lambda \Phi  \Lambda \Gamma \Delta  Null R\Delta f\Delta \Pi \Delta \Theta c\Delta .
+
+1ff
+
+Calling a procedure
+A \Gamma \Delta \Theta \Lambda \Xi \Pi \Sigma \Delta \Xi  \Upsilon s \Lambda \Phi \Psi \Psi \Xi \Pi  w\Upsilon th th\Xi  \Omega ALL \Upsilon ffst\Delta \Sigma \Lambda t\Upsilon \Theta ff. Th\Xi  byt\Xi  \Upsilon ffst\Delta \Sigma \Lambda t\Upsilon \Theta ff
+
+\Upsilon s f\Theta \Psi \Psi \Theta w\Xi \Pi  by th\Xi  \Upsilon ff\Pi \Xi x \Theta f th\Xi  \Gamma \Delta \Theta \Lambda \Xi \Pi \Sigma \Delta \Xi  t\Theta  b\Xi  \Lambda \Phi \Psi \Psi \Xi \Pi . Th\Xi  \Upsilon fft\Xi \Delta \Gamma \Delta \Xi t\Xi \Delta 
+\Psi \Theta \Lambda \Phi t\Xi s th\Xi  \Gamma \Delta \Theta \Lambda \Xi \Pi \Sigma \Delta \Xi  by \Sigma s\Upsilon fffi th\Xi  \Upsilon ff\Pi \Xi x, \Lambda \Delta \Xi \Phi t\Xi s \Phi ff \Phi \Lambda t\Upsilon v\Phi t\Upsilon \Theta ff b\Psi \Theta \Lambda k f\Delta \Theta m
+th\Xi  \Upsilon fff\Theta \Delta m\Phi t\Upsilon \Theta ff \Upsilon t h\Phi s, \Upsilon fft\Upsilon \Phi \Psi \Upsilon z\Xi s \Psi \Theta \Lambda \Phi \Psi  v\Phi \Delta \Upsilon \Phi b\Psi \Xi s, s\Phi v\Xi s th\Xi  \Gamma \Delta \Theta fi\Delta \Phi m \Lambda \Theta \Sigma fft\Xi \Delta 
+
+\Phi ff\Pi  s\Xi ts th\Xi  \Gamma \Delta \Theta fi\Delta \Phi m \Lambda \Theta \Sigma fft\Xi \Delta  t\Theta  th\Xi  fl\Delta st byt\Xi  \Theta f th\Xi  \Lambda \Phi \Psi \Psi \Xi \Pi  f\Sigma ff\Lambda t\Upsilon \Theta ff.
+
+Reffiurn
+
+Th\Xi  \Phi \Lambda t\Upsilon v\Phi t\Upsilon \Theta ff b\Psi \Theta \Lambda k \Upsilon s \Gamma \Theta \Gamma \Gamma \Xi \Pi  \Theta ffl th\Xi  st\Phi \Lambda k \Phi ff\Pi  th\Xi  \Gamma \Delta \Theta fi\Delta \Phi m \Lambda \Theta \Sigma fft\Xi \Delta  \Upsilon s s\Xi t
+t\Theta  wh\Xi \Delta \Xi  \Upsilon t w\Phi s b\Xi f\Theta \Delta \Xi  th\Xi  \Lambda \Phi \Psi \Psi . Th\Xi  \Delta \Xi t\Sigma \Delta ff v\Phi \Psi \Sigma \Xi , wh\Upsilon \Lambda h th\Xi  \Lambda \Phi \Psi \Psi \Xi \Pi  \Gamma \Delta \Theta \Lambda \Xi \Pi \Sigma \Delta \Xi 
+
+\Psi \Xi ft \Theta ff th\Xi  st\Phi \Lambda k \Upsilon s \Phi fi\Phi \Upsilon ff \Psi \Xi ft \Theta ff th\Xi  t\Theta \Gamma  \Theta f th\Xi  st\Phi \Lambda k f\Theta \Delta  th\Xi  \Lambda \Phi \Psi \Psi \Upsilon fffi \Gamma \Delta \Theta \Lambda \Xi \Pi \Sigma \Delta \Xi .
+
+Juiping
+j\Sigma m\Gamma \Upsilon fffi \Upsilon s s\Upsilon m\Gamma \Psi y \Pi \Theta ff\Xi  by s\Xi tt\Upsilon fffi th\Xi  \Gamma \Delta \Theta fi\Delta \Phi m \Lambda \Theta \Sigma fft\Xi \Delta  t\Theta  th\Xi  byt\Xi  w\Upsilon th
+th\Xi  ff\Sigma mb\Xi \Delta  th\Phi t \Phi \Lambda \Lambda \Theta m\Gamma \Phi ff\Upsilon \Xi s th\Xi  j\Sigma m\Gamma  \Upsilon ffst\Delta \Sigma \Lambda t\Upsilon \Theta ff. Th\Upsilon s \Upsilon s \Phi \Psi w\Phi ys \Phi  \Psi \Theta \Lambda \Phi \Psi 
+
+\Phi \Pi \Pi \Delta \Xi ss w\Upsilon th\Upsilon ff \Phi  \Gamma \Delta \Theta \Lambda \Xi \Pi \Sigma \Delta \Xi s \Upsilon ffst\Delta \Sigma \Lambda t\Upsilon \Theta ff byt\Xi s.
+
+`llocaffiing a 'ffirucffi on ffi^e ^eap
+Wh\Xi ff \Phi  st\Delta \Sigma \Lambda t \Upsilon s \Phi \Psi \Psi \Theta \Lambda \Phi t\Xi \Pi  by th\Xi  h\Xi \Phi \Gamma  (\Sigma s\Upsilon fffi th\Xi  NEW \Upsilon ffst\Delta \Sigma \Lambda t\Upsilon \Theta ff) \Phi  \Delta \Xi f-
+
+\Xi \Delta \Xi ff\Lambda \Xi  \Upsilon s \Psi \Xi ft \Theta ff th\Xi  st\Phi \Lambda k th\Phi t \Lambda \Phi ff b\Xi  \Gamma \Phi ss\Xi \Pi  \Phi \Delta \Theta \Sigma ff\Pi  \Phi ff\Pi  s\Phi v\Xi \Pi  \Upsilon ff v\Phi \Delta \Upsilon \Phi b\Psi \Xi s.
+Th\Xi  NEW \Upsilon ffst\Delta \Sigma \Lambda t\Upsilon \Theta ff \Upsilon s f\Theta \Psi \Psi \Theta w\Xi \Pi  by th\Xi  \Upsilon ff\Pi \Xi x \Theta f th\Xi  st\Delta \Sigma \Lambda t t\Theta  \Phi \Psi \Psi \Theta \Lambda \Phi t\Xi .
+
+Geffi and Puffi Field
+
+Th\Xi  \Upsilon fftst\Delta \Sigma \Lambda t\Upsilon \Theta ff *ET_IELD \Upsilon s f\Theta \Psi \Psi \Theta w\Xi \Pi  by th\Xi  \Upsilon ff\Pi \Xi x \Theta f th\Xi  st\Delta \Sigma \Lambda t \Phi ff\Pi  th\Xi 
+\Upsilon ff\Pi \Xi x \Theta f th\Xi  fl\Xi \Psi \Pi  w\Upsilon th\Upsilon ff th\Phi t st\Delta \Sigma \Lambda t. Wh\Xi ff \Upsilon t \Upsilon s \Upsilon fft\Xi \Delta \Gamma \Delta \Xi t\Xi \Pi , th\Xi  \Upsilon fft\Xi \Delta \Gamma \Delta \Xi t\Xi \Delta 
+\Phi ss\Sigma m\Xi s th\Phi t \Phi  \Delta \Xi f\Xi \Delta \Xi ff\Lambda \Xi  t\Theta  th\Xi  st\Delta \Sigma \Lambda t \Upsilon s \Theta ff th\Xi  t\Theta \Gamma  \Theta f th\Xi  st\Phi \Lambda k, \Phi ff\Pi  th\Phi t
+\Delta \Xi f\Xi \Delta \Xi ff\Lambda \Xi  \Upsilon s \Gamma \Theta \Gamma \Gamma \Xi \Pi  \Theta f th\Xi  st\Phi \Lambda k. Th\Xi  h\Xi \Phi \Gamma  \Upsilon s \Upsilon ffst\Delta \Sigma \Lambda t\Xi \Pi  t\Theta  fi\Xi t th\Xi  v\Phi \Psi \Sigma \Xi  \Theta f
+th\Xi  fl\Xi \Psi \Pi  w\Upsilon th\Upsilon ff th\Xi  st\Delta \Sigma \Lambda t \Phi ff\Pi  th\Xi  \Upsilon fft\Xi \Delta \Gamma \Delta \Xi t\Xi \Delta  \Gamma \Sigma sh\Xi s th\Xi  v\Phi \Psi \Sigma \Xi  \Theta f th\Xi  fl\Xi \Psi \Pi  t\Theta 
+th\Xi  st\Phi \Lambda k. If th\Xi  \Delta \Xi f\Xi \Delta \Xi ff\Lambda \Xi  \Upsilon s th\Xi  N\Sigma \Psi \Psi  *\Xi f\Xi \Delta \Xi ff\Lambda \Xi , th\Xi  \Upsilon fft\Xi \Delta \Gamma \Delta \Xi t\Xi \Delta  \Upsilon s \Phi b\Theta \Delta t\Xi \Pi 
+
+w\Upsilon th \Phi ff \Xi \Delta \Delta \Theta \Delta  m\Xi ss\Phi fi\Xi .
+
+14
+
+4 Some typical tasks
+In \Gamma h\Delta \Theta  \Theta \Lambda \Xi \Gamma \Delta \Pi n w\Lambda  \Theta h\Pi w h\Pi w \Theta \Pi \Sigma \Lambda  \Pi f \Gamma h\Lambda  u\Theta u\Upsilon \Phi  \Gamma \Upsilon \Theta \Psi \Theta  \Upsilon r\Lambda  \Theta \Pi \Phi v\Lambda d.
+A\Theta  h\Upsilon \Theta  \Upsilon \Phi r\Lambda \Upsilon d\Omega  b\Lambda \Lambda n \Theta h\Pi wn, \Theta \Pi \Sigma \Lambda  \Pi f \Gamma h\Lambda  \Delta n\Theta \Gamma ru\Xi \Gamma \Delta \Pi n \Xi \Phi \Upsilon \Theta \Theta \Lambda \Theta  \Upsilon r\Lambda  \Xi r\Lambda \Upsilon \Gamma \Lambda d b\Omega 
+\Theta uffff\Phi \Omega \Delta ng \Pi n\Lambda  \Pi r \Gamma w\Pi  \Delta n\Gamma \Lambda g\Lambda r v\Upsilon \Phi u\Lambda \Theta , wh\Delta \Xi h \Upsilon r\Lambda  \Gamma h\Lambda  \Delta d\Theta  \Pi f ffr\Pi \Xi \Lambda dur\Lambda \Theta , \Theta \Gamma ru\Xi \Gamma ,
+v\Upsilon r\Delta \Upsilon b\Phi \Lambda \Theta , \Pi r \Theta \Pi \Sigma \Lambda \Gamma h\Delta ng, \Gamma h\Upsilon \Gamma  \Upsilon r\Lambda  \Gamma \Pi  b\Lambda  u\Theta \Lambda d wh\Lambda n \Gamma h\Lambda  \Delta n\Theta \Gamma ru\Xi \Gamma \Delta \Pi n \Delta \Theta  \Delta n\Gamma \Lambda r-
+ffr\Lambda \Gamma \Lambda d, f\Pi r \Lambda x\Upsilon \Sigma ff\Phi \Lambda , JMP \Delta \Theta  \Xi r\Lambda \Upsilon \Gamma \Lambda d w\Delta \Gamma h \Upsilon n \Delta n\Gamma \Lambda g\Lambda r ff\Upsilon r\Upsilon \Sigma \Lambda \Gamma \Lambda r, wh\Delta \Xi h \Delta \Theta  \Gamma h\Lambda 
+\Delta nd\Lambda x \Pi f \Gamma h\Lambda  \Delta n\Theta \Gamma ru\Xi \Gamma \Delta \Pi n \Gamma \Pi  ju\Sigma ff \Gamma \Pi .
+
+Wh\Lambda n \Upsilon n \Delta n\Theta \Gamma ru\Xi \Gamma \Delta \Pi n \Delta \Theta  \Upsilon dd\Lambda d \Gamma \Pi  \Gamma h\Lambda  \Theta \Gamma r\Lambda \Upsilon \Sigma  \Pi f b\Omega \Gamma \Lambda \Theta , \Delta \Gamma  \Delta \Theta  f\Pi \Phi \Phi \Pi w\Lambda d b\Omega  \Gamma h\Lambda \Theta \Lambda 
+\Delta nd\Delta \Xi \Lambda \Theta  \Xi \Pi d\Lambda d \Upsilon \Theta  0 \Gamma \Pi  fi b\Omega \Gamma \Lambda \Theta , d\Lambda ff\Lambda nd\Delta ng \Pi n \Gamma h\Lambda  \Theta \Delta z\Lambda  n\Lambda \Lambda d\Lambda d. In \Gamma h\Delta \Theta  w\Upsilon \Omega , \Upsilon 
+"b\Omega \Gamma \Lambda " \Xi \Upsilon n b\Lambda  fr\Pi \Sigma  1 \Gamma \Pi  5 b\Omega \Gamma \Lambda \Theta  \Phi \Pi ng.
+
+Cflffiffifflij fl `'^*_*,'_
+Th\Lambda  \Xi \Pi n\Theta \Gamma ru\Xi \Gamma \Pi r \Pi f \Gamma h\Lambda  ssALL \Xi \Phi \Upsilon \Theta \Theta  h\Upsilon \Theta  \Upsilon n In\Gamma \Lambda g\Lambda r ff\Upsilon r\Upsilon \Sigma \Lambda \Gamma \Lambda r fun\Xi Nu\Sigma . Th\Upsilon \Gamma 
+\Delta \Theta  \Gamma h\Lambda  \Delta nd\Lambda x \Pi f \Gamma h\Lambda  ffr\Pi \Xi \Lambda dur\Lambda  \Upsilon nd \Xi \Upsilon n b\Lambda  g\Pi \Gamma \Gamma \Lambda n fr\Pi \Sigma  \Upsilon  ss\Pi d\Lambda F\Delta \Phi \Lambda  \Pi bj\Lambda \Xi \Gamma  \Delta f
+
+\Gamma h\Lambda  ffr\Pi \Xi \Lambda dur\Lambda  h\Upsilon \Theta  b\Lambda \Lambda n \Upsilon dd\Lambda d. ae\Pi  \Upsilon  \Xi \Upsilon \Phi \Phi  \Delta n\Theta \Gamma ru\Xi \Gamma \Delta \Pi n \Delta \Theta  \Xi r\Lambda \Upsilon \Gamma \Lambda d \Upsilon nd \Upsilon dd\Lambda d \Gamma \Pi 
+\Gamma h\Lambda  \Phi \Delta \Theta \Gamma  \Pi f \Delta n\Theta \Gamma ru\Xi \Gamma \Delta \Pi n\Theta  \Phi \Delta \Psi \Lambda  \Delta n \Gamma h\Lambda  \Lambda x\Upsilon \Sigma ff\Phi \Lambda  \Delta n \Gamma h\Lambda  ffr\Lambda v\Delta \Pi \Theta  \Theta \Lambda \Xi \Gamma \Delta \Pi n.
+
+oeo/AEoeOEO/!#AEoe$%&oe'(#)#o/* +/22)oeo/AEoeOE3$(&o/%$o/6%78o/$)
+
+93$'#oe.:;(O/oe9!!!=
+
+?,?`fflij
+Th\Lambda  \Xi \Pi n\Theta \Gamma ru\Xi \Gamma \Pi r \Pi f \Gamma h\Lambda  JMP \Xi \Phi \Upsilon \Theta \Theta  h\Upsilon \Theta  \Upsilon n \Delta n\Gamma \Lambda g\Lambda r ff\Upsilon r\Upsilon \Sigma \Lambda \Gamma \Lambda r ju\Sigma ffT\Pi . Th\Delta \Theta 
+\Delta \Theta  \Gamma h\Lambda  \Delta nd\Lambda x \Gamma h\Upsilon \Gamma  \Gamma h\Lambda  \Delta n\Theta \Gamma ru\Xi \Gamma \Delta \Pi n h\Upsilon \Theta  \Delta n \Gamma h\Lambda  \Phi \Delta \Theta \Gamma  \Pi f \Gamma h\Lambda  \Delta n\Theta \Gamma ru\Xi \Gamma \Delta \Pi n\Theta  \Pi f \Gamma h\Delta \Theta 
+ffr\Pi \Xi \Lambda dur\Lambda . Th\Lambda  w\Upsilon \Omega  \Gamma \Pi  g\Lambda \Gamma  \Gamma h\Lambda  \Delta nd\Lambda x \Pi f \Upsilon n \Delta n\Theta \Gamma ru\Xi \Gamma \Delta \Pi n \Delta \Theta  \Gamma \Pi  \Theta \Upsilon v\Lambda  \Gamma h\Lambda  \Delta n\Gamma \Lambda g\Lambda r
+
+r\Lambda \Gamma urn\Lambda d fr\Pi \Sigma  \Gamma h\Lambda  \Upsilon ddIn\Theta \Gamma ru\Xi \Gamma \Delta \Pi n ffr\Pi \Xi \Lambda dur\Lambda . A \Gamma r\Delta \Xi \Psi  f\Pi r ff\Phi \Upsilon \Xi \Delta ng \Phi \Upsilon b\Lambda \Phi \Theta  \Delta n
+\Gamma h\Lambda  \Xi \Pi d\Lambda  \Delta \Theta  \Gamma \Pi  \Upsilon dd \Upsilon  du\Sigma \Sigma \Omega  \Delta n\Theta \Gamma ru\Xi \Gamma \Delta \Pi n @NOPB \Upsilon \Gamma  \Upsilon  ff\Phi \Upsilon \Xi \Lambda  wh\Lambda r\Lambda  \Pi n\Lambda  w\Upsilon n\Gamma \Theta 
+\Gamma \Pi  \Delta n\Theta \Lambda r\Gamma  \Upsilon  ju\Sigma ff \Pi r w\Upsilon n\Gamma \Theta  \Gamma \Pi  ju\Sigma ff \Gamma \Pi . F\Pi r \Lambda x\Upsilon \Sigma ff\Phi \Lambda , \Gamma h\Lambda  f\Pi \Phi \Phi \Pi w\Delta ng \Xi r\Lambda \Upsilon \Gamma \Lambda \Theta 
+\Xi \Pi d\Lambda  f\Pi r \Upsilon n \Delta nDn\Delta \Gamma \Lambda  \Phi \Pi \Pi ff.
+
+'#oe oe(3 E oeo/AEoeOEO/!#AEoe$%&oe'(#)#o/* 6GH)!!=
+KK QRo/ AEoeO/oeo/7o/#oeAE (: oeRo/ '#:'#'oeo/ ;((3
+
+oeo/AEoeOEO/!#AEoe$%&oe'(#)#o/* UVH)oe(3!!=
+
+XYZ[]^`q^-
+Th\Lambda  nu\Sigma b\Lambda r\Theta  u\Theta \Lambda d \Delta n \Gamma h\Lambda  \Xi \Pi n\Theta \Gamma ru\Xi \Gamma \Pi r\Theta  \Pi f JMP \Upsilon nd \Gamma h\Lambda  \Xi \Pi nd\Delta \Gamma \Delta \Pi n\Upsilon \Phi  ju\Sigma ff
+\Xi \Phi \Upsilon \Theta \Theta \Lambda \Theta  \Upsilon r\Lambda  \Gamma h\Lambda  \Delta nd\Lambda x \Pi f \Gamma h\Lambda  \Delta n\Theta \Gamma ru\Xi \Gamma \Delta \Pi n \Delta n \Gamma h\Lambda  \Phi \Delta \Theta \Gamma  \Pi f \Delta n\Theta \Gamma ru\Xi \Gamma \Delta \Pi n\Theta . In \Gamma h\Delta \Theta  \Phi \Delta \Theta \Gamma 
+
+15
+
+all instructions are considered to have size one. This is so that there will be
+
+no problems with replacing an instruction with another of a different size.
+When the bytecode is created a new number is calculated and replaces that
+
+number (for all jumps) with the actual address within the byte array, since
+at runtime the instructions (with accompanying values) have different sizes.
+
+C\Gamma \Delta \Theta \Lambda \Xi \Lambda \Gamma \Delta \Pi \Sigma  \Upsilon \Phi \Psi \Omega fi
+
+They are like jumps, but there must be a boolean value on the stack before
+it is interpreted. The jump is performed or not depending on the value of
+the boolean. For example, the following creates code for a do while loop.
+
+// flffi -
+//
+// fflij `'^'j*j_'` *_`*flj 'ij ,ffiffiss aeaeae
+//
+// "" oei*,jo/*!2AE
+
+// S'^OE' ffiO/ 'ij ,ffiffiss
+*_' `'^OE' = 'j`'ae^flflI_`'OE!'*ffi_o/_joe NOPo/AEAE;
+
+// fflij *_`'OE!'*ffi_` *_`*flj 'ij ,ffiffiss aeaeae
+// "*OE`' !^,!,^'j 'ij #ffiffi,j^_ j$ssOEj``*ffi_ae
+'j`'ae^flflI_`'OE!'*ffi_o/_joe LOADLO%ALo/'j`'ae&^OE*^#,jN*#jOEo/'*'AEAEAE;
+'j`'ae^flflI_`'OE!'*ffi_o/_joe PUSHINfflo/_joe I_'j*jOEo/2AEAEAE;
+'j`'ae^flflI_`'OE!'*ffi_o/_joe Lfflo/AEAE;
+
+// fflRUE ffiOE "ALSE *` ,jO/' ffi_ 'ij `'^!+ae
+
+// J*ss #^!+ *O/ 'OEjae
+'j`'ae^flflI_`'OE!'*ffi_o/_joe JMPfflRUEo/`'^OE'AEAE;
+
+-ometimes a jump forward may need to be inserted. 0n that case a 134 is in5
+serted and the index saved. 6ater it can be replaced by a jump or conditional
+
+jump instruction using 789:??8@BGK7Q?KVXBY VBK 9:??8Z @BGK7Q?KVXB
+VBGK7Q?KVXB[
+
+C\Gamma \Delta fi\Xi \Pi \Delta \Xi fi
+"onstants or literals are placed on the stack using the 4]-^5methods, like
+
+4]-^01T(0nteger). 0n the bytecode it is followed by . bytes (The integer
+constant) which is pushed on the stack. To push a string literal onto the
+stack, it `rst has to be registered as a constant and then its index is used
+with the 4]-^-Tq01-- instruction like below.
+
+~"
+
+int constId = test.addStringConstant("Literal");
+test.addInstruction(new PUSHSTRING(constId));
+
+A fl\Gamma \Delta \Theta  \Lambda \Xi \Theta \Pi \Sigma \Delta \Lambda  \Upsilon \Xi \Theta h v\Delta \Lambda \Phi \Pi  0:0 \Xi \Psi  \Omega \Sigma \Pi \Delta \Theta \Pi ff \Lambda \Xi k\Pi  \Theta h\Xi \Psi fi
+
+test.addInstruction(new PUSHFLOffiT(new Float(ffl.ffl)));
+Wij`'^* _'*, ss*jaeoe*ss
+o/AE\Psi \Theta \Delta AE\Omega \Pi \Psi  \Gamma f \Theta h\Pi  \Psi \Theta \Sigma \Phi \Omega \Theta \Psi  \Delta \Sigma \Pi  \Omega \Sigma \Pi \Delta \Theta \Pi ff \Upsilon \Xi \Theta h \Theta h\Pi  OEEO/o/AE\Theta \Pi !\Pi \Sigma  \Psi \Theta \Sigma \Phi \Omega \Theta OE\Phi m# \Xi AE-
+
+\Psi \Theta \Sigma \Phi \Omega \Theta \Xi \Gamma AE$ %h\Pi  p\Delta \Sigma \Delta m\Pi \Theta \Pi \Sigma  \Xi \Psi  \Theta h\Pi  \Xi AEff\Pi x \Xi ff# \Gamma f \Theta h\Pi  \Psi \Theta \Sigma \Phi \Omega \Theta $ A \Sigma \Pi f\Pi \Sigma \Pi AE\Omega \Pi  \Theta \Gamma  \Theta h\Pi 
+h\Pi \Delta p \Delta \Lambda \Lambda \Gamma \Omega \Delta \Theta \Pi ff \Psi \Theta \Sigma \Phi \Omega \Theta  \Xi \Psi  \Lambda \Pi f\Theta  \Gamma AE \Theta h\Pi  \Psi \Theta \Delta \Omega k by \Theta h\Pi  \Xi AE\Theta \Pi \Sigma p\Sigma \Pi \Theta \Pi \Sigma $ %\Gamma  \Delta \Psi \Psi \Xi !AE \Delta 
+v\Delta \Lambda \Phi \Pi  \Theta \Gamma  \Delta  &\Pi \Lambda ff \Gamma f \Delta  \Psi \Theta \Sigma \Phi \Omega \Theta , \Theta h\Pi  \Sigma \Pi f\Pi \Sigma \Pi AE\Omega \Pi  \Theta \Gamma  \Theta h\Pi  \Psi \Theta \Sigma \Phi \Omega \Theta  m\Phi \Psi \Theta  b\Pi  \Gamma AE \Theta h\Pi  \Theta \Gamma p
+\Gamma f \Theta h\Pi  \Psi \Theta \Delta \Omega k \Delta AEff \Theta h\Pi  v\Delta \Lambda \Phi \Pi  \Theta \Gamma  \Delta \Psi \Psi \Xi !AE \Theta \Gamma  \Theta h\Pi  &\Pi \Lambda ff m\Phi \Psi \Theta  b\Pi  \Gamma AE \Theta h\Pi  \Psi \Theta \Delta \Omega k b\Pi \Lambda \Gamma \Upsilon 
+\Theta h\Delta \Theta $ O/h\Pi AE \Theta h\Pi  '*%+o/E/D\Xi AE\Theta  &\Pi \Lambda ffOE\Phi mb\Pi \Sigma , \Xi AE\Theta  \Psi \Theta \Sigma \Phi \Omega \Theta OE\Phi m# \Xi AE\Psi \Theta \Sigma \Phi \Omega \Theta \Xi \Gamma AE \Xi \Psi 
+\Xi AE\Theta \Pi \Sigma p\Sigma \Pi \Theta \Pi ff, \Theta h\Pi  \Xi AE\Theta \Pi \Sigma p\Sigma \Pi \Theta \Pi \Sigma  \Upsilon \Xi \Lambda \Lambda  \Lambda \Gamma \Omega \Delta \Theta \Pi  \Theta h\Pi  \Psi \Theta \Sigma \Phi \Omega \Theta  \Xi AE\Psi \Theta \Delta AE\Omega \Pi  \Xi AE \Theta h\Pi  h\Pi \Delta p \Phi \Psi \Xi AE!
+\Theta h\Pi  \Sigma \Pi f\Pi \Sigma \Pi AE\Omega \Pi  \Delta AEff \Psi \Pi \Theta  \Theta h\Pi  &\Pi \Lambda ff \Theta \Gamma  \Theta h\Pi  v\Delta \Lambda \Phi \Pi  f\Gamma \Phi AEff \Gamma AE \Theta h\Pi  \Psi \Theta \Delta \Omega k$ B\Pi \Lambda \Gamma \Upsilon  \Xi \Psi  \Delta AE
+\Pi x\Delta mp\Lambda \Pi  \Theta h\Delta \Theta  \Omega \Sigma \Pi \Delta \Theta \Pi \Psi  \Delta  \Psi \Theta \Sigma \Phi \Omega \Theta , \Psi \Delta v\Pi \Psi  \Xi \Theta  \Xi AE \Delta  \Lambda \Gamma \Omega \Delta \Lambda  v\Delta \Sigma \Xi \Delta b\Lambda \Pi  AE\Delta m\Pi ff 12345 \Delta AEff
+
+\Psi \Pi \Theta \Psi  \Gamma AE\Pi  \Gamma f \Xi \Theta \Psi  &\Pi \Lambda ff\Psi  6784# \Theta \Gamma  \Delta  fl\Gamma \Delta \Theta  v\Delta \Lambda \Phi \Pi  9:0#$
+
+test.addInstruction(new N!?(test.structNu?@er("Co?JleK")));
+test.addInstruction(new STOR!LOCffiL(test.Maria@leNu?@er("c?JlK")));
+test.addInstruction(new PUSHFLOffiT(new Float(Q.ffl)));
+test.addInstruction(new LOffiVLOCffiL(test.Maria@leNu?@er("c?JlK")));
+test.addInstruction(new PUTFI!LV(test.XieldNu?@er("Co?JleK"Y
+
+"real")Y
+test.structNu?@er("Co?JleK")));
+
+Z[j["]*]jss [^^ .ioe[` j[j'[q`]ss
+O/h\Pi AE \Delta  p\Sigma \Gamma \Omega \Pi ff\Phi \Sigma \Pi  \Xi \Psi  \Omega \Delta \Lambda \Lambda \Pi ff$ \Theta h\Pi  p\Delta \Sigma \Delta m\Pi \Theta \Pi \Sigma \Psi  \Delta AEff \Lambda \Gamma \Omega \Delta \Lambda  v\Delta \Sigma \Xi \Delta b\Lambda \Pi \Psi  \Delta \Sigma \Pi  \Delta \Lambda \Lambda  p\Lambda \Delta \Omega \Pi ff
+
+\Psi \Pi z\Phi \Pi AE\Omega \Xi \Delta \Lambda \Lambda y \Gamma AE \Theta h\Pi  \Psi \Theta \Delta \Omega k, \Psi \Theta \Delta \Sigma \Theta \Xi AE! \Upsilon \Xi \Theta h \Theta h\Pi  \Lambda \Pi f\Theta m\Gamma \Psi \Theta  \Gamma f \Theta h\Pi  p\Delta \Sigma \Delta m\Pi \Theta \Pi \Sigma \Psi $ A\Lambda \Lambda 
+\Theta h\Pi  p\Delta \Sigma \Delta m\Pi \Theta \Pi \Sigma \Psi  \Delta AEff \Lambda \Gamma \Omega \Delta \Lambda  v\Delta \Sigma \Xi \Delta b\Lambda \Pi \Psi  \Delta \Sigma \Pi  \Delta \Omega \Omega \Pi \Psi \Psi \Pi ff \Upsilon \Xi \Theta h /-AD/---A/o/AE\Theta \Pi !\Pi \Sigma #,
+\Upsilon h\Xi \Omega h p\Lambda \Delta \Omega \Pi \Psi  \Theta h\Pi  v\Delta \Lambda \Phi \Pi  \Gamma f \Theta h\Pi  v\Delta \Sigma \Xi \Delta b\Lambda \Pi  \Upsilon \Xi \Theta h \Theta h\Pi  !\Xi v\Pi AE \Xi AEff\Pi x \Gamma AE \Theta h\Pi  \Psi \Theta \Delta \Omega k$ %h\Pi 
+\Xi AEff\Pi x \Psi \Theta \Delta \Sigma \Theta \Psi  \Upsilon \Xi \Theta h \Theta h\Pi  \Lambda \Pi f\Theta m\Gamma \Psi \Theta  p\Delta \Sigma \Delta m\Pi \Theta \Pi \Sigma  \Delta \Theta  0 \Theta h\Pi  \Lambda \Gamma \Upsilon \Pi \Psi \Theta  \Gamma AE \Theta h\Pi  \Psi \Theta \Delta \Omega k# \Delta AEff
+\Pi AEff\Psi  \Upsilon \Xi \Theta h \Theta h\Pi  \Lambda \Delta \Psi \Theta  ff\Pi &AE\Pi ff v\Delta \Sigma \Xi \Delta b\Lambda \Pi  \Delta \Theta  OE \Theta h\Pi  h\Xi !h\Pi \Psi \Theta  \Gamma AE \Theta h\Pi  \Psi \Theta \Delta \Omega k#$ ""~"A*
+"A,C'" C^D^C^C'E^E^E, G*A* "C'E^L' C'L^~C^" L/ L^A*N'N^NG "A,A* "~O"" ~R' "A,A* D^"C'R^L'$
+
+S'\Pi \Sigma \Pi  \Xi \Psi  \Delta  p\Xi \Pi \Omega \Pi  \Gamma f \Omega \Gamma ff\Pi  \Delta AEff h\Gamma \Upsilon  \Theta \Gamma  !\Pi AE\Pi \Sigma \Delta \Theta \Pi  \Theta h\Pi  by\Theta \Pi \Omega \Gamma ff\Pi  f\Gamma \Sigma  \Lambda \Xi AE\Pi  S^ \Gamma AE\Lambda y$
+
+9S,
+
+//1: func ret int add( int a, int b ) -
+//2: var int res;
+//3: res := a + b; // only bytecode for this line
+//4: return res;
+//5: ""
+
+test.addInstruction(new LAODLOCAL(test.variableNumber("a")));
+
+// test.variableNumber("a") returns 0
+
+test.addInstruction(new LAODLOCAL(test.variableNumber("b")));
+
+// test.variableNumber("b") returns 1
+
+test.addInstruction(new ADD());
+test.addInstruction(new STORELOCAL(test.variableNumber("res")));
+
+// test.variableNumber("res") returns 2, the highest value
+
+\Gamma \Delta \Theta \Lambda \Xi \Lambda \Pi  P\Lambda \Sigma \Upsilon \Phi \Psi \Omega \Lambda \Phi ff
+Wfiflffi fflij`'`^ p`*_fl*,`flss '`fl ffiflfl*fl*ae oefifl^ o/,ssoe jfl '**fl* oe* oefifl AE**flFifflfl
+OE'ffi* ,p*'oefl*ae oefifl ffi'o/fl iss ffi*oe flffi*,O/fiae j,oe ffi* iffissoe`,_oei*ffiss ssfi*,ffl* jfl '**fl*!
+#fifl iffioefl`p`floefl` `fl_*O/ffiizflss oefifl ,ssfl *$ ' fflij`'`^ p`*_fl*,`fl j^ oefifl $'_oe oefi'oe ioe
+
+fi'ss ffi* iffissoe`,_oei*ffiss iffi oefifl jiffi'`^ %fflfl OEAE**flFifflfl!
+
+&8
+
+5 The instructions
+B\Gamma l\Delta w \Theta \Lambda  a \Xi abl\Gamma  w\Theta \Xi \Pi  all \Xi \Pi \Gamma  \Theta \Sigma \Lambda \Xi \Upsilon \Phi \Psi \Xi \Theta \Delta \Sigma \Lambda  \Xi \Pi a\Xi  \Theta \Lambda  \Lambda \Phi pp\Delta \Upsilon \Xi \Gamma d by \Xi \Pi \Gamma  v\Theta \Upsilon \Xi \Phi al
+ma\Psi \Pi \Theta \Sigma \Gamma  a\Sigma d \Xi \Pi a\Xi  \Psi a\Sigma  b\Gamma  f\Delta \Phi \Sigma d \Theta \Sigma  \Xi \Pi \Gamma  by\Xi \Gamma \Psi \Delta d\Gamma  l\Theta b\Upsilon a\Upsilon y. W\Gamma  \Phi \Lambda \Gamma  \Omega 0 f\Delta \Upsilon  \Xi \Pi \Gamma 
+
+\Xi \Delta p \Delta f \Xi \Pi \Gamma  \Lambda \Xi a\Psi k, \Omega 1 f\Delta \Upsilon  \Xi \Pi \Gamma  \Sigma \Gamma x\Xi  \Gamma l\Gamma m\Gamma \Sigma \Xi  a\Sigma d \Lambda \Delta  \Delta \Sigma . W\Pi \Gamma \Sigma  \Xi \Pi \Gamma  \Lambda ymb\Delta l ff
+(dagg\Gamma \Upsilon ) \Theta \Lambda  f\Delta \Phi \Sigma d af\Xi \Gamma \Upsilon  \Xi \Pi \Gamma  \Sigma am\Gamma  \Delta f a\Sigma  \Theta \Sigma \Lambda \Xi \Upsilon \Phi \Psi \Xi \Theta \Delta \Sigma  \Theta \Xi  m\Gamma a\Sigma \Lambda  \Xi \Pi a\Xi  \Xi \Pi \Gamma \Upsilon \Gamma  a\Upsilon \Gamma 
+m\Delta \Upsilon \Gamma  d\Gamma \Xi a\Theta l\Lambda  \Delta \Sigma  \Xi \Pi \Gamma  \Xi yp\Gamma \Lambda  \Delta f w\Pi a\Xi  \Theta \Lambda  \Delta \Sigma  \Xi \Pi \Gamma  \Lambda \Xi a\Psi k a\Xi  \Xi \Pi \Gamma  \Gamma \Sigma d \Delta f \Xi \Pi \Theta \Lambda  \Lambda \Gamma \Psi \Xi \Theta \Delta \Sigma 
+(L\Delta \Delta k \Phi p \Xi \Pi \Gamma  \Theta \Sigma \Lambda \Xi \Upsilon \Phi \Psi \Xi \Theta \Delta \Sigma  \Xi \Pi \Gamma \Upsilon \Gamma ).
+
+S\Phi mma\Upsilon y \Delta f \Xi \Pi \Gamma  \Theta \Sigma \Lambda \Xi \Upsilon \Phi \Psi \Xi \Theta \Delta \Sigma \Lambda :
+
+ffl fiflffiij` '^*ji_'j*:
+
+,\Pi \Gamma y \Upsilon \Gamma q\Phi \Theta \Upsilon \Gamma  \Xi w\Delta  val\Phi \Gamma \Lambda  \Delta \Sigma  \Xi \Pi \Gamma  \Lambda \Xi a\Psi k a\Sigma d l\Gamma av\Gamma  \Delta \Sigma \Gamma  \Xi \Pi \Gamma \Upsilon \Gamma . ,\Pi \Gamma y \Pi av\Gamma 
+\Sigma \Delta  \Gamma x\Xi \Upsilon a val\Phi \Gamma . ,\Pi \Gamma y a\Upsilon \Gamma : ADDss ANDss DIVss EQss EXPss Gaess
+GaeEQss oeaess oeaeEQss MUoess NEQss NORss ORss o/Ufi
+
+ffl Uffiij` '^*ji_'j:
+
+AE\Xi  \Upsilon \Gamma q\Phi \Theta \Upsilon \Gamma \Lambda  \Delta \Sigma \Gamma  val\Phi \Gamma  \Delta \Sigma  \Xi \Pi \Gamma  \Lambda \Xi a\Psi k a\Sigma d l\Gamma av\Gamma \Lambda  \Delta \Sigma \Gamma  \Xi \Pi \Gamma \Upsilon \Gamma . AE\Xi  \Pi a\Lambda  \Sigma \Delta  \Gamma x\Xi \Upsilon a
+val\Phi \Gamma . AE\Xi  \Theta \Lambda : NOae
+
+ffl JOEO/^ flffi*_jOE_fl'ffi*:
+
+,\Pi \Gamma y a\Upsilon \Gamma  f\Delta ll\Delta w\Gamma d by \Xi \Pi \Gamma  add\Upsilon \Gamma \Lambda \Lambda  \Xi \Delta  j\Phi mp \Xi \Delta  (a \Lambda \Pi \Delta \Upsilon \Xi ). ,\Pi \Gamma  \Psi \Delta \Sigma d\Theta -
+\Xi \Theta \Delta \Sigma al\Lambda  \Upsilon \Gamma q\Phi \Theta \Upsilon \Gamma  a b\Delta \Delta l\Gamma a\Sigma  val\Phi \Gamma  \Delta \Sigma  \Xi \Pi \Gamma  \Lambda \Xi a\Psi k. ,\Pi \Gamma y a\Upsilon \Gamma : JMPss JMP!
+FAoeo/Ess JMPaeRUE
+
+ffl Pj'*"OEj* i## flffi*_jOE_fl'ffi*:
+
+,\Pi \Gamma  \Psi all \Theta \Lambda  f\Delta ll\Delta w\Gamma d by \Xi \Pi \Gamma  \Theta d \Delta f \Xi \Pi \Gamma  p\Upsilon \Delta \Psi \Gamma d\Phi \Upsilon \Gamma  (a \Lambda \Pi \Delta \Upsilon \Xi ). B\Gamma f\Delta \Upsilon \Gamma  a
+\Psi all, all \Xi \Pi \Gamma  pa\Upsilon am\Gamma \Xi \Gamma \Upsilon \Lambda  m\Phi \Lambda \Xi  b\Gamma  \Delta \Sigma  \Xi \Pi \Gamma  \Lambda \Xi a\Psi k w\Theta \Xi \Pi  \Xi \Pi \Gamma  l\Gamma f\Xi m\Delta \Lambda \Xi  a\Xi  \Xi \Pi \Gamma 
+b\Delta \Xi \Xi \Delta m. B\Gamma f\Delta \Upsilon \Gamma  a \Upsilon \Gamma \Xi \Phi \Upsilon \Sigma , \Xi \Pi \Gamma  \Upsilon \Gamma \Xi \Phi \Upsilon \Sigma  val\Phi \Gamma  (\Theta f a\Sigma y) m\Phi \Lambda \Xi  b\Gamma  \Delta \Sigma  \Xi \Pi \Gamma 
+\Lambda \Xi a\Psi k. $f\Xi \Gamma \Upsilon  a \Upsilon \Gamma \Xi \Phi \Upsilon \Sigma  f\Upsilon \Delta m a \Psi all, \Xi \Pi \Gamma  \Upsilon \Gamma \Lambda \Phi l\Xi  val\Phi \Gamma  \Theta \Lambda  \Delta \Sigma  \Xi \Pi \Gamma  \Xi \Delta p \Delta f \Xi \Pi \Gamma 
+\Lambda \Xi a\Psi k. ,\Pi \Gamma y a\Upsilon \Gamma : CAoeoess REaeURN
+
+ffl o/_jOE_ i***:
+
+,\Pi \Gamma y a\Upsilon \Gamma  f\Delta ll\Delta w\Gamma d by \Xi \Pi \Gamma  \Theta d \Delta f \Xi \Pi \Gamma  \Lambda \Xi \Upsilon \Phi \Psi \Xi  (a \Lambda \Pi \Delta \Upsilon \Xi ) a\Sigma d \Xi \Pi \Gamma  \Theta \Sigma d\Gamma x
+\Delta f \Xi \Pi \Gamma  %\Gamma ld w\Theta \Xi \Pi \Theta \Sigma  \Theta \Xi  (a \Lambda \Pi \Delta \Upsilon \Xi ). W\Pi \Gamma \Sigma  \Phi \Lambda \Theta \Sigma g &',*AE+L/, \Xi \Pi \Gamma  val\Phi \Gamma 
+\Xi \Delta  b\Gamma  \Lambda \Xi \Delta \Upsilon \Gamma d a\Sigma d \Xi \Pi \Gamma  \Upsilon \Gamma f\Gamma \Upsilon \Gamma \Sigma \Psi \Gamma  \Xi \Delta  \Xi \Pi \Gamma  \Lambda \Xi \Upsilon \Phi \Psi \Xi  m\Phi \Lambda \Xi  b\Gamma  \Delta \Sigma  \Xi \Pi \Gamma  \Lambda \Xi a\Psi k.
+W\Pi \Gamma \Sigma  \Phi \Lambda \Theta \Sigma g 2+,*AE+L/, \Xi \Pi \Gamma  \Upsilon \Gamma f\Gamma \Upsilon \Gamma \Sigma \Psi \Gamma  \Xi \Delta  \Xi \Pi \Gamma  \Lambda \Xi \Upsilon \Phi \Psi \Xi  m\Phi \Lambda \Xi  b\Gamma  \Delta \Sigma  \Xi \Pi \Gamma 
+\Lambda \Xi a\Psi k a\Sigma d \Xi \Pi \Gamma  val\Phi \Gamma  f\Delta \Phi \Sigma d \Theta \Sigma  \Xi \Pi \Gamma  %\Gamma ld \Theta \Lambda  l\Gamma f\Xi  \Delta \Sigma  \Xi \Pi \Gamma  \Lambda \Xi a\Psi k. ,\Pi \Gamma y a\Upsilon \Gamma :
+
+GEaeFIEoeDss PUaeFIEoeD
+
+ffl C'ffi*_iffi_* 'j #fl_*ji#*:
+
+,\Pi \Gamma y a\Upsilon \Gamma  f\Delta ll\Delta w\Gamma d by \Xi \Pi \Gamma  val\Phi \Gamma  \Xi \Delta  b\Gamma  p\Phi \Xi  \Delta \Sigma  \Xi \Pi \Gamma  \Lambda \Xi a\Psi k (3-4 by\Xi \Gamma \Lambda ).
+
+39
+
+In the case of PUSHSTRING it is the id of the string constant and
+in the case of PUSHNULL it is nothing. They are: \Gamma \Delta \Theta \Lambda BOO\Xi ,
+
+\Gamma \Delta \Theta \Lambda F\Xi OA\Pi , \Gamma \Delta \Theta \Lambda \Sigma \Upsilon \Pi , \Gamma \Delta \Theta \Lambda \Upsilon \Delta \Xi \Xi , \Gamma \Delta \Theta \Lambda \Theta \Pi \Phi \Sigma \Upsilon \Psi 
+
+ffl \Xi \Omega fffil vfiflffifiblij fi`' pfiflfimi^iflj:
+
+They are fo**owed _y the index (index) of the *aria_*e to fetch or
+store to. They are: \Xi OAD\Psi \Xi OBA\Xi , \Xi OAD\Xi OCA\Xi , \Theta \Pi O\Phi E-
+\Psi \Xi OBA\Xi , \Theta \Pi O\Phi E\Xi OCA\Xi 
+
+ffl \Theta ^fluff^ fill\Omega fffi^ffi\Omega `:
+
+It is fo**owed _y the index of the str,ct to a**ocate and initia*ize. It is:
+\Upsilon EW
+
+ffl \Pi ssi '\Omega -`\Omega ^ssffi`aej:
+
+They are fo**owed _y no extra *a*,e. NoeP rea**y does nothing. PoeP
+
+o/oo/s the too/ oAE the stack and discards the *a*,e. They are: \Upsilon O\Gamma ,
+\Gamma O\Gamma 
+
+The oo/erands for the c,rrent instr,ction on the stack are a*ways o/oo/o/ed
+
+oAE as o/art of intero/reting the instr,ction. Un*ess otherwise OEentionedO/ the
+res,*t is a*ways *eft on the stack.
+
+e*ow is an a*o/ha_etic *ist of a** the instr,ctionsO/ with the naOEe of the
+instr,ctionO/ the n,OE_er (_ytecode)O/ any extra _ytes neededO/ the oo/erands
+
+that OE,st _e on the stack _efore exec,tion and the res,*t *eft on the stack.
+
+!"#$ !%#&$' *+/'"
+
+&0/$1
+
+23 /4$
+
+1/"56 &$7
+89'$
+
+;$1%!/ 93
+/4$ 1/"56
+
+=??? @J KMKQ VXYZ[ "]^
+
+.Y`jq ---""~
+`jq Z.""jq
+
+"].Y`jq
+---A*~A, C'"[C^D^
+
+Xj[E^ E,"`[ "Y
+Z[YXjG*A,
+
+L'.ZL^L/[ "N'
+--"" N^ --A*
+
+=K? @NG KMKQ VXYZ[ "]^
+
+.Y`jq ---""~
+`jq Z.""jq
+
+"].Y`jq
+---A*~A, C'"[C^
+O""""L/.`jA,
+
+L'.ZL^L/[ "N'
+--""R'--A*
+
+R^S'
+
+CALLy 03 2 b\Gamma tes
+
+(short) with
+the index
+(id) of the
+function.
+
+The para-
+meters from
+left (\Delta N ) to
+right (\Delta \Theta ).
+
+Value re-
+turned from
+procedure if
+an\Gamma .
+
+DIVy 35 \Lambda O\Lambda E Dividend
+
+(\Delta 1) and
+divisor (\Delta \Theta ).
+Both int or
+float.
+
+Result of
+\Delta 1=\Delta \Theta 
+
+EQy 04 \Lambda O\Lambda E First oper-
+
+and (\Delta 1) and
+second op-
+erand (\Delta \Theta ).
+Both: int,
+float or bool.
+
+A boolean.
+True if
+\Delta 1 \Xi  \Delta \Theta , else
+
+false.
+
+EXPy 05 \Lambda O\Lambda E First oper-
+
+and (\Delta 1) and
+second op-
+erand (\Delta \Theta ).
+Both int or
+float.
+
+A float, res-
+
+ult of \Delta \Pi \Sigma 1 .
+
+GETFIELD 06 4 b\Gamma tes
+
+(2 shorts)
+which are
+the index
+of the field
+within the
+struct and
+the index
+(id) of the
+struct.
+
+Reference to
+the struct
+(\Delta \Theta ).
+
+The value of
+
+the field if \Delta \Theta 
+is not a \Lambda ull
+Reference.
+
+GT 07 \Lambda O\Lambda E First oper-
+
+and (\Delta 1) and
+second op-
+erand (\Delta \Theta ).
+Both int or
+float.
+
+A boolean.
+True if
+\Delta 1 ? \Delta \Theta , else
+
+false.
+
+\Upsilon \Phi 
+
+GTEQ 31 NONE First oper-
+
+and (\Gamma \Delta ) and
+second op-
+erand (\Gamma 0).
+Both int or
+float.
+
+A boolean.
+True if
+
+\Gamma \Delta  * \Gamma 0, else
+false.
+
+JMP \Theta 8 2 bytes
+
+(short) with
+
+the position
+in the bytes
+of this func-
+
+tion to jump
+to.
+
+NONE NONE
+
+JMPFALSE \Theta 9 2 bytes
+
+(short) with
+
+the position
+in the bytes
+of this func-
+
+tion to jump
+to.
+
+A Boolean
+(\Gamma 0). Jumps
+only if it is
+
+false.
+
+NONE
+
+JMPTRUE 1\Theta  2 bytes
+
+(short) with
+
+the position
+in the bytes
+of this func-
+
+tion to jump
+to.
+
+A Boolean
+(\Gamma 0). Jumps
+only if it is
+
+true.
+
+NONE
+
+LOADGLOBAL 11 2 bytes
+
+(a short)
+
+with the
+index (id) of
+the global
+variable to
+load.
+
+NONE The value of
+
+the global
+variable.
+
+LOADLOCAL 12 2 bytes (a
+
+short) with
+
+the index
+(id) of the
+
+local vari-
+able to load.
+Remember
+
+params!
+
+NONE The value
+
+of the local
+
+variable.
+
+\Lambda \Lambda 
+
+LOADOUTER 13 4 bytes. No\Gamma  impl\Delta -
+
+m\Delta n\Gamma \Delta d in
+\Gamma hi\Theta  v\Delta r-
+\Theta ion\Lambda  No
+\Theta uppor\Gamma 
+for \Xi lock
+\Theta \Gamma ruc\Gamma ur\Delta !
+
+\Pi /A
+
+LT 29 \Pi O\Pi E F\Sigma \Upsilon st \Phi \Psi e\Upsilon \Omega 
+
+afffi (flffi) afffi
+
+seffl\Phi fffi \Phi \Psi \Omega 
+e\Upsilon afffi (fl0).
+B\Phi ti \Sigma fft \Phi \Upsilon 
+j\Phi at.
+
+A b\Phi \Phi `eaff.
+
+T\Upsilon 'e \Sigma ^
+flffi ! fl0, e`se
+^a`se.
+
+LTEQ 3* \Pi O\Pi E F\Sigma \Upsilon st \Phi \Psi e\Upsilon \Omega 
+
+afffi (flffi) afffi
+
+seffl\Phi fffi \Phi \Psi \Omega 
+e\Upsilon afffi (fl0).
+B\Phi ti \Sigma fft \Phi \Upsilon 
+j\Phi at.
+
+A b\Phi \Phi `eaff.
+
+T\Upsilon 'e \Sigma ^
+flffi _ fl0, e`se
+^a`se.
+
+MUL* 34 \Pi O\Pi E F\Sigma \Upsilon st \Phi \Psi e\Upsilon \Omega 
+
+afffi (flffi) afffi
+
+seffl\Phi fffi \Phi \Psi \Omega 
+e\Upsilon afffi (fl0).
+B\Phi ti: \Sigma fft \Phi \Upsilon 
+j\Phi at.
+
+Res'`t \Phi ^ flffi ,
+fl0
+
+\Pi EQ* 32 \Pi O\Pi E F\Sigma \Upsilon st \Phi \Psi e\Upsilon \Omega 
+
+afffi (flffi) afffi
+
+seffl\Phi fffi \Phi \Psi \Omega 
+e\Upsilon afffi (fl0).
+B\Phi ti: \Sigma fft,
+j\Phi at \Phi \Upsilon  b\Phi \Phi `.
+
+A b\Phi \Phi `eaff.
+
+T\Upsilon 'e \Sigma ^
+flffi 6= fl0, e`se
+^a`se.
+
+\Pi EW 14 2 bytes (a
+
+si\Phi \Upsilon t) w\Sigma ti
+tie \Sigma fffiex
+(\Sigma fi) \Phi ^ tie
+
+st\Upsilon 'fflt t\Phi 
+ffl\Upsilon eate afffi
+
+\Sigma ffstaffffle \Phi ^.
+
+\Pi O\Pi E A \Upsilon e^e\Upsilon effffle
+
+t\Phi  tie ffew`y
+ffl\Upsilon eatefi
+
+st\Upsilon 'fflt.
+
+\Pi OP 15 \Pi O\Pi E \Pi O\Pi E \Pi O\Pi E (It
+
+fi\Phi es ff\Phi ti\Omega 
+\Sigma ffgss)
+
+aeoe
+
+NOT 16 NONE A boolean
+
+(s0).
+
+A boolean.
+
+True if s0
+i\Gamma  fal\Gamma e, el\Gamma e
+true.
+OR 17 NONE Fir\Gamma t op-
+
+erand (s\Delta )
+and \Gamma econd
+
+operand
+(s0). Both
+boolean.
+
+Re\Gamma ult of s\Delta  j
+s0
+
+POP 28 NONE Some value
+
+(s0).
+
+NONE. It
+
+\Theta u\Gamma t remove\Gamma 
+the top.
+PUSHBOOL 18 1 byte with
+
+the con\Gamma tant
+value; 1
+(true) or \Lambda 
+(fal\Gamma e).
+
+NONE The boolean
+
+con\Gamma tant
+
+from the
+extra byte.
+
+PUSHFLOAT 19 4 byte\Gamma  with
+
+the value of
+the float con-
+\Gamma tant.
+
+NONE The con\Gamma tant
+
+from the ex-
+tra byte\Gamma .
+
+PUSHINT 2\Lambda  4 byte\Gamma  with
+
+the value of
+the integer
+con\Gamma tant.
+
+NONE The con\Gamma tant
+
+from the ex-
+tra byte\Gamma .
+
+PUSHNULL 21 NONE NONE A Null Ref-
+
+erence.
+PUSHSTRING 22 2 byte\Gamma 
+
+(a \Gamma hort)
+
+with the
+index (id)
+
+of the \Gamma tring
+con\Gamma tant.
+
+NONE The \Gamma tring
+
+con\Gamma tant.
+
+\Xi \Pi 
+
+PUTFIELDy 23 4 b\Gamma tes
+
+(2 shorts)
+which are
+the index
+of the field
+within the
+struct and
+the index
+(id) of the
+struct.
+
+The value to
+assign to the
+field (\Delta 1) and
+the reference
+to the struct
+(\Delta 0).
+
+NONE
+
+RETURNy 24 NONE A return
+
+value (\Delta 0)
+
+if the pro-
+cedure has
+one.
+
+\Theta \Lambda \Xi  \Pi \Sigma \Upsilon 
+\Sigma \Phi \Psi \Omega fffl\Phi ffi
+
+STOREGLOBALy 25 2 b\Gamma tes (a
+
+short) with
+the index
+(id) of the
+global vari-
+
+able to store
+to.
+
+The value
+(\Delta 0) to store
+in the global
+variable.
+
+NONE
+
+STORELOCALy 26 2 b\Gamma tes (a
+
+short) with
+the index
+(id) of the
+local variable
+
+to store to.
+Remember
+
+params!
+
+The value
+(\Delta 0) to store
+in the local
+variable.
+
+NONE
+
+STOREOUTER 27 4 b\Gamma tes. \Theta \Lambda \Xi  \Psi ffl\Sigma \Phi ffi\Upsilon 
+
+fflffii\Xi ffij \Psi i
+\Xi `\Psi ' ^ffi*\Upsilon 
+'\Psi \Lambda i_ \Theta \Lambda 
+'*\Sigma \Sigma \Lambda *\Xi 
+,\Lambda * fl\Phi \Lambda \Omega k
+'\Xi **\Omega \Xi **ffiss
+
+N/A
+
+SUBy 33 NONE First oper-
+
+and (\Delta 1) and
+second op-
+erand (\Delta 0).
+Both: int or
+aeoat.
+
+Result of
+\Delta 1 oe \Delta 0
+
+o/AE
+
+More details on some instructions H\Gamma \Delta \Gamma  \Theta \Delta  \Lambda \Theta \Xi \Gamma  \Pi \Theta \Xi \Xi \Gamma \Sigma \Upsilon \Lambda  f\Theta \Delta  \Upsilon h\Gamma 
+\Phi \Sigma \Lambda \Upsilon \Delta \Psi \Pi \Upsilon \Phi \Theta \Sigma \Lambda  w\Phi \Upsilon h \Omega  ff\Omega gg\Gamma \Delta  (y) bfi \Upsilon h\Gamma  \Sigma \Omega \Xi \Gamma .
+
+ADD
+Th\Gamma  \Upsilon fip\Gamma \Lambda  \Theta f \Upsilon h\Gamma  \Upsilon w\Theta  \Omega \Delta g\Psi \Xi \Gamma \Sigma \Upsilon \Lambda  \Pi \Omega \Sigma  b\Gamma  \Omega \Sigma fi \Theta f \Phi \Sigma \Upsilon , fl\Theta \Omega \Upsilon  \Theta f \Lambda \Upsilon \Delta \Phi \Sigma g. If \Omega \Upsilon  ffi\Gamma \Omega \Lambda \Upsilon 
+\Theta \Sigma \Gamma  \Theta f \Upsilon h\Gamma \Xi  \Phi \Lambda  \Lambda \Upsilon \Delta \Phi \Sigma g, \Upsilon h\Gamma  \Delta \Gamma \Lambda \Psi ffi\Upsilon  w\Phi ffiffi b\Gamma  \Omega  \Lambda \Upsilon \Delta \Phi \Sigma g; \Upsilon h\Gamma  \Lambda \Upsilon \Delta \Phi \Sigma g \Pi \Theta \Sigma \Pi \Omega \Upsilon \Gamma \Sigma \Omega \Upsilon \Phi \Theta \Sigma  \Theta f
+\Upsilon h\Gamma  \Upsilon w\Theta  v\Omega ffi\Psi \Gamma \Lambda . If \Sigma \Theta \Sigma \Gamma  \Omega \Delta \Gamma  \Lambda \Upsilon \Delta \Phi \Sigma g \Omega \Sigma ff \Omega \Upsilon  ffi\Gamma \Omega \Lambda \Upsilon  \Theta \Sigma \Gamma  \Phi \Lambda  fl\Theta \Omega \Upsilon , \Upsilon h\Gamma  \Delta \Gamma \Lambda \Psi ffi\Upsilon  w\Phi ffiffi b\Gamma 
+\Omega  fl\Theta \Omega \Upsilon ; \Upsilon h\Gamma  \Lambda \Psi \Xi  \Theta f \Upsilon h\Gamma  \Upsilon w\Theta  v\Omega ffi\Psi \Gamma \Lambda . If b\Theta \Upsilon h \Omega \Delta \Gamma  \Phi \Sigma \Upsilon , \Upsilon h\Gamma  \Delta \Gamma \Lambda \Psi ffi\Upsilon  w\Phi ffiffi b\Gamma  \Omega \Sigma  \Phi \Sigma \Upsilon ;
+\Upsilon h\Gamma  \Lambda \Psi \Xi  \Theta f \Upsilon h\Gamma  \Upsilon w\Theta  v\Omega ffi\Psi \Gamma \Lambda .
+
+CALL
+
+If \Omega  f\Theta \Delta \Xi \Omega ffi p\Omega \Delta \Omega \Xi \Gamma \Upsilon \Gamma \Delta  \Phi \Lambda  \Theta f \Upsilon fip\Gamma  fl\Theta \Omega \Upsilon  \Omega \Sigma ff \Upsilon h\Gamma  \Pi \Theta \Delta \Delta \Gamma \Lambda p\Theta \Sigma ff\Phi \Sigma g \Omega \Pi \Upsilon \Psi \Omega ffi p\Omega \Delta \Omega \Xi \Gamma \Upsilon \Gamma \Delta 
+\Theta \Sigma  \Upsilon h\Gamma  \Lambda \Upsilon \Omega \Pi k \Phi \Lambda  \Omega \Sigma  \Phi \Sigma \Upsilon , \Phi \Upsilon  w\Phi ffiffi b\Gamma  \Upsilon \Delta \Omega \Sigma \Lambda ffi\Omega \Upsilon \Gamma ff \Phi \Sigma \Upsilon \Theta  \Omega  fl\Theta \Omega \Upsilon .
+
+DfflV
+If \Omega \Upsilon  ffi\Gamma \Omega \Lambda \Upsilon  \Theta \Sigma \Gamma  \Theta f \Upsilon h\Gamma  \Theta p\Gamma \Delta \Omega \Sigma ff\Lambda  \Phi \Lambda  \Omega  fl\Theta \Omega \Upsilon , \Upsilon h\Gamma  \Delta \Gamma \Lambda \Psi ffi\Upsilon  w\Phi ffiffi b\Gamma  \Omega  fl\Theta \Omega \Upsilon ; \Upsilon h\Gamma  fl\Theta \Omega \Upsilon \Phi \Sigma g
+p\Theta \Phi \Sigma \Upsilon  ff\Phi v\Phi \Lambda \Phi \Theta \Sigma  \Theta f \Upsilon h\Gamma  \Upsilon w\Theta  v\Omega ffi\Psi \Gamma \Lambda . If b\Theta \Upsilon h \Omega \Delta \Gamma  \Phi \Sigma \Upsilon , \Upsilon h\Gamma  \Delta \Gamma \Lambda \Psi ffi\Upsilon  w\Phi ffiffi b\Gamma  \Omega \Sigma  \Phi \Sigma \Upsilon ;
+\Upsilon h\Gamma  \Phi \Sigma \Upsilon \Gamma g\Gamma \Delta  ff\Phi v\Phi \Lambda \Phi \Theta \Sigma  \Theta f \Upsilon h\Gamma  \Upsilon w\Theta  v\Omega ffi\Psi \Gamma \Lambda .
+
+EQ
+
+If \Theta \Sigma \Gamma  \Theta f \Upsilon h\Gamma  \Theta p\Gamma \Delta \Omega \Sigma ff\Lambda  \Phi \Lambda  \Omega  fl\Theta \Omega \Upsilon  \Omega \Sigma ff \Upsilon h\Gamma  \Theta \Upsilon h\Gamma \Delta  \Omega \Sigma  \Phi \Sigma \Upsilon , \Upsilon h\Gamma  \Phi \Sigma \Upsilon  v\Omega ffi\Psi \Gamma  w\Phi ffiffi b\Gamma 
+\Upsilon \Delta \Omega \Sigma \Lambda ffi\Omega \Upsilon \Gamma ff \Phi \Sigma \Upsilon \Theta  \Omega  fl\Theta \Omega \Upsilon  b\Gamma f\Theta \Delta \Gamma  \Upsilon h\Gamma  \Upsilon w\Theta  v\Omega ffi\Psi \Gamma \Lambda  \Omega \Delta \Gamma  \Pi \Theta \Xi p\Omega \Delta \Gamma ff.
+
+EXP
+Th\Gamma  \Theta p\Gamma \Delta \Omega \Sigma ff\Lambda  \Pi \Omega \Sigma  b\Gamma  \Phi \Sigma \Upsilon  \Theta \Delta  fl\Theta \Omega \Upsilon . Th\Gamma  \Delta \Gamma \Lambda \Psi ffi\Upsilon  w\Phi ffiffi \Omega ffiw\Omega fi\Lambda  b\Gamma  \Omega  fl\Theta \Omega \Upsilon .
+
+iUL
+
+If \Omega \Upsilon  ffi\Gamma \Omega \Lambda \Upsilon  \Theta \Sigma \Gamma  \Theta f \Upsilon h\Gamma  v\Omega ffi\Psi \Gamma \Lambda  \Phi \Lambda  \Omega  fl\Theta \Omega \Upsilon , \Upsilon h\Gamma  \Delta \Gamma \Lambda \Psi ffi\Upsilon  w\Phi ffiffi b\Gamma  \Omega  fl\Theta \Omega \Upsilon ; \Upsilon h\Gamma  \Xi \Psi ffi-
+\Upsilon \Phi pffi\Phi \Pi \Omega \Upsilon \Phi \Theta \Sigma  \Theta f \Upsilon h\Gamma  \Upsilon w\Theta  v\Omega ffi\Psi \Gamma \Lambda . If b\Theta \Upsilon h \Omega \Delta \Gamma  \Phi \Sigma \Upsilon , \Upsilon h\Gamma  \Delta \Gamma \Lambda \Psi ffi\Upsilon  w\Phi ffiffi b\Gamma  \Omega \Sigma  \Phi \Sigma \Upsilon ; \Upsilon h\Gamma 
+\Xi \Psi ffi\Upsilon \Phi pffi\Phi \Pi \Omega \Upsilon \Phi \Theta \Sigma  \Theta f \Upsilon h\Gamma  \Upsilon w\Theta  v\Omega ffi\Psi \Gamma \Lambda .
+
+PUjFfflELD
+If \Upsilon h\Gamma  \Upsilon fip\Gamma  \Theta f \Upsilon h\Gamma  `\Gamma ffiff \Phi \Lambda  fl\Theta \Omega \Upsilon  \Omega \Sigma ff \Upsilon h\Gamma  \Omega \Pi \Upsilon \Psi \Omega ffi v\Omega ffi\Psi \Gamma  \Theta \Sigma  \Upsilon h\Gamma  \Lambda \Upsilon \Omega \Pi k \Phi \Lambda  \Omega \Sigma  \Phi \Sigma \Upsilon ,
+\Upsilon h\Gamma  v\Omega ffi\Psi \Gamma  w\Phi ffiffi b\Gamma  \Upsilon \Delta \Omega \Sigma \Lambda ffi\Omega \Upsilon \Gamma ff \Phi \Sigma \Upsilon \Theta  \Omega  fl\Theta \Omega \Upsilon .
+
+REjURN
+
+If \Upsilon h\Gamma  \Delta \Gamma \Upsilon \Psi \Delta \Sigma  \Upsilon fip\Gamma  \Theta f \Upsilon h\Gamma  p\Delta \Theta \Pi \Gamma ff\Psi \Delta \Gamma  \Phi \Lambda  fl\Theta \Omega \Upsilon  \Omega \Sigma ff \Upsilon h\Gamma  \Omega \Pi \Upsilon \Psi \Omega ffi \Delta \Gamma \Lambda \Psi ffi\Upsilon  pffi\Omega \Pi \Gamma ff \Theta \Sigma 
+\Upsilon h\Gamma  \Lambda \Upsilon \Omega \Pi k bfi \Upsilon h\Gamma  p\Delta \Theta \Pi \Gamma ff\Psi \Delta \Gamma  \Phi \Lambda  \Omega \Sigma  \Phi \Sigma \Upsilon , \Upsilon h\Gamma  \Delta \Gamma \Lambda \Psi ffi\Upsilon  w\Phi ffiffi b\Gamma  \Upsilon \Delta \Omega \Sigma \Lambda ffi\Omega \Upsilon \Gamma ff \Phi \Sigma \Upsilon \Theta  \Omega  fl\Theta \Omega \Upsilon .
+
+SjOREGLOBAL
+
+If \Upsilon h\Gamma  \Upsilon fip\Gamma  \Theta f \Upsilon h\Gamma  v\Omega \Delta \Phi \Omega bffi\Gamma  \Phi \Lambda  fl\Theta \Omega \Upsilon  \Omega \Sigma ff \Upsilon h\Gamma  \Omega \Pi \Upsilon \Psi \Omega ffi v\Omega ffi\Psi \Gamma  \Theta \Sigma  \Upsilon h\Gamma  \Lambda \Upsilon \Omega \Pi k \Phi \Lambda  \Omega \Sigma 
+\Phi \Sigma \Upsilon , \Upsilon h\Gamma  v\Omega ffi\Psi \Gamma  w\Phi ffiffi b\Gamma  \Upsilon \Delta \Omega \Sigma \Lambda ffi\Omega \Upsilon \Gamma ff \Phi \Sigma \Upsilon \Theta  \Omega  fl\Theta \Omega \Upsilon .
+
+26
+
+STORELOCAL
+If the type of the variable is float and the actual value on the stack is an
+int, the value will be translated into a float.
+
+SUB
+If at least one of the values is a float, the result will be a float; the subtraction
+of the second from the first. If both are int, the result will be an int; the
+subtraction of the second from the first.
+
+6 F\Gamma \Delta \Theta \Lambda \Lambda \Xi  - \Pi \Sigma \Upsilon \Sigma \Upsilon \Phi \Sigma \Psi  \Omega ff\Gamma ffi
+fflo sum up, here are some of the important points to remember:
+
+i jlways add a return statement to the end of the instructions of a
+
+procedure
+
+i jlways set the main method
+i jdd the library procedures (print int, etc) as procedure, but without
+
+instructions
+
+i If the reference on the stack is a Null `eference when one tries to
+
+access a field of it, the interpreter will print the error "Nullpointer
+at G'ffl^I'*D" or the equivalent for P_ffl^I'*D, and the virtual
+
+machine will abort.
+
+i Do not just add, but remember to update procedures, structs and
+
+global variables.
+
+i _se this list option to see your bytecode and even take a look at it
+
+with a Hex 'ditor.
+
+27

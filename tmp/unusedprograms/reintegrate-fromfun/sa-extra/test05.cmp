@@ -1,0 +1,6 @@
+program abc
+begin
+  var x : ref (x);
+  var x_2 : ref (bool);
+ struct r_x { var x : ref(x); }; 
+end;

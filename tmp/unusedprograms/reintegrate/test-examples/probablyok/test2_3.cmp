@@ -1,0 +1,18 @@
+program test3
+begin
+
+	struct Foo
+	{
+	    var Attr : int;
+	};
+
+	proc main()
+	begin
+	    var f : Foo;
+	    f := new Foo;
+	    f.Attr := 42;
+	    printint( f.Attr );
+	    printfloat( f.Attr );
+	end;
+
+end;

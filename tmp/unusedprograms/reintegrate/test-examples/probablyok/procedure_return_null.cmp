@@ -1,0 +1,13 @@
+program procedure_return_null
+begin
+
+	proc main()
+	begin
+	end;
+    
+	proc test() : string
+	begin
+	    return "null";
+	end;
+
+end;

@@ -1,0 +1,741 @@
+* Oblig 1 
+
+
+
+** Compila 18
+
+*** Oblig 1                                                         :B_frame:
+    :PROPERTIES:
+    :BEAMER_env: frame
+    :END:
+
+
+- material (also for oblig 2) based on previous years, including contributions from Eyvind
+  W. Axelsen, Henning Berg, Fredrik Sørensen, and others
+    
+
+- see also the course web-page, containing links to ``resources''
+
+
+*** Goal (of oblig 1)                                               :B_frame: 
+    :PROPERTIES:
+    :BEAMER_env: frame
+    :END:
+
+
+**** Parsing                                                        :B_block:
+     :PROPERTIES:
+     :BEAMER_env: block
+     :END:
+
+
+Determine if programs written in /Compila 18/ are syntactically correct: 
+
+- scanner
+- parser
+
+
+**** Rest                                                            :ignore:
+
+
+
+- first part of a compiler, oblig 2 will add to it
+- language spec provided separatly 
+
+
+*** Learning outcomes                                               :B_frame:
+    :PROPERTIES:
+    :BEAMER_env: frame
+    :END:
+
+
+- using *tools* for parser/scanner generation
+   - JFlex
+   - CUP
+
+- variants of a grammar for the same languages
+
+   - *transforming* one form (EBNF) to another (compatible with the used
+     tools)
+
+   - controlling *precedence* and *associativity*
+
+- designing and implementing an *AST*  data structure
+
+    - using the parsing tools to build such trees
+    - pretty-printing such trees
+
+
+*** Compila language at a glance                                    :B_frame:
+    :PROPERTIES:
+    :BEAMER_env: frame
+    :END:
+
+
+#+begin_export latex 
+
+\lstinputlisting[basicstyle=\scriptsize]{code/myprogram.cmp}
+
+#+end_export
+
+
+
+*** Another glance                                                  :B_frame:
+    :PROPERTIES:
+    :BEAMER_env: frame
+    :BEAMER_opt: plain
+    :END:
+
+
+
+#+begin_export latex 
+
+\lstinputlisting[basicstyle=\scriptsize]{code/swap.cmp}
+
+#+end_export
+
+
+*** Grammar (1): declarations                                       :B_frame:
+    :PROPERTIES:
+    :BEAMER_env: frame
+    :BEAMER_opt: plain
+    :END:
+
+
+
+#+begin_export latex 
+
+%~/cor/teaching/compila/src/doc/languagespec/
+\lstinputlisting[basicstyle=\scriptsize,lastline=14]{../../doc/languagespec/grammar.txt}
+
+#+end_export
+
+
+
+
+
+
+*** Grammar (2): declarations                                       :B_frame:
+    :PROPERTIES:
+    :BEAMER_env: frame
+    :BEAMER_opt: plain
+    :END:
+
+
+
+#+begin_export latex 
+
+%~/cor/teaching/compila/src/doc/languagespec/
+\lstinputlisting[basicstyle=\scriptsize,firstline=15,lastline=40]{../../doc/languagespec/grammar.txt}
+
+#+end_export
+
+
+
+
+*** Grammar (3): statements and types                               :B_frame:
+    :PROPERTIES:
+    :BEAMER_env: frame
+    :BEAMER_opt: plain
+    :END:
+
+
+
+#+begin_export latex 
+
+%~/cor/teaching/compila/src/doc/languagespec/
+\lstinputlisting[basicstyle=\scriptsize,firstline=41]{../../doc/languagespec/grammar.txt}
+
+#+end_export
+
+
+
+
+** Tools
+
+*** Tools: JFlex                                                    :B_frame:
+    :PROPERTIES:
+    :BEAMER_env: frame
+    :END:
+
+
+- scanner generator (or lexer generator) tool
+
+   - *input*: lexical specification
+   - *output*: scanner program in Java
+
+- lexical spec written as ~.lex~ file
+
+- consists of *3 parts*
+
+   - user code
+   - options and macros
+   - lexical rules
+
+
+*** Sample lex code                                                 :B_frame:
+    :PROPERTIES:
+    :BEAMER_env: frame
+    :END:
+
+
+
+#+begin_export latex 
+ \includegraphics[width=\textwidth]{figures/snaps/lexcode}
+#+end_export
+
+
+
+*** CUP: Construction of useful parsers (for Java)                  :B_frame:
+    :PROPERTIES:
+    :BEAMER_env: frame
+    :END:
+
+
+
+- a tool to easily (ymmv) generate /parsers/
+
+- reads tokes from the scanner using ~next_token()~
+- the ~%cup~ option (previous slide) makes that work
+
+
+
+**** Input                                                          :B_block:
+     :PROPERTIES:
+     :BEAMER_env: block
+     :END:
+
+grammar in BNF with *action* code
+
+#+begin_example 
+  var_decl ::= VAR ID:name COLON type:vtype
+   {: RESULT =  new VarDecl(name, vtype); :};
+#+end_example
+
+
+**** Rest                                                            :ignore:
+  
+ - *output*: parser program (in Java)
+
+
+*** Sample CUP code                                                 :B_frame:
+    :PROPERTIES:
+    :BEAMER_env: frame
+    :END:
+
+
+
+#+begin_export latex 
+ \includegraphics[width=\textwidth]{figures/snaps/cupcode}
+#+end_export
+
+
+
+*** Build tool: ant                                                 :B_frame:
+    :PROPERTIES:
+    :BEAMER_env: frame
+    :END:
+
+#+begin_export latex 
+
+\begin{center}
+ \includegraphics[width=0.2\textwidth]{figures/snaps/antlogo}
+\end{center}
+
+#+end_export
+
+
+- Java-based build tool (think ``make'')
+- config in ~build.xml~
+- can contain different *targets*
+
+**** typical general targets                                        :B_block:
+     :PROPERTIES:
+     :BEAMER_env: block
+     :END:
+
+    - test
+    - clean
+    - build
+    - run
+
+**** Rest                                                            :ignore:
+
+- supplied configuration should take care of calling ~jflex~, ~cup~, and
+  ~javadoc~ for you
+
+**** Remarks                                                        :private:
+
+*** AST data structure                                              :B_frame:
+    :PROPERTIES:
+    :BEAMER_env: frame
+    :END:
+
+
+#+begin_export latex 
+
+\begin{center}
+ \includegraphics[width=0.8\textwidth]{figures/snaps/astclasses}
+\end{center}
+
+#+end_export
+
+
+
+
+*** Provides source code                                            :B_frame:
+    :PROPERTIES:
+    :BEAMER_env: frame
+    :END:
+
+
+#+begin_export latex 
+
+\begin{center}
+ \includegraphics[width=0.8\textwidth]{figures/snaps/structureoverview}
+\end{center}
+
+#+end_export
+
+
+*** Building: putting it together                                   :B_frame:
+    :PROPERTIES:
+    :BEAMER_env: frame
+    :END:
+
+
+
+#+begin_export latex 
+
+\begin{center}
+ \includegraphics[width=0.8\textwidth]{figures/snaps/buildprocess}
+\end{center}
+
+#+end_export
+
+** Official 
+
+*** Deadline                                                        :B_frame:
+    :PROPERTIES:
+    :BEAMER_env: frame
+    :END:
+
+
+
+
+**** Deadline                                                  :B_alertblock:
+     :PROPERTIES:
+     :BEAMER_env: alertblock
+     :END:
+
+ 
+
+ *Friday 23. 03. 2018, 23:59*
+
+
+**** Rest                                                            :ignore:
+   
+
+- don't miss the deadline
+- for extensions, administration needs to agree (~studadm~), contact them
+  if sick etc
+- even if not 100% finished
+   - deliver what you have
+   - contact early when problems arise
+
+
+*** Deliverables                                                    :B_frame:
+    :PROPERTIES:
+    :BEAMER_env: frame
+    :END:
+
+
+- see also the ``handout''
+
+**** Deliverables (1)                                               :B_block:
+     :PROPERTIES:
+     :BEAMER_env: block
+     :END:
+
+- working *parser*
+     - parse the supplied sample programs
+     - printout the resulting AST
+
+- *two* grammars (two ~.cup~-files)
+
+   - one unambiguious
+   - one ambiguous, where ambibuities resolved through precedence
+     declations in /CUP/, e.g.
+
+#+begin_example 
+ precendence left AND;
+#+end_example
+
+
+*** Deliverables                                                    :B_frame:
+    :PROPERTIES:
+    :BEAMER_env: frame
+    :END:
+
+
+**** Deliverables (2)                                               :B_block:
+     :PROPERTIES:
+     :BEAMER_env: block
+     :END:
+
+
+- report (with name(s) and UiO user name(s)
+- discussion of the solution (see handout for questions)
+- in particular: comparison of the two grammars
+- ``Readme''
+
+**** Rest                                                            :ignore:
+
+- the code must /build/ (with ant) and run
+- test it on the  UiO RHEL platform
+
+**** Ask                                                            :B_block:
+     :PROPERTIES:
+     :BEAMER_env: block
+     :END:
+
+
+If problems, *ask in time*  (*NOT* Friday at the deadline)
+
+
+
+*** Hand-in procedure                                               :B_frame:
+    :PROPERTIES:
+    :BEAMER_env: frame
+    :END:
+
+
+- this year we try /git/
+
+- [[https://github.uio.no]] resp. [[https://github.uio.no/msteffen/compila]]
+
+- you need
+
+  - a login
+  - send me emails that you want to do oblig (+ potential partner)
+    $\Rightarrow$ I tell you group number
+  - create a project ~compila<n>~ ($n$ = group number)
+  - add collaborator + (at some point me)
+
+
+- see also the handout
+- code ready /tomorrow/
+
+
+
+
+
+* Oblig2 
+
+
+*** Goal                                                            :B_frame:
+    :PROPERTIES:
+    :BEAMER_env: frame
+    :END:
+
+1.  *semantic  analysis*, as far as 
+    - *typing* is concerned (``static semantics'')
+    - other coditions (no duplicate declaration etc)
+
+2. *code generation* for ~compila18~ (ish) programs
+
+
+
+
+
+
+*** Last time (O1)                                                  :B_frame:
+    :PROPERTIES:
+    :BEAMER_env: frame
+    :END:
+
+
+**** Syntactic analysis                                             :B_block:
+     :PROPERTIES:
+     :BEAMER_env: block
+     :END:
+
+   - lexer (scanner)
+   - parser
+   - abstract syntax tree
+
+
+
+**** Rest                                            :B_ignoreheading:ignore:
+     :PROPERTIES:
+     :BEAMER_env: ignoreheading
+     :END:
+
+
+*this time*: continue with you previous deliv (and repos)
+
+
+
+*** Learning outcome                                                :B_frame:
+    :PROPERTIES:
+    :BEAMER_env: frame
+    :END:
+
+
+- understand type checking, implementing a simmple variant
+
+
+- undertand (simple form of) bytecode and how to generate it from ``source
+  code'' (as AST)
+
+- extend an existing compiler code base with new functionality 
+
+
+
+*** Semantic analysis & type checking                               :B_frame:
+    :PROPERTIES:
+    :BEAMER_env: frame
+    :END:
+
+- parser / context-free  grammars 
+    - not powerfull enough 
+    - cannot check all (static) properties of a language spec
+
+- => extend the front-end by a type checker
+
+    - use the AST classes of last time
+    - add type checking code
+    - allowed to make *changes* or adaptations if advantagous.
+
+
+*** Another glance at compila18                                     :B_frame:
+    :PROPERTIES:
+    :BEAMER_env: frame
+    :END:
+
+
+#+begin_export latex 
+ \includegraphics[width=\textwidth]{figures/snaps/compilaexample-checking}
+#+end_export
+
+
+NB: 2018: structs, not classes 
+
+
+*** Type checking for conditionals                                  :B_frame:
+    :PROPERTIES:
+    :BEAMER_env: frame
+    :BEAMER_opt: plain
+    :END:
+
+
+- as ``inspiration'', details may vary
+
+
+#+begin_src java
+  class IfStatement extends Statement {
+  ...
+    public void typeCheck(){
+      String condType = condition.get.Type ();
+      if (condType != "bool") {  
+         throw new TypeException("condition in an if 
+           statement must be of type bool")
+      }
+}
+#+end_src
+
+
+*** Type checking: assignments                                      :B_frame:
+    :PROPERTIES:
+    :BEAMER_env: frame
+    :BEAMER_opt: plain
+    :END:
+
+
+
+
+#+begin_src java
+class Assignment extends Statement {
+...
+  public void typeCheck() {
+    String varType = var.getType();
+    String expType = exp.getType();
+    if (varType != expType &&
+       !isAssigmentCompatible(varType,expType){
+                 throw new TypeException("Cannot assign " + vartpe + 
+                 " from " + expType);
+  }
+}
+
+#+end_src
+
+
+
+*** Code generation                                                 :B_frame:
+    :PROPERTIES:
+    :BEAMER_env: frame
+    :END:
+
+- lecture(s) of code gen start right now (so it might look puzzling, but
+  hopefully will become clearer)
+- byte code API and operations are described in the document ``Interpreter
+  and bytecode for INF5110''
+
+- *Task:* add bytecode generation methods to your AST classes
+  for instance
+
+#+begin_example 
+   Ast.Node.GenerateCode(...)
+#+end_example
+- again: if adaptations of the AST are called for or useful, go for it...
+
+
+*** Code generation: limitations                                    :B_frame:
+    :PROPERTIES:
+    :BEAMER_env: frame
+    :END:
+
+
+- interpreter and byte code library somewhat *limited*
+   - cannot express full compila 18
+   - no block structure
+   - no reference types
+
+
+- your delivery should support generating correct bytecode
+  for the ~compila~ 18 source code file ~runme.cmp~
+
+
+
+*** Code generation: creating a procedure                           :B_frame:
+    :PROPERTIES:
+    :BEAMER_env: frame
+    :BEAMER_opt: plain
+    :END:
+
+
+#+begin_src  java
+CodeFile codeFile = new CodeFile();
+// add the procedure by name first
+codeFile.addProcedure("Main")
+// then define it
+CodeProcedure main = new 
+   CodeProcedure("Main", VoidType,TYPE, codeFile);
+main.addInstruction( new RETURN());
+//then update it in the code file
+codeFile.updateProcedure(main);
+#+end_src
+
+*** Code generation: assignment                                     :B_frame:
+    :PROPERTIES:
+    :BEAMER_env: frame
+    :END:
+
+#+begin_export latex 
+\begin{center}
+ \includegraphics[width=0.76\textwidth]{figures/snaps/codegen-assignment}
+\end{center}
+#+end_export
+
+
+
+*** Code generation: writing to a file
+
+
+*** Testing                                                         :B_frame:
+    :PROPERTIES:
+    :BEAMER_env: frame
+    :END:
+
+
+- bunch of test files, for testing the /type checker/
+- preferable: make ~ant test~ workable 
+
+- test files ending with ~fail~ containt a syntactically correct but
+  erronous program (erroneous as the type system or generally the semantic
+  phase is concerned)  
+
+- => compiler returns error code 2 for semantic failure
+
+
+
+*** Provided source code                                            :B_frame:
+    :PROPERTIES:
+    :BEAMER_env: frame
+    :END:
+
+  [[https://github.uio.no/msteffen/compila]]
+
+#+begin_export latex 
+ \includegraphics[width=0.76\textwidth]{figures/snaps/directorystruct}
+#+end_export
+
+
+
+*** Provided source code                                            :B_frame:
+    :PROPERTIES:
+    :BEAMER_env: frame
+    :END:
+
+
+
+#+begin_export latex 
+
+\begin{center}
+ \includegraphics[width=0.75\textwidth]{figures/snaps/directory-src}
+\end{center}
+#+end_export
+
+
+
+- ~compiler~: updated compiler class
+- ~test~:   some code for performing tests
+- ~bytecode~: classes for constructing bytecode
+- ~runtime~: rte for executing the byte code
+
+
+
+*** Deadline                                                        :B_frame:
+    :PROPERTIES:
+    :BEAMER_env: frame
+    :END:
+
+
+
+
+**** Deadline                                                  :B_alertblock:
+     :PROPERTIES:
+     :BEAMER_env: alertblock
+     :END:
+
+      11th May  2018
+
+
+
+**** Rest                                            :B_ignoreheading:ignore:
+     :PROPERTIES:
+     :BEAMER_env: ignoreheading
+     :END:
+
+
+Note: end of semester, and I need to report the ones passing the oblig some
+time before the exam.
+
+
+**** delivs                                                         :B_block:
+     :PROPERTIES:
+     :BEAMER_env: block
+     :END:
+
+- working type checker
+- code generator (test with ~runme.cmp~)
+- report (including your name(s) etc.
+
+  - discussion of your solution, choices you made, assumptions you rely on
+
+  - printout of a test run (can be also checked in into the repos, but it n
+     needs to be mentioned where it is)
+  - printout of the bytecode from ~runme.cmp~ (with a target like ~ant
+    list-runme~)
+
+  - solution must ``build'' and be ``testable'' (typically via ~ant~)
