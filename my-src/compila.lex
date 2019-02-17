@@ -1,9 +1,9 @@
-
+import java_cup.runtime.*;
 
 %%
-%class Scanner
+%class Lexer
 %unicode
-%standalone
+%cup
 %line
 %column
 
@@ -55,7 +55,6 @@ CommentContent       = ( [^*] | \*+ [^/\*] )*
  {INT_LITERAL}          { System.out.printf("found int: %s\n", yytext()); }
  {STRING_LITERAL}        { System.out.printf("found string: %s\n", yytext()); }
  {FLOAT_LITERAL}         { System.out.printf("found float: %s\n", yytext()); }
- "bool"                  { System.out.printf("found bool"); }
 }
 
 /* Comments */
@@ -73,5 +72,5 @@ CommentContent       = ( [^*] | \*+ [^/\*] )*
   ":"                     { System.out.printf("found parameter identificator"); }
 }
 
-/* Catch all with error */
-.                       { System.exit(25); }
+/* Catch all */
+.                       {  }

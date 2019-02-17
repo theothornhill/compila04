@@ -1,0 +1,12 @@
+import java_cup.runtime.*
+
+parser code {:
+
+:}
+
+terminal                 PLUS,MINUS,MULT,DIVIDE;
+non terminal
+
+precedence left           PLUS,MINUS;
+precedence right          MULT,DIVIDE;
+precedence nonassoc       RELOP;

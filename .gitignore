@@ -19,3 +19,6 @@ material/simpleexpressions/src-examples/exampletree/Minus.java
 material/simpleexpressions/src-gen/expression_eval/
 material/simpleexpressions/src-gen/expression_par/
 src/grammars/.#compila.cup
+.DS_Store
+my-src/.DS_Store
+my-src/Lexer.java
