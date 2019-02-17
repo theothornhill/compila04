@@ -1,6 +1,25 @@
 import java_cup.runtime.*;
 import java.io.FileReader;
+import java.io.File;
+import java.io.FileNotFoundException;
 
+parser code {:
+    private Lexer lexer;
+    private File file;
+
+    public parser(File file) {
+        this();
+        this.file = file;
+        try {
+            lexer = new Lexer(new FileReader(file));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+:};
+scan with {:
+    return lexer.yylex();
+:};
 
 terminal                           PROGRAM;
 terminal                           BEGIN, END;
@@ -9,8 +28,6 @@ terminal                           IF, FI, WHILE, RETURN, REF, DEREF;
 terminal                           NAME, INT_LITERAL, STRING_LITERAL, FLOAT_LITERAL;
 terminal                           COMMENT;
 terminal                           RELOP, ARIT, LOGIC, DOT, PARAM_ID;
-non terminal Program               program;                       
+nonterminal                        Term;
 
-program          ::= PROGRAM BEGIN END
-                        {: RESULT = new Program(); :}
-                   ;
+Term           ::= ;                                   
