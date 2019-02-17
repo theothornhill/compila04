@@ -22,3 +22,4 @@ src/grammars/.#compila.cup
 .DS_Store
 my-src/.DS_Store
 my-src/Lexer.java
+*.class

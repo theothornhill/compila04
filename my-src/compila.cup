@@ -1,12 +1,16 @@
-import java_cup.runtime.*
+import java_cup.runtime.*;
+import java.io.FileReader;
 
-parser code {:
 
-:}
+terminal                           PROGRAM;
+terminal                           BEGIN, END;
+terminal                           STRUCT, PROC, VAR, NEW;
+terminal                           IF, FI, WHILE, RETURN, REF, DEREF;
+terminal                           NAME, INT_LITERAL, STRING_LITERAL, FLOAT_LITERAL;
+terminal                           COMMENT;
+terminal                           RELOP, ARIT, LOGIC, DOT, PARAM_ID;
+non terminal Program               program;                       
 
-terminal                 PLUS,MINUS,MULT,DIVIDE;
-non terminal
-
-precedence left           PLUS,MINUS;
-precedence right          MULT,DIVIDE;
-precedence nonassoc       RELOP;
+program          ::= PROGRAM BEGIN END
+                        {: RESULT = new Program(); :}
+                   ;
