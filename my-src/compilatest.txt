@@ -1,0 +1,11 @@
+program class declaration
+w_o_rd
+
+98
+64.37
+"this  is a string literal"
+name.function
+end
+=
+<=
+<>

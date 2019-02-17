@@ -10,3 +10,12 @@
 auto
 *.idx
 *.ps
+material/simpleexpressions/build/classes/
+material/simpleexpressions/grammars/.#expression-eval.lex
+material/simpleexpressions/grammars/ExpressionLexer.java
+material/simpleexpressions/grammars/parser.java
+material/simpleexpressions/grammars/sym.java
+material/simpleexpressions/src-examples/exampletree/Minus.java
+material/simpleexpressions/src-gen/expression_eval/
+material/simpleexpressions/src-gen/expression_par/
+src/grammars/.#compila.cup
