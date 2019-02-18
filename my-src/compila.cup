@@ -5,6 +5,13 @@ import java.io.FileNotFoundException;
 import java.io.ByteArrayInputStream;
 import java.util.*;
 
+parser code
+{:
+public void syntax_error(Symbol s){
+    System.err.printf("compiler has detected a syntax error: [%s]\n", s.value);
+}
+:};
+
 scan with {: return getScanner().next_token(); :};
 
 terminal                           PROGRAM;

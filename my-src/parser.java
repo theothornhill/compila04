@@ -103,6 +103,12 @@ public class parser extends java_cup.runtime.lr_parser {
  return getScanner().next_token(); 
     }
 
+
+public void syntax_error(Symbol s){
+    System.err.printf("compiler has detected a syntax error: [%s]\n", s.value);
+}
+
+
 /** Cup generated class to encapsulate user supplied action code.*/
 @SuppressWarnings({"rawtypes", "unchecked", "unused"})
 class CUP$parser$actions {
