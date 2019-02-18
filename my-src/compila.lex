@@ -40,9 +40,9 @@ CommentContent       = ( [^*] | \*+ [^/\*] )*
              "begin"                 { return new Symbol(sym.BEGIN); }
              "end"                   { return new Symbol(sym.END); }
              /* declarations */
-             "struct"                { return new Symbol(sym.STRUCT); }
-             "proc"                  { return new Symbol(sym.PROC); }
-             "var"                   { return new Symbol(sym.VAR); }
+             "record"                { return new Symbol(sym.REC_DECL); }
+             "proc"                  { return new Symbol(sym.PROC_DECL); }
+             "var"                   { return new Symbol(sym.VAR_DECL); }
              "new"                   { return new Symbol(sym.NEW); }
              /* program logic */
              "if"                    { return new Symbol(sym.IF); }

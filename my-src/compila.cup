@@ -3,21 +3,48 @@ import java.io.FileReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.ByteArrayInputStream;
+import java.util.*;
 
 scan with {: return getScanner().next_token(); :};
 
 terminal                           PROGRAM;
 terminal                           BEGIN, END;
-terminal                           STRUCT, PROC, VAR, NEW;
+terminal                           REC_DECL, PROC_DECL, VAR_DECL, NEW;
 terminal                           IF, FI, WHILE, RETURN, REF, DEREF;
 terminal                           INT_LITERAL, STRING_LITERAL, FLOAT_LITERAL;
 terminal                           COMMENT;
 terminal                           RELOP, ARIT, LOGIC, DOT, PARAM_ID;
 terminal String                    NAME;
 nonterminal Program                program;
+nonterminal String                 rec_decl;
+nonterminal                        decl, var_decl, proc_decl;
 
 
-program           ::=  PROGRAM NAME:name BEGIN END
-                               {: RESULT = new Program(name);
+program           ::=  PROGRAM NAME:name BEGIN rec_decl:struct END
+                               {: RESULT = new Program(name, struct);
                                   System.out.println(RESULT.printAst()); :}
-                    ;                                   
+                   ;
+
+rec_decl          ::= REC_DECL NAME:name
+                          {: RESULT = "RECORD " + name; :}
+                    ;
+
+/* HOW DO I GET DECLARATIONS WORKING?
+decl              ::= var_decl
+                    | proc_decl
+                    | rec_decl
+                    ;
+
+var_decl          ::= VAR NAME:name PARAM_ID NAME:type
+                          {: RESULT = "hello";
+                             System.out.printf("var %s: %s", name, type); :}
+                    ;
+
+proc_decl         ::= PROC_DECL NAME:name BEGIN END
+                          {: RESULT = "what";
+                             System.out.printf("proc %s begin [stuff] end", name); :}
+                    ;
+rec_decl          ::= REC_DECL NAME:name
+                         {: RESULT = "up";
+                            System.out.printf("struct %s", name); :}
+                    ;*/

@@ -8,7 +8,6 @@ public class sym {
   /* terminals */
   public static final int ARIT = 20;
   public static final int RELOP = 19;
-  public static final int STRUCT = 5;
   public static final int WHILE = 11;
   public static final int END = 4;
   public static final int RETURN = 12;
@@ -24,22 +23,23 @@ public class sym {
   public static final int EOF = 0;
   public static final int DEREF = 14;
   public static final int COMMENT = 18;
+  public static final int REC_DECL = 5;
   public static final int DOT = 22;
   public static final int error = 1;
   public static final int PARAM_ID = 23;
-  public static final int PROC = 6;
   public static final int NEW = 8;
+  public static final int VAR_DECL = 7;
   public static final int FLOAT_LITERAL = 17;
-  public static final int VAR = 7;
+  public static final int PROC_DECL = 6;
   public static final String[] terminalNames = new String[] {
   "EOF",
   "error",
   "PROGRAM",
   "BEGIN",
   "END",
-  "STRUCT",
-  "PROC",
-  "VAR",
+  "REC_DECL",
+  "PROC_DECL",
+  "VAR_DECL",
   "NEW",
   "IF",
   "FI",
