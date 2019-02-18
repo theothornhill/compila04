@@ -10,11 +10,14 @@ terminal                           PROGRAM;
 terminal                           BEGIN, END;
 terminal                           STRUCT, PROC, VAR, NEW;
 terminal                           IF, FI, WHILE, RETURN, REF, DEREF;
-terminal                           NAME, INT_LITERAL, STRING_LITERAL, FLOAT_LITERAL;
+terminal                           INT_LITERAL, STRING_LITERAL, FLOAT_LITERAL;
 terminal                           COMMENT;
 terminal                           RELOP, ARIT, LOGIC, DOT, PARAM_ID;
-nonterminal                        Term;
-start with Term;
+terminal String                    NAME;
+nonterminal Program                program;
 
-Term           ::= PROGRAM {: RESULT = new Program(); :}
+
+program           ::=  PROGRAM NAME:name BEGIN END
+                               {: RESULT = new Program(name);
+                                  System.out.println(RESULT.printAst()); :}
                     ;                                   

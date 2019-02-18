@@ -6,30 +6,30 @@
 /** CUP generated class containing symbol constants. */
 public class sym {
   /* terminals */
-  public static final int ARIT = 21;
-  public static final int RELOP = 20;
+  public static final int ARIT = 20;
+  public static final int RELOP = 19;
   public static final int STRUCT = 5;
   public static final int WHILE = 11;
   public static final int END = 4;
   public static final int RETURN = 12;
   public static final int FI = 10;
-  public static final int NAME = 15;
-  public static final int LOGIC = 22;
+  public static final int NAME = 24;
+  public static final int LOGIC = 21;
   public static final int REF = 13;
   public static final int IF = 9;
   public static final int PROGRAM = 2;
-  public static final int STRING_LITERAL = 17;
   public static final int BEGIN = 3;
-  public static final int INT_LITERAL = 16;
+  public static final int STRING_LITERAL = 16;
+  public static final int INT_LITERAL = 15;
   public static final int EOF = 0;
   public static final int DEREF = 14;
-  public static final int COMMENT = 19;
-  public static final int DOT = 23;
+  public static final int COMMENT = 18;
+  public static final int DOT = 22;
   public static final int error = 1;
-  public static final int PARAM_ID = 24;
+  public static final int PARAM_ID = 23;
   public static final int PROC = 6;
   public static final int NEW = 8;
-  public static final int FLOAT_LITERAL = 18;
+  public static final int FLOAT_LITERAL = 17;
   public static final int VAR = 7;
   public static final String[] terminalNames = new String[] {
   "EOF",
@@ -47,7 +47,6 @@ public class sym {
   "RETURN",
   "REF",
   "DEREF",
-  "NAME",
   "INT_LITERAL",
   "STRING_LITERAL",
   "FLOAT_LITERAL",
@@ -56,7 +55,8 @@ public class sym {
   "ARIT",
   "LOGIC",
   "DOT",
-  "PARAM_ID"
+  "PARAM_ID",
+  "NAME"
   };
 }
 

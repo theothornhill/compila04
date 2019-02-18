@@ -37,6 +37,7 @@ CommentContent       = ( [^*] | \*+ [^/\*] )*
 <YYINITIAL> { 
              /* initial */
              "program"               { return new Symbol(sym.PROGRAM); }
+             "begin"                 { return new Symbol(sym.BEGIN); }
              "end"                   { return new Symbol(sym.END); }
              /* declarations */
              "struct"                { return new Symbol(sym.STRUCT); }
@@ -55,7 +56,7 @@ CommentContent       = ( [^*] | \*+ [^/\*] )*
  /* Types and identifiers */
 <YYINITIAL> {
              {NAME}_                 { System.exit(4763); }
-             {NAME}                  { return new Symbol(sym.NAME); }
+             {NAME}                  { return new Symbol(sym.NAME, yytext()); }
              {INT_LITERAL}"."        { System.exit(4763); }
              {INT_LITERAL}           { return new Symbol(sym.INT_LITERAL); }
              {STRING_LITERAL}        { return new Symbol(sym.STRING_LITERAL); }
