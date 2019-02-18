@@ -1,9 +1,11 @@
 public class Program {
     String name;
     String stmt;
-    public Program(String name, String stmt) {
+    String var;
+    public Program(String name, String stmt, String var) {
         this.name = name;
         this.stmt = stmt;
+        this.var = var;
     }
 
     public String printAst() {
@@ -14,6 +16,9 @@ public class Program {
         sb.append(")\n");
         sb.append("\t(" + stmt);
         sb.append(")\n");
+        sb.append("\t(" + var);
+        sb.append(")\n");
+        sb.append("\t)\n");
         sb.append(")\n");
         return sb.toString();
     }

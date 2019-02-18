@@ -23,28 +23,26 @@ terminal                           COMMENT;
 terminal                           RELOP, ARIT, LOGIC, DOT, PARAM_ID;
 terminal String                    NAME;
 nonterminal Program                program;
-nonterminal String                 rec_decl;
-nonterminal                        decl, var_decl, proc_decl;
+nonterminal String                 rec_decl, var_decl;
+nonterminal                        decl, proc_decl;
 
 
-program           ::=  PROGRAM NAME:name BEGIN rec_decl:struct END
-                               {: RESULT = new Program(name, struct);
+program           ::=  PROGRAM NAME:name BEGIN rec_decl:struct var_decl:var END
+                               {: RESULT = new Program(name, struct, var);
                                   System.out.println(RESULT.printAst()); :}
                    ;
 
 rec_decl          ::= REC_DECL NAME:name
                           {: RESULT = "RECORD " + name; :}
                     ;
-
+var_decl          ::= VAR_DECL NAME:name PARAM_ID NAME:type
+                          {: RESULT = "VAR " + name + " (TYPE  " + type; :}
+                    ;
+                    
 /* HOW DO I GET DECLARATIONS WORKING?
 decl              ::= var_decl
                     | proc_decl
                     | rec_decl
-                    ;
-
-var_decl          ::= VAR NAME:name PARAM_ID NAME:type
-                          {: RESULT = "hello";
-                             System.out.printf("var %s: %s", name, type); :}
                     ;
 
 proc_decl         ::= PROC_DECL NAME:name BEGIN END

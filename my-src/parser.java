@@ -34,8 +34,8 @@ public class parser extends java_cup.runtime.lr_parser {
   /** Production table. */
   protected static final short _production_table[][] = 
     unpackFromStrings(new String[] {
-    "\000\003\000\002\002\007\000\002\002\004\000\002\003" +
-    "\004" });
+    "\000\004\000\002\002\010\000\002\002\004\000\002\003" +
+    "\004\000\002\004\006" });
 
   /** Access to production table. */
   public short[][] production_table() {return _production_table;}
@@ -43,11 +43,14 @@ public class parser extends java_cup.runtime.lr_parser {
   /** Parse-action table. */
   protected static final short[][] _action_table = 
     unpackFromStrings(new String[] {
-    "\000\012\000\004\004\005\001\002\000\004\002\014\001" +
+    "\000\017\000\004\004\005\001\002\000\004\002\021\001" +
     "\002\000\004\032\006\001\002\000\004\005\007\001\002" +
-    "\000\004\007\011\001\002\000\004\006\013\001\002\000" +
-    "\004\032\012\001\002\000\004\006\uffff\001\002\000\004" +
-    "\002\001\001\002\000\004\002\000\001\002" });
+    "\000\004\007\011\001\002\000\004\011\014\001\002\000" +
+    "\004\032\012\001\002\000\004\011\uffff\001\002\000\004" +
+    "\006\020\001\002\000\004\032\015\001\002\000\004\031" +
+    "\016\001\002\000\004\032\017\001\002\000\004\006\ufffe" +
+    "\001\002\000\004\002\001\001\002\000\004\002\000\001" +
+    "\002" });
 
   /** Access to parse-action table. */
   public short[][] action_table() {return _action_table;}
@@ -55,10 +58,12 @@ public class parser extends java_cup.runtime.lr_parser {
   /** <code>reduce_goto</code> table. */
   protected static final short[][] _reduce_table = 
     unpackFromStrings(new String[] {
-    "\000\012\000\004\002\003\001\001\000\002\001\001\000" +
+    "\000\017\000\004\002\003\001\001\000\002\001\001\000" +
     "\002\001\001\000\002\001\001\000\004\003\007\001\001" +
+    "\000\004\004\012\001\001\000\002\001\001\000\002\001" +
+    "\001\000\002\001\001\000\002\001\001\000\002\001\001" +
     "\000\002\001\001\000\002\001\001\000\002\001\001\000" +
-    "\002\001\001\000\002\001\001" });
+    "\002\001\001" });
 
   /** Access to <code>reduce_goto</code> table. */
   public short[][] reduce_table() {return _reduce_table;}
@@ -134,18 +139,21 @@ class CUP$parser$actions {
       switch (CUP$parser$act_num)
         {
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 0: // program ::= PROGRAM NAME BEGIN rec_decl END 
+          case 0: // program ::= PROGRAM NAME BEGIN rec_decl var_decl END 
             {
               Program RESULT =null;
-		int nameleft = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-3)).left;
-		int nameright = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-3)).right;
-		String name = (String)((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top-3)).value;
-		int structleft = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-1)).left;
-		int structright = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-1)).right;
-		String struct = (String)((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top-1)).value;
-		 RESULT = new Program(name, struct);
+		int nameleft = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-4)).left;
+		int nameright = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-4)).right;
+		String name = (String)((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top-4)).value;
+		int structleft = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-2)).left;
+		int structright = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-2)).right;
+		String struct = (String)((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top-2)).value;
+		int varleft = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-1)).left;
+		int varright = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-1)).right;
+		String var = (String)((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top-1)).value;
+		 RESULT = new Program(name, struct, var);
                                   System.out.println(RESULT.printAst()); 
-              CUP$parser$result = parser.getSymbolFactory().newSymbol("program",0, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-4)), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
+              CUP$parser$result = parser.getSymbolFactory().newSymbol("program",0, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-5)), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
 
@@ -172,6 +180,21 @@ class CUP$parser$actions {
 		String name = (String)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
 		 RESULT = "RECORD " + name; 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("rec_decl",1, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-1)), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
+            }
+          return CUP$parser$result;
+
+          /*. . . . . . . . . . . . . . . . . . . .*/
+          case 3: // var_decl ::= VAR_DECL NAME PARAM_ID NAME 
+            {
+              String RESULT =null;
+		int nameleft = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-2)).left;
+		int nameright = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-2)).right;
+		String name = (String)((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top-2)).value;
+		int typeleft = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).left;
+		int typeright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
+		String type = (String)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
+		 RESULT = "VAR " + name + " (TYPE  " + type; 
+              CUP$parser$result = parser.getSymbolFactory().newSymbol("var_decl",2, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-3)), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
 

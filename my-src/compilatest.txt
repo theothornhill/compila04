@@ -1,6 +1,7 @@
 program compilatest
     begin
         record hello
+        var testVar: String
     end
 
 
