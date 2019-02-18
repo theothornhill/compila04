@@ -4,16 +4,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.ByteArrayInputStream;
 
-parser code {:
-public static void main(String[] args){
-  try {
-    parser parser = new parser(new Lexer(new FileReader(args[0])));
-    parser.parse();
-  } catch (Exception e) { e.printStackTrace(); }
-}
-
-:};
-
 scan with {: return getScanner().next_token(); :};
 
 terminal                           PROGRAM;
@@ -24,5 +14,7 @@ terminal                           NAME, INT_LITERAL, STRING_LITERAL, FLOAT_LITE
 terminal                           COMMENT;
 terminal                           RELOP, ARIT, LOGIC, DOT, PARAM_ID;
 nonterminal                        Term;
+start with Term;
 
-Term           ::= ;                                   
+Term           ::= PROGRAM {: RESULT = new Program(); :}
+                    ;                                   

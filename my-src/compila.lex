@@ -6,7 +6,12 @@ import java_cup.runtime.*;
 %cup
 %line
 %column
-
+%eofval{
+  return new Symbol(sym.EOF);
+%eofval}
+%eof{
+  System.out.println("Reached end of file!");
+%eof}
  /* Whitespaces */
 LineTerminator  = \n|\r|\r\n
 WhiteSpace      = \s
