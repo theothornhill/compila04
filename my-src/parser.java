@@ -7,6 +7,7 @@ import java_cup.runtime.*;
 import java.io.FileReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.ByteArrayInputStream;
 import java_cup.runtime.XMLElement;
 
 /** CUP v0.11b 20160615 (GIT 4ac7450) generated parser.
@@ -92,24 +93,17 @@ public class parser extends java_cup.runtime.lr_parser {
   public java_cup.runtime.Symbol scan()
     throws java.lang.Exception
     {
-
-    return lexer.yylex();
-
+ return getScanner().next_token(); 
     }
 
 
-    private Lexer lexer;
-    private File file;
+public static void main(String[] args){
+  try {
+    parser parser = new parser(new Lexer(new FileReader(args[0])));
+    parser.parse();
+  } catch (Exception e) { e.printStackTrace(); }
+}
 
-    public parser(File file) {
-        this();
-        this.file = file;
-        try {
-            lexer = new Lexer(new FileReader(file));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
 
 
 /** Cup generated class to encapsulate user supplied action code.*/
