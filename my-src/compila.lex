@@ -80,7 +80,8 @@ CommentContent       = ( [^*] | \*+ [^/\*] )*
              "/"                        { return new Symbol(sym.DIVIDE); }
              "^"                        { return new Symbol(sym.EXPONENT); }
              /* Logical Operators */
-             "&&"|"||"                  { return new Symbol(sym.LOGIC); } 
+             "&&"                       { return new Symbol(sym.AND); }
+             "||"                       { return new Symbol(sym.OR); } 
              /* Dot operator*/
              "."                        { return new Symbol(sym.DOT); }
              /* Parameter identificator */
