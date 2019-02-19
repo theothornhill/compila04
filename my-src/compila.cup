@@ -24,40 +24,28 @@ terminal                           COMMENT;
 terminal                           RELOP, ARIT, LOGIC, DOT, PARAM_ID;
 terminal String                    NAME;
 nonterminal Program                program;
-nonterminal String                 rec_decl, var_decl, proc_decl;
-nonterminal                        decl;
+nonterminal String                 rec_decl, var_decl, proc_decl, decl;
 nonterminal LinkedList<String>     decl_list;
 
 
-program           ::=  PROGRAM NAME:name BEGIN decl_list:decl END
-                               {: RESULT = new Program(name, decl);
+program           ::=  PROGRAM NAME:name BEGIN decl_list:dl END
+                               {: LinkedList<LinkedList> l = new LinkedList<>();
+                                  l.add(dl);
+                                  RESULT = new Program(name, l);
                                   System.out.println(RESULT.printAst()); :}
                    ;
-/* Not correct rules here, but this is better*/
-decl_list         ::= rec_decl:d {: LinkedList<String> l = new LinkedList<String>();
-                                       l.add(d); RESULT = l; :}
-                    | decl_list:dl rec_decl:d {: LinkedList<String> l = new
-                                       LinkedList<String>();
-                                       dl.add(d); RESULT = dl; :}
-                    | decl_list:dl var_decl:d {: LinkedList<String> l = new
-                                       LinkedList<String>();
-                                       dl.add(d); RESULT = dl; :}
-                    | decl_list:dl proc_decl:d {: LinkedList<String> l = new
-                                       LinkedList<String>();
-                                       dl.add(d); RESULT = dl; :}
-                    ;
-                    
-rec_decl          ::= REC_DECL NAME:name
-                          {: RESULT = "(RECORD " + name + ")"; :}
-                    ;
-                    
-var_decl          ::= VAR_DECL NAME:name PARAM_ID NAME:type RELOP STRING_LITERAL:content
-                          {: RESULT = "(VAR " + name + " (TYPE " + type + " (" +
-                             content + ")" +")"; :}
+
+decl_list         ::= decl:d {: LinkedList<String> l = new LinkedList<>();
+                                l.add(d);
+                                RESULT = l; :}
+                    |   decl_list:dl decl:d
+                            {: dl.add(d); RESULT = dl; :}
                     ;
 
-proc_decl         ::= PROC_DECL NAME:name LPAR decl_list:dl RPAR BEGIN decl_list:body END
-                          {: LinkedList<String> l = new LinkedList<String>();
-                                RESULT = "(PROCEDURE " + name + " (ARGS " +
-                                dl.get(0) + "\n\t\t("; :}
+decl              ::= REC_DECL NAME:name
+                          {: RESULT = "(STRUCT " + name + ")"; :}
+                    | VAR_DECL NAME:name PARAM_ID NAME:type
+                          {: RESULT = "(VAR " + name + " (TYPE " + type + ") "; :}
+                    | PROC_DECL NAME:name LPAR decl_list:dl RPAR BEGIN decl_list:body END
+                          {: RESULT = "(PROCEDURE " + name + " " + dl + body + ")"; :}
                     ;

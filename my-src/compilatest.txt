@@ -1,11 +1,14 @@
 program compilatest
-    begin
-        record records
-        proc factorial(record hello)
-             begin
-                record hello
-             end
-    end
+begin
+   record reco
+   record recotwo
+   var hello: str
+
+   proc my_proc(var my_var: str)
+   begin
+       record many_things_here
+   end
+end
 
 
 

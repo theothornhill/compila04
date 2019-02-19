@@ -2,8 +2,8 @@ import java.util.*;
 
 public class Program {
     String name;
-    List<String> declarations;
-    public Program(String name, LinkedList<String> declarations) {
+    List<LinkedList> declarations;
+    public Program(String name, LinkedList<LinkedList> declarations) {
         this.name = name;
         this.declarations = declarations;
     }
@@ -14,9 +14,12 @@ public class Program {
         sb.append("(NAME ");
         sb.append(this.name);
         sb.append(")\n");
-        declarations.stream().forEach(s -> {
-                sb.append("\t" + s);
-                sb.append("\n");
+        declarations.stream()
+            .forEach(s -> {
+                    s.stream().forEach(t -> {
+                            sb.append("\t" + t);
+                            sb.append("\n");                            
+                        });
             });
         sb.append(")\n");
         return sb.toString();
