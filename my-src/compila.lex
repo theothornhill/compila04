@@ -67,7 +67,12 @@ CommentContent       = ( [^*] | \*+ [^/\*] )*
 {Comment}                               { return new Symbol(sym.COMMENT); }
 <YYINITIAL> {
              /* Relational Operators */
-             "<"|">"|">="|"<="|"="|"<>" { return new Symbol(sym.RELOP); }
+             "<"                        { return new Symbol(sym.LT); }
+             "<="                       { return new Symbol(sym.LTEQ); }
+             ">"                        { return new Symbol(sym.GT); }
+             ">="                       { return new Symbol(sym.GTEQ); }
+             "="                        { return new Symbol(sym.EQ); }
+             "<>"                       { return new Symbol(sym.NEQ); }
              /* Arithmetic Operators */
              "+"|"-"|"*"|"/"|"^"        { return new Symbol(sym.ARIT); }
              /* Logical Operators */

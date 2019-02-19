@@ -21,12 +21,14 @@ terminal                           REC_DECL, PROC_DECL, VAR_DECL, NEW;
 terminal                           IF, FI, WHILE, RETURN, REF, DEREF;
 terminal                           INT_LITERAL, STRING_LITERAL, FLOAT_LITERAL;
 terminal                           COMMENT;
-terminal                           RELOP, ARIT, LOGIC, DOT, PARAM_ID;
+terminal                           ARIT, LOGIC, DOT, PARAM_ID;
+terminal                           LT, LTEQ, GT, GTEQ, EQ, NEQ;
 terminal String                    NAME;
 nonterminal Program                program;
 nonterminal String                 rec_decl, var_decl, proc_decl, decl;
+nonterminal String                 rel_op;
 nonterminal LinkedList<String>     decl_list;
-
+start with program;
 
 program           ::=  PROGRAM NAME:name BEGIN decl_list:dl END
                                {: LinkedList<LinkedList> l = new LinkedList<>();
