@@ -1,11 +1,10 @@
 program compilatest
     begin
-        record i
-        record have
-        var newest_thing: str = "Tekst hihi!"
-        record many
-        var oldest_thing: str = "mer tekst hoho!"
         record records
+        proc factorial(record hello)
+             begin
+                record hello
+             end
     end
 
 
