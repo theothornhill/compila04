@@ -51,16 +51,8 @@ CommentContent       = ( [^*] | \*+ [^/\*] )*
              "return"                { return new Symbol(sym.RETURN); }
              "ref"                   { return new Symbol(sym.REF); }
              "deref"                 { return new Symbol(sym.DEREF); }
-}
-
- /* Types and identifiers */
-<YYINITIAL> {
-             {NAME}_                 { System.exit(4763); }
-             {NAME}                  { return new Symbol(sym.NAME, yytext()); }
-             {INT_LITERAL}"."        { System.exit(4763); }
-             {INT_LITERAL}           { return new Symbol(sym.INT_LITERAL); }
-             {STRING_LITERAL}        { return new Symbol(sym.STRING_LITERAL, yytext()); }
-             {FLOAT_LITERAL}         { return new Symbol(sym.FLOAT_LITERAL); }
+             /* Negation */
+             "not"                   { return new Symbol(sym.NOT); }
 }
 
 /* Comments */
@@ -84,12 +76,20 @@ CommentContent       = ( [^*] | \*+ [^/\*] )*
              "||"                       { return new Symbol(sym.OR); } 
              /* Dot operator*/
              "."                        { return new Symbol(sym.DOT); }
-             /* Negation */
-             "!"                        { return new Symbol(sym.NOT); }
              /* Parameter identificator */
              ":"                        { return new Symbol(sym.PARAM_ID); }
              "("                        { return new Symbol(sym.LPAR); }
              ")"                        { return new Symbol(sym.RPAR); }
+}
+
+ /* Types and identifiers */
+<YYINITIAL> {
+             {NAME}_                 { System.exit(4763); }
+             {NAME}                  { return new Symbol(sym.NAME, yytext()); }
+             {INT_LITERAL}"."        { System.exit(4763); }
+             {INT_LITERAL}           { return new Symbol(sym.INT_LITERAL); }
+             {STRING_LITERAL}        { return new Symbol(sym.STRING_LITERAL, yytext()); }
+             {FLOAT_LITERAL}         { return new Symbol(sym.FLOAT_LITERAL); }
 }
 
 /* Catch all */

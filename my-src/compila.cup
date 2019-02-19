@@ -72,7 +72,7 @@ decl              ::= REC_DECL NAME:name
                     ;
 /* Not done*/
 exp               ::= exp log_op exp {: RESULT = "They look the same"; :}
-                    /* | exp {: RESULT = ""; :} Needs to be set to "not" */
+                    | NOT exp:e {: RESULT = "(NOT " + e + ")"; :}
                     | exp rel_op exp {: RESULT = "They are related"; :}
                     | literal:lit {: RESULT = "" + lit; :}
                     | call_stmt   {: RESULT = ""; :}
