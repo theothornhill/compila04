@@ -26,6 +26,7 @@ terminal                           LT, LTEQ, GT, GTEQ, EQ, NEQ;
 terminal                           ADD, MINUS, MULT, DIVIDE, EXPONENT;
 terminal                           AND, OR;
 terminal String                    NAME;
+nonterminal                        literal, call_stmt, var;
 nonterminal Program                program;
 nonterminal String                 rec_decl, var_decl, proc_decl, decl;
 nonterminal String                 rel_op, log_op;
@@ -59,12 +60,18 @@ decl              ::= REC_DECL NAME:name
                           {: RESULT = "(PARAM " + name + " type: " + type + ")"; :}
                     ;
 /* Not done*/
-exp               ::= NAME log_op NAME {: RESULT = "They look the same"; :}
-                    /* "not" EXP*/
-                    | NAME rel_op NAME {: RESULT = "They are related"; :}
+exp               ::= exp log_op exp {: RESULT = "They look the same"; :}
+                    /* | exp {: RESULT = ""; :} Needs to be set to "not" */
+                    | exp rel_op exp {: RESULT = "They are related"; :}
+                    | literal:lit {: RESULT = "" + lit; :}
+                    | call_stmt   {: RESULT = ""; :}
+                    | NEW NAME:name {: RESULT = name; :}
+                    | var:v {: RESULT = "" +v; :}
                     | LPAR exp RPAR {: RESULT = "Nested things"; :}
                     ;
 
-log_op            ::= EQ {: RESULT = ""; :}
+literal           ::= STRING_LITERAL:str {: RESULT = str; :}
                     ;
 
+rel_op            ::= EQ {: RESULT = "something is related"; :}
+                    ;
