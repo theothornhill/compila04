@@ -8,7 +8,8 @@ begin
    begin
        record many_things_here
    end
-   thing: string
+   thing: karnevalshund
+   hello = olleh
 end
 
 

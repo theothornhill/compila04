@@ -28,7 +28,8 @@ terminal                           AND, OR;
 terminal String                    NAME;
 nonterminal Program                program;
 nonterminal String                 rec_decl, var_decl, proc_decl, decl;
-nonterminal String                 rel_op;
+nonterminal String                 rel_op, log_op;
+nonterminal String                 exp;
 nonterminal LinkedList<String>     decl_list;
 start with program;
 
@@ -44,6 +45,8 @@ decl_list         ::= decl:d {: LinkedList<String> l = new LinkedList<>();
                                 RESULT = l; :}
                     |   decl_list:dl decl:d
                             {: dl.add(d); RESULT = dl; :}
+                    | decl_list:dl exp:e
+                            {:dl.add(e); RESULT = dl; :}
                     ;
 
 decl              ::= REC_DECL NAME:name
@@ -54,4 +57,10 @@ decl              ::= REC_DECL NAME:name
                           {: RESULT = "(PROCEDURE " + name + " " + dl + body + ")"; :}
                     | NAME:name PARAM_ID NAME:type
                           {: RESULT = "(PARAM " + name + " type: " + type + ")"; :}
+                    ;
+
+exp               ::= NAME log_op NAME {: RESULT = "They look the same"; :}
+                    ;
+
+log_op            ::= EQ {: RESULT = ""; :}
                     ;
