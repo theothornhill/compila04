@@ -20,6 +20,7 @@ terminal                           LPAR, RPAR;
 terminal                           REC_DECL, PROC_DECL, VAR_DECL, NEW;
 terminal                           IF, FI, WHILE, RETURN, REF, DEREF;
 terminal                           INT_LITERAL, STRING_LITERAL, FLOAT_LITERAL;
+terminal                           TRUE, FALSE, NULL;
 terminal                           COMMENT;
 terminal                           DOT, PARAM_ID;
 terminal                           NOT;
@@ -29,9 +30,9 @@ terminal                           AND, OR;
 terminal String                    NAME;
 nonterminal                        literal, call_stmt, var;
 nonterminal Program                program;
-nonterminal String                 rec_decl, var_decl, proc_decl, decl;
+nonterminal String                 decl;
 nonterminal String                 rel_op, log_op, arit_op;
-nonterminal String                 exp;
+nonterminal String                 exp, bool;
 nonterminal LinkedList<String>     decl_list;
 
 precedence left                    OR;
@@ -84,6 +85,10 @@ exp               ::= exp log_op exp {: RESULT = "They look the same"; :}
                     ;
 
 literal           ::= STRING_LITERAL:str {: RESULT = str; :}
+                    | INT_LITERAL:i {: RESULT = i; :}
+                    | FLOAT_LITERAL:f {: RESULT = f; :}
+                    | bool:b {: RESULT = b; :}
+                    | NULL {: RESULT = "null"; :}
                     ;
 
 rel_op            ::= EQ {: RESULT = "something is related"; :}
@@ -91,3 +96,7 @@ rel_op            ::= EQ {: RESULT = "something is related"; :}
 
 arit_op           ::= ADD | MINUS | MULT | DIVIDE | EXPONENT
                     ;
+
+bool              ::= TRUE | FALSE
+                    ;
+

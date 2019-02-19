@@ -53,6 +53,9 @@ CommentContent       = ( [^*] | \*+ [^/\*] )*
              "deref"                 { return new Symbol(sym.DEREF); }
              /* Negation */
              "not"                   { return new Symbol(sym.NOT); }
+             "true"                  { return new Symbol(sym.TRUE); }
+             "false"                 { return new Symbol(sym.FALSE); }
+             "null"                  { return new Symbol(sym.NULL); }
 }
 
 /* Comments */
