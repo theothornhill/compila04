@@ -16,6 +16,7 @@ scan with {: return getScanner().next_token(); :};
 
 terminal                           PROGRAM;
 terminal                           BEGIN, END;
+terminal                           LPAR, RPAR;
 terminal                           REC_DECL, PROC_DECL, VAR_DECL, NEW;
 terminal                           IF, FI, WHILE, RETURN, REF, DEREF;
 terminal                           INT_LITERAL, STRING_LITERAL, FLOAT_LITERAL;
