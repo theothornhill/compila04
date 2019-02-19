@@ -59,7 +59,7 @@ CommentContent       = ( [^*] | \*+ [^/\*] )*
              {NAME}                  { return new Symbol(sym.NAME, yytext()); }
              {INT_LITERAL}"."        { System.exit(4763); }
              {INT_LITERAL}           { return new Symbol(sym.INT_LITERAL); }
-             {STRING_LITERAL}        { return new Symbol(sym.STRING_LITERAL); }
+             {STRING_LITERAL}        { return new Symbol(sym.STRING_LITERAL, yytext()); }
              {FLOAT_LITERAL}         { return new Symbol(sym.FLOAT_LITERAL); }
 }
 

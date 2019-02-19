@@ -34,17 +34,18 @@ program           ::=  PROGRAM NAME:name BEGIN decl_list:decl END
                    ;
 
 decl_list         ::= rec_decl:d {: LinkedList<String> l = new LinkedList<String>();
-                                       l.add(d);
-                                       RESULT = l; :}
+                                       l.add(d); RESULT = l; :}
                     | decl_list:dl rec_decl:d {: dl.add(d); RESULT = dl; :}
+                    | decl_list:dl var_decl:d {: dl.add(d); RESULT = dl; :}
                     ;
                     
 rec_decl          ::= REC_DECL NAME:name
                           {: RESULT = "(RECORD " + name + ")"; :}
                     ;
                     
-var_decl          ::= VAR_DECL NAME:name PARAM_ID NAME:type
-                          {: RESULT = "VAR " + name + " (TYPE " + type; :}
+var_decl          ::= VAR_DECL NAME:name PARAM_ID NAME:type RELOP STRING_LITERAL:content
+                          {: RESULT = "(VAR " + name + " (TYPE " + type + " (" +
+                             content + ")" +")"; :}
                     ;
                     
 /* HOW DO I GET DECLARATIONS WORKING?
