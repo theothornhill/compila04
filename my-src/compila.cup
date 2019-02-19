@@ -30,7 +30,7 @@ terminal String                    NAME;
 nonterminal                        literal, call_stmt, var;
 nonterminal Program                program;
 nonterminal String                 rec_decl, var_decl, proc_decl, decl;
-nonterminal String                 rel_op, log_op;
+nonterminal String                 rel_op, log_op, arit_op;
 nonterminal String                 exp;
 nonterminal LinkedList<String>     decl_list;
 
@@ -70,10 +70,12 @@ decl              ::= REC_DECL NAME:name
                     | NAME:name PARAM_ID NAME:type
                           {: RESULT = "(PARAM " + name + " type: " + type + ")"; :}
                     ;
-/* Not done*/
+
+/* Expressions needs work. Check that we're not missing rules*/
 exp               ::= exp log_op exp {: RESULT = "They look the same"; :}
                     | NOT exp:e {: RESULT = "(NOT " + e + ")"; :}
                     | exp rel_op exp {: RESULT = "They are related"; :}
+                    | exp arit_op exp {: RESULT = "Maths"; :}
                     | literal:lit {: RESULT = "" + lit; :}
                     | call_stmt   {: RESULT = ""; :}
                     | NEW NAME:name {: RESULT = name; :}
@@ -85,4 +87,7 @@ literal           ::= STRING_LITERAL:str {: RESULT = str; :}
                     ;
 
 rel_op            ::= EQ {: RESULT = "something is related"; :}
+                    ;
+
+arit_op           ::= ADD | MINUS | MULT | DIVIDE | EXPONENT
                     ;
