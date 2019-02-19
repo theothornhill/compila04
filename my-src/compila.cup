@@ -91,7 +91,7 @@ literal           ::= STRING_LITERAL:str {: RESULT = str; :}
                     | NULL {: RESULT = "null"; :}
                     ;
 
-rel_op            ::= EQ {: RESULT = "something is related"; :}
+rel_op            ::= LT | LTEQ | GT | GTEQ | EQ | NEQ
                     ;
 
 arit_op           ::= ADD | MINUS | MULT | DIVIDE | EXPONENT
