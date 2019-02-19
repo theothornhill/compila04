@@ -1,11 +1,11 @@
+import java.util.*;
+
 public class Program {
     String name;
-    String stmt;
-    String var;
-    public Program(String name, String stmt, String var) {
+    List<String> declarations;
+    public Program(String name, LinkedList<String> declarations) {
         this.name = name;
-        this.stmt = stmt;
-        this.var = var;
+        this.declarations = declarations;
     }
 
     public String printAst() {
@@ -14,11 +14,10 @@ public class Program {
         sb.append("(NAME ");
         sb.append(this.name);
         sb.append(")\n");
-        sb.append("\t(" + stmt);
-        sb.append(")\n");
-        sb.append("\t(" + var);
-        sb.append(")\n");
-        sb.append("\t)\n");
+        declarations.stream().forEach(s -> {
+                sb.append("\t" + s);
+                sb.append("\n");
+            });
         sb.append(")\n");
         return sb.toString();
     }

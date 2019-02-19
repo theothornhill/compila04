@@ -25,18 +25,26 @@ terminal String                    NAME;
 nonterminal Program                program;
 nonterminal String                 rec_decl, var_decl;
 nonterminal                        decl, proc_decl;
+nonterminal LinkedList<String>     decl_list;
 
 
-program           ::=  PROGRAM NAME:name BEGIN rec_decl:struct var_decl:var END
-                               {: RESULT = new Program(name, struct, var);
+program           ::=  PROGRAM NAME:name BEGIN decl_list:decl END
+                               {: RESULT = new Program(name, decl);
                                   System.out.println(RESULT.printAst()); :}
                    ;
 
-rec_decl          ::= REC_DECL NAME:name
-                          {: RESULT = "RECORD " + name; :}
+decl_list         ::= rec_decl:d {: LinkedList<String> l = new LinkedList<String>();
+                                       l.add(d);
+                                       RESULT = l; :}
+                    | decl_list:dl rec_decl:d {: dl.add(d); RESULT = dl; :}
                     ;
+                    
+rec_decl          ::= REC_DECL NAME:name
+                          {: RESULT = "(RECORD " + name + ")"; :}
+                    ;
+                    
 var_decl          ::= VAR_DECL NAME:name PARAM_ID NAME:type
-                          {: RESULT = "VAR " + name + " (TYPE  " + type; :}
+                          {: RESULT = "VAR " + name + " (TYPE " + type; :}
                     ;
                     
 /* HOW DO I GET DECLARATIONS WORKING?

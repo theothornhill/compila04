@@ -1,7 +1,9 @@
 program compilatest
     begin
-        record hello
-        var testVar: String
+        record i
+        record have
+        record many
+        record records
     end
 
 
