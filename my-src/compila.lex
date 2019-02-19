@@ -74,7 +74,11 @@ CommentContent       = ( [^*] | \*+ [^/\*] )*
              "="                        { return new Symbol(sym.EQ); }
              "<>"                       { return new Symbol(sym.NEQ); }
              /* Arithmetic Operators */
-             "+"|"-"|"*"|"/"|"^"        { return new Symbol(sym.ARIT); }
+             "+"                        { return new Symbol(sym.ADD); }
+             "-"                        { return new Symbol(sym.MINUS); }
+             "*"                        { return new Symbol(sym.MULT); }
+             "/"                        { return new Symbol(sym.DIVIDE); }
+             "^"                        { return new Symbol(sym.EXPONENT); }
              /* Logical Operators */
              "&&"|"||"                  { return new Symbol(sym.LOGIC); } 
              /* Dot operator*/
