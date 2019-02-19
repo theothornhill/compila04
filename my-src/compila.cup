@@ -32,6 +32,16 @@ nonterminal String                 rec_decl, var_decl, proc_decl, decl;
 nonterminal String                 rel_op, log_op;
 nonterminal String                 exp;
 nonterminal LinkedList<String>     decl_list;
+
+precedence left                    OR;
+precedence left                    AND;
+precedence right                   NOT;
+precedence nonassoc                LT, LTEQ, GT, GTEQ, EQ, NEQ;
+precedence left                    ADD, MINUS;
+precedence left                    MULT, DIVIDE;
+precedence right                   EXPONENT;
+precedence left                    DOT;
+
 start with program;
 
 program           ::=  PROGRAM NAME:name BEGIN decl_list:dl END
