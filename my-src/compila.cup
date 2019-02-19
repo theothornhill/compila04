@@ -22,6 +22,7 @@ terminal                           IF, FI, WHILE, RETURN, REF, DEREF;
 terminal                           INT_LITERAL, STRING_LITERAL, FLOAT_LITERAL;
 terminal                           COMMENT;
 terminal                           DOT, PARAM_ID;
+terminal                           NOT;
 terminal                           LT, LTEQ, GT, GTEQ, EQ, NEQ;
 terminal                           ADD, MINUS, MULT, DIVIDE, EXPONENT;
 terminal                           AND, OR;
