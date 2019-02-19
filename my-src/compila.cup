@@ -60,6 +60,9 @@ decl              ::= REC_DECL NAME:name
                     ;
 /* Not done*/
 exp               ::= NAME log_op NAME {: RESULT = "They look the same"; :}
+                    /* "not" EXP*/
+                    | NAME rel_op NAME {: RESULT = "They are related"; :}
+                    | LPAR exp RPAR {: RESULT = "Nested things"; :}
                     ;
 
 log_op            ::= EQ {: RESULT = ""; :}
