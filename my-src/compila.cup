@@ -58,7 +58,7 @@ decl              ::= REC_DECL NAME:name
                     | NAME:name PARAM_ID NAME:type
                           {: RESULT = "(PARAM " + name + " type: " + type + ")"; :}
                     ;
-
+/* Not done*/
 exp               ::= NAME log_op NAME {: RESULT = "They look the same"; :}
                     ;
 
