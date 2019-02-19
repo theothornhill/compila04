@@ -8,6 +8,7 @@ begin
    begin
        record many_things_here
    end
+   thing: string
 end
 
 

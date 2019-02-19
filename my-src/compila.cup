@@ -48,4 +48,6 @@ decl              ::= REC_DECL NAME:name
                           {: RESULT = "(VAR " + name + " (TYPE " + type + ") "; :}
                     | PROC_DECL NAME:name LPAR decl_list:dl RPAR BEGIN decl_list:body END
                           {: RESULT = "(PROCEDURE " + name + " " + dl + body + ")"; :}
+                    | NAME:name PARAM_ID NAME:type
+                          {: RESULT = "(PARAM " + name + " type: " + type + ")"; :}
                     ;
