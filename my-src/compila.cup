@@ -28,7 +28,7 @@ terminal                           LT, LTEQ, GT, GTEQ, EQ, NEQ;
 terminal                           ADD, MINUS, MULT, DIVIDE, EXPONENT;
 terminal                           AND, OR;
 terminal String                    NAME;
-nonterminal                        literal, call_stmt, var, ref_var, deref_var;
+nonterminal                        literal, call_stmt;
 nonterminal                        stmt, assign_stmt, if_stmt, while_stmt;
 nonterminal                        return_stmt;
 nonterminal Program                program;
