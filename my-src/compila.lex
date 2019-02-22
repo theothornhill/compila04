@@ -79,6 +79,8 @@ CommentContent       = ( [^*] | \*+ [^/\*] )*
              "||"                       { return new Symbol(sym.OR); } 
              /* Dot operator*/
              "."                        { return new Symbol(sym.DOT); }
+             /* Assignment operator */  
+             ":="                       { return new Symbol(sym.ASSIGN_OP); }
              /* Parameter identificator */
              ":"                        { return new Symbol(sym.PARAM_ID); }
              "("                        { return new Symbol(sym.LPAR); }

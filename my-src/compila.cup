@@ -22,14 +22,15 @@ terminal                           IF, FI, WHILE, RETURN, REF, DEREF;
 terminal                           INT_LITERAL, STRING_LITERAL, FLOAT_LITERAL;
 terminal                           TRUE, FALSE, NULL;
 terminal                           COMMENT;
-terminal                           DOT, PARAM_ID;
+terminal                           DOT, PARAM_ID, ASSIGN_OP;
 terminal                           NOT;
 terminal                           LT, LTEQ, GT, GTEQ, EQ, NEQ;
 terminal                           ADD, MINUS, MULT, DIVIDE, EXPONENT;
 terminal                           AND, OR;
 terminal String                    NAME;
-nonterminal                        literal, call_stmt, var;
-nonterminal                        stmt, assign_stmt;
+nonterminal                        literal, call_stmt, var, ref_var, deref_var;
+nonterminal                        stmt, assign_stmt, if_stmt, while_stmt;
+nonterminal                        return_stmt;
 nonterminal Program                program;
 nonterminal String                 decl;
 nonterminal String                 rel_op, log_op, arit_op;
@@ -110,3 +111,7 @@ stmt              ::= assign_stmt
                     | call_stmt
                     ;
 
+assign_stmt       ::= var ASSIGN_OP exp
+                    | deref_var ASSIGN_OP exp
+                    ;
+                    
