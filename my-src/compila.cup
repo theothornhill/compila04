@@ -103,6 +103,9 @@ arit_op           ::= ADD | MINUS | MULT | DIVIDE | EXPONENT
 bool              ::= TRUE | FALSE
                     ;
 
+log_op            ::= AND | OR
+                    ;
+
 
 /* Statements - need to be adjusted to allow for optional value */
 stmt              ::= assign_stmt
