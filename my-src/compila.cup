@@ -29,6 +29,7 @@ terminal                           ADD, MINUS, MULT, DIVIDE, EXPONENT;
 terminal                           AND, OR;
 terminal String                    NAME;
 nonterminal                        literal, call_stmt, var;
+nonterminal                        stmt, assign_stmt;
 nonterminal Program                program;
 nonterminal String                 decl;
 nonterminal String                 rel_op, log_op, arit_op;
@@ -98,5 +99,14 @@ arit_op           ::= ADD | MINUS | MULT | DIVIDE | EXPONENT
                     ;
 
 bool              ::= TRUE | FALSE
+                    ;
+
+
+/* Statements */
+stmt              ::= assign_stmt
+                    | if_stmt
+                    | while_stmt
+                    | return_stmt
+                    | call_stmt
                     ;
 
