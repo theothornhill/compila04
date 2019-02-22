@@ -7,7 +7,7 @@ import java.util.*;
 
 parser code
 {:
-public void syntax_error(Symbol s){
+public void syntax_error(Symbol s) {
     System.err.printf("compiler has detected a syntax error: [%s]\n", s.value);
 }
 :};
@@ -28,11 +28,11 @@ terminal                           LT, LTEQ, GT, GTEQ, EQ, NEQ;
 terminal                           ADD, MINUS, MULT, DIVIDE, EXPONENT;
 terminal                           AND, OR;
 terminal String                    NAME;
-nonterminal                        literal, call_stmt, var;
+nonterminal                        literal, call_stmt;
 nonterminal Program                program;
 nonterminal String                 decl;
 nonterminal String                 rel_op, log_op, arit_op;
-nonterminal String                 exp, bool;
+nonterminal String                 exp, bool, var, ref_var, deref_var;
 nonterminal LinkedList<String>     decl_list;
 
 precedence left                    OR;
@@ -100,3 +100,14 @@ arit_op           ::= ADD | MINUS | MULT | DIVIDE | EXPONENT
 bool              ::= TRUE | FALSE
                     ;
 
+/* Vars, refs and derefs */
+
+var               ::= NAME | exp DOT NAME
+                    ;
+
+ref_var           ::= REF LPAR var RPAR
+                    ;
+
+deref_var         ::= DEREF LPAR var RPAR
+                    | DEREF LPAR deref_var RPAR
+                    ;

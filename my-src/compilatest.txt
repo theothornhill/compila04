@@ -9,7 +9,7 @@ begin
        record many_things_here
    end
    thing: karnevalshund
-   hello = olleh
+   not not not "b"
 end
 
 
