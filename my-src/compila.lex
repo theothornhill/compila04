@@ -68,8 +68,6 @@ CommentContent       = ( [^*] | \*+ [^/\*] )*
              "bool"                  { return new Symbol(sym.BOOL); }             
 }
 
-/* Comments */
-{Comment}                               { return new Symbol(sym.COMMENT); }
 <YYINITIAL> {
              /* Relational Operators */
              "<"                        { return new Symbol(sym.LT); }
