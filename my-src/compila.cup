@@ -103,7 +103,7 @@ bool              ::= TRUE | FALSE
                     ;
 
 
-/* Statements */
+/* Statements - need to be adjusted to allow for optional value */
 stmt              ::= assign_stmt
                     | if_stmt
                     | while_stmt
@@ -120,7 +120,11 @@ if_stmt           ::= IF exp THEN stmt SEMI FI ELSE FI
 
 while_stmt        ::= WHILE exp DO stmt OD
                     ;
-                    
+
+return_stmt       ::= RETURN exp
+                    ;
+
+
 /* Vars, refs and derefs */
 
 var               ::= NAME | exp DOT NAME
