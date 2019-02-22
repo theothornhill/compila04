@@ -30,8 +30,9 @@ DocumentationComment = "/**" {CommentContent} "*"+ "/"
 CommentContent       = ( [^*] | \*+ [^/\*] )*
 
 %%
-{LineTerminator}          { /* Ignore*/}
-{WhiteSpace}              { /* Ignore*/}
+{LineTerminator}          { /* Ignore */}
+{WhiteSpace}              { /* Ignore */}
+{Comment}                 { /* Ignore */}
 
 /* Keywords*/
 <YYINITIAL> { 

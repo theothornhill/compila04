@@ -21,7 +21,6 @@ terminal                           REC_DECL, PROC_DECL, VAR_DECL, NEW;
 terminal                           IF, FI, THEN, ELSE, WHILE, DO, OD, RETURN, REF, DEREF;
 terminal                           INT_LITERAL, STRING_LITERAL, FLOAT_LITERAL;
 terminal                           TRUE, FALSE, NULL;
-terminal                           COMMENT;
 terminal                           DOT, PARAM_ID, ASSIGN_OP;
 terminal                           NOT;
 terminal                           LT, LTEQ, GT, GTEQ, EQ, NEQ;
