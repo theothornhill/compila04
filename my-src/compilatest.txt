@@ -9,6 +9,7 @@ begin
        record many_things_here
    end
    thing: karnevalshund
+   not not not "b"
 end
 
 
