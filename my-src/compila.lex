@@ -60,6 +60,11 @@ CommentContent       = ( [^*] | \*+ [^/\*] )*
              "true"                  { return new Symbol(sym.TRUE); }
              "false"                 { return new Symbol(sym.FALSE); }
              "null"                  { return new Symbol(sym.NULL); }
+             /* types */
+             "float"                 { return new Symbol(sym.FLOAT); }
+             "int"                   { return new Symbol(sym.INT); }             
+             "string"                { return new Symbol(sym.STRING); }
+             "bool"                  { return new Symbol(sym.BOOL); }             
 }
 
 /* Comments */

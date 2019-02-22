@@ -27,12 +27,13 @@ terminal                           NOT;
 terminal                           LT, LTEQ, GT, GTEQ, EQ, NEQ;
 terminal                           ADD, MINUS, MULT, DIVIDE, EXPONENT;
 terminal                           AND, OR;
+terminal                           FLOAT, INT, STRING, BOOL;
 terminal String                    NAME;
 nonterminal                        literal, call_stmt;
 nonterminal                        stmt, assign_stmt, if_stmt, while_stmt;
 nonterminal                        return_stmt;
 nonterminal Program                program;
-nonterminal String                 decl;
+nonterminal String                 decl, type;
 nonterminal String                 rel_op, log_op, arit_op;
 nonterminal String                 exp, bool, var, ref_var, deref_var;
 nonterminal LinkedList<String>     decl_list;
@@ -124,6 +125,8 @@ while_stmt        ::= WHILE exp DO stmt OD
 return_stmt       ::= RETURN exp
                     ;
 
+/* call_stmt         ::= NAME LPAR exp RPAR 
+                    ; */
 
 /* Vars, refs and derefs */
 
@@ -135,4 +138,7 @@ ref_var           ::= REF LPAR var RPAR
 
 deref_var         ::= DEREF LPAR var RPAR
                     | DEREF LPAR deref_var RPAR
+                    ;
+
+type              ::= FLOAT | INT | STRING | BOOL
                     ;
