@@ -50,6 +50,8 @@ CommentContent       = ( [^*] | \*+ [^/\*] )*
              "then"                  { return new Symbol(sym.THEN); }
              "else"                  { return new Symbol(sym.ELSE); }
              "while"                 { return new Symbol(sym.WHILE); }
+             "do"                    { return new Symbol(sym.DO); }
+             "od"                    { return new Symbol(sym.OD); }
              "return"                { return new Symbol(sym.RETURN); }
              "ref"                   { return new Symbol(sym.REF); }
              "deref"                 { return new Symbol(sym.DEREF); }
