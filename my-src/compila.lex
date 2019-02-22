@@ -47,6 +47,7 @@ CommentContent       = ( [^*] | \*+ [^/\*] )*
              /* program logic */
              "if"                    { return new Symbol(sym.IF); }
              "fi"                    { return new Symbol(sym.FI); }
+             "then"                  { return new Symbol(sym.THEN); }
              "while"                 { return new Symbol(sym.WHILE); }
              "return"                { return new Symbol(sym.RETURN); }
              "ref"                   { return new Symbol(sym.REF); }

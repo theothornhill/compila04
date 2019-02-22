@@ -18,7 +18,7 @@ terminal                           PROGRAM;
 terminal                           BEGIN, END;
 terminal                           LPAR, RPAR;
 terminal                           REC_DECL, PROC_DECL, VAR_DECL, NEW;
-terminal                           IF, FI, WHILE, RETURN, REF, DEREF;
+terminal                           IF, FI, THEN, WHILE, RETURN, REF, DEREF;
 terminal                           INT_LITERAL, STRING_LITERAL, FLOAT_LITERAL;
 terminal                           TRUE, FALSE, NULL;
 terminal                           COMMENT;
@@ -113,6 +113,9 @@ stmt              ::= assign_stmt
 
 assign_stmt       ::= var ASSIGN_OP exp
                     | deref_var ASSIGN_OP exp
+                    ;
+
+if_stmt           ::= IF exp THEN stmt SEMI FI
                     ;
                     
 /* Vars, refs and derefs */
