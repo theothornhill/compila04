@@ -122,10 +122,11 @@ assign_stmt       ::= var ASSIGN_OP exp
                     | deref_var ASSIGN_OP exp
                     ;
 
-if_stmt           ::= IF exp THEN stmt SEMI FI ELSE FI
+if_stmt           ::= IF exp THEN stmts FI
+                    | IF exp THEN stmt stmts FI
                     ;
 
-while_stmt        ::= WHILE exp DO stmt OD
+while_stmt        ::= WHILE exp DO stmts OD
                     ;
 
 return_stmt       ::= RETURN exp
