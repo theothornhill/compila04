@@ -16,9 +16,9 @@ scan with {: return getScanner().next_token(); :};
 
 terminal                           PROGRAM;
 terminal                           BEGIN, END;
-terminal                           LPAR, RPAR;
+terminal                           LPAR, RPAR, SEMI;
 terminal                           REC_DECL, PROC_DECL, VAR_DECL, NEW;
-terminal                           IF, FI, THEN, WHILE, RETURN, REF, DEREF;
+terminal                           IF, FI, THEN, ELSE, WHILE, RETURN, REF, DEREF;
 terminal                           INT_LITERAL, STRING_LITERAL, FLOAT_LITERAL;
 terminal                           TRUE, FALSE, NULL;
 terminal                           COMMENT;
@@ -115,8 +115,10 @@ assign_stmt       ::= var ASSIGN_OP exp
                     | deref_var ASSIGN_OP exp
                     ;
 
-if_stmt           ::= IF exp THEN stmt SEMI FI
+if_stmt           ::= IF exp THEN stmt SEMI FI ELSE FI
                     ;
+
+
                     
 /* Vars, refs and derefs */
 

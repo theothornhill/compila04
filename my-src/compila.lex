@@ -48,6 +48,7 @@ CommentContent       = ( [^*] | \*+ [^/\*] )*
              "if"                    { return new Symbol(sym.IF); }
              "fi"                    { return new Symbol(sym.FI); }
              "then"                  { return new Symbol(sym.THEN); }
+             "else"                  { return new Symbol(sym.ELSE); }
              "while"                 { return new Symbol(sym.WHILE); }
              "return"                { return new Symbol(sym.RETURN); }
              "ref"                   { return new Symbol(sym.REF); }
@@ -84,6 +85,7 @@ CommentContent       = ( [^*] | \*+ [^/\*] )*
              ":="                       { return new Symbol(sym.ASSIGN_OP); }
              /* Parameter identificator */
              ":"                        { return new Symbol(sym.PARAM_ID); }
+             ";"                        { return new Symbol(sym.SEMI); }
              "("                        { return new Symbol(sym.LPAR); }
              ")"                        { return new Symbol(sym.RPAR); }
 }
