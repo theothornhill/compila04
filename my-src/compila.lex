@@ -6,6 +6,17 @@ import java_cup.runtime.*;
 %cup
 %line
 %column
+
+%{
+  private Symbol symbol(int type) {
+    return new Symbol(type, yyline, yycolumn);
+  }
+
+  private Symbol symbol(int type, Object value) {
+    return new Symbol(type, yyline, yycolumn, value);
+  }
+%}
+
 %eofval{
   return new Symbol(sym.EOF);
 %eofval}
@@ -37,77 +48,77 @@ CommentContent       = ( [^*] | \*+ [^/\*] )*
 /* Keywords*/
 <YYINITIAL> { 
              /* initial */
-             "program"               { return new Symbol(sym.PROGRAM); }
-             "begin"                 { return new Symbol(sym.BEGIN); }
-             "in"                    { return new Symbol(sym.IN); }             
-             "end"                   { return new Symbol(sym.END); }
+             "program"               { return symbol(sym.PROGRAM); }
+             "begin"                 { return symbol(sym.BEGIN); }
+             "in"                    { return symbol(sym.IN); }             
+             "end"                   { return symbol(sym.END); }
              /* declarations */
-             "struct"                { return new Symbol(sym.REC_DECL); }
-             "proc"                  { return new Symbol(sym.PROC_DECL); }
-             "var"                   { return new Symbol(sym.VAR_DECL); }
-             "new"                   { return new Symbol(sym.NEW); }
+             "struct"                { return symbol(sym.REC_DECL); }
+             "proc"                  { return symbol(sym.PROC_DECL); }
+             "var"                   { return symbol(sym.VAR_DECL); }
+             "new"                   { return symbol(sym.NEW); }
              /* program logic */
-             "if"                    { return new Symbol(sym.IF); }
-             "fi"                    { return new Symbol(sym.FI); }
-             "then"                  { return new Symbol(sym.THEN); }
-             "else"                  { return new Symbol(sym.ELSE); }
-             "while"                 { return new Symbol(sym.WHILE); }
-             "do"                    { return new Symbol(sym.DO); }
-             "od"                    { return new Symbol(sym.OD); }
-             "return"                { return new Symbol(sym.RETURN); }
-             "ref"                   { return new Symbol(sym.REF); }
-             "deref"                 { return new Symbol(sym.DEREF); }
+             "if"                    { return symbol(sym.IF); }
+             "fi"                    { return symbol(sym.FI); }
+             "then"                  { return symbol(sym.THEN); }
+             "else"                  { return symbol(sym.ELSE); }
+             "while"                 { return symbol(sym.WHILE); }
+             "do"                    { return symbol(sym.DO); }
+             "od"                    { return symbol(sym.OD); }
+             "return"                { return symbol(sym.RETURN); }
+             "ref"                   { return symbol(sym.REF); }
+             "deref"                 { return symbol(sym.DEREF); }
              /* Negation */
-             "not"                   { return new Symbol(sym.NOT); }
-             "true"                  { return new Symbol(sym.TRUE); }
-             "false"                 { return new Symbol(sym.FALSE); }
-             "null"                  { return new Symbol(sym.NULL); }
+             "not"                   { return symbol(sym.NOT); }
+             "true"                  { return symbol(sym.TRUE); }
+             "false"                 { return symbol(sym.FALSE); }
+             "null"                  { return symbol(sym.NULL); }
              /* types */
-             "float"                 { return new Symbol(sym.FLOAT); }
-             "int"                   { return new Symbol(sym.INT); }             
-             "string"                { return new Symbol(sym.STRING); }
+             "float"                 { return symbol(sym.FLOAT); }
+             "int"                   { return symbol(sym.INT); }             
+             "string"                { return symbol(sym.STRING); }
 }
 
 <YYINITIAL> {
              /* Relational Operators */
-             "<"                        { return new Symbol(sym.LT); }
-             "<="                       { return new Symbol(sym.LTEQ); }
-             ">"                        { return new Symbol(sym.GT); }
-             ">="                       { return new Symbol(sym.GTEQ); }
-             "="                        { return new Symbol(sym.EQ); }
-             "<>"                       { return new Symbol(sym.NEQ); }
+             "<"                        { return symbol(sym.LT); }
+             "<="                       { return symbol(sym.LTEQ); }
+             ">"                        { return symbol(sym.GT); }
+             ">="                       { return symbol(sym.GTEQ); }
+             "="                        { return symbol(sym.EQ); }
+             "<>"                       { return symbol(sym.NEQ); }
              /* Arithmetic Operators */
-             "+"                        { return new Symbol(sym.ADD); }
-             "-"                        { return new Symbol(sym.MINUS); }
-             "*"                        { return new Symbol(sym.MULT); }
-             "/"                        { return new Symbol(sym.DIVIDE); }
-             "^"                        { return new Symbol(sym.EXPONENT); }
+             "+"                        { return symbol(sym.ADD); }
+             "-"                        { return symbol(sym.MINUS); }
+             "*"                        { return symbol(sym.MULT); }
+             "/"                        { return symbol(sym.DIVIDE); }
+             "^"                        { return symbol(sym.EXPONENT); }
              /* Logical Operators */
-             "&&"                       { return new Symbol(sym.AND); }
-             "||"                       { return new Symbol(sym.OR); } 
+             "&&"                       { return symbol(sym.AND); }
+             "||"                       { return symbol(sym.OR); } 
              /* Dot operator*/
-             "."                        { return new Symbol(sym.DOT); }
+             "."                        { return symbol(sym.DOT); }
              /* Assignment operator */  
-             ":="                       { return new Symbol(sym.ASSIGN_OP); }
+             ":="                       { return symbol(sym.ASSIGN_OP); }
              /* Parameter identificator */
-             ":"                        { return new Symbol(sym.PARAM_ID); }
-             ";"                        { return new Symbol(sym.SEMI); }
-             ","                        { return new Symbol(sym.COMMA); }
-             /*             "()"|"("{WhiteSpace}")"    { return new Symbol(sym.EMPTY); }*/
-             "("                        { return new Symbol(sym.LPAR); }
-             ")"                        { return new Symbol(sym.RPAR); }
-             "{"                        { return new Symbol(sym.LCURLY); }
-             "}"                        { return new Symbol(sym.RCURLY); }             
+             ":"                        { return symbol(sym.PARAM_ID); }
+             ";"                        { return symbol(sym.SEMI); }
+             ","                        { return symbol(sym.COMMA); }
+             /*             "()"|"("{WhiteSpace}")"    { return new return Symbol(sym.EMPTY); }*/
+             "("                        { return symbol(sym.LPAR); }
+             ")"                        { return symbol(sym.RPAR); }
+             "{"                        { return symbol(sym.LCURLY); }
+             "}"                        { return symbol(sym.RCURLY); }             
 }
 
  /* Types and identifiers */
 <YYINITIAL> {
              {NAME}_                 { System.exit(4763); }
-             {NAME}                  { return new Symbol(sym.NAME, yytext()); }
+             {NAME}                  { return symbol(sym.NAME, yytext()); }
              {INT_LITERAL}"."        { System.exit(4763); }
-             {INT_LITERAL}           { return new Symbol(sym.INT_LITERAL, yytext()); }
-             {STRING_LITERAL}        { return new Symbol(sym.STRING_LITERAL, yytext()); }
-             {FLOAT_LITERAL}         { return new Symbol(sym.FLOAT_LITERAL, yytext()); }
+             {INT_LITERAL}           { return symbol(sym.INT_LITERAL, yytext()); }
+             {STRING_LITERAL}        { return symbol(sym.STRING_LITERAL, yytext()); }
+             {FLOAT_LITERAL}         { return symbol(sym.FLOAT_LITERAL, yytext()); }
 }
 
 /* Catch all */
