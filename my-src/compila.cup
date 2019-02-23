@@ -30,7 +30,7 @@ terminal                           NOT;
 terminal                           LT, LTEQ, GT, GTEQ, EQ, NEQ;
 terminal                           ADD, MINUS, MULT, DIVIDE, EXPONENT;
 terminal                           AND, OR;
-terminal                           FLOAT, INT, STRING;
+terminal String                    FLOAT, INT, STRING;
 terminal String                    NAME;
 nonterminal String                 call_stmt;
 nonterminal String                 stmt, assign_stmt, if_stmt, while_stmt;
@@ -200,5 +200,10 @@ deref_var         ::= DEREF LPAR var RPAR
                     | DEREF LPAR deref_var RPAR
                     ;
 
-type              ::= FLOAT | INT | STRING | bool | NAME | REF LPAR type RPAR
+type              ::= FLOAT:f {: RESULT = f; :}
+                    | INT:i {: RESULT = i; :}
+                    | STRING:s {: RESULT = s; :}
+                    | bool:b {: RESULT = b; :}
+                    | NAME:n {: RESULT = n; :}
+                    | REF LPAR type:t RPAR {: RESULT = t; :}
                     ;
