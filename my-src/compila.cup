@@ -29,10 +29,11 @@ terminal                           AND, OR;
 terminal                           FLOAT, INT, STRING, BOOL;
 terminal String                    NAME;
 nonterminal                        literal, call_stmt;
-nonterminal                        stmts, stmt, assign_stmt, if_stmt, while_stmt;
+nonterminal String                 stmts, stmt, assign_stmt, if_stmt, while_stmt;
 nonterminal                        return_stmt;
 nonterminal Program                program;
-nonterminal String                 decl, var_decl, proc_decl, rec_decl, paramfield_decl, type;
+nonterminal String                 decl, var_decl, proc_decl, rec_decl;
+nonterminal String                 paramfield_decl, empty_decl, type;
 nonterminal String                 rel_op, log_op, arit_op;
 nonterminal String                 exp, bool, var, ref_var, deref_var;
 nonterminal LinkedList<String>     decl_list;
@@ -62,28 +63,26 @@ decl_list         ::= decl:d {: LinkedList<String> l = new LinkedList<>();
                             {: dl.add(d); RESULT = dl; :}
                     | decl_list:dl SEMI exp:e 
                             {:dl.add(e); RESULT = dl; :}
-                    | decl_list:dl SEMI stmts:e 
+                    | decl_list:dl SEMI stmts:s
                            {:dl.add(s); RESULT = dl; :}
                     ;
 
-decl              ::= rec_decl | var_decl | proc_decl | paramfield_decl
+decl              ::= rec_decl | var_decl | proc_decl | paramfield_decl | empty_decl
                     ;
 
 rec_decl          ::= REC_DECL NAME:name
-                          {: RESULT = "(STRUCT " + name + ")"; :}
                     ;
 
 var_decl          ::= VAR_DECL NAME:name PARAM_ID NAME:type
-                          {: RESULT = "(VAR " + name + " (TYPE " + type + ") "; :}
                     ;
 
 proc_decl         ::= PROC_DECL NAME:name LPAR decl_list:dl RPAR BEGIN decl_list:body END
-                          {: RESULT = "(PROCEDURE " + name + " " + dl + body + ")"; :}
                     ;
 
 paramfield_decl   ::= NAME:name PARAM_ID NAME:type
-                          {: RESULT = "(PARAM " + name + " type: " + type + ")";
-                          :}
+                    ;
+
+empty_decl        ::=
                     ;
 
 /* Expressions needs work. Check that we're not missing rules*/
