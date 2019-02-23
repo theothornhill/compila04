@@ -33,15 +33,15 @@ terminal                           AND, OR;
 terminal                           FLOAT, INT, STRING;
 terminal String                    NAME;
 nonterminal String                 call_stmt;
-nonterminal String                 stmt_list, param_list_semi, param_list_comma;
 nonterminal String                 stmt, assign_stmt, if_stmt, while_stmt;
-nonterminal                        return_stmt, exp_list, literal;
+nonterminal                        return_stmt, literal;
 nonterminal Program                program;
 nonterminal String                 decl, var_decl, proc_decl, rec_decl;
 nonterminal String                 paramfield_decl, type;
 nonterminal String                 rel_op, log_op, arit_op;
 nonterminal String                 exp, bool, var, ref_var, deref_var;
-nonterminal LinkedList<String>     decl_list;
+nonterminal LinkedList<String>     decl_list, stmt_list, param_list_semi;
+nonterminal LinkedList<String>     param_list_comma, exp_list;
 
 precedence left                    OR;
 precedence left                    AND;
@@ -68,22 +68,32 @@ decl_list         ::= decl:d {: LinkedList<String> l = new LinkedList<>();
                     | 
                     ;
 
-stmt_list          ::= stmt:s 
-                   | stmt_list SEMI stmt
-                   |
-                   ;
-
-param_list_semi   ::= paramfield_decl
-                    | param_list_semi SEMI paramfield_decl
-                    |
-                    ;
-param_list_comma  ::= paramfield_decl
-                    | param_list_comma COMMA paramfield_decl                    
+stmt_list          ::= stmt:s {: LinkedList<String> l = new LinkedList<>();
+                                 l.add(s);
+                                 RESULT = l; :}
+                    | stmt_list:sl SEMI stmt:s {: sl.add(s); RESULT = sl; :}
                     |
                     ;
 
-exp_list          ::= exp
-                    | exp_list COMMA exp
+param_list_semi   ::= paramfield_decl:p {: LinkedList<String> l = new LinkedList<>();
+                                           l.add(p);
+                                           RESULT = l; :}
+                    | param_list_semi:pl SEMI paramfield_decl:p
+                                         {: pl.add(p); RESULT = pl; :}
+                    |
+                    ;
+param_list_comma  ::= paramfield_decl:p {: LinkedList<String> l = new LinkedList<>();
+                                           l.add(p);
+                                           RESULT = l; :}
+                    | param_list_comma:pl COMMA paramfield_decl:p
+                                          {: pl.add(p); RESULT = pl; :}
+                    |
+                    ;
+                    
+exp_list          ::= exp:e {: LinkedList<String> l = new LinkedList<>();
+                                          l.add(e);
+                                          RESULT = l; :}
+                    | exp_list:el COMMA exp:e {: el.add(e); RESULT = el; :}
                     |
                     ;
 
@@ -92,26 +102,30 @@ decl              ::= rec_decl:d {: RESULT = d; :}
                     | var_decl:d {: RESULT = d; :}
                     ;
 
-var_decl          ::= VAR_DECL NAME:name PARAM_ID type:t {: RESULT = name; :}
+var_decl          ::= VAR_DECL NAME:name PARAM_ID type:t {: RESULT = name + ": "
+                                                            + t; :}
                     ;
 
-rec_decl          ::= REC_DECL NAME:name LCURLY param_list_semi RCURLY {: RESULT = name; :}
+rec_decl          ::= REC_DECL NAME:name LCURLY param_list_semi:pl RCURLY
+                               {: RESULT = name + ": " + pl; :}
                     ;
 
-paramfield_decl   ::= NAME:name PARAM_ID type:t {: RESULT = name; :}
+paramfield_decl   ::= NAME:name PARAM_ID type:t {: RESULT = name + ": " + t; :}
                     ;
 
 proc_decl         ::= PROC_DECL NAME:name
                                 LPAR param_list_comma RPAR
-                                BEGIN decl_list
-                                IN stmt_list END
-                                {: RESULT = name; :}
+                                BEGIN decl_list:dl
+                                IN stmt_list:sl END
+                                {: RESULT = name + "\n\t " + dl +
+                                   "\n\t " + sl; :}
                     | PROC_DECL NAME:name
                                 LPAR param_list_comma RPAR
                                 PARAM_ID type
-                                BEGIN decl_list
-                                IN stmt_list END
-                                {: RESULT = name; :}
+                                BEGIN decl_list:dl
+                                IN stmt_list:sl END
+                                {: RESULT = name + "\n\t " + dl +
+                                   "\n\t " + sl; :}
                     ;
 
 /* Expressions needs work. Check that we're not missing rules*/
