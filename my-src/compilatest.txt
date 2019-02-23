@@ -1,5 +1,13 @@
 program compilatest
 begin
+    proc hello()
+        begin
+            proc you()
+            begin
+            in
+            end
+        in
+        end
 end
 
 

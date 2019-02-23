@@ -93,9 +93,12 @@ CommentContent       = ( [^*] | \*+ [^/\*] )*
              /* Parameter identificator */
              ":"                        { return new Symbol(sym.PARAM_ID); }
              ";"                        { return new Symbol(sym.SEMI); }
-             ","                        { return new Symbol(sym.COMMA); }             
+             ","                        { return new Symbol(sym.COMMA); }
+             /*             "()"|"("{WhiteSpace}")"    { return new Symbol(sym.EMPTY); }*/
              "("                        { return new Symbol(sym.LPAR); }
              ")"                        { return new Symbol(sym.RPAR); }
+             "{"                        { return new Symbol(sym.LCURLY); }
+             "}"                        { return new Symbol(sym.RCURLY); }             
 }
 
  /* Types and identifiers */

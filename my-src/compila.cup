@@ -19,7 +19,7 @@ scan with {: return getScanner().next_token(); :};
 
 terminal                           PROGRAM;
 terminal                           BEGIN, END, IN;
-terminal                           LPAR, RPAR, SEMI, COMMA;
+terminal                           LPAR, RPAR, SEMI, COMMA, LCURLY, RCURLY;
 terminal                           REC_DECL, PROC_DECL, VAR_DECL, NEW;
 terminal                           IF, FI, THEN, ELSE, WHILE, DO, OD, RETURN, REF, DEREF;
 terminal                           INT_LITERAL, STRING_LITERAL, FLOAT_LITERAL;
@@ -29,14 +29,14 @@ terminal                           NOT;
 terminal                           LT, LTEQ, GT, GTEQ, EQ, NEQ;
 terminal                           ADD, MINUS, MULT, DIVIDE, EXPONENT;
 terminal                           AND, OR;
-terminal                           FLOAT, INT, STRING, BOOL;
+terminal                           FLOAT, INT, STRING, BOOL, EMPTY;
 terminal String                    NAME;
-nonterminal                        literal, call_stmt;
-nonterminal String                 stmt_list, stmt, assign_stmt, if_stmt, while_stmt;
-nonterminal                        return_stmt;
+nonterminal String                 call_stmt;
+nonterminal String                 stmt_list, param_list, stmt, assign_stmt, if_stmt, while_stmt;
+nonterminal                        return_stmt, empty, exp_list, literal;
 nonterminal Program                program;
 nonterminal String                 decl, var_decl, proc_decl, rec_decl;
-nonterminal String                 paramfield_decl, empty_decl, type;
+nonterminal String                 paramfield_decl, type;
 nonterminal String                 rel_op, log_op, arit_op;
 nonterminal String                 exp, bool, var, ref_var, deref_var;
 nonterminal LinkedList<String>     decl_list;
@@ -52,8 +52,7 @@ precedence left                    DOT;
 
 start with program;
 
-program           ::= PROGRAM NAME BEGIN END
-                    | PROGRAM NAME:name BEGIN decl_list:dl END
+program           ::= PROGRAM NAME:name BEGIN decl_list:dl END
                                {: LinkedList<LinkedList> l = new LinkedList<>();
                                   l.add(dl);
                                   RESULT = new Program(name, l);
@@ -63,30 +62,44 @@ program           ::= PROGRAM NAME BEGIN END
 decl_list         ::= decl:d {: LinkedList<String> l = new LinkedList<>();
                                 l.add(d);
                                 RESULT = l; :}
-                    | decl_list:dl decl:d
-                            {: dl.add(d); RESULT = dl; :}
+                    | decl_list:dl SEMI decl:d {: dl.add(d); RESULT = dl; :}
+                    | 
                     ;
 
-decl              ::= rec_decl | proc_decl | paramfield_decl
+decl              ::= rec_decl:d {: RESULT = d; :}
+                    | proc_decl:d {: RESULT = d; :}
+                    | paramfield_decl:d {: RESULT = d; :}
                     ;
 
-var_decl          ::= VAR_DECL NAME:name PARAM_ID NAME:type
+stmt_list          ::= stmt:s
+                   | stmt_list SEMI stmt
+                   |
+                   ;
+
+param_list        ::= paramfield_decl
+                    | param_list COMMA paramfield_decl
+                    |
                     ;
 
-rec_decl          ::= REC_DECL NAME:name
+exp_list          ::= exp
+                    | exp_list COMMA exp
+                    |
+                    ;
+
+var_decl          ::= VAR_DECL NAME:name PARAM_ID NAME:type {: RESULT = name; :}
+                    ;
+
+rec_decl          ::= REC_DECL NAME:name LCURLY param_list RCURLY {: RESULT = name; :}
                     ;
 
 proc_decl         ::= PROC_DECL NAME:name
-                                LPAR paramfield_decl RPAR
-                                BEGIN decl:d IN stmt_list END
+                                LPAR param_list RPAR
+                                BEGIN decl_list IN stmt_list END {: RESULT = name; :}
                     ;
 
-paramfield_decl   ::= NAME:name PARAM_ID NAME:type
+paramfield_decl   ::= NAME:name PARAM_ID NAME:type {: RESULT = name;:}
                     ;
 
-stmt_list          ::= stmt_list stmt SEMI
-                   | stmt SEMI
-                   ;
 
 /* Expressions needs work. Check that we're not missing rules*/
 exp               ::= exp log_op exp 
@@ -126,7 +139,7 @@ stmt              ::= assign_stmt
                     | if_stmt
                     | while_stmt
                     | return_stmt
-                    | call_stmt 
+                    | call_stmt:s {: RESULT = s; :}
                     ;
 
 assign_stmt       ::= var ASSIGN_OP exp
@@ -138,14 +151,12 @@ if_stmt           ::= IF exp THEN stmt_list FI
                     ;
 
 while_stmt        ::= WHILE exp DO stmt_list OD
-                    | WHILE exp DO stmt_list SEMI stmt OD
                     ;
 
 return_stmt       ::= RETURN exp
                     ;
 
-call_stmt         ::= NAME LPAR exp RPAR
-                    | NAME LPAR exp COMMA exp RPAR
+call_stmt         ::= NAME:name LPAR exp_list RPAR {: RESULT = name;:}
                     ;
 
 /* Vars, refs and derefs */
