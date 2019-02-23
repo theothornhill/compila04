@@ -66,7 +66,6 @@ CommentContent       = ( [^*] | \*+ [^/\*] )*
              "float"                 { return new Symbol(sym.FLOAT); }
              "int"                   { return new Symbol(sym.INT); }             
              "string"                { return new Symbol(sym.STRING); }
-             "bool"                  { return new Symbol(sym.BOOL); }             
 }
 
 <YYINITIAL> {
