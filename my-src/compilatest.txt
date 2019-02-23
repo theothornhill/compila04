@@ -21,13 +21,14 @@ begin
       while 5 < 10
       do
           callCat()
-      od
-
+      od;
+      
+      callCatReference(deref(deref(thing.lol)));
+      callCatReference(ref(thing));
+      return "5 < 9"
     end;
-        
     var hi: string;
     var ho: string
-    
 end
 
 

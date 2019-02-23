@@ -32,7 +32,8 @@ terminal                           AND, OR;
 terminal                           FLOAT, INT, STRING, BOOL;
 terminal String                    NAME;
 nonterminal String                 call_stmt;
-nonterminal String                 stmt_list, param_list, stmt, assign_stmt, if_stmt, while_stmt;
+nonterminal String                 stmt_list, param_list_semi, param_list_comma;
+nonterminal String                 stmt, assign_stmt, if_stmt, while_stmt;
 nonterminal                        return_stmt, exp_list, literal;
 nonterminal Program                program;
 nonterminal String                 decl, var_decl, proc_decl, rec_decl;
@@ -71,9 +72,12 @@ stmt_list          ::= stmt:s
                    |
                    ;
 
-param_list        ::= paramfield_decl
-                    | param_list SEMI paramfield_decl
-                    | param_list COMMA paramfield_decl                    
+param_list_semi   ::= paramfield_decl
+                    | param_list_semi SEMI paramfield_decl
+                    |
+                    ;
+param_list_comma  ::= paramfield_decl
+                    | param_list_comma COMMA paramfield_decl                    
                     |
                     ;
 
@@ -90,19 +94,19 @@ decl              ::= rec_decl:d {: RESULT = d; :}
 var_decl          ::= VAR_DECL NAME:name PARAM_ID type:t {: RESULT = name; :}
                     ;
 
-rec_decl          ::= REC_DECL NAME:name LCURLY param_list RCURLY {: RESULT = name; :}
+rec_decl          ::= REC_DECL NAME:name LCURLY param_list_semi RCURLY {: RESULT = name; :}
                     ;
 
 paramfield_decl   ::= NAME:name PARAM_ID type:t {: RESULT = name; :}
                     ;
 
 proc_decl         ::= PROC_DECL NAME:name
-                                LPAR param_list RPAR
+                                LPAR param_list_comma RPAR
                                 BEGIN decl_list
                                 IN stmt_list END
                                 {: RESULT = name; :}
                     | PROC_DECL NAME:name
-                                LPAR param_list RPAR
+                                LPAR param_list_comma RPAR
                                 PARAM_ID type
                                 BEGIN decl_list
                                 IN stmt_list END
@@ -118,6 +122,8 @@ exp               ::= exp log_op exp
                     | call_stmt
                     | NEW NAME:name
                     | var:v
+                    | ref_var
+                    | deref_var
                     | LPAR exp RPAR
                     ;
 
@@ -179,5 +185,5 @@ deref_var         ::= DEREF LPAR var RPAR
                     | DEREF LPAR deref_var RPAR
                     ;
 
-type              ::= FLOAT | INT | STRING | BOOL | NAME
+type              ::= FLOAT | INT | STRING | BOOL | NAME | REF LPAR type RPAR
                     ;
