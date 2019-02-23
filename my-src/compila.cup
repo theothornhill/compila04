@@ -23,7 +23,7 @@ terminal                           BEGIN, END, IN;
 terminal                           LPAR, RPAR, SEMI, COMMA, LCURLY, RCURLY;
 terminal                           REC_DECL, PROC_DECL, VAR_DECL, NEW;
 terminal                           IF, FI, THEN, ELSE, WHILE, DO, OD, RETURN, REF, DEREF;
-terminal                           INT_LITERAL, STRING_LITERAL, FLOAT_LITERAL;
+terminal String                    INT_LITERAL, STRING_LITERAL, FLOAT_LITERAL;
 terminal                           TRUE, FALSE, NULL;
 terminal                           DOT, PARAM_ID, ASSIGN_OP;
 terminal                           NOT;
@@ -34,7 +34,7 @@ terminal String                    FLOAT, INT, STRING;
 terminal String                    NAME;
 nonterminal String                 call_stmt;
 nonterminal String                 stmt, assign_stmt, if_stmt, while_stmt;
-nonterminal                        return_stmt, literal;
+nonterminal String                 return_stmt, literal;
 nonterminal Program                program;
 nonterminal String                 decl, var_decl, proc_decl, rec_decl;
 nonterminal String                 paramfield_decl, type;
@@ -59,7 +59,7 @@ program           ::= PROGRAM NAME:name BEGIN decl_list:dl END
                                   l.add(dl);
                                   RESULT = new Program(name, l);
                                   System.out.println(RESULT.printAst()); :}
-                   ;
+                    ;
 
 decl_list         ::= decl:d {: LinkedList<String> l = new LinkedList<>();
                                 l.add(d);
@@ -102,44 +102,44 @@ decl              ::= rec_decl:d {: RESULT = d; :}
                     | var_decl:d {: RESULT = d; :}
                     ;
 
-var_decl          ::= VAR_DECL NAME:name PARAM_ID type:t {: RESULT = name + ": "
+var_decl          ::= VAR_DECL NAME:name PARAM_ID type:t {: RESULT = "var " + name + ": "
                                                             + t; :}
                     ;
 
 rec_decl          ::= REC_DECL NAME:name LCURLY param_list_semi:pl RCURLY
-                               {: RESULT = name + ": " + pl; :}
+                               {: RESULT = "struct " + name + ": " + pl; :}
                     ;
 
-paramfield_decl   ::= NAME:name PARAM_ID type:t {: RESULT = name + ": " + t; :}
+paramfield_decl   ::= NAME:name PARAM_ID type:t {: RESULT = "param " + name + ": " + t; :}
                     ;
 
 proc_decl         ::= PROC_DECL NAME:name
-                                LPAR param_list_comma RPAR
+                                LPAR param_list_comma:pl RPAR
                                 BEGIN decl_list:dl
                                 IN stmt_list:sl END
-                                {: RESULT = name + "\n\t " + dl +
+                                {: RESULT = "procedure " + name + pl + "\n\t " + dl +
                                    "\n\t " + sl; :}
                     | PROC_DECL NAME:name
-                                LPAR param_list_comma RPAR
+                                LPAR param_list_comma:pl RPAR
                                 PARAM_ID type
                                 BEGIN decl_list:dl
                                 IN stmt_list:sl END
-                                {: RESULT = name + "\n\t " + dl +
+                                {: RESULT = "procedure " + name + pl + "\n\t " + dl +
                                    "\n\t " + sl; :}
                     ;
 
 /* Expressions needs work. Check that we're not missing rules*/
-exp               ::= exp log_op exp 
-                    | NOT exp:e 
-                    | exp rel_op exp
-                    | exp arit_op exp
-                    | literal:lit
-                    | call_stmt
-                    | NEW NAME:name
-                    | var:v
-                    | ref_var
-                    | deref_var
-                    | LPAR exp RPAR
+exp               ::= exp:e1 log_op exp:e2  {: RESULT = e1 + " " + e2; :}
+                    | NOT exp:e             {: RESULT = e; :}
+                    | exp:e1 rel_op exp:e2  {: RESULT = e1 + " " + e2; :}
+                    | exp:e1 arit_op exp:e2 {: RESULT = e1 + " " + e2; :}
+                    | literal:lit           {: RESULT = lit; :}
+                    | call_stmt:s           {: RESULT = s; :}
+                    | NEW NAME:name         {: RESULT = name; :}
+                    | var:v                 {: RESULT = v; :}
+                    | ref_var:v             {: RESULT = v; :}
+                    | deref_var:v           {: RESULT = v; :}
+                    | LPAR exp:e RPAR       {: RESULT = e; :}
                     ;
 
 literal           ::= STRING_LITERAL:str {: RESULT = str; :}
@@ -164,25 +164,31 @@ log_op            ::= AND | OR
 
 /* Statements - need to be adjusted to allow for optional value */
 
-stmt              ::= assign_stmt
-                    | if_stmt
-                    | while_stmt
-                    | return_stmt
-                    | call_stmt:s {: RESULT = s; :}
+stmt              ::= assign_stmt:a {: RESULT = a; :}
+                    | if_stmt:i     {: RESULT = i; :}
+                    | while_stmt:w  {: RESULT = w; :}
+                    | return_stmt:r {: RESULT = r; :}
+                    | call_stmt:s   {: RESULT = s; :}
                     ;
 
-assign_stmt       ::= var ASSIGN_OP exp
-                    | deref_var ASSIGN_OP exp
+assign_stmt       ::= var ASSIGN_OP exp               {: RESULT = "assign"; :}
+                    | deref_var ASSIGN_OP exp         {: RESULT = "derefassign"; :}     
                     ;
 
-if_stmt           ::= IF exp THEN stmt_list FI
-                    | IF exp THEN stmt_list ELSE stmt_list FI
+if_stmt           ::= IF exp THEN stmt_list:l FI        {: RESULT = "\n\t\tif\n\t\t\t" +l; :}
+                    | IF exp THEN stmt_list:l ELSE stmt_list:l2 FI
+                                                      {: RESULT = "\n\t\tif\n\t\t\t" +
+                                                         l + "\n\t\telse\n\t\t\t" + l2;:}
                     ;
 
-while_stmt        ::= WHILE exp DO stmt_list OD
+while_stmt        ::= WHILE exp:e DO stmt_list:l OD       {: RESULT =
+                                                         "\n\t\twhile "+ e + "\n\t\t\t" +l
+                                                         + "\n\t\tdo\n\t\t\t" + l
+                                                         + "\n\t\tod\n\t\t"; :}
                     ;
 
-return_stmt       ::= RETURN exp_list
+return_stmt       ::= RETURN exp:e {: RESULT = e; :}
+                    | RETURN
                     ;
 
 call_stmt         ::= NAME:name LPAR exp_list RPAR {: RESULT = name;:}
