@@ -79,6 +79,7 @@ param_list        ::= paramfield_decl
 
 exp_list          ::= exp
                     | exp_list COMMA exp
+                    |
                     ;
 
 decl              ::= rec_decl:d {: RESULT = d; :}
@@ -92,7 +93,7 @@ var_decl          ::= VAR_DECL NAME:name PARAM_ID type:t {: RESULT = name; :}
 rec_decl          ::= REC_DECL NAME:name LCURLY param_list RCURLY {: RESULT = name; :}
                     ;
 
-paramfield_decl   ::= NAME:name PARAM_ID type:t {: RESULT = name;:}
+paramfield_decl   ::= NAME:name PARAM_ID type:t {: RESULT = name; :}
                     ;
 
 proc_decl         ::= PROC_DECL NAME:name
