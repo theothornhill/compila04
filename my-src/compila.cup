@@ -92,7 +92,7 @@ var_decl          ::= VAR_DECL NAME:name PARAM_ID NAME:type {: RESULT = name; :}
 rec_decl          ::= REC_DECL NAME:name LCURLY param_list RCURLY {: RESULT = name; :}
                     ;
 
-paramfield_decl   ::= NAME:name PARAM_ID NAME:type {: RESULT = name;:}
+paramfield_decl   ::= NAME:name PARAM_ID type:t {: RESULT = name;:}
                     ;
 
 proc_decl         ::= PROC_DECL NAME:name
@@ -178,5 +178,5 @@ deref_var         ::= DEREF LPAR var RPAR
                     | DEREF LPAR deref_var RPAR
                     ;
 
-type              ::= FLOAT | INT | STRING | BOOL
+type              ::= FLOAT | INT | STRING | BOOL | NAME
                     ;

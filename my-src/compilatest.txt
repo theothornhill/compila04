@@ -2,10 +2,10 @@
 
 program compilatest
 begin
-    proc hello(): string
+    proc hello(thing: n): string
         begin
         in
-        end
+        end;
     var thing: hi
 end
 
