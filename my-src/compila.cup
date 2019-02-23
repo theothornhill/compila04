@@ -52,7 +52,8 @@ precedence left                    DOT;
 
 start with program;
 
-program           ::=  PROGRAM NAME:name BEGIN decl_list:dl END
+program           ::= PROGRAM NAME BEGIN END
+                    | PROGRAM NAME:name BEGIN decl_list:dl END
                                {: LinkedList<LinkedList> l = new LinkedList<>();
                                   l.add(dl);
                                   RESULT = new Program(name, l);
@@ -64,10 +65,6 @@ decl_list         ::= decl:d {: LinkedList<String> l = new LinkedList<>();
                                 RESULT = l; :}
                     | decl_list:dl decl:d
                             {: dl.add(d); RESULT = dl; :}
-                    | decl_list:dl  exp:e 
-                            {:dl.add(e); RESULT = dl; :}
-                    | decl_list:dl stmt_list:s
-                           {:dl.add(s); RESULT = dl; :}
                     ;
 
 decl              ::= rec_decl | proc_decl | paramfield_decl
