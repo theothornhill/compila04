@@ -14,14 +14,8 @@ public class Program {
         sb.append("(NAME ");
         sb.append(this.name);
         sb.append(")\n");
-        declarations.stream()
-            .forEach(s -> {
-                    s.stream().forEach(t -> {
-                            sb.append("\t" + t);
-                            sb.append("\n");                            
-                        });
-            });
-        sb.append(")\n");
+        sb.append(declarations.toString());
+        sb.append("\n)\n");
         return sb.toString();
     }
 }
