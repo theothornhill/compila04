@@ -2,10 +2,9 @@ program compilatest
 begin
     proc hello()
         begin
-            proc you()
-            begin
-            in
-            end
+            struct testrec {
+                   thing: one
+            }
         in
         end
 end

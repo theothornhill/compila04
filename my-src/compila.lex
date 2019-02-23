@@ -42,7 +42,7 @@ CommentContent       = ( [^*] | \*+ [^/\*] )*
              "in"                    { return new Symbol(sym.IN); }             
              "end"                   { return new Symbol(sym.END); }
              /* declarations */
-             "record"                { return new Symbol(sym.REC_DECL); }
+             "struct"                { return new Symbol(sym.REC_DECL); }
              "proc"                  { return new Symbol(sym.PROC_DECL); }
              "var"                   { return new Symbol(sym.VAR_DECL); }
              "new"                   { return new Symbol(sym.NEW); }
