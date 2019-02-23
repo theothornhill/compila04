@@ -86,7 +86,7 @@ decl              ::= rec_decl:d {: RESULT = d; :}
                     | var_decl:d {: RESULT = d; :}
                     ;
 
-var_decl          ::= VAR_DECL NAME:name PARAM_ID NAME:type {: RESULT = name; :}
+var_decl          ::= VAR_DECL NAME:name PARAM_ID type:t {: RESULT = name; :}
                     ;
 
 rec_decl          ::= REC_DECL NAME:name LCURLY param_list RCURLY {: RESULT = name; :}
