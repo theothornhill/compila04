@@ -32,7 +32,7 @@ nonterminal                        literal, call_stmt;
 nonterminal                        stmts, stmt, assign_stmt, if_stmt, while_stmt;
 nonterminal                        return_stmt;
 nonterminal Program                program;
-nonterminal String                 decl, type;
+nonterminal String                 decl, var_decl, proc_decl, rec_decl, paramfield_decl, type;
 nonterminal String                 rel_op, log_op, arit_op;
 nonterminal String                 exp, bool, var, ref_var, deref_var;
 nonterminal LinkedList<String>     decl_list;
@@ -58,20 +58,32 @@ program           ::=  PROGRAM NAME:name BEGIN decl_list:dl END
 decl_list         ::= decl:d {: LinkedList<String> l = new LinkedList<>();
                                 l.add(d);
                                 RESULT = l; :}
-                    |   decl_list:dl decl:d
+                    | decl_list:dl decl:d
                             {: dl.add(d); RESULT = dl; :}
                     | decl_list:dl exp:e
                             {:dl.add(e); RESULT = dl; :}
+/*                    | decl_list:dl stmts:e SEMI
+                           {:dl.add(s); RESULT = dl; :}*/ 
                     ;
 
-decl              ::= REC_DECL NAME:name
+decl              ::= rec_decl | var_decl | proc_decl | paramfield_decl
+                    ;
+
+rec_decl          ::= REC_DECL NAME:name
                           {: RESULT = "(STRUCT " + name + ")"; :}
-                    | VAR_DECL NAME:name PARAM_ID NAME:type
+                    ;
+
+var_decl          ::= VAR_DECL NAME:name PARAM_ID NAME:type
                           {: RESULT = "(VAR " + name + " (TYPE " + type + ") "; :}
-                    | PROC_DECL NAME:name LPAR decl_list:dl RPAR BEGIN decl_list:body END
+                    ;
+
+proc_decl         ::= PROC_DECL NAME:name LPAR decl_list:dl RPAR BEGIN decl_list:body END
                           {: RESULT = "(PROCEDURE " + name + " " + dl + body + ")"; :}
-                    | NAME:name PARAM_ID NAME:type
-                          {: RESULT = "(PARAM " + name + " type: " + type + ")"; :}
+                    ;
+
+paramfield_decl   ::= NAME:name PARAM_ID NAME:type
+                          {: RESULT = "(PARAM " + name + " type: " + type + ")";
+                          :}
                     ;
 
 /* Expressions needs work. Check that we're not missing rules*/
