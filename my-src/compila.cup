@@ -94,6 +94,11 @@ rec_decl          ::= REC_DECL NAME:name LCURLY param_list RCURLY {: RESULT = na
 
 proc_decl         ::= PROC_DECL NAME:name
                                 LPAR param_list RPAR
+                                BEGIN decl_list IN stmt_list END {: RESULT =
+                                name; :}
+                    | PROC_DECL NAME:name
+                                LPAR param_list RPAR
+                                PARAM_ID type
                                 BEGIN decl_list IN stmt_list END {: RESULT = name; :}
                     ;
 
