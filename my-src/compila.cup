@@ -161,7 +161,7 @@ if_stmt           ::= IF exp THEN stmt_list FI
 while_stmt        ::= WHILE exp DO stmt_list OD
                     ;
 
-return_stmt       ::= RETURN exp
+return_stmt       ::= RETURN exp_list
                     ;
 
 call_stmt         ::= NAME:name LPAR exp_list RPAR {: RESULT = name;:}
