@@ -1,12 +1,12 @@
+
+
 program compilatest
 begin
-    proc hello()
+    proc hello(): string
         begin
-            struct testrec {
-                   thing: one
-            }
         in
         end
+    var thing: hi
 end
 
 

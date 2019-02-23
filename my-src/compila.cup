@@ -66,24 +66,24 @@ decl_list         ::= decl:d {: LinkedList<String> l = new LinkedList<>();
                     | 
                     ;
 
-decl              ::= rec_decl:d {: RESULT = d; :}
-                    | proc_decl:d {: RESULT = d; :}
-                    | paramfield_decl:d {: RESULT = d; :}
-                    ;
-
-stmt_list          ::= stmt:s
+stmt_list          ::= stmt:s 
                    | stmt_list SEMI stmt
                    |
                    ;
 
 param_list        ::= paramfield_decl
-                    | param_list COMMA paramfield_decl
+                    | param_list SEMI paramfield_decl
+                    | param_list COMMA paramfield_decl                    
                     |
                     ;
 
 exp_list          ::= exp
                     | exp_list COMMA exp
-                    |
+                    ;
+
+decl              ::= rec_decl:d {: RESULT = d; :}
+                    | proc_decl:d {: RESULT = d; :}
+                    | var_decl:d {: RESULT = d; :}
                     ;
 
 var_decl          ::= VAR_DECL NAME:name PARAM_ID NAME:type {: RESULT = name; :}
@@ -92,19 +92,21 @@ var_decl          ::= VAR_DECL NAME:name PARAM_ID NAME:type {: RESULT = name; :}
 rec_decl          ::= REC_DECL NAME:name LCURLY param_list RCURLY {: RESULT = name; :}
                     ;
 
-proc_decl         ::= PROC_DECL NAME:name
-                                LPAR param_list RPAR
-                                BEGIN decl_list IN stmt_list END {: RESULT =
-                                name; :}
-                    | PROC_DECL NAME:name
-                                LPAR param_list RPAR
-                                PARAM_ID type
-                                BEGIN decl_list IN stmt_list END {: RESULT = name; :}
-                    ;
-
 paramfield_decl   ::= NAME:name PARAM_ID NAME:type {: RESULT = name;:}
                     ;
 
+proc_decl         ::= PROC_DECL NAME:name
+                                LPAR param_list RPAR
+                                BEGIN decl_list
+                                IN stmt_list END
+                                {: RESULT = name; :}
+                    | PROC_DECL NAME:name
+                                LPAR param_list RPAR
+                                PARAM_ID type
+                                BEGIN decl_list
+                                IN stmt_list END
+                                {: RESULT = name; :}
+                    ;
 
 /* Expressions needs work. Check that we're not missing rules*/
 exp               ::= exp log_op exp 
