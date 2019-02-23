@@ -1,13 +1,33 @@
 
-
 program compilatest
 begin
     proc hello(thing: one, thing: two): string
-        begin
-        in
-        end;
+    begin
+      struct mystruct {
+             thing: tang;
+             thong: ting
+         };
+      var wat: str
+    in
+      callDog(byPhone(5 + 5, dog.phoneNumber));
+      callCat();
+      if (6 > 7) then
+         callAmbulance()
+      else
+         openBeer();
+         chillOut()
+      fi;
+      
+      while 5 < 10
+      do
+          callCat()
+      od
+
+    end;
+        
     var hi: string;
     var ho: string
+    
 end
 
 
