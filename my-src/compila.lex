@@ -92,6 +92,7 @@ CommentContent       = ( [^*] | \*+ [^/\*] )*
              /* Parameter identificator */
              ":"                        { return new Symbol(sym.PARAM_ID); }
              ";"                        { return new Symbol(sym.SEMI); }
+             ","                        { return new Symbol(sym.COMMA); }             
              "("                        { return new Symbol(sym.LPAR); }
              ")"                        { return new Symbol(sym.RPAR); }
 }
@@ -101,9 +102,9 @@ CommentContent       = ( [^*] | \*+ [^/\*] )*
              {NAME}_                 { System.exit(4763); }
              {NAME}                  { return new Symbol(sym.NAME, yytext()); }
              {INT_LITERAL}"."        { System.exit(4763); }
-             {INT_LITERAL}           { return new Symbol(sym.INT_LITERAL); }
+             {INT_LITERAL}           { return new Symbol(sym.INT_LITERAL, yytext()); }
              {STRING_LITERAL}        { return new Symbol(sym.STRING_LITERAL, yytext()); }
-             {FLOAT_LITERAL}         { return new Symbol(sym.FLOAT_LITERAL); }
+             {FLOAT_LITERAL}         { return new Symbol(sym.FLOAT_LITERAL, yytext()); }
 }
 
 /* Catch all */

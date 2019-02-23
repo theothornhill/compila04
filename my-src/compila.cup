@@ -16,7 +16,7 @@ scan with {: return getScanner().next_token(); :};
 
 terminal                           PROGRAM;
 terminal                           BEGIN, END;
-terminal                           LPAR, RPAR, SEMI;
+terminal                           LPAR, RPAR, SEMI, COMMA;
 terminal                           REC_DECL, PROC_DECL, VAR_DECL, NEW;
 terminal                           IF, FI, THEN, ELSE, WHILE, DO, OD, RETURN, REF, DEREF;
 terminal                           INT_LITERAL, STRING_LITERAL, FLOAT_LITERAL;
@@ -58,12 +58,12 @@ program           ::=  PROGRAM NAME:name BEGIN decl_list:dl END
 decl_list         ::= decl:d {: LinkedList<String> l = new LinkedList<>();
                                 l.add(d);
                                 RESULT = l; :}
-                    | decl_list:dl decl:d
+                    | decl_list:dl SEMI decl:d
                             {: dl.add(d); RESULT = dl; :}
-                    | decl_list:dl exp:e
+                    | decl_list:dl SEMI exp:e 
                             {:dl.add(e); RESULT = dl; :}
-/*                    | decl_list:dl stmts:e SEMI
-                           {:dl.add(s); RESULT = dl; :}*/ 
+                    | decl_list:dl SEMI stmts:e 
+                           {:dl.add(s); RESULT = dl; :}
                     ;
 
 decl              ::= rec_decl | var_decl | proc_decl | paramfield_decl
@@ -87,15 +87,15 @@ paramfield_decl   ::= NAME:name PARAM_ID NAME:type
                     ;
 
 /* Expressions needs work. Check that we're not missing rules*/
-exp               ::= exp log_op exp {: RESULT = "They look the same"; :}
-                    | NOT exp:e {: RESULT = "(NOT " + e + ")"; :}
-                    | exp rel_op exp {: RESULT = "They are related"; :}
-                    | exp arit_op exp {: RESULT = "Maths"; :}
-                    | literal:lit {: RESULT = "" + lit; :}
-                    | call_stmt   {: RESULT = ""; :}
-                    | NEW NAME:name {: RESULT = name; :}
-                    | var:v {: RESULT = "" +v; :}
-                    | LPAR exp RPAR {: RESULT = "Nested things"; :}
+exp               ::= exp log_op exp 
+                    | NOT exp:e 
+                    | exp rel_op exp
+                    | exp arit_op exp
+                    | literal:lit
+                    | call_stmt
+                    | NEW NAME:name
+                    | var:v
+                    | LPAR exp RPAR
                     ;
 
 literal           ::= STRING_LITERAL:str {: RESULT = str; :}
@@ -135,17 +135,19 @@ assign_stmt       ::= var ASSIGN_OP exp
                     ;
 
 if_stmt           ::= IF exp THEN stmts FI
-                    | IF exp THEN stmt stmts FI
+                    | IF exp THEN stmts SEMI stmts FI
                     ;
 
 while_stmt        ::= WHILE exp DO stmts OD
+                    | WHILE exp DO stmts SEMI stmt OD
                     ;
 
 return_stmt       ::= RETURN exp
                     ;
 
-/* call_stmt         ::= NAME LPAR exp RPAR 
-                    ; */
+call_stmt         ::= NAME LPAR exp RPAR
+                    | NAME LPAR exp COMMA exp RPAR
+                    ;
 
 /* Vars, refs and derefs */
 
