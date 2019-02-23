@@ -46,7 +46,6 @@ Syntax
 Parameter passing
 
 * Call-by-value::
-* Call-by-reference::
 * Small example for call-by-reference::
 
 Static semantics / typing / evaluation.
@@ -274,9 +273,13 @@ For precedences and associativity of various constructs, see later.
      PROC_DECL          -> "proc" NAME
                            "(" [ PARAMFIELD_DECL { "," PARAMFIELD_DECL } ] ")"
                            [ ":" TYPE ]
-                           "begin" [DECL{";" DECL}] "in" [STMT {";" STMT}] "end"
+                           "begin" [DECL{";" DECL}] "in" STMT_LIST "end"
 
-     REC_DECL           -> "struct" NAME "{" [ PARAMFIELD_DECL {";" PARAMFIELD_DECL }]  "}"
+
+
+     STMT_LIST          -> [STMT {";" STMT}]
+     REC_DECL           -> "struct" NAME "{" [ PARAMFIELD_DECL
+                                               {";" PARAMFIELD_DECL }]  "}"
 
      PARAMFIELD_DECL     -> NAME ":" TYPE
 
@@ -315,9 +318,9 @@ For precedences and associativity of various constructs, see later.
 
      ASSIGN_STMT        -> VAR ":=" EXP | DEREF_VAR ":=" EXP
 
-     IF_STMT            -> "if" EXP "then" { STMT ";" } "fi"
-                           [ "else"  { STMT ";" } "fi" ]
-     WHILE_STMT         -> "while" EXP "do"  { STMT ";" } "od"
+     IF_STMT            -> "if" EXP "then" { STMT_LIST }
+                            [ "else"  { STMT_LIST } ] "fi"
+     WHILE_STMT         -> "while" EXP "do"  { STMT_LIST  } "od"
 
      RETURN_STMT        -> "return" [ EXP ]
 
@@ -380,11 +383,10 @@ call-by-value:
 * Menu:
 
 * Call-by-value::
-* Call-by-reference::
 * Small example for call-by-reference::
 
 
-File: compila.info,  Node: Call-by-value,  Next: Call-by-reference,  Up: Parameter passing
+File: compila.info,  Node: Call-by-value,  Next: Small example for call-by-reference,  Up: Parameter passing
 
 5.1 Call-by-value
 =================
@@ -402,15 +404,9 @@ mechanism proper _is_ call-by-value (of reference data).  One may speak
 of call-by-value-reference.
 
 
-File: compila.info,  Node: Call-by-reference,  Next: Small example for call-by-reference,  Prev: Call-by-value,  Up: Parameter passing
+File: compila.info,  Node: Small example for call-by-reference,  Prev: Call-by-value,  Up: Parameter passing
 
-5.2 Call-by-reference
-=====================
-
-
-File: compila.info,  Node: Small example for call-by-reference,  Prev: Call-by-reference,  Up: Parameter passing
-
-5.3 Small example for call-by-reference
+5.2 Small example for call-by-reference
 =======================================
 
      program swapexample
@@ -601,33 +597,32 @@ File: compila.info,  Node: Further conditions,  Prev: Procedures,  Up: Top
 
 Tag Table:
 Node: Top142
-Node: Introduction996
-Node: Notational conventions and syntax of this document1449
-Node: Lexical aspects2756
-Node: Identifiers and literals2941
-Node: Comments4076
-Node: Data types4716
-Node: Built in data types4894
-Node: Records5509
-Ref: Records-Footnote-16317
-Node: References6374
-Node: Syntax7205
-Node: Grammar7371
-Node: Precedence9697
-Node: Associativity10149
-Node: Parameter passing10642
-Node: Call-by-value11347
-Ref: Call-by-value-Footnote-111717
-Node: Call-by-reference12031
-Node: Small example for call-by-reference12214
-Node: Standard library12955
-Node: Static semantics / typing / evaluation14068
-Node: Binding of names14447
-Node: Typing of compound constructs15654
-Node: Types and implicit type conversion16972
-Node: Short-circuit evaluation17685
-Node: Procedures18145
-Node: Further conditions19928
+Node: Introduction974
+Node: Notational conventions and syntax of this document1427
+Node: Lexical aspects2734
+Node: Identifiers and literals2919
+Node: Comments4054
+Node: Data types4694
+Node: Built in data types4872
+Node: Records5487
+Ref: Records-Footnote-16295
+Node: References6352
+Node: Syntax7183
+Node: Grammar7349
+Node: Precedence9761
+Node: Associativity10213
+Node: Parameter passing10706
+Node: Call-by-value11389
+Ref: Call-by-value-Footnote-111777
+Node: Small example for call-by-reference12091
+Node: Standard library12828
+Node: Static semantics / typing / evaluation13941
+Node: Binding of names14320
+Node: Typing of compound constructs15527
+Node: Types and implicit type conversion16845
+Node: Short-circuit evaluation17558
+Node: Procedures18018
+Node: Further conditions19801
 
 End Tag Table
 

@@ -27,8 +27,6 @@ system on the course's web-page.
 
 * Overview over the directory's structure
 
-  
-
 - [[./src]]: sources (of all kinds, including documentation).
 - [[./doc]]: generated documentation 
   - language specification

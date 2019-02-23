@@ -1,3 +1,6 @@
+/*
+Ambiguous grammar version with precedence rules
+*/
 import java_cup.runtime.*;
 import java.io.FileReader;
 import java.io.File;
@@ -15,7 +18,7 @@ public void syntax_error(Symbol s) {
 scan with {: return getScanner().next_token(); :};
 
 terminal                           PROGRAM;
-terminal                           BEGIN, END;
+terminal                           BEGIN, END, IN;
 terminal                           LPAR, RPAR, SEMI, COMMA;
 terminal                           REC_DECL, PROC_DECL, VAR_DECL, NEW;
 terminal                           IF, FI, THEN, ELSE, WHILE, DO, OD, RETURN, REF, DEREF;
@@ -29,7 +32,7 @@ terminal                           AND, OR;
 terminal                           FLOAT, INT, STRING, BOOL;
 terminal String                    NAME;
 nonterminal                        literal, call_stmt;
-nonterminal String                 stmts, stmt, assign_stmt, if_stmt, while_stmt;
+nonterminal String                 stmt_list, stmt, assign_stmt, if_stmt, while_stmt;
 nonterminal                        return_stmt;
 nonterminal Program                program;
 nonterminal String                 decl, var_decl, proc_decl, rec_decl;
@@ -44,7 +47,7 @@ precedence right                   NOT;
 precedence nonassoc                LT, LTEQ, GT, GTEQ, EQ, NEQ;
 precedence left                    ADD, MINUS;
 precedence left                    MULT, DIVIDE;
-precedence right                   EXPONENT;
+precedence right                   EXPONENT, LPAR;
 precedence left                    DOT;
 
 start with program;
@@ -59,31 +62,34 @@ program           ::=  PROGRAM NAME:name BEGIN decl_list:dl END
 decl_list         ::= decl:d {: LinkedList<String> l = new LinkedList<>();
                                 l.add(d);
                                 RESULT = l; :}
-                    | decl_list:dl SEMI decl:d
+                    | decl_list:dl decl:d
                             {: dl.add(d); RESULT = dl; :}
-                    | decl_list:dl SEMI exp:e 
+                    | decl_list:dl  exp:e 
                             {:dl.add(e); RESULT = dl; :}
-                    | decl_list:dl SEMI stmts:s
+                    | decl_list:dl stmt_list:s
                            {:dl.add(s); RESULT = dl; :}
                     ;
 
-decl              ::= rec_decl | var_decl | proc_decl | paramfield_decl | empty_decl
-                    ;
-
-rec_decl          ::= REC_DECL NAME:name
+decl              ::= rec_decl | proc_decl | paramfield_decl
                     ;
 
 var_decl          ::= VAR_DECL NAME:name PARAM_ID NAME:type
                     ;
 
-proc_decl         ::= PROC_DECL NAME:name LPAR decl_list:dl RPAR BEGIN decl_list:body END
+rec_decl          ::= REC_DECL NAME:name
+                    ;
+
+proc_decl         ::= PROC_DECL NAME:name
+                                LPAR paramfield_decl RPAR
+                                BEGIN decl:d IN stmt_list END
                     ;
 
 paramfield_decl   ::= NAME:name PARAM_ID NAME:type
                     ;
 
-empty_decl        ::=
-                    ;
+stmt_list          ::= stmt_list stmt SEMI
+                   | stmt SEMI
+                   ;
 
 /* Expressions needs work. Check that we're not missing rules*/
 exp               ::= exp log_op exp 
@@ -118,27 +124,24 @@ log_op            ::= AND | OR
 
 
 /* Statements - need to be adjusted to allow for optional value */
-stmts             ::= stmts stmt
-                   | stmt
-                   ;
 
 stmt              ::= assign_stmt
                     | if_stmt
                     | while_stmt
                     | return_stmt
-                    | call_stmt
+                    | call_stmt 
                     ;
 
 assign_stmt       ::= var ASSIGN_OP exp
                     | deref_var ASSIGN_OP exp
                     ;
 
-if_stmt           ::= IF exp THEN stmts FI
-                    | IF exp THEN stmts SEMI stmts FI
+if_stmt           ::= IF exp THEN stmt_list FI
+                    | IF exp THEN stmt_list ELSE stmt_list FI
                     ;
 
-while_stmt        ::= WHILE exp DO stmts OD
-                    | WHILE exp DO stmts SEMI stmt OD
+while_stmt        ::= WHILE exp DO stmt_list OD
+                    | WHILE exp DO stmt_list SEMI stmt OD
                     ;
 
 return_stmt       ::= RETURN exp

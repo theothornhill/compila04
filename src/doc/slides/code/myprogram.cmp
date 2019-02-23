@@ -1,25 +1,26 @@
 program MyProgram
 begin
    struct complex {    // record data type, but
-     var   re: float;  // no subtyping, polymorphism...
-     var   im: float;  
+     re: float;        // no subtyping, polymorphism...
+     im: float
    }
 end;
 
 proc add (a: complex, b: complex) : complex
 begin
    var retval : complex;
+in
    retval :=  new complex;
    retval.re := a.re + b.re;
    retval.im := a.im + b.im;
-   return retval;
+   return retval
 end;
-proc main()            // exectution start here
+proc main()            // execution start here
 begin
   var c1: complex;
   var c2: complex:
-  var result := add (c1,c2);
+  result := add (c1,c2);
   ...
-  return;
-end;
-end;
+  return
+end
+end

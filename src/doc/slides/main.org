@@ -36,7 +36,7 @@
 #+TITLE:     INF5110 -- Oblig 1 + 2
 #+AUTHOR:    
 #+EMAIL:     msteffen@ifi.uio.no
-#+DATE:      Spring 2018
+#+DATE:      Spring 2019
 #+LINK: gohome https://golang.org/
 #+LINK: tigersrc      /home/msteffen/PMA/trunk/teaching/ocaml/compiler/tiger/src/%s
 #+LINK: tigerlibsrc  /home/msteffen/Collectionofreposes/GITUIO/staticanalysis-admin/dfa/src/ocaml/lib/%s
@@ -47,7 +47,7 @@
 
 #+latex_header: \def\mytitle{Compiler Construction}    %% what for
 #+LaTeX_header: \def\myauthor{Martin Steffen}   %% what for
-#+LaTeX_header: \def\mydate{Spring 2018}        %% what for
+#+LaTeX_header: \def\mydate{Spring 2019}        %% what for
 
 
 #+include: "./content.org"  

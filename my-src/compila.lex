@@ -39,6 +39,7 @@ CommentContent       = ( [^*] | \*+ [^/\*] )*
              /* initial */
              "program"               { return new Symbol(sym.PROGRAM); }
              "begin"                 { return new Symbol(sym.BEGIN); }
+             "in"                    { return new Symbol(sym.IN); }             
              "end"                   { return new Symbol(sym.END); }
              /* declarations */
              "record"                { return new Symbol(sym.REC_DECL); }

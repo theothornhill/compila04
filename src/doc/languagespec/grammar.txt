@@ -7,9 +7,13 @@ VAR_DECL           -> "var" NAME ":" TYPE
 PROC_DECL          -> "proc" NAME 
                       "(" [ PARAMFIELD_DECL { "," PARAMFIELD_DECL } ] ")"
                       [ ":" TYPE ]
-                      "begin" [DECL{";" DECL}] "in" [STMT {";" STMT}] "end"
+                      "begin" [DECL{";" DECL}] "in" STMT_LIST "end"
 
-REC_DECL           -> "struct" NAME "{" [ PARAMFIELD_DECL {";" PARAMFIELD_DECL }]  "}"
+
+
+STMT_LIST          -> [STMT {";" STMT}]
+REC_DECL           -> "struct" NAME "{" [ PARAMFIELD_DECL 
+                                          {";" PARAMFIELD_DECL }]  "}"
 
 PARAMFIELD_DECL     -> NAME ":" TYPE
 
@@ -48,9 +52,9 @@ STMT               -> ASSIGN_STMT
 
 ASSIGN_STMT        -> VAR ":=" EXP | DEREF_VAR ":=" EXP
 
-IF_STMT            -> "if" EXP "then" { STMT ";" } "fi"
-                      [ "else"  { STMT ";" } "fi" ]
-WHILE_STMT         -> "while" EXP "do"  { STMT ";" } "od"
+IF_STMT            -> "if" EXP "then" { STMT_LIST } 
+                       [ "else"  { STMT_LIST } ] "fi" 
+WHILE_STMT         -> "while" EXP "do"  { STMT_LIST  } "od"
 
 RETURN_STMT        -> "return" [ EXP ]
 

@@ -2,7 +2,7 @@
 
 
 
-** Compila 18
+** Compila 19
 
 *** Oblig 1                                                         :B_frame:
     :PROPERTIES:
@@ -29,7 +29,7 @@
      :END:
 
 
-Determine if programs written in /Compila 18/ are syntactically correct: 
+Determine if programs written in /Compila 19/ are syntactically correct: 
 
 - scanner
 - parser
@@ -74,7 +74,7 @@ Determine if programs written in /Compila 18/ are syntactically correct:
 
 #+begin_export latex 
 
-\lstinputlisting[basicstyle=\scriptsize]{code/myprogram.cmp}
+\lstinputlisting[basicstyle=\scriptsize,emph={begin,end,in, proc,program,var,return,struct}]{code/myprogram.cmp}
 
 #+end_export
 
@@ -90,7 +90,7 @@ Determine if programs written in /Compila 18/ are syntactically correct:
 
 #+begin_export latex 
 
-\lstinputlisting[basicstyle=\scriptsize]{code/swap.cmp}
+\lstinputlisting[basicstyle=\scriptsize,emph={begin,end,in, proc,program,var,return,struct}]{code/swap.cmp}
 
 #+end_export
 
@@ -283,7 +283,21 @@ grammar in BNF with *action* code
 
 
 
-*** Provides source code                                            :B_frame:
+*** Overview over the directory + first steps                       :B_frame:
+    :PROPERTIES:
+    :BEAMER_env: frame
+    :END:
+
+- see the Readme at/from the ~github.uio.no~
+
+
+#+begin_export latex 
+ \includegraphics[width=0.66\textwidth]{figures/snaps/directorystruct}
+#+end_export
+
+
+
+*** Provided source code                                    :B_frame:ARCHIVE:
     :PROPERTIES:
     :BEAMER_env: frame
     :END:
@@ -330,7 +344,7 @@ grammar in BNF with *action* code
 
  
 
- *Friday 23. 03. 2018, 23:59*
+ *Friday 15. 03. 2019, 23:59*
 
 
 **** Rest                                                            :ignore:
@@ -392,7 +406,7 @@ grammar in BNF with *action* code
 **** Rest                                                            :ignore:
 
 - the code must /build/ (with ant) and run
-- test it on the  UiO RHEL platform
+- test it on the  UiO RHEL (linux) platform
 
 **** Ask                                                            :B_block:
      :PROPERTIES:
@@ -424,13 +438,13 @@ If problems, *ask in time*  (*NOT* Friday at the deadline)
 
 
 - see also the handout
-- code ready /tomorrow/
+# - code ready /tomorrow/
 
 
 
 
 
-* Oblig2 
+* Oblig2                                                            :ARCHIVE:
 
 
 *** Goal                                                            :B_frame:
@@ -442,7 +456,7 @@ If problems, *ask in time*  (*NOT* Friday at the deadline)
     - *typing* is concerned (``static semantics'')
     - other coditions (no duplicate declaration etc)
 
-2. *code generation* for ~compila18~ (ish) programs
+2. *code generation* for ~compila19~ (ish) programs
 
 
 
@@ -508,7 +522,7 @@ If problems, *ask in time*  (*NOT* Friday at the deadline)
     - allowed to make *changes* or adaptations if advantagous.
 
 
-*** Another glance at compila18                                     :B_frame:
+*** Another glance at compila19                                     :B_frame:
     :PROPERTIES:
     :BEAMER_env: frame
     :END:
@@ -519,7 +533,7 @@ If problems, *ask in time*  (*NOT* Friday at the deadline)
 #+end_export
 
 
-NB: 2018: structs, not classes 
+NB: 2019: structs, not classes 
 
 
 *** Type checking for conditionals                                  :B_frame:
@@ -597,13 +611,13 @@ class Assignment extends Statement {
 
 
 - interpreter and byte code library somewhat *limited*
-   - cannot express full compila 18
+   - cannot express full compila 19
    - no block structure
    - no reference types
 
 
 - your delivery should support generating correct bytecode
-  for the ~compila~ 18 source code file ~runme.cmp~
+  for the ~compila~ 19 source code file ~runme.cmp~
 
 
 
@@ -708,7 +722,7 @@ codeFile.updateProcedure(main);
      :BEAMER_env: alertblock
      :END:
 
-      11th May  2018
+      11th May  20XX
 
 
 

@@ -1,15 +1,5 @@
 program compilatest
 begin
-   record reco
-   record recotwo
-   var hello: str
-
-   proc my_proc(var my_var: str)
-   begin
-       record many_things_here
-   end
-   thing: karnevalshund
-   not not not "b"
 end
 
 
