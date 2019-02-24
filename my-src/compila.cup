@@ -191,7 +191,8 @@ return_stmt       ::= RETURN exp:e {: RESULT = e; :}
                     | RETURN
                     ;
 
-call_stmt         ::= NAME:name LPAR exp_list RPAR {: RESULT = name;:}
+call_stmt         ::= NAME:name LPAR exp_list:el RPAR {: RESULT = name + "(" +
+                                                      el + ")";:}
                     ;
 
 /* Vars, refs and derefs */
