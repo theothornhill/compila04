@@ -4,6 +4,6 @@ public class Assign extends Stmt {
     }
 
     public String toString() {
-        return this.name;
+        return "(ASSIGN " + name + ")";
     }
 }

@@ -4,6 +4,6 @@ public class If extends Stmt {
     }
 
     public String toString() {
-        return this.name;
+        return "(IF " + name + ")";
     }
 }

@@ -5,6 +5,6 @@ public class Param {
     }
 
     public String toString() {
-        return this.name;
+        return "(PARAM " + name + ")";
     }
 }

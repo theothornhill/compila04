@@ -4,6 +4,6 @@ public class Call extends Stmt {
     }
 
     public String toString() {
-        return this.name;
+        return "(CALL " + name + ")";
     }
 }

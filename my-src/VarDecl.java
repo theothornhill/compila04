@@ -4,6 +4,6 @@ public class VarDecl extends Decl {
     }
 
     public String toString() {
-        return this.name;
+        return "(VAR " + name + ")";
     }
 }

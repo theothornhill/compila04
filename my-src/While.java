@@ -1,9 +1,8 @@
 public class While extends Stmt {
-    public While(String name) {
-        this.name = name;
+    public While() {
     }
 
     public String toString() {
-        return this.name;
+        return "(WHILE )";
     }
 }

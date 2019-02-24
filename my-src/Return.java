@@ -4,6 +4,6 @@ public class Return extends Stmt {
     }
 
     public String toString() {
-        return this.name;
+        return "(RETURN " + name + ")";
     }
 }

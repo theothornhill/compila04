@@ -111,7 +111,7 @@ rec_decl          ::= REC_DECL NAME:name LCURLY param_list_semi:pl RCURLY
                                {: RESULT = new RecDecl("struct " + name + ": " + pl); :}
                     ;
 
-paramfield_decl   ::= NAME:name PARAM_ID type:t {: RESULT = new Param("param " + name + ": " + t); :}
+paramfield_decl   ::= NAME:name PARAM_ID type:t {: RESULT = new Param(name + ": " + t); :}
                     ;
 
 proc_decl         ::= PROC_DECL NAME:name
@@ -172,20 +172,19 @@ stmt              ::= assign_stmt:a {: RESULT = a; :}
                     | call_stmt:s   {: RESULT = s; :}
                     ;
 
-assign_stmt       ::= var ASSIGN_OP exp               {: RESULT = new Assign("assign"); :}
-                    | deref_var ASSIGN_OP exp         {: RESULT = new Assign("derefassign"); :}     
+assign_stmt       ::= var:v ASSIGN_OP exp:e
+                            {: RESULT = new Assign(v+" " + e ); :}
+                    | deref_var:v ASSIGN_OP exp:e
+                            {: RESULT = new Assign(v+" " + e); :}     
                     ;
 
-if_stmt           ::= IF exp THEN stmt_list:l FI        {: RESULT = new If("\n\t\tif\n\t\t\t" +l); :}
+if_stmt           ::= IF exp THEN stmt_list:l FI        {: RESULT = new If(""); :}
                     | IF exp THEN stmt_list:l ELSE stmt_list:l2 FI
-                                                      {: RESULT = new If("\n\t\tif\n\t\t\t" +
-                                                         l + "\n\t\telse\n\t\t\t" + l2);:}
+                                                        {: RESULT = new If(""); :}
                     ;
 
-while_stmt        ::= WHILE exp:e DO stmt_list:l OD       {: RESULT = new While(
-                                                         "\n\t\twhile "+ e + "\n\t\t\t" +l
-                                                         + "\n\t\tdo\n\t\t\t" + l
-                                                         + "\n\t\tod\n\t\t"); :}
+while_stmt        ::= WHILE exp:e DO stmt_list:l OD
+                            {: RESULT = new While(); :}
                     ;
 
 return_stmt       ::= RETURN exp:e {: RESULT = new Return(e.toString()); :}
@@ -198,14 +197,15 @@ call_stmt         ::= NAME:name LPAR exp_list:el RPAR {: RESULT = new Call(name 
 
 /* Vars, refs and derefs */
 
-var               ::= NAME | exp DOT NAME
+var               ::= NAME:name                     {: RESULT = name; :}
+                    | exp:e DOT NAME:name           {: RESULT = name; :}
                     ;
 
-ref_var           ::= REF LPAR var RPAR
+ref_var           ::= REF LPAR var:v RPAR           {: RESULT = "ref " + v; :}
                     ;
 
-deref_var         ::= DEREF LPAR var RPAR
-                    | DEREF LPAR deref_var RPAR
+deref_var         ::= DEREF LPAR var:v RPAR         {: RESULT = "deref " +  v; :}
+                    | DEREF LPAR deref_var:v RPAR   {: RESULT = "deref " +  v; :}
                     ;
 
 type              ::= FLOAT:f {: RESULT = f; :}

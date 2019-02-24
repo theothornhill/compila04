@@ -13,6 +13,9 @@ public class Program {
         sb.append("(PROGRAM (NAME ");
         sb.append(this.name);
         sb.append(")\n\t");
+        // declarations.forEach(s -> {
+        //         sb.append(s.toString());
+        //             });
         sb.append(declarations);
         sb.append("\n)\n");
         return sb.toString();

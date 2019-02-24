@@ -4,6 +4,6 @@ public class RecDecl extends Decl {
     }
 
     public String toString() {
-        return this.name;
+        return "(RECORD " + name + ")";
     }
 }

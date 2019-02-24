@@ -4,6 +4,6 @@ public class ProcDecl extends Decl {
     }
 
     public String toString() {
-        return this.name;
+        return "(PROCEDURE " + name + ")";
     }
 }
