@@ -55,9 +55,7 @@ precedence left                    DOT;
 start with program;
 
 program           ::= PROGRAM NAME:name BEGIN decl_list:dl END
-                               {: LinkedList<LinkedList> l = new LinkedList<>();
-                                  l.add(dl);
-                                  RESULT = new Program(name, l);
+                               {: RESULT = new Program(name, dl);
                                   System.out.println(RESULT.printAst()); :}
                     ;
 
