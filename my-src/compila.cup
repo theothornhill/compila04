@@ -32,15 +32,17 @@ terminal                           ADD, MINUS, MULT, DIVIDE, EXPONENT;
 terminal                           AND, OR;
 terminal String                    FLOAT, INT, STRING;
 terminal String                    NAME;
-nonterminal String                 call_stmt;
-nonterminal String                 stmt, assign_stmt, if_stmt, while_stmt;
-nonterminal String                 return_stmt, literal;
 nonterminal Program                program;
-nonterminal String                 decl, var_decl, proc_decl, rec_decl;
+nonterminal String                 literal;
+nonterminal Stmt                   stmt, assign_stmt, if_stmt, while_stmt;
+nonterminal Stmt                   return_stmt, call_stmt;
+nonterminal Decl                   decl, var_decl, proc_decl, rec_decl;
 nonterminal String                 paramfield_decl, type;
 nonterminal String                 rel_op, log_op, arit_op;
 nonterminal String                 exp, bool, var, ref_var, deref_var;
-nonterminal LinkedList<String>     decl_list, stmt_list, param_list_semi;
+nonterminal LinkedList<Decl>       decl_list;
+nonterminal LinkedList<Stmt>       stmt_list;
+nonterminal LinkedList<String>     param_list_semi;
 nonterminal LinkedList<String>     param_list_comma, exp_list;
 
 precedence left                    OR;
@@ -59,14 +61,14 @@ program           ::= PROGRAM NAME:name BEGIN decl_list:dl END
                                   System.out.println(RESULT.printAst()); :}
                     ;
 
-decl_list         ::= decl:d {: LinkedList<String> l = new LinkedList<>();
+decl_list         ::= decl:d {: LinkedList<Decl> l = new LinkedList<Decl>();
                                 l.add(d);
                                 RESULT = l; :}
                     | decl_list:dl SEMI decl:d {: dl.add(d); RESULT = dl; :}
                     | 
                     ;
 
-stmt_list          ::= stmt:s {: LinkedList<String> l = new LinkedList<>();
+stmt_list          ::= stmt:s {: LinkedList<Stmt> l = new LinkedList<>();
                                  l.add(s);
                                  RESULT = l; :}
                     | stmt_list:sl SEMI stmt:s {: sl.add(s); RESULT = sl; :}
@@ -100,12 +102,12 @@ decl              ::= rec_decl:d {: RESULT = d; :}
                     | var_decl:d {: RESULT = d; :}
                     ;
 
-var_decl          ::= VAR_DECL NAME:name PARAM_ID type:t {: RESULT = "var " + name + ": "
-                                                            + t; :}
+var_decl          ::= VAR_DECL NAME:name PARAM_ID type:t
+                      {: RESULT = new VarDecl("var " + name + ": " + t); :}
                     ;
 
 rec_decl          ::= REC_DECL NAME:name LCURLY param_list_semi:pl RCURLY
-                               {: RESULT = "struct " + name + ": " + pl; :}
+                               {: RESULT = new RecDecl("struct " + name + ": " + pl); :}
                     ;
 
 paramfield_decl   ::= NAME:name PARAM_ID type:t {: RESULT = "param " + name + ": " + t; :}
@@ -115,15 +117,15 @@ proc_decl         ::= PROC_DECL NAME:name
                                 LPAR param_list_comma:pl RPAR
                                 BEGIN decl_list:dl
                                 IN stmt_list:sl END
-                                {: RESULT = "procedure " + name + pl + "\n\t " + dl +
-                                   "\n\t " + sl; :}
+                                {: RESULT = new ProcDecl("procedure " + name + pl + "\n\t " + dl +
+                                   "\n\t " + sl); :}
                     | PROC_DECL NAME:name
                                 LPAR param_list_comma:pl RPAR
                                 PARAM_ID type
                                 BEGIN decl_list:dl
                                 IN stmt_list:sl END
-                                {: RESULT = "procedure " + name + pl + "\n\t " + dl +
-                                   "\n\t " + sl; :}
+                                {: RESULT = new ProcDecl("procedure " + name + pl + "\n\t " + dl +
+                                   "\n\t " + sl); :}
                     ;
 
 /* Expressions needs work. Check that we're not missing rules*/
@@ -132,7 +134,7 @@ exp               ::= exp:e1 log_op exp:e2  {: RESULT = e1 + " " + e2; :}
                     | exp:e1 rel_op exp:e2  {: RESULT = e1 + " " + e2; :}
                     | exp:e1 arit_op exp:e2 {: RESULT = e1 + " " + e2; :}
                     | literal:lit           {: RESULT = lit; :}
-                    | call_stmt:s           {: RESULT = s; :}
+                    | call_stmt:s           {: RESULT = s.toString(); :}
                     | NEW NAME:name         {: RESULT = name; :}
                     | var:v                 {: RESULT = v; :}
                     | ref_var:v             {: RESULT = v; :}
@@ -169,28 +171,28 @@ stmt              ::= assign_stmt:a {: RESULT = a; :}
                     | call_stmt:s   {: RESULT = s; :}
                     ;
 
-assign_stmt       ::= var ASSIGN_OP exp               {: RESULT = "assign"; :}
-                    | deref_var ASSIGN_OP exp         {: RESULT = "derefassign"; :}     
+assign_stmt       ::= var ASSIGN_OP exp               {: RESULT = new Assign("assign"); :}
+                    | deref_var ASSIGN_OP exp         {: RESULT = new Assign("derefassign"); :}     
                     ;
 
-if_stmt           ::= IF exp THEN stmt_list:l FI        {: RESULT = "\n\t\tif\n\t\t\t" +l; :}
+if_stmt           ::= IF exp THEN stmt_list:l FI        {: RESULT = new If("\n\t\tif\n\t\t\t" +l); :}
                     | IF exp THEN stmt_list:l ELSE stmt_list:l2 FI
-                                                      {: RESULT = "\n\t\tif\n\t\t\t" +
-                                                         l + "\n\t\telse\n\t\t\t" + l2;:}
+                                                      {: RESULT = new If("\n\t\tif\n\t\t\t" +
+                                                         l + "\n\t\telse\n\t\t\t" + l2);:}
                     ;
 
-while_stmt        ::= WHILE exp:e DO stmt_list:l OD       {: RESULT =
+while_stmt        ::= WHILE exp:e DO stmt_list:l OD       {: RESULT = new While(
                                                          "\n\t\twhile "+ e + "\n\t\t\t" +l
                                                          + "\n\t\tdo\n\t\t\t" + l
-                                                         + "\n\t\tod\n\t\t"; :}
+                                                         + "\n\t\tod\n\t\t"); :}
                     ;
 
-return_stmt       ::= RETURN exp:e {: RESULT = e; :}
-                    | RETURN
+return_stmt       ::= RETURN exp:e {: RESULT = new Return(e); :}
+                    | RETURN {: RESULT = new Return(""); :}
                     ;
 
-call_stmt         ::= NAME:name LPAR exp_list:el RPAR {: RESULT = name + "(" +
-                                                      el + ")";:}
+call_stmt         ::= NAME:name LPAR exp_list:el RPAR {: RESULT = new Call(name + "(" +
+                                                      el + ")");:}
                     ;
 
 /* Vars, refs and derefs */

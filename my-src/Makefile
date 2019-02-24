@@ -1,8 +1,7 @@
 init:
 		jflex compila.lex
 		java -jar java-cup-11b.jar compila.cup
-		javac -cp .:java-cup-11b.jar parser.java Lexer.java sym.java Program.java
-		javac -cp .:java-cup-11b.jar Main.java
+		javac -cp .:java-cup-11b.jar *.java
 		java -cp .:java-cup-11b.jar Main compilatest.txt
 		java -cp .:java-cup-11b.jar Main ../src/tests/parsing/test01.cmp
 		java -cp .:java-cup-11b.jar Main ../src/tests/parsing/test02.cmp
