@@ -3,7 +3,7 @@ public class Return extends Stmt {
         this.name = name;
     }
 
-    public String toString() {
+    public String printAst() {
         return "(RETURN " + name + ")";
     }
 }

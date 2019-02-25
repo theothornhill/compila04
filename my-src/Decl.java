@@ -1,3 +1,4 @@
-public class Decl {
+public abstract class Decl {
     String name;
+    public abstract String printAst();
 }

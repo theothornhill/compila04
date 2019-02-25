@@ -3,7 +3,7 @@ public class Call extends Stmt {
         this.name = name;
     }
 
-    public String toString() {
+    public String printAst() {
         return "(CALL " + name + ")";
     }
 }

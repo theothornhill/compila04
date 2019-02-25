@@ -2,7 +2,7 @@ public class While extends Stmt {
     public While() {
     }
 
-    public String toString() {
+    public String printAst() {
         return "(WHILE )";
     }
 }

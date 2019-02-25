@@ -3,7 +3,7 @@ public class Assign extends Stmt {
         this.name = name;
     }
 
-    public String toString() {
+    public String printAst() {
         return "(ASSIGN " + name + ")";
     }
 }

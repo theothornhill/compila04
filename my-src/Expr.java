@@ -5,6 +5,6 @@ public class Expr {
     }
 
     public String toString() {
-        return "(EXPR " + name + ")";
+        return name;
     }
 }

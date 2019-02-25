@@ -11,13 +11,24 @@ public class Program {
     public String printAst() {
         StringBuilder sb = new StringBuilder();
         sb.append("(PROGRAM (NAME ");
-        sb.append(this.name);
-        sb.append(")\n\t");
+        if (this.name != null) {
+            sb.append(this.name);
+            sb.append(")\n");            
+        }
         // declarations.forEach(s -> {
         //         sb.append(s.toString());
         //             });
-        sb.append(declarations);
-        sb.append("\n)\n");
+        if (declarations != null) {
+            for (Decl decl : declarations) {
+                if (decl != null) {
+                    sb.append("\t" + decl.printAst());
+                    sb.append("\n");                
+                }
+            }            
+        }
+
+        // sb.append(declarations);
+        sb.append(")");
         return sb.toString();
     }
 }

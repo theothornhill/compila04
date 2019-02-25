@@ -104,29 +104,27 @@ decl              ::= rec_decl:d {: RESULT = d; :}
                     ;
 
 var_decl          ::= VAR_DECL NAME:name PARAM_ID type:t
-                      {: RESULT = new VarDecl("var " + name + ": " + t); :}
+                      {: RESULT = new VarDecl(name, t); :}
                     ;
 
 rec_decl          ::= REC_DECL NAME:name LCURLY param_list_semi:pl RCURLY
-                               {: RESULT = new RecDecl("struct " + name + ": " + pl); :}
+                               {: RESULT = new RecDecl(name, pl); :}
                     ;
 
-paramfield_decl   ::= NAME:name PARAM_ID type:t {: RESULT = new Param(name + ": " + t); :}
+paramfield_decl   ::= NAME:name PARAM_ID type:t {: RESULT = new Param(name, t); :}
                     ;
 
 proc_decl         ::= PROC_DECL NAME:name
                                 LPAR param_list_comma:pl RPAR
                                 BEGIN decl_list:dl
                                 IN stmt_list:sl END
-                                {: RESULT = new ProcDecl("procedure " + name + pl + "\n\t " + dl +
-                                   "\n\t " + sl); :}
+                                {: RESULT = new ProcDecl(name, pl, dl, sl); :}
                     | PROC_DECL NAME:name
                                 LPAR param_list_comma:pl RPAR
                                 PARAM_ID type
                                 BEGIN decl_list:dl
                                 IN stmt_list:sl END
-                                {: RESULT = new ProcDecl("procedure " + name + pl + "\n\t " + dl +
-                                   "\n\t " + sl); :}
+                                {: RESULT = new ProcDecl(name, pl, dl, sl); :}
                     ;
 
 /* Expressions needs work. Check that we're not missing rules*/
@@ -178,9 +176,10 @@ assign_stmt       ::= var:v ASSIGN_OP exp:e
                             {: RESULT = new Assign(v+" " + e); :}     
                     ;
 
-if_stmt           ::= IF exp THEN stmt_list:l FI        {: RESULT = new If(""); :}
-                    | IF exp THEN stmt_list:l ELSE stmt_list:l2 FI
-                                                        {: RESULT = new If(""); :}
+if_stmt           ::= IF exp:e THEN stmt_list:l FI
+                                           {: RESULT = new If(e, l); :}
+                    | IF exp:e THEN stmt_list:l ELSE stmt_list:l2 FI
+                                           {: RESULT = new If(e, l, l2); :}
                     ;
 
 while_stmt        ::= WHILE exp:e DO stmt_list:l OD

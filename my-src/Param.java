@@ -1,10 +1,12 @@
 public class Param {
+    String type;
     String name;
-    public Param(String name) {
+    public Param(String name, String type) {
         this.name = name;
+        this.type = type;
     }
 
-    public String toString() {
-        return "(PARAM " + name + ")";
+    public String printAst() {
+        return "(PARAM " + name + " TYPE " + type + ")";
     }
 }
