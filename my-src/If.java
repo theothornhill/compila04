@@ -16,7 +16,7 @@ public class If extends Stmt {
         StringBuilder sb = new StringBuilder();
         sb.append("(IF ");
         sb.append(this.e);
-        sb.append(")\n");
+        sb.append("\n");
         for (Stmt stmt : sl) {
             sb.append(Main.buildIndentation(indentLevel+1) + stmt.printAst(indentLevel+1));
             sb.append("\n");                

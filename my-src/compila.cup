@@ -21,12 +21,12 @@ terminal                           LPAR, RPAR, SEMI, COMMA, LCURLY, RCURLY;
 terminal                           REC_DECL, PROC_DECL, VAR_DECL, NEW;
 terminal                           IF, FI, THEN, ELSE, WHILE, DO, OD, RETURN, REF, DEREF;
 terminal String                    INT_LITERAL, STRING_LITERAL, FLOAT_LITERAL;
-terminal                           TRUE, FALSE, NULL;
+terminal String                    TRUE, FALSE;
 terminal                           DOT, PARAM_ID, ASSIGN_OP;
-terminal                           NOT;
-terminal                           LT, LTEQ, GT, GTEQ, EQ, NEQ;
-terminal                           ADD, MINUS, MULT, DIVIDE, EXPONENT;
-terminal                           AND, OR;
+terminal                           NOT, NULL;
+terminal String                    LT, LTEQ, GT, GTEQ, EQ, NEQ;
+terminal String                    ADD, MINUS, MULT, DIVIDE, EXPONENT;
+terminal String                    AND, OR;
 terminal String                    FLOAT, INT, STRING;
 terminal String                    NAME;
 nonterminal Program                program;
@@ -145,16 +145,27 @@ literal           ::= STRING_LITERAL:str {: RESULT = str; :}
                     | NULL {: RESULT = "null"; :}
                     ;
 
-rel_op            ::= LT | LTEQ | GT | GTEQ | EQ | NEQ
+rel_op            ::= LT:o      {: RESULT = o; :}
+                    | LTEQ:o    {: RESULT = o; :}
+                    | GT:o      {: RESULT = o; :}
+                    | GTEQ:o    {: RESULT = o; :}
+                    | EQ:o      {: RESULT = o; :}
+                    | NEQ:o     {: RESULT = o; :}
                     ;
 
-arit_op           ::= ADD | MINUS | MULT | DIVIDE | EXPONENT
+arit_op           ::= ADD:o       {: RESULT = o; :}
+                    | MINUS:o     {: RESULT = o; :}
+                    | MULT:o      {: RESULT = o; :}
+                    | DIVIDE:o    {: RESULT = o; :}
+                    | EXPONENT:o  {: RESULT = o; :}
                     ;
 
-bool              ::= TRUE | FALSE
+bool              ::= TRUE:o      {: RESULT = o; :}
+                    | FALSE:o     {: RESULT = o; :}
                     ;
 
-log_op            ::= AND | OR
+log_op            ::= AND:o       {: RESULT = o; :}
+                    | OR:o        {: RESULT = o; :}
                     ;
 
 
