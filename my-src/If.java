@@ -18,15 +18,17 @@ public class If extends Stmt {
         sb.append(this.e);
         sb.append(")\n");
         for (Stmt stmt : sl) {
-            sb.append(Main.buildIndentation(indentLevel) + stmt.printAst(indentLevel));
+            sb.append(Main.buildIndentation(indentLevel+1) + stmt.printAst(indentLevel+1));
             sb.append("\n");                
         }
         if (sl2 != null) {
+            sb.append(Main.buildIndentation(indentLevel) + "(ELSE \n");
             for (Stmt stmt : sl) {
-                sb.append(Main.buildIndentation(indentLevel) + stmt.printAst(indentLevel));
+                sb.append(Main.buildIndentation(indentLevel+1) + stmt.printAst(indentLevel+1));
                 sb.append("\n");                
             }   
         }
+        sb.append("\n" + Main.buildIndentation(indentLevel) + ")");
         return sb.toString();
     }
 }

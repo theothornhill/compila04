@@ -4,6 +4,9 @@ public class Call extends Stmt {
     }
 
     public String printAst(int indentLevel) {
-        return Main.buildIndentation(indentLevel) + "(CALL " + name + ")";
+        StringBuilder sb = new StringBuilder();
+        sb.append("(CALL " + name);
+        sb.append("\n" + Main.buildIndentation(indentLevel) + ")");
+        return sb.toString();
     }
 }
