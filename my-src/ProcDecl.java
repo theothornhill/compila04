@@ -28,24 +28,25 @@ public class ProcDecl extends Decl {
         this.sl = sl;
     }
 
-    public String printAst() {
+    public String printAst(int indentLevel) {
         StringBuilder sb = new StringBuilder();
         sb.append("(PROCEDURE (NAME ");
         sb.append(this.name);
-        sb.append(" (TYPE " + this.type + ")\n\t");
+        sb.append(" (TYPE " + this.type + ")");
         for (Param param : pl) {
-            sb.append("\t" + param.printAst());
-            sb.append("\n\t");                
+            sb.append("\n" + Main.buildIndentation(indentLevel+2) + param.printAst(indentLevel));
+            // sb.append(" ");
         }
+        sb.append("\n");
         for (Decl decl : dl) {
-            sb.append("\t" + decl.printAst());
+            sb.append(Main.buildIndentation(indentLevel+1) + decl.printAst(indentLevel+1));
             sb.append("\n");                
         }
         for (Stmt stmt : sl) {
-            sb.append("\t" + stmt.printAst());
-            sb.append("\n");                
+            sb.append(Main.buildIndentation(indentLevel+1) + stmt.printAst(indentLevel+1));
+            sb.append("\n");
         }
-        sb.append("\t)\n");
+        sb.append(Main.buildIndentation(indentLevel) + ")\n");
         return sb.toString();
     }
 }

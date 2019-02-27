@@ -11,7 +11,6 @@ init:
 #		java -cp .:java-cup-11b.jar Main ../src/tests/parsing/test06.cmp
 #		java -cp .:java-cup-11b.jar Main ../src/tests/parsing/test07.cmp
 		java -cp .:java-cup-11b.jar Main ../src/tests/parsing/test08.cmp
-
 clean:
 		rm parser.java
 		rm Lexer.java

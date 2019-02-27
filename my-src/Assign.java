@@ -3,7 +3,7 @@ public class Assign extends Stmt {
         this.name = name;
     }
 
-    public String printAst() {
+    public String printAst(int indentLevel) {
         return "(ASSIGN " + name + ")";
     }
 }

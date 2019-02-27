@@ -7,14 +7,14 @@ public class RecDecl extends Decl {
         this.pl = pl;
     }
 
-    public String printAst() {
+    public String printAst(int indentLevel) {
         StringBuilder sb = new StringBuilder();
         sb.append("(STRUCT (NAME ");
         sb.append(this.name);
-        sb.append(")\n\t");
+        sb.append(")\n");
         for (Param param : pl) {
-            sb.append("\t" + param.printAst());
-            sb.append("\n\t");                
+            sb.append(Main.buildIndentation(indentLevel+1) + param.printAst(indentLevel));
+            sb.append("\n");                
         }
         return sb.toString();
     }

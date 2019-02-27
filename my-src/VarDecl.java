@@ -5,14 +5,14 @@ public class VarDecl extends Decl {
         this.type = type;
     }
     
-    public String printAst() {
+    public String printAst(int indentLevel) {
         StringBuilder sb = new StringBuilder();
         sb.append("(VAR (NAME ");
         sb.append(this.name);
         sb.append(") ");
         sb.append("(TYPE ");
         sb.append(this.type);
-        sb.append(")");
+        sb.append("))");
         return sb.toString();
     }
 }

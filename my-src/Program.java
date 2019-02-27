@@ -10,6 +10,7 @@ public class Program {
 
     public String printAst() {
         StringBuilder sb = new StringBuilder();
+        int indentLevel = 0;
         sb.append("(PROGRAM (NAME ");
         if (this.name != null) {
             sb.append(this.name);
@@ -21,14 +22,14 @@ public class Program {
         if (declarations != null) {
             for (Decl decl : declarations) {
                 if (decl != null) {
-                    sb.append("\t" + decl.printAst());
+                    sb.append(Main.buildIndentation(indentLevel+1) + decl.printAst(indentLevel+1));
                     sb.append("\n");                
                 }
             }            
         }
 
         // sb.append(declarations);
-        sb.append(")");
+        sb.append(Main.buildIndentation(indentLevel) + ")");
         return sb.toString();
     }
 }

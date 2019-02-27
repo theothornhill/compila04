@@ -6,7 +6,7 @@ public class Param {
         this.type = type;
     }
 
-    public String printAst() {
+    public String printAst(int indentLevel) {
         return "(PARAM " + name + " TYPE " + type + ")";
     }
 }

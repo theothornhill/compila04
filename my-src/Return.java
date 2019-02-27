@@ -3,7 +3,7 @@ public class Return extends Stmt {
         this.name = name;
     }
 
-    public String printAst() {
+    public String printAst(int indentLevel) {
         return "(RETURN " + name + ")";
     }
 }

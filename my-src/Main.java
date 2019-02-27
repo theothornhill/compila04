@@ -22,4 +22,12 @@ public class Main {
         }
 
     }
+    
+    public static String buildIndentation(int indentLevel) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < indentLevel; i++) {
+            sb.append("\t");
+        }
+        return sb.toString();
+    }
 }

@@ -2,7 +2,7 @@ public class While extends Stmt {
     public While() {
     }
 
-    public String printAst() {
+    public String printAst(int indentLevel) {
         return "(WHILE )";
     }
 }
