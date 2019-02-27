@@ -28,7 +28,7 @@ public class If extends Stmt {
                 sb.append("\n");                
             }   
         }
-        sb.append("\n" + Main.buildIndentation(indentLevel) + ")");
+        sb.append(Main.buildIndentation(indentLevel) + ")");
         return sb.toString();
     }
 }
