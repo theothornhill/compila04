@@ -198,8 +198,8 @@ return_stmt       ::= RETURN exp:e {: RESULT = new Return(e.toString()); :}
                     | RETURN {: RESULT = new Return(""); :}
                     ;
 
-call_stmt         ::= NAME:name LPAR exp_list:el RPAR {: RESULT = new Call(name + "(" +
-                                                      el + ")");:}
+call_stmt         ::= NAME:name LPAR exp_list:el RPAR
+                                {: RESULT = new Call(name, el); :}
                     ;
 
 /* Vars, refs and derefs */
