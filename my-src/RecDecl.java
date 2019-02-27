@@ -13,7 +13,7 @@ public class RecDecl extends Decl {
         sb.append(this.name);
         sb.append(")\n");
         for (Param param : pl) {
-            sb.append(Main.buildIndentation(indentLevel+1) + param.printAst(indentLevel));
+            sb.append(Main.buildIndentation(indentLevel+1) + param.printAst(indentLevel+1));
             sb.append("\n");                
         }
         return sb.toString();

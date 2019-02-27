@@ -40,7 +40,7 @@ public class ProcDecl extends Decl {
         sb.append("\n");
         for (Decl decl : dl) {
             sb.append(Main.buildIndentation(indentLevel+1) + decl.printAst(indentLevel+1));
-            sb.append("\n");                
+            sb.append("\n");
         }
         for (Stmt stmt : sl) {
             sb.append(Main.buildIndentation(indentLevel+1) + stmt.printAst(indentLevel+1));
