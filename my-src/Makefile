@@ -1,8 +1,8 @@
 init:
-		jflex compila.lex
-		java -jar lib/java-cup-11b.jar compila.cup
+		jflex cuplex/compila.lex -d java
+		java -jar lib/java-cup-11b.jar -destdir java cuplex/compila.cup
 		javac -cp .:lib/java-cup-11b.jar java/*.java -d classes
-		java -cp .:lib/java-cup-11b.jar:classes Main compilatest.txt
+		java -cp .:lib/java-cup-11b.jar:classes Main testfiles/compilatest.txt
 #		java -cp .:lib/java-cup-11b.jar Main ../src/tests/parsing/test01.cmp
 #		java -cp .:java-cup-11b.jar Main ../src/tests/parsing/test02.cmp
 #		java -cp .:java-cup-11b.jar Main ../src/tests/parsing/test03.cmp
