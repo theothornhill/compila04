@@ -1,6 +1,3 @@
-/*
-Ambiguous grammar version with precedence rules
-*/
 import java_cup.runtime.*;
 import java.io.FileReader;
 import java.io.File;
@@ -121,10 +118,10 @@ proc_decl         ::= PROC_DECL NAME:name
                                 {: RESULT = new ProcDecl(name, pl, dl, sl); :}
                     | PROC_DECL NAME:name
                                 LPAR param_list_comma:pl RPAR
-                                PARAM_ID type
+                                PARAM_ID type:t
                                 BEGIN decl_list:dl
                                 IN stmt_list:sl END
-                                {: RESULT = new ProcDecl(name, pl, dl, sl); :}
+                                {: RESULT = new ProcDecl(name, pl, t, dl, sl); :}
                     ;
 
 /* Expressions needs work. Check that we're not missing rules*/

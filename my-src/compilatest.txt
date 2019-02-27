@@ -1,7 +1,7 @@
 
 program compilatest
 begin
-    proc hello(thing: one, thing: two): string
+    proc hello(thing: one, thing: two): str
     begin
       struct mystruct {
              thing: tang;

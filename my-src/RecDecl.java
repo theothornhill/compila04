@@ -11,10 +11,10 @@ public class RecDecl extends Decl {
         StringBuilder sb = new StringBuilder();
         sb.append("(STRUCT (NAME ");
         sb.append(this.name);
-        sb.append(")\n");
+        sb.append(")\n\t");
         for (Param param : pl) {
             sb.append("\t" + param.printAst());
-            sb.append("\n");                
+            sb.append("\n\t");                
         }
         return sb.toString();
     }
