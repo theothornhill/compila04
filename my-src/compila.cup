@@ -191,7 +191,7 @@ if_stmt           ::= IF exp:e THEN stmt_list:l FI
                     ;
 
 while_stmt        ::= WHILE exp:e DO stmt_list:l OD
-                            {: RESULT = new While(); :}
+                            {: RESULT = new While(e, l); :}
                     ;
 
 return_stmt       ::= RETURN exp:e {: RESULT = new Return(e.toString()); :}

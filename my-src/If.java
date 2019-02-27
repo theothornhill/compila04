@@ -23,7 +23,7 @@ public class If extends Stmt {
         }
         if (sl2 != null) {
             sb.append(Main.buildIndentation(indentLevel) + "(ELSE \n");
-            for (Stmt stmt : sl) {
+            for (Stmt stmt : sl2) {
                 sb.append(Main.buildIndentation(indentLevel+1) + stmt.printAst(indentLevel+1));
                 sb.append("\n");                
             }   
