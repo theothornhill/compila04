@@ -81,30 +81,29 @@ CommentContent       = ( [^*] | \*+ [^/\*] )*
 
 <YYINITIAL> {
              /* Relational Operators */
-             "<"                        { return symbol(sym.LT); }
-             "<="                       { return symbol(sym.LTEQ); }
-             ">"                        { return symbol(sym.GT); }
-             ">="                       { return symbol(sym.GTEQ); }
-             "="                        { return symbol(sym.EQ); }
-             "<>"                       { return symbol(sym.NEQ); }
+             "<"                        { return symbol(sym.LT, yytext()); }
+             "<="                       { return symbol(sym.LTEQ, yytext()); }
+             ">"                        { return symbol(sym.GT, yytext()); }
+             ">="                       { return symbol(sym.GTEQ, yytext()); }
+             "="                        { return symbol(sym.EQ, yytext()); }
+             "<>"                       { return symbol(sym.NEQ, yytext()); }
              /* Arithmetic Operators */
-             "+"                        { return symbol(sym.ADD); }
-             "-"                        { return symbol(sym.MINUS); }
-             "*"                        { return symbol(sym.MULT); }
-             "/"                        { return symbol(sym.DIVIDE); }
-             "^"                        { return symbol(sym.EXPONENT); }
+             "+"                        { return symbol(sym.ADD, yytext()); }
+             "-"                        { return symbol(sym.MINUS, yytext()); }
+             "*"                        { return symbol(sym.MULT, yytext()); }
+             "/"                        { return symbol(sym.DIVIDE, yytext()); }
+             "^"                        { return symbol(sym.EXPONENT, yytext()); }
              /* Logical Operators */
-             "&&"                       { return symbol(sym.AND); }
-             "||"                       { return symbol(sym.OR); } 
+             "&&"                       { return symbol(sym.AND, yytext()); }
+             "||"                       { return symbol(sym.OR, yytext()); } 
              /* Dot operator*/
-             "."                        { return symbol(sym.DOT); }
+             "."                        { return symbol(sym.DOT, yytext()); }
              /* Assignment operator */  
-             ":="                       { return symbol(sym.ASSIGN_OP); }
+             ":="                       { return symbol(sym.ASSIGN_OP, yytext()); }
              /* Parameter identificator */
-             ":"                        { return symbol(sym.PARAM_ID); }
-             ";"                        { return symbol(sym.SEMI); }
-             ","                        { return symbol(sym.COMMA); }
-             /*             "()"|"("{WhiteSpace}")"    { return new return Symbol(sym.EMPTY); }*/
+             ":"                        { return symbol(sym.PARAM_ID, yytext()); }
+             ";"                        { return symbol(sym.SEMI, yytext()); }
+             ","                        { return symbol(sym.COMMA, yytext()); }
              "("                        { return symbol(sym.LPAR); }
              ")"                        { return symbol(sym.RPAR); }
              "{"                        { return symbol(sym.LCURLY); }

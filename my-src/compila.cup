@@ -126,8 +126,8 @@ proc_decl         ::= PROC_DECL NAME:name
 
 /* Expressions needs work. Check that we're not missing rules*/
 exp               ::= exp:e1 log_op:o exp:e2  {: RESULT = new LogicExpr(e1, e2, o); :}
-                    | NOT exp:e               {: RESULT = new Expr( e.toString()); :}
-                    | exp:e1 rel_op exp:e2    {: RESULT = new Expr( e1 + " " + e2); :}
+                    | NOT exp:e               {: RESULT = new Expr(e.toString()); :}
+                    | exp:e1 rel_op:o exp:e2  {: RESULT = new RelExpr(e1, e2, o); :}
                     | exp:e1 arit_op:o exp:e2 {: RESULT = new AritExpr(e1, e2, o); :}
                     | literal:lit           {: RESULT = new Expr( lit); :}
                     | call_stmt:s           {: RESULT = new Expr( s.toString()); :}
