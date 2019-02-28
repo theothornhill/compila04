@@ -921,7 +921,7 @@ class CUP$parser$actions {
 		int litleft = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).left;
 		int litright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
 		String lit = (String)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
-		 RESULT = new Expr( lit); 
+		 RESULT = new Expr(lit); 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("exp",12, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -933,7 +933,7 @@ class CUP$parser$actions {
 		int sleft = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).left;
 		int sright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
 		Stmt s = (Stmt)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
-		 RESULT = new Expr( s.toString()); 
+		 RESULT = new Expr(s.toString()); 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("exp",12, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -945,7 +945,7 @@ class CUP$parser$actions {
 		int nameleft = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).left;
 		int nameright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
 		String name = (String)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
-		 RESULT = new Expr( name); 
+		 RESULT = new Expr(name); 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("exp",12, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-1)), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -957,7 +957,7 @@ class CUP$parser$actions {
 		int vleft = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).left;
 		int vright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
 		String v = (String)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
-		 RESULT = new Expr( v); 
+		 RESULT = new Expr(v); 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("exp",12, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -969,7 +969,7 @@ class CUP$parser$actions {
 		int vleft = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).left;
 		int vright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
 		String v = (String)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
-		 RESULT = new Expr( v); 
+		 RESULT = new Expr(v); 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("exp",12, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -981,7 +981,7 @@ class CUP$parser$actions {
 		int vleft = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).left;
 		int vright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
 		String v = (String)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
-		 RESULT = new Expr( v); 
+		 RESULT = new Expr(v); 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("exp",12, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -993,7 +993,7 @@ class CUP$parser$actions {
 		int eleft = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-1)).left;
 		int eright = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-1)).right;
 		Expr e = (Expr)((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top-1)).value;
-		 RESULT = new Expr( e.toString()); 
+		 RESULT = new Expr(e.toString()); 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("exp",12, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-2)), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;

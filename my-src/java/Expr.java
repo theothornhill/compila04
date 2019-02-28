@@ -1,12 +1,14 @@
 public class Expr {
-    Expr e1;
-    Expr e2;
-    String op;
-    public Expr(String op) {
-        this.op = op;
+    String expr;
+    public Expr(String expr) {
+        this.expr = expr;
     }
 
     public String toString() {
-        return this.op;
+        return this.expr;
+    }
+    
+    public String printAst(int indentLevel) {
+        return this.expr;
     }
 }
