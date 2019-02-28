@@ -1,5 +1,0 @@
-program abc
-begin
-    var x :  xref;
-end;
-
