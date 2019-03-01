@@ -10,6 +10,6 @@ public class AritExpr extends Expr {
     }
 
     public String printAst(int indentLevel) {
-        return "";
+        return "(halao";
     }
 }

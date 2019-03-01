@@ -1380,7 +1380,7 @@ class CUP$parser$actions {
 		int eleft = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).left;
 		int eright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
 		Object e = (Object)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
-		 RESULT = new Return(e.toString()); 
+		 RESULT = new Return(e); 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("return_stmt",5, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-1)), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -1389,7 +1389,7 @@ class CUP$parser$actions {
           case 67: // return_stmt ::= RETURN 
             {
               Stmt RESULT =null;
-		 RESULT = new Return(""); 
+		 RESULT = new Return(); 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("return_stmt",5, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;

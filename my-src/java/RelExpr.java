@@ -11,6 +11,7 @@ public class RelExpr extends Expr {
     
     public String printAst(int indentLevel) {
         StringBuilder sb = new StringBuilder();
+        sb.append("Relexpression!");
         return sb.toString();
     }
 }

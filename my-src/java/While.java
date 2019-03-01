@@ -11,13 +11,20 @@ public class While extends Stmt {
     public String printAst(int indentLevel) {
         StringBuilder sb = new StringBuilder();
         sb.append("(WHILE ");
-        sb.append(this.e);
-        sb.append("\n");
-        for (Stmt stmt : el) {
-            sb.append(Main.buildIndentation(indentLevel+1) + stmt.printAst(indentLevel+1));
-            sb.append("\n");                
+        Expr ex = (Expr) this.e;
+        sb.append(ex.printAst(indentLevel));
+        for (Object e : el) {
+            if (e instanceof Expr) {
+                Expr expr = (Expr) e;
+                sb.append("\n" + Main.buildIndentation(indentLevel+1) +  expr.printAst(indentLevel+1));
+            } else if (e instanceof Stmt) {
+                Stmt stmt = (Stmt) e;
+                sb.append("\n" + Main.buildIndentation(indentLevel+1) + stmt.printAst(indentLevel+1));
+            } else {
+                sb.append("\n" + Main.buildIndentation(indentLevel+1) + "(" + e);
+            }
         }
-        sb.append(Main.buildIndentation(indentLevel) + ")");
+        sb.append("\n" + Main.buildIndentation(indentLevel) + ")");
         return sb.toString();
     }
 }

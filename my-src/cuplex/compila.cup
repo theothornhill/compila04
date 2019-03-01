@@ -194,8 +194,8 @@ while_stmt        ::= WHILE exp:e DO stmt_list:l OD
                             {: RESULT = new While(e, l); :}
                     ;
 
-return_stmt       ::= RETURN exp:e {: RESULT = new Return(e.toString()); :}
-                    | RETURN {: RESULT = new Return(""); :}
+return_stmt       ::= RETURN exp:e {: RESULT = new Return(e); :}
+                    | RETURN {: RESULT = new Return(); :}
                     ;
 
 call_stmt         ::= NAME:name LPAR exp_list:el RPAR

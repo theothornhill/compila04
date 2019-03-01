@@ -12,9 +12,17 @@ public class Call extends Stmt {
         sb.append("(CALL " + name);
         if (el != null) {
             for (Object e : el) {
-                sb.append("\n" + Main.buildIndentation(indentLevel+1) + "(" + e.toString());
-                sb.append("\n");                
+                if (e instanceof Expr) {
+                    Expr expr = (Expr) e;
+                    sb.append("\n" + Main.buildIndentation(indentLevel+1) +  expr.printAst(indentLevel+1));
+                } else if (e instanceof Stmt) {
+                    Stmt stmt = (Stmt) e;
+                    sb.append("\n" + Main.buildIndentation(indentLevel+1) + stmt.printAst(indentLevel+1));
+                } else {
+                    sb.append("\n" + Main.buildIndentation(indentLevel+1) + "(" + e);
+                }
             }            
+            sb.append(")");
         }
         sb.append("\n" + Main.buildIndentation(indentLevel) + ")");
         return sb.toString();

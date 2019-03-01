@@ -1,9 +1,15 @@
 public class Return extends Stmt {
-    public Return(String name) {
-        this.name = name;
+    public Return(Object expr) {
+        this.e = expr;
+    }
+
+    public Return() {
+        
     }
 
     public String printAst(int indentLevel) {
-        return "(RETURN " + name + ")";
+        Expr e = (Expr) this.e;
+        return "(RETURN " + e.printAst(indentLevel) + ")";
     }
+
 }
