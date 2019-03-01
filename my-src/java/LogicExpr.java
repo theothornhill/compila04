@@ -10,6 +10,10 @@ public class LogicExpr extends Expr {
     }
 
     public String printAst(int indentLevel) {
-        return "";
+        StringBuilder sb = new StringBuilder();
+        sb.append(e1.toString());
+        sb.append(op.toString());
+        sb.append(e2.toString());
+        return sb.toString();
     }
 }
