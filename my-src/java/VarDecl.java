@@ -1,6 +1,6 @@
 public class VarDecl extends Decl {
-    String type;
-    public VarDecl(String name, String type) {
+    Object type;
+    public VarDecl(String name, Object type) {
         this.name = name;
         this.type = type;
     }

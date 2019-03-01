@@ -4,7 +4,7 @@ public class ProcDecl extends Decl {
     LinkedList<Param> pl;
     LinkedList<Decl> dl;
     LinkedList<Stmt> sl;
-    String type;
+    Object type;
     
     public ProcDecl(String name,
                     LinkedList<Param> pl,
@@ -18,7 +18,7 @@ public class ProcDecl extends Decl {
 
     public ProcDecl(String name,
                     LinkedList<Param> pl,
-                    String type,
+                    Object type,
                     LinkedList<Decl> dl,
                     LinkedList<Stmt> sl) {
         this.name = name;

@@ -34,14 +34,14 @@ nonterminal Stmt                   stmt, assign_stmt, if_stmt, while_stmt;
 nonterminal Stmt                   return_stmt, call_stmt;
 nonterminal Decl                   decl, var_decl, proc_decl, rec_decl;
 nonterminal Param                  paramfield_decl;
-nonterminal Expr                   exp;
-nonterminal String                 rel_op, log_op, arit_op, type;
+nonterminal                        exp;
+nonterminal Object                 rel_op, log_op, arit_op, type;
 nonterminal String                 bool, var, ref_var, deref_var;
 nonterminal String                 literal;
 nonterminal LinkedList<Decl>       decl_list;
 nonterminal LinkedList<Stmt>       stmt_list;
 nonterminal LinkedList<Param>      param_list_comma, param_list_semi;
-nonterminal LinkedList<Expr>       exp_list;
+nonterminal LinkedList<Object>     exp_list;
 
 precedence left                    OR;
 precedence left                    AND;
@@ -88,7 +88,7 @@ param_list_comma  ::= paramfield_decl:p {: LinkedList<Param> l = new LinkedList<
                     |
                     ;
                     
-exp_list          ::= exp:e {: LinkedList<Expr> l = new LinkedList<>();
+exp_list          ::= exp:e {: LinkedList<Object> l = new LinkedList<>();
                                           l.add(e);
                                           RESULT = l; :}
                     | exp_list:el COMMA exp:e {: el.add(e); RESULT = el; :}

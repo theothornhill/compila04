@@ -1,7 +1,7 @@
 public class Param {
-    String type;
+    Object type;
     String name;
-    public Param(String name, String type) {
+    public Param(String name, Object type) {
         this.name = name;
         this.type = type;
     }

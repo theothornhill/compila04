@@ -1,8 +1,8 @@
 public class AritExpr extends Expr {
-    Expr e1;
-    Expr e2;
-    String op;
-    public AritExpr(Expr e1, Expr e2, String aritOp) {
+    Object e1;
+    Object e2;
+    Object op;
+    public AritExpr(Object e1, Object e2, Object aritOp) {
         super(aritOp);
         this.e1 = e1;
         this.e2 = e2;

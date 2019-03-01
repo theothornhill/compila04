@@ -1,9 +1,9 @@
 import java.util.*;
 
 public class While extends Stmt {
-    Expr e;
+    Object e;
     LinkedList<Stmt> el;
-    public While(Expr e, LinkedList<Stmt> el) {
+    public While(Object e, LinkedList<Stmt> el) {
         this.e = e;
         this.el = el;
     }

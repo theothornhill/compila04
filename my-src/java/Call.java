@@ -1,8 +1,8 @@
 import java.util.*;
 
 public class Call extends Stmt {
-    LinkedList<Expr> el;
-    public Call(String name, LinkedList<Expr> el) {
+    LinkedList<Object> el;
+    public Call(String name, LinkedList<Object> el) {
         this.name = name;
         this.el = el;
     }
@@ -11,8 +11,8 @@ public class Call extends Stmt {
         StringBuilder sb = new StringBuilder();
         sb.append("(CALL " + name);
         if (el != null) {
-            for (Expr e : el) {
-                sb.append("\n" + Main.buildIndentation(indentLevel+1) + "(" + e.printAst(indentLevel));
+            for (Object e : el) {
+                sb.append("\n" + Main.buildIndentation(indentLevel+1) + "(" + e);
                 sb.append("\n");                
             }            
         }

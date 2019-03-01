@@ -1,8 +1,8 @@
 public class LogicExpr extends Expr {
-    Expr e1;
-    Expr e2;
-    String op;
-    public LogicExpr(Expr e1, Expr e2, String logOp) {
+    Object e1;
+    Object e2;
+    Object op;
+    public LogicExpr(Object e1, Object e2, Object logOp) {
         super(logOp);
         this.e1 = e1;
         this.e2 = e2;
