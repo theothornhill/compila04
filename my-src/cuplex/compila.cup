@@ -129,12 +129,12 @@ exp               ::= exp:e1 log_op:o exp:e2  {: RESULT = new LogicExpr(e1, e2, 
                     | NOT exp:e               {: RESULT = new Expr(e.toString()); :}
                     | exp:e1 rel_op:o exp:e2  {: RESULT = new RelExpr(e1, e2, o); :}
                     | exp:e1 arit_op:o exp:e2 {: RESULT = new AritExpr(e1, e2, o); :}
-                    | literal:lit             {: RESULT = new Expr(lit); :}
-                    | call_stmt:s             {: RESULT = new Expr(s.toString()); :}
+                    | literal:lit             {: RESULT = lit; :}
+                    | call_stmt:s             {: RESULT = s; :}
                     | NEW NAME:name           {: RESULT = new Expr(name); :}
-                    | var:v                   {: RESULT = new Expr(v); :}
-                    | ref_var:v               {: RESULT = new Expr(v); :}
-                    | deref_var:v             {: RESULT = new Expr(v); :}
+                    | var:v                   {: RESULT = v; :}
+                    | ref_var:v               {: RESULT = v; :}
+                    | deref_var:v             {: RESULT = v; :}
                     | LPAR exp:e RPAR         {: RESULT = new Expr(e.toString()); :}
                     ;
 

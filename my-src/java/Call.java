@@ -12,7 +12,7 @@ public class Call extends Stmt {
         sb.append("(CALL " + name);
         if (el != null) {
             for (Object e : el) {
-                sb.append("\n" + Main.buildIndentation(indentLevel+1) + "(" + e);
+                sb.append("\n" + Main.buildIndentation(indentLevel+1) + "(" + e.toString());
                 sb.append("\n");                
             }            
         }

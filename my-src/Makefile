@@ -1,3 +1,4 @@
+
 init:
 		jflex cuplex/compila.lex -d java
 		java -jar lib/java-cup-11b.jar -destdir java cuplex/compila.cup
