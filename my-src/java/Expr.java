@@ -5,6 +5,10 @@ public class Expr {
     }
     
     public String printAst(int indentLevel) {
-        return "expr";
+        if (expr instanceof Expr) {
+            Expr e = (Expr) expr;
+            return e.printAst(indentLevel);
+        }
+        return expr.toString();
     }
 }

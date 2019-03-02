@@ -15,7 +15,12 @@ public class If extends Stmt {
     public String printAst(int indentLevel) {
         StringBuilder sb = new StringBuilder();
         sb.append("(IF ");
-        sb.append("expr here");
+        if (this.e instanceof Expr) {
+            Expr ex = (Expr) this.e;
+            sb.append(ex.printAst(indentLevel));            
+        } else {
+            sb.append(e);
+        }
         sb.append("\n");
         for (Stmt stmt : sl) {
             sb.append(Main.buildIndentation(indentLevel+1) + stmt.printAst(indentLevel+1));
