@@ -5,6 +5,6 @@ public class New {
     }
 
     public String toString() {
-        return "(NEW " + this.name + ")";
+        return "(NEW " + this.name;
     }
 }

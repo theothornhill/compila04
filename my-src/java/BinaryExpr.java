@@ -11,9 +11,11 @@ public class BinaryExpr extends Expr {
 
     public String printAst(int indentLevel) {
         StringBuilder sb = new StringBuilder();
-        sb.append(Main.astHelper(this.e1, indentLevel));
-        sb.append(op.toString());
-        sb.append(Main.astHelper(this.e2, indentLevel));
+        sb.append("(BINARY_OPERATION " + op.toString() + "\n");
+        sb.append(Main.buildIndentation(indentLevel+1) + Main.astHelper(this.e1, indentLevel+1));
+        sb.append(")\n");
+        sb.append(Main.buildIndentation(indentLevel+1) + Main.astHelper(this.e2, indentLevel+1));
+        sb.append("\n" + Main.buildIndentation(indentLevel));
         return sb.toString();
     }
 }

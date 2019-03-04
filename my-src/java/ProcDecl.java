@@ -28,11 +28,15 @@ public class ProcDecl extends Decl {
         this.sl = sl;
     }
 
+    private String printType() {
+        return this.type == null ? "void" : this.type.toString();
+    }
+
     public String printAst(int indentLevel) {
         StringBuilder sb = new StringBuilder();
-        sb.append("(PROCEDURE (NAME ");
-        sb.append(this.name);
-        sb.append(" (TYPE " + this.type + ")");
+        sb.append("(PROC_DECL ");
+        sb.append("(TYPE " + printType() + ") ");
+        sb.append("(NAME " + this.name + ")");
         if (pl != null) {
             for (Param param : pl) {
                 sb.append("\n" + Main.buildIndentation(indentLevel+1) + param.printAst(indentLevel));

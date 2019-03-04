@@ -7,13 +7,14 @@ public class VarDecl extends Decl {
     
     public String printAst(int indentLevel) {
         StringBuilder sb = new StringBuilder();
-        sb.append("(VAR (NAME ");
-        sb.append(this.name);
-        sb.append(")\n");
-        sb.append(Main.buildIndentation(indentLevel) + "(TYPE ");
+        sb.append("(VAR ");
+        sb.append("(TYPE ");
         sb.append(this.type);
-        sb.append(")\n");
-        sb.append(Main.buildIndentation(indentLevel-1) + ")");
+        sb.append(") ");
+        sb.append("(NAME ");
+        sb.append(this.name);
+        sb.append(")");
+        sb.append(")");
         return sb.toString();
     }
 }

@@ -7,6 +7,8 @@ public class Param {
     }
 
     public String printAst(int indentLevel) {
-        return "(PARAM " + name + " TYPE " + type + ")";
+        return "(PARAM_DECL "
+            + "(TYPE " + type + ") "
+            + "(NAME " + name +")";
     }
 }

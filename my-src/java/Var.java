@@ -11,7 +11,7 @@ public class Var extends Expr {
 
     public String printAst(int indentLevel) {
         if (this.expr == null) {
-            return "(VAR " + this.name;
+            return "(VAR " + this.name + ")";
         }
         return "(VAR " + Main.astHelper(this.expr, indentLevel) + ")";
     }
