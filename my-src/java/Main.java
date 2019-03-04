@@ -30,4 +30,12 @@ public class Main {
         }
         return sb.toString();
     }
+
+    public static String astHelper(Object node, int indentLevel) {
+        return node instanceof Expr
+            ? ((Expr) node).printAst(indentLevel)
+            : node instanceof Call
+            ? ((Call) node).printAst(indentLevel)
+            : node.toString();
+    }
 }
