@@ -11,10 +11,10 @@ begin
     in
       callDog(byPhone(5 = five(), dog.phoneNumber));
       callCat();
-      if 6 > 7 then
+      if not not not 6 > 7 then
          callAmbulance()
       else
-         openBeer();
+         openBeer(new dog);
          chillOut()
       fi;
       

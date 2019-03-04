@@ -126,12 +126,12 @@ proc_decl         ::= PROC_DECL NAME:name
 
 /* Expressions needs work. Check that we're not missing rules*/
 exp               ::= exp:e1 log_op:o exp:e2  {: RESULT = new BinaryExpr(e1, o, e2); :}
-                    | NOT exp:e               {: RESULT = new Expr(e.toString()); :}
+                    | NOT exp:e               {: RESULT = new Not(e); :}
                     | exp:e1 rel_op:o exp:e2  {: RESULT = new BinaryExpr(e1, o, e2); :}
                     | exp:e1 arit_op:o exp:e2 {: RESULT = new BinaryExpr(e1, o, e2); :}
                     | literal:lit             {: RESULT = lit; :}
                     | call_stmt:s             {: RESULT = s; :}
-                    | NEW NAME:name           {: RESULT = new Expr(name); :}
+                    | NEW NAME:name           {: RESULT = new New(name); :}
                     | var:v                   {: RESULT = v; :}
                     | ref_var:v               {: RESULT = v; :}
                     | deref_var:v             {: RESULT = v; :}
