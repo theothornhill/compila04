@@ -9,27 +9,19 @@ public class BinaryExpr extends Expr {
         this.e2 = e2;
     }
 
+    private String astHelper(Object node, int indentLevel) {
+        return node instanceof Expr
+            ? ((Expr) node).printAst(indentLevel)
+            : node instanceof Stmt
+            ? ((Stmt) node).printAst(indentLevel)
+            : node.toString();
+    }
+
     public String printAst(int indentLevel) {
         StringBuilder sb = new StringBuilder();
-        if (e1 instanceof Expr) {
-            Expr e1 = (Expr) this.e1;
-            sb.append(e1.printAst(indentLevel));
-        } else if (e1 instanceof Stmt) {
-            Stmt e1 = (Stmt) this.e1;
-            sb.append(e1.printAst(indentLevel));
-        } else {
-            sb.append(e1.toString());
-        }
+        sb.append(astHelper(this.e1, indentLevel));
         sb.append(op.toString());
-        if (e2 instanceof Expr) {
-            Expr e2 = (Expr) this.e2;
-            sb.append(e2.printAst(indentLevel));
-        } else if (e2 instanceof Stmt) {
-            Stmt e2 = (Stmt) this.e2;
-            sb.append(e2.printAst(indentLevel));
-        } else {
-            sb.append(e2.toString());
-        }
+        sb.append(astHelper(this.e2, indentLevel));
         return sb.toString();
     }
 }
