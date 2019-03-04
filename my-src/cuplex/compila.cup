@@ -167,9 +167,7 @@ log_op            ::= AND:o       {: RESULT = o; :}
                     | OR:o        {: RESULT = o; :}
                     ;
 
-
-/* Statements - need to be adjusted to allow for optional value */
-
+/* Statements */
 stmt              ::= assign_stmt:a {: RESULT = a; :}
                     | if_stmt:i     {: RESULT = i; :}
                     | while_stmt:w  {: RESULT = w; :}
@@ -202,7 +200,6 @@ call_stmt         ::= NAME:name LPAR exp_list:el RPAR
                     ;
 
 /* Vars, refs and derefs */
-
 var               ::= NAME:name                     {: RESULT = new Var(name); :}
                     | exp:e DOT NAME:name           {: RESULT = new Var(e, name); :}
                     ;
