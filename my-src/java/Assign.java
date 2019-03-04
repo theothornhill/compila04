@@ -1,9 +1,11 @@
 public class Assign extends Stmt {
-    public Assign(String name) {
+    public Assign(String name, Object e) {
         this.name = name;
+        this.e = e;
     }
 
     public String printAst(int indentLevel) {
-        return "(ASSIGN " + name + ")";
+        return "(ASSIGN " + this.name + " "
+            + Main.astHelper(this.e, indentLevel) + ")";
     }
 }

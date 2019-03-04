@@ -124,7 +124,6 @@ proc_decl         ::= PROC_DECL NAME:name
                                 {: RESULT = new ProcDecl(name, pl, t, dl, sl); :}
                     ;
 
-/* Expressions needs work. Check that we're not missing rules*/
 exp               ::= exp:e1 log_op:o exp:e2  {: RESULT = new BinaryExpr(e1, o, e2); :}
                     | NOT exp:e               {: RESULT = new Not(e); :}
                     | exp:e1 rel_op:o exp:e2  {: RESULT = new BinaryExpr(e1, o, e2); :}
@@ -179,9 +178,9 @@ stmt              ::= assign_stmt:a {: RESULT = a; :}
                     ;
 
 assign_stmt       ::= var:v ASSIGN_OP exp:e
-                            {: RESULT = new Assign(v+" " + e ); :}
+                            {: RESULT = new Assign(v, e); :}
                     | deref_var:v ASSIGN_OP exp:e
-                            {: RESULT = new Assign(v+" " + e); :}     
+                            {: RESULT = new Assign(v, e); :}     
                     ;
 
 if_stmt           ::= IF exp:e THEN stmt_list:l FI
