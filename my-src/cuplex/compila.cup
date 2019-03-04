@@ -135,7 +135,7 @@ exp               ::= exp:e1 log_op:o exp:e2  {: RESULT = new BinaryExpr(e1, o, 
                     | var:v                   {: RESULT = v; :}
                     | ref_var:v               {: RESULT = v; :}
                     | deref_var:v             {: RESULT = v; :}
-                    | LPAR exp:e RPAR         {: RESULT = new Expr(e.toString()); :}
+                    | LPAR exp:e RPAR         {: RESULT = new NestedExpr(e); :}
                     ;
 
 literal           ::= STRING_LITERAL:str {: RESULT = str; :}
