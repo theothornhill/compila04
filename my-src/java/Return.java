@@ -8,6 +8,9 @@ public class Return extends Stmt {
     }
 
     public String printAst(int indentLevel) {
+        if (this.e == null) {
+            return "(RETURN)";
+        }
         return "(RETURN " + Main.astHelper(this.e, indentLevel) + ")";
     }
 
