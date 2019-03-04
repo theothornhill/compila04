@@ -9,14 +9,16 @@ public class Call extends Stmt {
 
     public String printAst(int indentLevel) {
         StringBuilder sb = new StringBuilder();
-        sb.append("(CALL " + name);
+        sb.append("(CALL_STMT (NAME " + name + ")");
         if (el != null) {
+            int i = 1;
             for (Object e : el) {
-                sb.append("\n" + Main.buildIndentation(indentLevel+1)
-                               + Main.astHelper(e, indentLevel+1));
+                sb.append("\n" + Main.buildIndentation(indentLevel+i)
+                          + Main.astHelper(e, indentLevel+i));
+                i++;
             }            
         }
-        sb.append("\n" + Main.buildIndentation(indentLevel) + ")");
+        sb.append(")");
         return sb.toString();
     }
 }
