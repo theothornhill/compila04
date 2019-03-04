@@ -12,8 +12,8 @@ public class BinaryExpr extends Expr {
     private String astHelper(Object node, int indentLevel) {
         return node instanceof Expr
             ? ((Expr) node).printAst(indentLevel)
-            : node instanceof Stmt
-            ? ((Stmt) node).printAst(indentLevel)
+            : node instanceof Call
+            ? ((Call) node).printAst(indentLevel)
             : node.toString();
     }
 

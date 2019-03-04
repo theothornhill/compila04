@@ -11,16 +11,19 @@ public class If extends Stmt {
         this.sl = sl;
         this.sl2 = sl2;
     }
+    
+    private String astHelper(Object node, int indentLevel) {
+        return node instanceof Expr
+            ? ((Expr) node).printAst(indentLevel)
+            : node instanceof Call
+            ? ((Call) node).printAst(indentLevel)
+            : node.toString();
+    }
 
     public String printAst(int indentLevel) {
         StringBuilder sb = new StringBuilder();
         sb.append("(IF ");
-        if (this.e instanceof Expr) {
-            Expr ex = (Expr) this.e;
-            sb.append(ex.printAst(indentLevel));            
-        } else {
-            sb.append(e);
-        }
+        sb.append(astHelper(e, indentLevel));
         sb.append("\n");
         for (Stmt stmt : sl) {
             sb.append(Main.buildIndentation(indentLevel+1) + stmt.printAst(indentLevel+1));
