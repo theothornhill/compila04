@@ -11,7 +11,7 @@ public class Call extends Stmt {
         StringBuilder sb = new StringBuilder();
         sb.append("(CALL_STMT (NAME " + name + ")");
         if (el != null) {
-            int i = 1;
+            int i = 0;
             for (Object e : el) {
                 sb.append("\n" + Main.buildIndentation(indentLevel+i)
                           + Main.astHelper(e, indentLevel+i));

@@ -11,7 +11,7 @@ begin
     in
       callDog(byPhone(5 = five(), dog.phoneNumber));
       callCat();
-      if not not not (6 > seven(5+5)) then
+      if not (6 > seven(5+5)) then
          callAmbulance()
       else
          openBeer(new dog);

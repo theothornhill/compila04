@@ -39,7 +39,7 @@ public class ProcDecl extends Decl {
         sb.append("(NAME " + this.name + ")");
         if (pl != null) {
             for (Param param : pl) {
-                sb.append("\n" + Main.buildIndentation(indentLevel+1) + param.printAst(indentLevel));
+                sb.append("\n" + Main.buildIndentation(indentLevel+1) + param.printAst(indentLevel+1));
             }            
         }
         if (dl != null) {
@@ -49,7 +49,7 @@ public class ProcDecl extends Decl {
         }
         if (sl != null) {
             for (Stmt stmt : sl) {
-                sb.append("\n" + Main.buildIndentation(indentLevel) + stmt.printAst(indentLevel));
+                sb.append("\n" + Main.buildIndentation(indentLevel) + stmt.printAst(indentLevel+1));
             }            
         }
         sb.append("\n" + Main.buildIndentation(indentLevel-1) + ")");
