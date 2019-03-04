@@ -3,6 +3,10 @@ public class Expr {
     public Expr(Object expr) {
         this.expr = expr;
     }
+
+    public Expr() {
+        
+    }
     
     public String printAst(int indentLevel) {
         return expr instanceof Expr
