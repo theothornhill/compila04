@@ -35,8 +35,8 @@ public class ProcDecl extends Decl {
     public String printAst(int indentLevel) {
         StringBuilder sb = new StringBuilder();
         sb.append("(PROC_DECL ");
-        sb.append("(TYPE " + printType(indentLevel) + ") ");
-        sb.append("(NAME " + this.name + ")");
+        sb.append(printType(indentLevel));
+        sb.append(" (NAME " + this.name + ")");
         if (pl != null) {
             for (Param param : pl) {
                 sb.append("\n" + Main.buildIndentation(indentLevel+1) + param.printAst(indentLevel+1));

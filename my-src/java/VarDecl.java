@@ -8,10 +8,8 @@ public class VarDecl extends Decl {
     public String printAst(int indentLevel) {
         StringBuilder sb = new StringBuilder();
         sb.append("(VAR ");
-        sb.append("(TYPE ");
-        sb.append(this.type.printAst(indentLevel));
-        sb.append(") ");
-        sb.append("(NAME ");
+        sb.append(type.printAst(indentLevel));
+        sb.append(" (NAME ");
         sb.append(this.name);
         sb.append(")");
         sb.append(")");
