@@ -1101,12 +1101,12 @@ class Lexer implements java_cup.runtime.Scanner {
             // fall through
           case 98: break;
           case 44: 
-            { return symbol(sym.NULL);
+            { return symbol(sym.NULL, yytext());
             } 
             // fall through
           case 99: break;
           case 45: 
-            { return symbol(sym.TRUE);
+            { return symbol(sym.TRUE, yytext());
             } 
             // fall through
           case 100: break;
@@ -1131,7 +1131,7 @@ class Lexer implements java_cup.runtime.Scanner {
             // fall through
           case 104: break;
           case 50: 
-            { return symbol(sym.FALSE);
+            { return symbol(sym.FALSE, yytext());
             } 
             // fall through
           case 105: break;

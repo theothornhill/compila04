@@ -70,9 +70,9 @@ CommentContent       = ( [^*] | \*+ [^/\*] )*
              "deref"                 { return symbol(sym.DEREF); }
              /* Negation */
              "not"                   { return symbol(sym.NOT); }
-             "true"                  { return symbol(sym.TRUE); }
-             "false"                 { return symbol(sym.FALSE); }
-             "null"                  { return symbol(sym.NULL); }
+             "true"                  { return symbol(sym.TRUE, yytext()); }
+             "false"                 { return symbol(sym.FALSE, yytext()); }
+             "null"                  { return symbol(sym.NULL, yytext()); }
              /* types */
              "float"                 { return symbol(sym.FLOAT, yytext()); }
              "int"                   { return symbol(sym.INT, yytext()); }             

@@ -36,6 +36,8 @@ public class Main {
             ? ((Expr) node).printAst(indentLevel)
             : node instanceof Call
             ? ((Call) node).printAst(indentLevel)
+            : node instanceof Literal
+            ? ((Literal) node).printAst(indentLevel)
             : node.toString();
     }
 }

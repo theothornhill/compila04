@@ -38,7 +38,8 @@ nonterminal                        exp;
 nonterminal Type                   type;
 nonterminal                        rel_op, log_op, arit_op;
 nonterminal Var                    var, ref_var, deref_var;
-nonterminal String                 literal, bool;
+nonterminal Literal                literal;
+nonterminal String                 bool;
 nonterminal LinkedList<Decl>       decl_list;
 nonterminal LinkedList<Stmt>       stmt_list;
 nonterminal LinkedList<Param>      param_list_comma, param_list_semi;
@@ -138,11 +139,11 @@ exp               ::= exp:e1 log_op:o exp:e2  {: RESULT = new BinaryExpr(e1, o, 
                     | LPAR exp:e RPAR         {: RESULT = new NestedExpr(e); :}
                     ;
 
-literal           ::= STRING_LITERAL:str {: RESULT = str; :}
-                    | INT_LITERAL:i {: RESULT = i; :}
-                    | FLOAT_LITERAL:f {: RESULT = f; :}
-                    | bool:b {: RESULT = b; :}
-                    | NULL {: RESULT = "null"; :}
+literal           ::= STRING_LITERAL:str {: RESULT = new Literal("STRING_LITERAL", str.toString()); :}
+                    | INT_LITERAL:i {: RESULT = new Literal("INT_LITERAL", i.toString()); :}
+                    | FLOAT_LITERAL:f {: RESULT = new Literal("FLOAT_LITERAL", f.toString()); :}
+                    | bool:b {: RESULT = new Literal("BOOL_LITERAL", b.toString()); :}
+                    | NULL:n {: RESULT = new Literal("NULL_LITERAL", n.toString()); :}
                     ;
 
 rel_op            ::= LT:o      {: RESULT = o; :}

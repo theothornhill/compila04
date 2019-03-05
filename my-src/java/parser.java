@@ -920,7 +920,7 @@ class CUP$parser$actions {
               Object RESULT =null;
 		int litleft = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).left;
 		int litright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
-		String lit = (String)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
+		Literal lit = (Literal)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
 		 RESULT = lit; 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("exp",12, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
@@ -1001,11 +1001,11 @@ class CUP$parser$actions {
           /*. . . . . . . . . . . . . . . . . . . .*/
           case 36: // literal ::= STRING_LITERAL 
             {
-              String RESULT =null;
+              Literal RESULT =null;
 		int strleft = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).left;
 		int strright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
 		String str = (String)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
-		 RESULT = str; 
+		 RESULT = new Literal("STRING_LITERAL", str.toString()); 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("literal",20, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -1013,11 +1013,11 @@ class CUP$parser$actions {
           /*. . . . . . . . . . . . . . . . . . . .*/
           case 37: // literal ::= INT_LITERAL 
             {
-              String RESULT =null;
+              Literal RESULT =null;
 		int ileft = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).left;
 		int iright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
 		String i = (String)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
-		 RESULT = i; 
+		 RESULT = new Literal("INT_LITERAL", i.toString()); 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("literal",20, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -1025,11 +1025,11 @@ class CUP$parser$actions {
           /*. . . . . . . . . . . . . . . . . . . .*/
           case 38: // literal ::= FLOAT_LITERAL 
             {
-              String RESULT =null;
+              Literal RESULT =null;
 		int fleft = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).left;
 		int fright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
 		String f = (String)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
-		 RESULT = f; 
+		 RESULT = new Literal("FLOAT_LITERAL", f.toString()); 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("literal",20, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -1037,11 +1037,11 @@ class CUP$parser$actions {
           /*. . . . . . . . . . . . . . . . . . . .*/
           case 39: // literal ::= bool 
             {
-              String RESULT =null;
+              Literal RESULT =null;
 		int bleft = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).left;
 		int bright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
 		String b = (String)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
-		 RESULT = b; 
+		 RESULT = new Literal("BOOL_LITERAL", b.toString()); 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("literal",20, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -1049,8 +1049,11 @@ class CUP$parser$actions {
           /*. . . . . . . . . . . . . . . . . . . .*/
           case 40: // literal ::= NULL 
             {
-              String RESULT =null;
-		 RESULT = "null"; 
+              Literal RESULT =null;
+		int nleft = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).left;
+		int nright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
+		Object n = (Object)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
+		 RESULT = new Literal("NULL_LITERAL", n.toString()); 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("literal",20, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
