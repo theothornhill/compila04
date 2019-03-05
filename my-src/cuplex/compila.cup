@@ -27,7 +27,7 @@ terminal                           NOT, NULL;
 terminal String                    LT, LTEQ, GT, GTEQ, EQ, NEQ;
 terminal String                    ADD, MINUS, MULT, DIVIDE, EXPONENT;
 terminal String                    AND, OR;
-terminal String                    FLOAT, INT, STRING;
+terminal String                    FLOAT, INT, STRING, BOOL;
 terminal String                    NAME;
 nonterminal Program                program;
 nonterminal Stmt                   stmt, assign_stmt, if_stmt, while_stmt;

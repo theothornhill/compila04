@@ -74,9 +74,10 @@ CommentContent       = ( [^*] | \*+ [^/\*] )*
              "false"                 { return symbol(sym.FALSE); }
              "null"                  { return symbol(sym.NULL); }
              /* types */
-             "float"                 { return symbol(sym.FLOAT); }
-             "int"                   { return symbol(sym.INT); }             
-             "string"                { return symbol(sym.STRING); }
+             "float"                 { return symbol(sym.FLOAT, yytext()); }
+             "int"                   { return symbol(sym.INT, yytext()); }             
+             "string"                { return symbol(sym.STRING, yytext()); }
+             "bool"                  { return symbol(sym.BOOL, yytext()); }
 }
 
 <YYINITIAL> {

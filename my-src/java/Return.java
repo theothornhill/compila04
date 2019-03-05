@@ -9,9 +9,9 @@ public class Return extends Stmt {
 
     public String printAst(int indentLevel) {
         if (this.e == null) {
-            return "(RETURN_STMT)";
+            return "(RETURN)";
         }
-        return "(RETURN_STMT " + Main.astHelper(this.e, indentLevel) + ")";
+        return "(RETURN " + Main.astHelper(this.e, indentLevel+1) + ")";
     }
 
 }

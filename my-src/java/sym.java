@@ -23,6 +23,7 @@ public class sym {
   public static final int RPAR = 7;
   public static final int OR = 48;
   public static final int IN = 5;
+  public static final int BOOL = 52;
   public static final int COMMA = 9;
   public static final int FI = 17;
   public static final int BEGIN = 3;
@@ -43,7 +44,7 @@ public class sym {
   public static final int NULL = 35;
   public static final int NEQ = 41;
   public static final int EQ = 40;
-  public static final int NAME = 52;
+  public static final int NAME = 53;
   public static final int RCURLY = 11;
   public static final int ELSE = 19;
   public static final int WHILE = 20;
@@ -112,6 +113,7 @@ public class sym {
   "FLOAT",
   "INT",
   "STRING",
+  "BOOL",
   "NAME"
   };
 }
