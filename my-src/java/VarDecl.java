@@ -1,6 +1,6 @@
 public class VarDecl extends Decl {
-    Object type;
-    public VarDecl(String name, Object type) {
+    Type type;
+    public VarDecl(String name, Type type) {
         this.name = name;
         this.type = type;
     }
@@ -9,7 +9,7 @@ public class VarDecl extends Decl {
         StringBuilder sb = new StringBuilder();
         sb.append("(VAR ");
         sb.append("(TYPE ");
-        sb.append(this.type);
+        sb.append(this.type.printAst(indentLevel));
         sb.append(") ");
         sb.append("(NAME ");
         sb.append(this.name);

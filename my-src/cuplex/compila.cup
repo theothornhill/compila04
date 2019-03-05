@@ -35,7 +35,8 @@ nonterminal Stmt                   return_stmt, call_stmt;
 nonterminal Decl                   decl, var_decl, proc_decl, rec_decl;
 nonterminal Param                  paramfield_decl;
 nonterminal                        exp;
-nonterminal                        rel_op, log_op, arit_op, type;
+nonterminal Type                   type;
+nonterminal                        rel_op, log_op, arit_op;
 nonterminal Var                    var, ref_var, deref_var;
 nonterminal String                 literal, bool;
 nonterminal LinkedList<Decl>       decl_list;
@@ -211,10 +212,10 @@ deref_var         ::= DEREF LPAR var:v RPAR         {: RESULT = new DerefVar(v);
                     | DEREF LPAR deref_var:v RPAR   {: RESULT = new DerefVar(v); :}
                     ;
 
-type              ::= FLOAT:f {: RESULT = f; :}
-                    | INT:i {: RESULT = i; :}
-                    | STRING:s {: RESULT = s; :}
-                    | bool:b {: RESULT = b; :}
-                    | NAME:n {: RESULT = n; :}
-                    | REF LPAR type:t RPAR {: RESULT = t; :}
+type              ::= FLOAT:f {: RESULT = new Type(f); :}
+                    | INT:i {: RESULT = new Type(i); :}
+                    | STRING:s {: RESULT = new Type(s); :}
+                    | bool:b {: RESULT = new Type(b); :}
+                    | NAME:n {: RESULT = new Type(n); :}
+                    | REF LPAR type:t RPAR {: RESULT = new Type(t); :}
                     ;

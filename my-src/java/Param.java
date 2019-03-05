@@ -1,14 +1,14 @@
 public class Param {
-    Object type;
+    Type type;
     String name;
-    public Param(String name, Object type) {
+    public Param(String name, Type type) {
         this.name = name;
         this.type = type;
     }
 
     public String printAst(int indentLevel) {
         return "(PARAM_DECL "
-            + "(TYPE " + type + ") "
+            + "(TYPE " + type.printAst(indentLevel) + ") "
             + "(NAME " + name +"))";
     }
 }
