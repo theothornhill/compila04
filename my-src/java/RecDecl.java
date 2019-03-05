@@ -14,11 +14,11 @@ public class RecDecl extends Decl {
         sb.append(")\n");
         if (pl != null) {
             for (Param param : pl) {
-                sb.append(Main.buildIndentation(indentLevel) + param.printAst(indentLevel+1));
+                sb.append(Main.buildIndentation(indentLevel+1) + param.printAst(indentLevel+1));
                 sb.append("\n");                
             }            
         }
-        sb.append(Main.buildIndentation(indentLevel-1) + ")");
+        sb.append(Main.buildIndentation(indentLevel) + ")");
         return sb.toString();
     }
 }

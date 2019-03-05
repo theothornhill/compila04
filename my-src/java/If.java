@@ -16,17 +16,15 @@ public class If extends Stmt {
         StringBuilder sb = new StringBuilder();
         sb.append("(IF ");
         sb.append(Main.astHelper(e, indentLevel+1));
-        sb.append("\n");
         if (sl != null) {
             for (Stmt stmt : sl) {
-                sb.append(Main.buildIndentation(indentLevel) + stmt.printAst(indentLevel+1));
-                sb.append("\n");                
+                sb.append("\n" + Main.buildIndentation(indentLevel+1) + stmt.printAst(indentLevel+1));
             }            
         }
         if (sl2 != null) {
-            sb.append(Main.buildIndentation(indentLevel-1) + "(ELSE \n");
+            sb.append("\n" + Main.buildIndentation(indentLevel) + "(ELSE \n");
             for (Stmt stmt : sl2) {
-                sb.append(Main.buildIndentation(indentLevel) + stmt.printAst(indentLevel+1));
+                sb.append(Main.buildIndentation(indentLevel+1) + stmt.printAst(indentLevel+1));
                 sb.append("\n");                
             }
         }

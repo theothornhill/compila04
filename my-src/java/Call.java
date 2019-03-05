@@ -11,14 +11,12 @@ public class Call extends Stmt {
         StringBuilder sb = new StringBuilder();
         sb.append("(CALL_STMT (NAME " + name + ")");
         if (el != null) {
-            int i = 0;
             for (Object e : el) {
-                sb.append("\n" + Main.buildIndentation(indentLevel+i)
-                          + Main.astHelper(e, indentLevel+i));
-                i++;
+                sb.append("\n" + Main.buildIndentation(indentLevel+1)
+                          + Main.astHelper(e, indentLevel+1) + ")");
             }            
         }
-        sb.append(")");
+        sb.append("\n" + Main.buildIndentation(indentLevel) + ")");
         return sb.toString();
     }
 }
