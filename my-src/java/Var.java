@@ -13,6 +13,7 @@ public class Var extends Expr {
         if (this.expr == null) {
             return "(VAR " + this.name + ")";
         }
-        return "(VAR " + Main.astHelper(this.expr, indentLevel+1) + ")";
+        return "(VAR (" + Main.astHelper(this.expr, indentLevel)
+            + " (NAME " + this.name + "))";
     }
 }

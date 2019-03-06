@@ -1,3 +1,4 @@
+
 public class DerefVar extends Var {
     public DerefVar(Var variable) {
         super(variable.expr, variable.name);
@@ -7,6 +8,7 @@ public class DerefVar extends Var {
         if (this.expr == null) {
             return "(DEREFVAR " + this.name;
         }
-        return "(DEREFVAR " + Main.astHelper(this.expr, indentLevel) + ")";
+        return "(DEREFVAR (" + Main.astHelper(this.expr, indentLevel)
+            + " (NAME " + this.name + "))";
     }
 }

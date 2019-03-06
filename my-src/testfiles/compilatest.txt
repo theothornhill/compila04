@@ -9,10 +9,10 @@ begin
          };
       var wat: str
     in
-      callDog(byPhone(5 + 5.4 * 3^2));
       callCat();
       if true then
-         callAmbulance()
+         callAmbulance();
+         callDog(byPhone(5 + 5.4 * 3^2))
       else
          openBeer(new dog);
          chillOut()
@@ -23,7 +23,7 @@ begin
           callCat()
       od;
       
-      callCatReference(deref(deref(thing.lol)));
+      callCatReference(deref(thing.lol));
       callCatReference(ref(thing));
       return 5 < 9
       
