@@ -102,7 +102,7 @@ CommentContent       = ( [^*] | \*+ [^/\*] )*
              /* Assignment operator */  
              ":="                       { return symbol(sym.ASSIGN_OP, yytext()); }
              /* Parameter identificator */
-             ":"                        { return symbol(sym.PARAM_ID, yytext()); }
+             ":"                        { return symbol(sym.COLON, yytext()); }
              ";"                        { return symbol(sym.SEMI, yytext()); }
              ","                        { return symbol(sym.COMMA, yytext()); }
              "("                        { return symbol(sym.LPAR); }

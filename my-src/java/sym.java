@@ -6,7 +6,6 @@
 /** CUP generated class containing symbol constants. */
 public class sym {
   /* terminals */
-  public static final int PARAM_ID = 32;
   public static final int ASSIGN_OP = 33;
   public static final int DIVIDE = 45;
   public static final int GTEQ = 39;
@@ -46,6 +45,7 @@ public class sym {
   public static final int EQ = 40;
   public static final int NAME = 53;
   public static final int RCURLY = 11;
+  public static final int COLON = 32;
   public static final int ELSE = 19;
   public static final int WHILE = 20;
   public static final int FLOAT = 49;
@@ -93,7 +93,7 @@ public class sym {
   "TRUE",
   "FALSE",
   "DOT",
-  "PARAM_ID",
+  "COLON",
   "ASSIGN_OP",
   "NOT",
   "NULL",

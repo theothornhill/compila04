@@ -22,7 +22,7 @@ terminal                           REC_DECL, PROC_DECL, VAR_DECL, NEW;
 terminal                           IF, FI, THEN, ELSE, WHILE, DO, OD, RETURN, REF, DEREF;
 terminal String                    INT_LITERAL, STRING_LITERAL, FLOAT_LITERAL;
 terminal String                    TRUE, FALSE;
-terminal                           DOT, PARAM_ID, ASSIGN_OP;
+terminal                           DOT, COLON, ASSIGN_OP;
 terminal                           NOT, NULL;
 terminal String                    LT, LTEQ, GT, GTEQ, EQ, NEQ;
 terminal String                    ADD, MINUS, MULT, DIVIDE, EXPONENT;
@@ -102,7 +102,7 @@ decl              ::= rec_decl:d {: RESULT = d; :}
                     | var_decl:d {: RESULT = d; :}
                     ;
 
-var_decl          ::= VAR_DECL NAME:name PARAM_ID type:t
+var_decl          ::= VAR_DECL NAME:name COLON type:t
                       {: RESULT = new VarDecl(name, t); :}
                     ;
 
@@ -110,7 +110,7 @@ rec_decl          ::= REC_DECL NAME:name LCURLY param_list_semi:pl RCURLY
                                {: RESULT = new RecDecl(name, pl); :}
                     ;
 
-paramfield_decl   ::= NAME:name PARAM_ID type:t {: RESULT = new Param(name, t); :}
+paramfield_decl   ::= NAME:name COLON type:t {: RESULT = new Param(name, t); :}
                     ;
 
 proc_decl         ::= PROC_DECL NAME:name
@@ -120,7 +120,7 @@ proc_decl         ::= PROC_DECL NAME:name
                                 {: RESULT = new ProcDecl(name, pl, dl, sl); :}
                     | PROC_DECL NAME:name
                                 LPAR param_list_comma:pl RPAR
-                                PARAM_ID type:t
+                                COLON type:t
                                 BEGIN decl_list:dl
                                 IN stmt_list:sl END
                                 {: RESULT = new ProcDecl(name, pl, t, dl, sl); :}
@@ -216,7 +216,7 @@ deref_var         ::= DEREF LPAR var:v RPAR         {: RESULT = new DerefVar(v);
 type              ::= FLOAT:f {: RESULT = new Type(f); :}
                     | INT:i {: RESULT = new Type(i); :}
                     | STRING:s {: RESULT = new Type(s); :}
-                    | bool:b {: RESULT = new Type(b); :}
+                    | BOOL:b {: RESULT = new Type(b); :}
                     | NAME:n {: RESULT = new Type(n); :}
                     | REF LPAR type:t RPAR {: RESULT = new RefType(t); :}
                     ;

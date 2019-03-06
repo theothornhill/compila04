@@ -951,7 +951,7 @@ class Lexer implements java_cup.runtime.Scanner {
             // fall through
           case 68: break;
           case 14: 
-            { return symbol(sym.PARAM_ID, yytext());
+            { return symbol(sym.COLON, yytext());
             } 
             // fall through
           case 69: break;
