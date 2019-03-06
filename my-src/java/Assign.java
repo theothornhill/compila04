@@ -8,8 +8,8 @@ public class Assign extends Stmt {
         StringBuilder sb = new StringBuilder();
         sb.append("(ASSIGN_STMT \n" + Main.buildIndentation(indentLevel+1));
         sb.append("(NAME " + this.name + ")\n" + Main.buildIndentation(indentLevel+1));
-        sb.append(Main.astHelper(this.e, indentLevel+1) + ")\n");
-        sb.append(Main.buildIndentation(indentLevel) + ")");
+        sb.append(Main.astHelper(this.e, indentLevel+1));
+        sb.append("\n" + Main.buildIndentation(indentLevel) + ")");
         return sb.toString();
     }
 }

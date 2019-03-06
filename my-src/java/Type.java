@@ -6,7 +6,7 @@ public class Type {
     }
 
     public Type(Type t) {
-        this.type = t.printAst(0);
+        this.t = t;
     }
 
     public String printAst(int indentLevel) {

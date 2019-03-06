@@ -22,13 +22,14 @@ public class If extends Stmt {
             }            
         }
         if (sl2 != null) {
-            sb.append("\n" + Main.buildIndentation(indentLevel) + "(ELSE \n");
+            sb.append("\n" + Main.buildIndentation(indentLevel+1) + "(ELSE \n");
             for (Stmt stmt : sl2) {
-                sb.append(Main.buildIndentation(indentLevel+1) + stmt.printAst(indentLevel+1));
+                sb.append(Main.buildIndentation(indentLevel+2) + stmt.printAst(indentLevel+2));
                 sb.append("\n");                
             }
+            sb.append(Main.buildIndentation(indentLevel+1) + ")");
         }
-        sb.append(Main.buildIndentation(indentLevel) + ")");
+        sb.append("\n" + Main.buildIndentation(indentLevel) + ")");
         return sb.toString();
     }
 }

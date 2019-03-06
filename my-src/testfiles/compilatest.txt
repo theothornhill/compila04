@@ -9,9 +9,9 @@ begin
          };
       var wat: str
     in
-      callDog(byPhone(5 = five(), dog.phoneNumber));
+      callDog(byPhone(5 + 5.4 * 3^2));
       callCat();
-      if (6 > seven(5+5)) then
+      if true then
          callAmbulance()
       else
          openBeer(new dog);

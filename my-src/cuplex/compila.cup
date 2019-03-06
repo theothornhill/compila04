@@ -218,5 +218,5 @@ type              ::= FLOAT:f {: RESULT = new Type(f); :}
                     | STRING:s {: RESULT = new Type(s); :}
                     | bool:b {: RESULT = new Type(b); :}
                     | NAME:n {: RESULT = new Type(n); :}
-                    | REF LPAR type:t RPAR {: RESULT = new Type(t); :}
+                    | REF LPAR type:t RPAR {: RESULT = new RefType(t); :}
                     ;

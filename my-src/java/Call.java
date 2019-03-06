@@ -13,10 +13,13 @@ public class Call extends Stmt {
         if (el != null) {
             for (Object e : el) {
                 sb.append("\n" + Main.buildIndentation(indentLevel+1)
-                          + Main.astHelper(e, indentLevel+1) + ")");
-            }            
+                          + Main.astHelper(e, indentLevel+1));
+            }
+            sb.append("\n" + Main.buildIndentation(indentLevel) + ")");
+        } else {
+            sb.append(")");            
         }
-        sb.append("\n" + Main.buildIndentation(indentLevel) + ")");
+
         return sb.toString();
     }
 }

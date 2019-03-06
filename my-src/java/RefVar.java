@@ -5,7 +5,7 @@ public class RefVar extends Var {
 
     public String printAst(int indentLevel) {
         if (this.expr == null) {
-            return "(REFVAR " + this.name;
+            return "(REFVAR " + this.name + ")";
         }
         return "(REFVAR " + Main.astHelper(this.expr, indentLevel) + ")";
     }
