@@ -36,11 +36,11 @@ nonterminal Decl                   decl, var_decl, proc_decl, rec_decl;
 nonterminal Param                  paramfield_decl;
 nonterminal                        exp;
 nonterminal Type                   type;
-nonterminal                        rel_op, log_op, arit_op;
+nonterminal                        rel_op;
 nonterminal Var                    var, ref_var, deref_var;
 nonterminal Literal                literal;
 nonterminal String                 bool;
-nonterminal String                 e, t, f, g, h, i, math, logic;
+nonterminal                        t, f, g, h, i, math, logic, relation;
 nonterminal LinkedList<Decl>       decl_list;
 nonterminal LinkedList<Stmt>       stmt_list;
 nonterminal LinkedList<Param>      param_list_comma, param_list_semi;
@@ -121,10 +121,9 @@ proc_decl         ::= PROC_DECL NAME:name
                                 {: RESULT = new ProcDecl(name, pl, t, dl, sl); :}
                     ;
 
-exp               ::= logic                   {: RESULT = "Disambiguated logic";; :}
-/*                    | NOT exp:e               {: RESULT = new Not(e); :}*/
-                    | exp:e1 rel_op:o exp:e2  {: RESULT = new BinaryExpr(e1, o, e2); :}
-                    | math                    {: RESULT = "Disambiguated math"; :}
+exp               ::= logic:l                 {: RESULT = l; :}
+                    | relation:r              {: RESULT = r; :}
+                    | math:m                  {: RESULT = m; :}
 /*                    | literal:lit             {: RESULT = lit; :}*/
                     | call_stmt:s             {: RESULT = s; :}
                     | NEW NAME:name           {: RESULT = new New(name); :}
@@ -135,33 +134,44 @@ exp               ::= logic                   {: RESULT = "Disambiguated logic";
                     ;
 
 /* Arithmetic disambiguation */
-math              ::= math:first ADD:o t:second
-                    | math:first MINUS:o t:second
-                    | t:first
+math              ::= math:first ADD:o t:second    {: RESULT = new BinaryExpr(first, o, second); :}
+                    | math:first MINUS:o t:second  {: RESULT = new BinaryExpr(first, o, second); :}
+                    | t:first                      {: RESULT = first; :}
                     ;
 
-t                 ::= t:first MULT:o f:second
-                    | t:first DIVIDE:o f:second
-                    | f:first
+t                 ::= t:first MULT:o f:second      {: RESULT = new BinaryExpr(first, o, second); :}
+                    | t:first DIVIDE:o f:second    {: RESULT = new BinaryExpr(first, o, second); :}
+                    | f:first                      {: RESULT = first; :}
                     ;
 
-f                 ::= g:first EXPONENT:o f:second
-                    | g:first
+f                 ::= g:first EXPONENT:o f:second  {: RESULT = new BinaryExpr(first, o, second); :}
+                    | g:first                      {: RESULT = first; :}
                     ;
 
-g                 ::= literal:lit
+g                 ::= INT_LITERAL:lit   {: RESULT = lit;:}
+                    ;
+
+/* Relational disambiguation */
+
+relation          ::= relation:first LT:o relation:second {: RESULT = new BinaryExpr(first, o, second); :}
+                    | relation:first LTEQ:o relation:second {: RESULT = new BinaryExpr(first, o, second); :}
+                    | relation:first GT:o relation:second {: RESULT = new BinaryExpr(first, o, second); :}                    
+                    | relation:first GTEQ:o relation:second {: RESULT = new BinaryExpr(first, o, second); :}
+                    | relation:first EQ:o relation:second {: RESULT = new BinaryExpr(first, o, second); :}
+                    | relation:first NEQ:o relation:second {: RESULT = new BinaryExpr(first, o, second); :}
+                    | FLOAT_LITERAL:f {: RESULT = f; :}
                     ;
 
 /* Logic disambiguation */
-logic             ::= logic:first OR:o h:second
-                    | h:first
+logic             ::= logic:first OR:o h:second {: RESULT = new BinaryExpr(first, o, second); :}
+                    | h:first                   {: RESULT = first; :}
                     ;
 
-h                 ::= h:first AND:o i:second
-                    | i:second
+h                 ::= h:first AND:o i:second    {: RESULT = new BinaryExpr(first, o, second); :}
+                    | i:first                   {: RESULT = first; :}
                     ;
 
-i                 ::= NOT i:first
+i                 ::= NOT i:first               {: RESULT = new Not(first); :}
                     ;
 
 literal           ::= STRING_LITERAL:str {: RESULT = new Literal("STRING_LITERAL", str.toString()); :}
@@ -179,19 +189,8 @@ rel_op            ::= LT:o      {: RESULT = o; :}
                     | NEQ:o     {: RESULT = o; :}
                     ;
 
-arit_op           ::= ADD:o       {: RESULT = o; :}
-                    | MINUS:o     {: RESULT = o; :}
-                    | MULT:o      {: RESULT = o; :}
-                    | DIVIDE:o    {: RESULT = o; :}
-                    | EXPONENT:o  {: RESULT = o; :}
-                    ;
-
 bool              ::= TRUE:o      {: RESULT = o; :}
                     | FALSE:o     {: RESULT = o; :}
-                    ;
-
-log_op            ::= AND:o       {: RESULT = o; :}
-                    | OR:o        {: RESULT = o; :}
                     ;
 
 /* Statements */

@@ -18,14 +18,14 @@ begin
          chillOut()
       fi;
       
-      while 5 < 10
+      while 5.8 < 10.1
       do
           callCat()
       od;
       
       callCatReference(deref(thing.lol));
       callCatReference(ref(thing));
-      return 5 < 9
+      return 5 - 9 * 3 + 2
       
     end;
     var hi: string;
