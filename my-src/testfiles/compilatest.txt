@@ -10,9 +10,9 @@ begin
       var wat: str
     in
       callCat();
-      if not true then
+      if 5 + 5 then
          callAmbulance();
-         callDog(byPhone(5 + 5.4 * 3^2))
+         callDog(byPhone(5 + 5 * 3^2))
       else
          openBeer(new dog);
          chillOut()

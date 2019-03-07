@@ -40,10 +40,17 @@ nonterminal                        rel_op, log_op, arit_op;
 nonterminal Var                    var, ref_var, deref_var;
 nonterminal Literal                literal;
 nonterminal String                 bool;
+nonterminal String                 e, t, f, g;
 nonterminal LinkedList<Decl>       decl_list;
 nonterminal LinkedList<Stmt>       stmt_list;
 nonterminal LinkedList<Param>      param_list_comma, param_list_semi;
 nonterminal LinkedList<Object>     exp_list;
+
+precedence left                    OR;
+precedence left                    AND;
+precedence right                   NOT;
+precedence nonassoc                LT, LTEQ, GT, GTEQ, EQ, NEQ;
+precedence left                    DOT;
 
 start with program;
 
@@ -120,8 +127,8 @@ proc_decl         ::= PROC_DECL NAME:name
 exp               ::= exp:e1 log_op:o exp:e2  {: RESULT = new BinaryExpr(e1, o, e2); :}
                     | NOT exp:e               {: RESULT = new Not(e); :}
                     | exp:e1 rel_op:o exp:e2  {: RESULT = new BinaryExpr(e1, o, e2); :}
-                    | exp:e1 arit_op:o exp:e2 {: RESULT = new BinaryExpr(e1, o, e2); :}
-                    | literal:lit             {: RESULT = lit; :}
+                    | e                       {: RESULT = "disambiguated math"; :}
+/*                    | literal:lit             {: RESULT = lit; :}*/
                     | call_stmt:s             {: RESULT = s; :}
                     | NEW NAME:name           {: RESULT = new New(name); :}
                     | var:v                   {: RESULT = v; :}
@@ -129,6 +136,26 @@ exp               ::= exp:e1 log_op:o exp:e2  {: RESULT = new BinaryExpr(e1, o, 
                     | deref_var:v             {: RESULT = v; :}
                     | LPAR exp:e RPAR         {: RESULT = new NestedExpr(e); :}
                     ;
+
+/* Arithmetic disambiguation */
+e                 ::= e:first ADD:o t:second
+                    | e:first MINUS:o t:second
+                    | t:first
+                    ;
+
+t                 ::= t:first MULT:o f:second
+                    | t:first DIVIDE:o f:second
+                    | f:first
+                    ;
+
+f                 ::= g:first EXPONENT:o f:second
+                    | g:first
+                    ;
+
+g                 ::= literal:lit
+                    ;
+                    
+
 
 literal           ::= STRING_LITERAL:str {: RESULT = new Literal("STRING_LITERAL", str.toString()); :}
                     | INT_LITERAL:i {: RESULT = new Literal("INT_LITERAL", i.toString()); :}
