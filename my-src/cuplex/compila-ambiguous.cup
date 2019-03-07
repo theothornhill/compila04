@@ -46,7 +46,6 @@ nonterminal LinkedList<Stmt>       stmt_list;
 nonterminal LinkedList<Param>      param_list_comma, param_list_semi;
 nonterminal LinkedList<Object>     exp_list;
 
-precedence nonassoc                LT, LTEQ, GT, GTEQ, EQ, NEQ;
 precedence left                    DOT;
 
 start with program;
@@ -153,12 +152,12 @@ g                 ::= INT_LITERAL:lit   {: RESULT = lit;:}
 
 /* Relational disambiguation */
 
-relation          ::= relation:first LT:o relation:second {: RESULT = new BinaryExpr(first, o, second); :}
-                    | relation:first LTEQ:o relation:second {: RESULT = new BinaryExpr(first, o, second); :}
-                    | relation:first GT:o relation:second {: RESULT = new BinaryExpr(first, o, second); :}                    
-                    | relation:first GTEQ:o relation:second {: RESULT = new BinaryExpr(first, o, second); :}
-                    | relation:first EQ:o relation:second {: RESULT = new BinaryExpr(first, o, second); :}
-                    | relation:first NEQ:o relation:second {: RESULT = new BinaryExpr(first, o, second); :}
+relation          ::= relation:first LT:o FLOAT_LITERAL:second {: RESULT = new BinaryExpr(first, o, second); :}
+                    | relation:first LTEQ:o FLOAT_LITERAL:second {: RESULT = new BinaryExpr(first, o, second); :}
+                    | relation:first GT:o FLOAT_LITERAL:second {: RESULT = new BinaryExpr(first, o, second); :}                    
+                    | relation:first GTEQ:o FLOAT_LITERAL:second {: RESULT = new BinaryExpr(first, o, second); :}
+                    | relation:first EQ:o FLOAT_LITERAL:second {: RESULT = new BinaryExpr(first, o, second); :}
+                    | relation:first NEQ:o FLOAT_LITERAL:second {: RESULT = new BinaryExpr(first, o, second); :}
                     | FLOAT_LITERAL:f {: RESULT = f; :}
                     ;
 
