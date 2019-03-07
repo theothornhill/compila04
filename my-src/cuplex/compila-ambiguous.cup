@@ -36,7 +36,6 @@ nonterminal Decl                   decl, var_decl, proc_decl, rec_decl;
 nonterminal Param                  paramfield_decl;
 nonterminal                        exp;
 nonterminal Type                   type;
-nonterminal                        rel_op;
 nonterminal Var                    var, ref_var, deref_var;
 nonterminal Literal                literal;
 nonterminal String                 bool;
@@ -46,7 +45,6 @@ nonterminal LinkedList<Stmt>       stmt_list;
 nonterminal LinkedList<Param>      param_list_comma, param_list_semi;
 nonterminal LinkedList<Object>     exp_list;
 
-precedence left                    DOT;
 
 start with program;
 
@@ -147,7 +145,7 @@ f                 ::= g:first EXPONENT:o f:second  {: RESULT = new BinaryExpr(fi
                     | g:first                      {: RESULT = first; :}
                     ;
 
-g                 ::= INT_LITERAL:lit   {: RESULT = lit;:}
+g                 ::= INT_LITERAL:lit   {: RESULT = lit; :}
                     ;
 
 /* Relational disambiguation */
@@ -171,6 +169,7 @@ h                 ::= h:first AND:o i:second    {: RESULT = new BinaryExpr(first
                     ;
 
 i                 ::= NOT i:first               {: RESULT = new Not(first); :}
+                    | bool:b                    {: RESULT = b; :}
                     ;
 
 literal           ::= STRING_LITERAL:str {: RESULT = new Literal("STRING_LITERAL", str.toString()); :}
@@ -178,14 +177,6 @@ literal           ::= STRING_LITERAL:str {: RESULT = new Literal("STRING_LITERAL
                     | FLOAT_LITERAL:f {: RESULT = new Literal("FLOAT_LITERAL", f.toString()); :}
                     | bool:b {: RESULT = new Literal("BOOL_LITERAL", b.toString()); :}
                     | NULL:n {: RESULT = new Literal("NULL_LITERAL", n.toString()); :}
-                    ;
-
-rel_op            ::= LT:o      {: RESULT = o; :}
-                    | LTEQ:o    {: RESULT = o; :}
-                    | GT:o      {: RESULT = o; :}
-                    | GTEQ:o    {: RESULT = o; :}
-                    | EQ:o      {: RESULT = o; :}
-                    | NEQ:o     {: RESULT = o; :}
                     ;
 
 bool              ::= TRUE:o      {: RESULT = o; :}
