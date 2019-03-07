@@ -986,7 +986,9 @@ class Lexer implements java_cup.runtime.Scanner {
             // fall through
           case 75: break;
           case 21: 
-            { System.exit(4763);
+            { System.out.printf("Syntax error on line: %s, [%s]\n", 
+                                                         yyline, yytext());
+                                      System.exit(4763);
             } 
             // fall through
           case 76: break;

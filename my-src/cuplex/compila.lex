@@ -113,9 +113,13 @@ CommentContent       = ( [^*] | \*+ [^/\*] )*
 
  /* Types and identifiers */
 <YYINITIAL> {
-             {NAME}_                 { System.exit(4763); }
+             {NAME}_                 { System.out.printf("Syntax error on line: %s, [%s]\n", 
+                                                         yyline, yytext());
+                                      System.exit(4763); }
              {NAME}                  { return symbol(sym.NAME, yytext()); }
-             {INT_LITERAL}"."        { System.exit(4763); }
+             {INT_LITERAL}"."        { System.out.printf("Syntax error on line: %s, [%s]\n", 
+                                                         yyline, yytext());
+                                      System.exit(4763); }
              {INT_LITERAL}           { return symbol(sym.INT_LITERAL, yytext()); }
              {STRING_LITERAL}        { return symbol(sym.STRING_LITERAL, yytext()); }
              {FLOAT_LITERAL}         { return symbol(sym.FLOAT_LITERAL, yytext()); }
