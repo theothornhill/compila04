@@ -39,22 +39,22 @@ public class ProcDecl extends Decl {
         sb.append(" (NAME " + this.name + ")");
         if (pl != null) {
             for (Param param : pl) {
-                sb.append("\n" + Main.buildIndentation(indentLevel+1) + param.printAst(indentLevel+1));
+                sb.append("\n" + PrintHelper.buildIndentation(indentLevel+1) + param.printAst(indentLevel+1));
             }
         }
         sb.append("\n");
         if (dl != null) {
             for (Decl decl : dl) {
-                sb.append("\n" + Main.buildIndentation(indentLevel+1) + decl.printAst(indentLevel+1));
+                sb.append("\n" + PrintHelper.buildIndentation(indentLevel+1) + decl.printAst(indentLevel+1));
             }            
         }
         sb.append("\n");
         if (sl != null) {
             for (Stmt stmt : sl) {
-                sb.append("\n" + Main.buildIndentation(indentLevel+1) + stmt.printAst(indentLevel+1));
+                sb.append("\n" + PrintHelper.buildIndentation(indentLevel+1) + stmt.printAst(indentLevel+1));
             }            
         }
-        sb.append("\n" + Main.buildIndentation(indentLevel) + ")");
+        sb.append("\n" + PrintHelper.buildIndentation(indentLevel) + ")");
         return sb.toString();
     }
 }

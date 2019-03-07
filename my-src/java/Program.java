@@ -19,14 +19,14 @@ public class Program {
         if (declarations != null) {
             for (Decl decl : declarations) {
                 if (decl != null) {
-                    sb.append(Main.buildIndentation(indentLevel+1) + decl.printAst(indentLevel+1));
+                    sb.append(PrintHelper.buildIndentation(indentLevel+1) + decl.printAst(indentLevel+1));
                     sb.append("\n");
                 }
             }            
         }
 
         // sb.append(declarations);
-        sb.append(Main.buildIndentation(indentLevel-1) + ")");
+        sb.append(PrintHelper.buildIndentation(indentLevel-1) + ")");
         return sb.toString();
     }
 }

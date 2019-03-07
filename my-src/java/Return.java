@@ -12,8 +12,8 @@ public class Return extends Stmt {
             return "(RETURN)";
         } else {
             StringBuilder sb = new StringBuilder();
-            sb.append("(RETURN " + Main.astHelper(this.e, indentLevel+1));
-            sb.append("\n" + Main.buildIndentation(indentLevel) + ")");
+            sb.append("(RETURN " + PrintHelper.astHelper(this.e, indentLevel+1));
+            sb.append("\n" + PrintHelper.buildIndentation(indentLevel) + ")");
             return sb.toString();
         }
     }

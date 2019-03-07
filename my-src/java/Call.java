@@ -12,10 +12,10 @@ public class Call extends Stmt {
         sb.append("(CALL_STMT (NAME " + name + ")");
         if (el != null) {
             for (Object e : el) {
-                sb.append("\n" + Main.buildIndentation(indentLevel+1)
-                          + Main.astHelper(e, indentLevel+1));
+                sb.append("\n" + PrintHelper.buildIndentation(indentLevel+1)
+                          + PrintHelper.astHelper(e, indentLevel+1));
             }
-            sb.append("\n" + Main.buildIndentation(indentLevel) + ")");
+            sb.append("\n" + PrintHelper.buildIndentation(indentLevel) + ")");
         } else {
             sb.append(")");            
         }

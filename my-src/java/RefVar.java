@@ -7,7 +7,7 @@ public class RefVar extends Var {
         if (this.expr == null) {
             return "(REFVAR " + this.name + ")";
         }
-        return "(REFVAR (" + Main.astHelper(this.expr, indentLevel)
+        return "(REFVAR (" + PrintHelper.astHelper(this.expr, indentLevel)
             + " (NAME " + this.name + "))";
     }
 }
