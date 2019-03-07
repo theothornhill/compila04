@@ -9,9 +9,7 @@ public class VarDecl extends Decl {
         StringBuilder sb = new StringBuilder();
         sb.append("(VAR ");
         sb.append(type.printAst(indentLevel+1));
-        sb.append(" (NAME ");
-        sb.append(this.name);
-        sb.append(")");
+        sb.append(PrintHelper.printName(name));
         sb.append(")");
         return sb.toString();
     }

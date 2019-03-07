@@ -13,8 +13,8 @@ public class BinaryExpr extends Expr {
         StringBuilder sb = new StringBuilder();
         sb.append("(BINARY_OPERATION " + op.toString());
         sb.append(PrintHelper.newlineAndIndentWithHelper(e1, indentLevel+1));
-        sb.append(PrintHelper.newlineAndIndentWithHelper(e1, indentLevel+1));
-        sb.append("\n" + PrintHelper.buildIndentation(indentLevel) + ")");
+        sb.append(PrintHelper.newlineAndIndentWithHelper(e2, indentLevel+1));
+        sb.append(PrintHelper.endWithParen(indentLevel));
         return sb.toString();
     }
 }

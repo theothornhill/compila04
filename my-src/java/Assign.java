@@ -6,10 +6,11 @@ public class Assign extends Stmt {
 
     public String printAst(int indentLevel) {
         StringBuilder sb = new StringBuilder();
-        sb.append("(ASSIGN_STMT \n" + PrintHelper.buildIndentation(indentLevel+1));
-        sb.append("(NAME " + this.name + ")\n" + PrintHelper.buildIndentation(indentLevel+1));
-        sb.append(PrintHelper.astHelper(this.e, indentLevel+1));
-        sb.append("\n" + PrintHelper.buildIndentation(indentLevel) + ")");
+        sb.append("(ASSIGN_STMT");
+        sb.append(PrintHelper.newlineAndIndentWithHelper(PrintHelper.printName(name),
+                                                         indentLevel+1));
+        sb.append(PrintHelper.newlineAndIndentWithHelper(e, indentLevel+1));
+        sb.append(PrintHelper.endWithParen(indentLevel));
         return sb.toString();
     }
 }

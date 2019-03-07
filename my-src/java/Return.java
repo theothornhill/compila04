@@ -13,7 +13,7 @@ public class Return extends Stmt {
         } else {
             StringBuilder sb = new StringBuilder();
             sb.append("(RETURN " + PrintHelper.astHelper(this.e, indentLevel+1));
-            sb.append("\n" + PrintHelper.buildIndentation(indentLevel) + ")");
+            sb.append(PrintHelper.endWithParen(indentLevel));
             return sb.toString();
         }
     }

@@ -29,32 +29,32 @@ public class ProcDecl extends Decl {
     }
 
     private String printType(int indentLevel) {
-        return this.type == null ? "(TYPE void)" : this.type.printAst(indentLevel);
+        return type == null ? "(TYPE void) " : type.printAst(indentLevel) + " ";
     }
 
     public String printAst(int indentLevel) {
         StringBuilder sb = new StringBuilder();
         sb.append("(PROC_DECL ");
         sb.append(printType(indentLevel));
-        sb.append(" (NAME " + this.name + ")");
+        sb.append(PrintHelper.printName(name));
         if (pl != null) {
             for (Param param : pl) {
-                sb.append("\n" + PrintHelper.buildIndentation(indentLevel+1) + param.printAst(indentLevel+1));
+                sb.append(PrintHelper.printParam(param, indentLevel+1));
             }
         }
         sb.append("\n");
         if (dl != null) {
             for (Decl decl : dl) {
-                sb.append("\n" + PrintHelper.buildIndentation(indentLevel+1) + decl.printAst(indentLevel+1));
+                sb.append(PrintHelper.printDecl(decl, indentLevel+1));
             }            
         }
         sb.append("\n");
         if (sl != null) {
             for (Stmt stmt : sl) {
-                sb.append("\n" + PrintHelper.buildIndentation(indentLevel+1) + stmt.printAst(indentLevel+1));
+                sb.append(PrintHelper.printStmt(stmt, indentLevel+1));
             }            
         }
-        sb.append("\n" + PrintHelper.buildIndentation(indentLevel) + ")");
+        sb.append(PrintHelper.endWithParen(indentLevel));
         return sb.toString();
     }
 }

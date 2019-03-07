@@ -9,16 +9,14 @@ public class RecDecl extends Decl {
 
     public String printAst(int indentLevel) {
         StringBuilder sb = new StringBuilder();
-        sb.append("(STRUCT (NAME ");
-        sb.append(this.name);
-        sb.append(")\n");
+        sb.append("(STRUCT ");
+        sb.append(PrintHelper.printName(name));
         if (pl != null) {
             for (Param param : pl) {
-                sb.append(PrintHelper.buildIndentation(indentLevel+1) + param.printAst(indentLevel+1));
-                sb.append("\n");                
+                sb.append(PrintHelper.printParam(param, indentLevel+1));
             }            
         }
-        sb.append(PrintHelper.buildIndentation(indentLevel) + ")");
+        sb.append(PrintHelper.endWithParen(indentLevel));
         return sb.toString();
     }
 }

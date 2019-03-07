@@ -10,7 +10,7 @@ begin
       var wat: str
     in
       callCat();
-      if true then
+      if not true then
          callAmbulance();
          callDog(byPhone(5 + 5.4 * 3^2))
       else

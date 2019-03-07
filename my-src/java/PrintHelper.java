@@ -18,6 +18,27 @@ public class PrintHelper {
     }
 
     public static String newlineAndIndentWithHelper(Object node, int indentLevel) {
-        return "\n" + PrintHelper.buildIndentation(indentLevel+1) + PrintHelper.astHelper(node, indentLevel+1);
+        return "\n" + buildIndentation(indentLevel) + astHelper(node, indentLevel);
     }
+
+    public static String printName(String name) {
+        return "(NAME " + name + ")";
+    }
+    
+    public static String printDecl(Decl decl, int indentLevel) {
+        return "\n" + buildIndentation(indentLevel) + decl.printAst(indentLevel);
+    }
+
+    public static String printStmt(Stmt stmt, int indentLevel) {
+        return "\n" + buildIndentation(indentLevel) + stmt.printAst(indentLevel);
+    }
+
+    public static String printParam(Param param, int indentLevel) {
+        return "\n" + buildIndentation(indentLevel) + param.printAst(indentLevel);
+    }
+
+    public static String endWithParen(int indentLevel) {
+        return "\n" + buildIndentation(indentLevel) + ")";        
+    }
+
 }

@@ -9,6 +9,6 @@ public class Param {
     public String printAst(int indentLevel) {
         return "(PARAM_DECL "
             + type.printAst(indentLevel)
-            + " (NAME " + name +"))";
+            + PrintHelper.printName(name);
     }
 }
