@@ -40,15 +40,12 @@ nonterminal                        rel_op, log_op, arit_op;
 nonterminal Var                    var, ref_var, deref_var;
 nonterminal Literal                literal;
 nonterminal String                 bool;
-nonterminal String                 e, t, f, g;
+nonterminal String                 e, t, f, g, h, i, math, logic;
 nonterminal LinkedList<Decl>       decl_list;
 nonterminal LinkedList<Stmt>       stmt_list;
 nonterminal LinkedList<Param>      param_list_comma, param_list_semi;
 nonterminal LinkedList<Object>     exp_list;
 
-precedence left                    OR;
-precedence left                    AND;
-precedence right                   NOT;
 precedence nonassoc                LT, LTEQ, GT, GTEQ, EQ, NEQ;
 precedence left                    DOT;
 
@@ -124,10 +121,10 @@ proc_decl         ::= PROC_DECL NAME:name
                                 {: RESULT = new ProcDecl(name, pl, t, dl, sl); :}
                     ;
 
-exp               ::= exp:e1 log_op:o exp:e2  {: RESULT = new BinaryExpr(e1, o, e2); :}
-                    | NOT exp:e               {: RESULT = new Not(e); :}
+exp               ::= logic                   {: RESULT = "Disambiguated logic";; :}
+/*                    | NOT exp:e               {: RESULT = new Not(e); :}*/
                     | exp:e1 rel_op:o exp:e2  {: RESULT = new BinaryExpr(e1, o, e2); :}
-                    | e                       {: RESULT = "disambiguated math"; :}
+                    | math                    {: RESULT = "Disambiguated math"; :}
 /*                    | literal:lit             {: RESULT = lit; :}*/
                     | call_stmt:s             {: RESULT = s; :}
                     | NEW NAME:name           {: RESULT = new New(name); :}
@@ -138,8 +135,8 @@ exp               ::= exp:e1 log_op:o exp:e2  {: RESULT = new BinaryExpr(e1, o, 
                     ;
 
 /* Arithmetic disambiguation */
-e                 ::= e:first ADD:o t:second
-                    | e:first MINUS:o t:second
+math              ::= math:first ADD:o t:second
+                    | math:first MINUS:o t:second
                     | t:first
                     ;
 
@@ -154,8 +151,18 @@ f                 ::= g:first EXPONENT:o f:second
 
 g                 ::= literal:lit
                     ;
-                    
 
+/* Logic disambiguation */
+logic             ::= logic:first OR:o h:second
+                    | h:first
+                    ;
+
+h                 ::= h:first AND:o i:second
+                    | i:second
+                    ;
+
+i                 ::= NOT i:first
+                    ;
 
 literal           ::= STRING_LITERAL:str {: RESULT = new Literal("STRING_LITERAL", str.toString()); :}
                     | INT_LITERAL:i {: RESULT = new Literal("INT_LITERAL", i.toString()); :}
