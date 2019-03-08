@@ -1,9 +1,9 @@
 program ComplexAddition
 begin
-/*  class Complex {
+  struct Complex {
      Real : float;
      Imag : float
-  };*/
+  };
 
   proc Swap(a : ref (int), b : ref(int))
   begin

@@ -178,9 +178,9 @@ stmt              ::= assign_stmt:a {: RESULT = a; :}
                     ;
 
 assign_stmt       ::= var:v ASSIGN_OP exp:e
-                            {: RESULT = new Assign(v.name, e); :}
+                            {: RESULT = new Assign(v, e); :}
                     | deref_var:v ASSIGN_OP exp:e
-                            {: RESULT = new Assign(v.name, e); :}     
+                            {: RESULT = new Assign(v, e); :}     
                     ;
 
 if_stmt           ::= IF exp:e THEN stmt_list:l FI

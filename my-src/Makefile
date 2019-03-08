@@ -1,10 +1,10 @@
 
 init:
 		jflex cuplex/compila.lex -d java
-#		java -jar lib/java-cup-11b.jar -destdir java cuplex/compila.cup
-		java -jar lib/java-cup-11b.jar -destdir java cuplex/compila-nonambiguous.cup
+		java -jar lib/java-cup-11b.jar -destdir java cuplex/compila.cup
+#		java -jar lib/java-cup-11b.jar -destdir java cuplex/compila-nonambiguous.cup
 		javac -cp .:lib/java-cup-11b.jar java/*.java -d classes
-		java -cp .:lib/java-cup-11b.jar:classes Main testfiles/compilatest.txt
+#		java -cp .:lib/java-cup-11b.jar:classes Main testfiles/compilatest.txt
 #		java -cp .:lib/java-cup-11b.jar:classes Main ../src/tests/parsing/test01.cmp
 #		java -cp .:lib/java-cup-11b.jar:classes Main ../src/tests/parsing/test02.cmp
 #		java -cp .:lib/java-cup-11b.jar:classes Main ../src/tests/parsing/test03.cmp
