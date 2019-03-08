@@ -27,7 +27,7 @@ begin
   proc Max (a : int, b : int) : int 
   begin
   in
-     if a > b then
+     if not a > b then
         return a
      fi;
      return b

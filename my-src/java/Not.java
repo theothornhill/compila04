@@ -4,6 +4,8 @@ public class Not extends Expr {
     }
 
     public String printAst(int indentLevel) {
-        return "(NOT " + PrintHelper.astHelper(expr, indentLevel+1);
+        return "(NOT " + PrintHelper.astHelper(expr, indentLevel+1)
+            + PrintHelper.endWithParen(indentLevel)
+            ;
     }
 }

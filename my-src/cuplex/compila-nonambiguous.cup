@@ -131,8 +131,8 @@ h                 ::= h:first AND:o i:second    {: RESULT = new BinaryExpr(first
                     | i:first                   {: RESULT = first; :}
                     ;
 
-i                 ::= NOT i:first               {: new Not(first); :}
-                    | relation:first                {: RESULT = first; :}
+i                 ::= NOT i:first               {: RESULT = new Not(first); :}
+                    | relation:first            {: RESULT = first; :}
                     ;
 
 /* Relational disambiguation */
