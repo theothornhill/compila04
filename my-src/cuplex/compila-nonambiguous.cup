@@ -137,13 +137,13 @@ i                 ::= NOT i:first               {: RESULT = new Not(first); :}
 
 /* Relational disambiguation */
 
-relation          ::= relation:first LT:o math:lit {: RESULT = new BinaryExpr(first, o, lit); :}
+relation          ::= relation:first LT:o math:lit   {: RESULT = new BinaryExpr(first, o, lit); :}
                     | relation:first LTEQ:o math:lit {: RESULT = new BinaryExpr(first, o, lit); :}
-                    | relation:first GT:o math:lit {: RESULT = new BinaryExpr(first, o, lit); :}                    
+                    | relation:first GT:o math:lit   {: RESULT = new BinaryExpr(first, o, lit); :}                    
                     | relation:first GTEQ:o math:lit {: RESULT = new BinaryExpr(first, o, lit); :}
-                    | relation:first EQ:o math:lit {: RESULT = new BinaryExpr(first, o, lit); :}
-                    | relation:first NEQ:o math:lit {: RESULT = new BinaryExpr(first, o, lit); :}
-                    | math:first                    {: RESULT = first; :}
+                    | relation:first EQ:o math:lit   {: RESULT = new BinaryExpr(first, o, lit); :}
+                    | relation:first NEQ:o math:lit  {: RESULT = new BinaryExpr(first, o, lit); :}
+                    | math:first                     {: RESULT = first; :}
                     ;
                     
 /* Arithmetic disambiguation */
