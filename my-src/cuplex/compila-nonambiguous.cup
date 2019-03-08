@@ -1,0 +1,228 @@
+import java_cup.runtime.*;
+import java.io.FileReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.ByteArrayInputStream;
+import java.util.*;
+
+parser code
+{:
+public void syntax_error(Symbol s) {
+    System.err.printf("Syntax error on: [line: %s, column: %s, value: %s]\n",
+                                s.left + 1, s.right + 1, s.value);
+}
+:};
+
+scan with {: return getScanner().next_token(); :};
+
+terminal                           PROGRAM;
+terminal                           BEGIN, END, IN;
+terminal                           LPAR, RPAR, SEMI, COMMA, LCURLY, RCURLY;
+terminal                           REC_DECL, PROC_DECL, VAR_DECL, NEW;
+terminal                           IF, FI, THEN, ELSE, WHILE, DO, OD, RETURN, REF, DEREF;
+terminal String                    INT_LITERAL, STRING_LITERAL, FLOAT_LITERAL;
+terminal String                    TRUE, FALSE;
+terminal                           DOT, COLON, ASSIGN_OP;
+terminal                           NOT, NULL;
+terminal String                    LT, LTEQ, GT, GTEQ, EQ, NEQ;
+terminal String                    ADD, MINUS, MULT, DIVIDE, EXPONENT;
+terminal String                    AND, OR;
+terminal String                    FLOAT, INT, STRING, BOOL;
+terminal String                    NAME;
+nonterminal Program                program;
+nonterminal Stmt                   stmt, assign_stmt, if_stmt, while_stmt;
+nonterminal Stmt                   return_stmt, call_stmt;
+nonterminal Decl                   decl, var_decl, proc_decl, rec_decl;
+nonterminal Param                  paramfield_decl;
+nonterminal                        exp;
+nonterminal Type                   type;
+nonterminal Var                    var, ref_var, deref_var;
+nonterminal Literal                literal;
+nonterminal String                 bool;
+nonterminal                        t, f, g, h, i, j, k, math, binop, relation;
+nonterminal LinkedList<Decl>       decl_list;
+nonterminal LinkedList<Stmt>       stmt_list;
+nonterminal LinkedList<Param>      param_list_comma, param_list_semi;
+nonterminal LinkedList<Object>     exp_list;
+
+
+start with program;
+
+program           ::= PROGRAM NAME:name BEGIN decl_list:dl END
+                               {: RESULT = new Program(name, dl);
+                                  System.out.println(RESULT.printAst()); :}
+                    ;
+
+decl_list         ::= decl:d {: LinkedList<Decl> l = new LinkedList<Decl>();
+                                l.add(d);
+                                RESULT = l; :}
+                    | decl_list:dl SEMI decl:d {: dl.add(d); RESULT = dl; :}
+                    | 
+                    ;
+
+stmt_list          ::= stmt:s {: LinkedList<Stmt> l = new LinkedList<>();
+                                 l.add(s);
+                                 RESULT = l; :}
+                    | stmt_list:sl SEMI stmt:s {: sl.add(s); RESULT = sl; :}
+                    |
+                    ;
+
+param_list_semi   ::= paramfield_decl:p {: LinkedList<Param> l = new LinkedList<>();
+                                           l.add(p);
+                                           RESULT = l; :}
+                    | param_list_semi:pl SEMI paramfield_decl:p
+                                         {: pl.add(p); RESULT = pl; :}
+                    |
+                    ;
+param_list_comma  ::= paramfield_decl:p {: LinkedList<Param> l = new LinkedList<>();
+                                           l.add(p);
+                                           RESULT = l; :}
+                    | param_list_comma:pl COMMA paramfield_decl:p
+                                          {: pl.add(p); RESULT = pl; :}
+                    |
+                    ;
+                    
+exp_list          ::= exp:e {: LinkedList<Object> l = new LinkedList<>();
+                                          l.add(e);
+                                          RESULT = l; :}
+                    | exp_list:el COMMA exp:e {: el.add(e); RESULT = el; :}
+                    |
+                    ;
+
+decl              ::= rec_decl:d {: RESULT = d; :}
+                    | proc_decl:d {: RESULT = d; :}
+                    | var_decl:d {: RESULT = d; :}
+                    ;
+
+var_decl          ::= VAR_DECL NAME:name COLON type:t
+                      {: RESULT = new VarDecl(name, t); :}
+                    ;
+
+rec_decl          ::= REC_DECL NAME:name LCURLY param_list_semi:pl RCURLY
+                               {: RESULT = new RecDecl(name, pl); :}
+                    ;
+
+paramfield_decl   ::= NAME:name COLON type:t {: RESULT = new Param(name, t); :}
+                    ;
+
+proc_decl         ::= PROC_DECL NAME:name
+                                LPAR param_list_comma:pl RPAR
+                                BEGIN decl_list:dl
+                                IN stmt_list:sl END
+                                {: RESULT = new ProcDecl(name, pl, dl, sl); :}
+                    | PROC_DECL NAME:name
+                                LPAR param_list_comma:pl RPAR
+                                COLON type:t
+                                BEGIN decl_list:dl
+                                IN stmt_list:sl END
+                                {: RESULT = new ProcDecl(name, pl, t, dl, sl); :}
+                    ;
+
+exp               ::= binop:b                 {: RESULT = b; :}
+                    ;
+
+
+/* Logic disambiguation */
+binop             ::= binop:first OR:o h:second {: RESULT = new BinaryExpr(first, o, second); :}
+                    | h:first                   {: RESULT = first; :}
+                    ;
+
+h                 ::= h:first AND:o i:second    {: RESULT = new BinaryExpr(first, o, second); :}
+                    | i:first                   {: RESULT = first; :}
+                    ;
+
+i                 ::= NOT i:first               {: new Not(first); :}
+                    | relation:first                {: RESULT = first; :}
+                    ;
+
+/* Relational disambiguation */
+
+relation          ::= relation:first LT:o math:lit {: RESULT = new BinaryExpr(first, o, lit); :}
+                    | relation:first LTEQ:o math:lit {: RESULT = new BinaryExpr(first, o, lit); :}
+                    | relation:first GT:o math:lit {: RESULT = new BinaryExpr(first, o, lit); :}                    
+                    | relation:first GTEQ:o math:lit {: RESULT = new BinaryExpr(first, o, lit); :}
+                    | relation:first EQ:o math:lit {: RESULT = new BinaryExpr(first, o, lit); :}
+                    | relation:first NEQ:o math:lit {: RESULT = new BinaryExpr(first, o, lit); :}
+                    | math:first                    {: RESULT = first; :}
+                    ;
+                    
+/* Arithmetic disambiguation */
+math              ::= math:first ADD:o t:second    {: RESULT = new BinaryExpr(first, o, second); :}
+                    | math:first MINUS:o t:second  {: RESULT = new BinaryExpr(first, o, second); :}
+                    | t:first                      {: RESULT = first; :}
+                    ;
+
+t                 ::= t:first MULT:o f:second      {: RESULT = new BinaryExpr(first, o, second); :}
+                    | t:first DIVIDE:o f:second    {: RESULT = new BinaryExpr(first, o, second); :}
+                    | f:first                      {: RESULT = first; :}
+                    ;
+
+f                 ::= k:first EXPONENT:o f:second  {: RESULT = new BinaryExpr(first, o, second); :}
+                    | k:first                     {: RESULT = first; :}
+                    ;
+
+/* Terminal disambiguation */
+k                 ::= call_stmt:s            {: RESULT = s; :}
+                    | j:first                {: RESULT = first; :}
+                    ;
+
+j                 ::= NAME:name               {: RESULT = new Var(name); :}
+                    | j:e DOT NAME:name       {: RESULT = new Var(e, name); :}
+                    | REF LPAR j:v RPAR       {: RESULT = new RefVar(v); :}
+                    | DEREF LPAR j:v RPAR     {: RESULT = new DerefVar(v); :}
+                    | g:first                 {: RESULT = first; :}
+                    ;
+                    
+g                 ::= literal:lit             {: RESULT = lit; :}
+                    | NEW NAME:name           {: RESULT = new New(name); :}
+                    | LPAR exp:e RPAR         {: RESULT = new NestedExpr(e); :}
+                    ;
+                    
+literal           ::= STRING_LITERAL:str {: RESULT = new Literal("STRING_LITERAL", str.toString()); :}
+                    | INT_LITERAL:i {: RESULT = new Literal("INT_LITERAL", i.toString()); :}
+                    | FLOAT_LITERAL:f {: RESULT = new Literal("FLOAT_LITERAL", f.toString()); :}
+                    | bool:b {: RESULT = new Literal("BOOL_LITERAL", b.toString()); :}
+                    | NULL:n {: RESULT = new Literal("NULL_LITERAL", n.toString()); :}
+                    ;
+
+bool              ::= TRUE:o      {: RESULT = o; :}
+                    | FALSE:o     {: RESULT = o; :}
+                    ;
+
+/* Statements */
+stmt              ::= assign_stmt:a {: RESULT = a; :}
+                    | if_stmt:i     {: RESULT = i; :}
+                    | while_stmt:w  {: RESULT = w; :}
+                    | return_stmt:r {: RESULT = r; :}
+                    | call_stmt:s   {: RESULT = s; :}
+                    ;
+
+assign_stmt       ::= j:v ASSIGN_OP exp:e
+                            {: RESULT = new Assign(v.toString(), e); :}
+                    ;
+
+if_stmt           ::= IF exp:e THEN stmt_list:l FI
+                                           {: RESULT = new If(e, l); :}
+                    | IF exp:e THEN stmt_list:l ELSE stmt_list:l2 FI
+                                           {: RESULT = new If(e, l, l2); :}
+                    ;
+
+while_stmt        ::= WHILE exp:e DO stmt_list:l OD
+                            {: RESULT = new While(e, l); :}
+                    ;
+
+return_stmt       ::= RETURN exp:e {: RESULT = new Return(e); :}
+                    | RETURN {: RESULT = new Return(); :}
+                    ;
+
+call_stmt         ::= NAME:name LPAR exp_list:el RPAR
+                                {: RESULT = new Call(name, el); :}
+                    ;
+
+type              ::= FLOAT:f {: RESULT = new Type(f); :}
+                    | INT:i {: RESULT = new Type(i); :}
+                    | STRING:s {: RESULT = new Type(s); :}
+                    | BOOL:b {: RESULT = new Type(b); :}
+                    | NAME:n {: RESULT = new Type(n); :}
+                    | REF LPAR type:t RPAR {: RESULT = new RefType(t); :}
+                    ;
