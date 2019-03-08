@@ -39,7 +39,7 @@ nonterminal Type                   type;
 nonterminal Var                    var, ref_var, deref_var;
 nonterminal Literal                literal;
 nonterminal String                 bool;
-nonterminal                        t, f, g, h, i, math, binop, relation;
+nonterminal                        t, f, g, h, i, j, k, math, binop, relation;
 nonterminal LinkedList<Decl>       decl_list;
 nonterminal LinkedList<Stmt>       stmt_list;
 nonterminal LinkedList<Param>      param_list_comma, param_list_semi;
@@ -119,13 +119,6 @@ proc_decl         ::= PROC_DECL NAME:name
                     ;
 
 exp               ::= binop:b                 {: RESULT = b; :}
-/*                    | literal:lit             {: RESULT = lit; :}*/
-                    | call_stmt:s             {: RESULT = s; :}
-                    | NEW NAME:name           {: RESULT = new New(name); :}
-                    | var:v                   {: RESULT = v; :}
-                    | ref_var:v               {: RESULT = v; :}
-                    | deref_var:v             {: RESULT = v; :}
-                    | LPAR exp:e RPAR         {: RESULT = new NestedExpr(e); :}
                     ;
 
 
@@ -144,12 +137,12 @@ i                 ::= NOT i:first               {: new Not(first); :}
 
 /* Relational disambiguation */
 
-relation          ::= relation:first LT:o g:lit {: RESULT = new BinaryExpr(first, o, lit); :}
-                    | relation:first LTEQ:o g:lit {: RESULT = new BinaryExpr(first, o, lit); :}
-                    | relation:first GT:o g:lit {: RESULT = new BinaryExpr(first, o, lit); :}                    
-                    | relation:first GTEQ:o g:lit {: RESULT = new BinaryExpr(first, o, lit); :}
-                    | relation:first EQ:o g:lit {: RESULT = new BinaryExpr(first, o, lit); :}
-                    | relation:first NEQ:o g:lit {: RESULT = new BinaryExpr(first, o, lit); :}
+relation          ::= relation:first LT:o math:lit {: RESULT = new BinaryExpr(first, o, lit); :}
+                    | relation:first LTEQ:o math:lit {: RESULT = new BinaryExpr(first, o, lit); :}
+                    | relation:first GT:o math:lit {: RESULT = new BinaryExpr(first, o, lit); :}                    
+                    | relation:first GTEQ:o math:lit {: RESULT = new BinaryExpr(first, o, lit); :}
+                    | relation:first EQ:o math:lit {: RESULT = new BinaryExpr(first, o, lit); :}
+                    | relation:first NEQ:o math:lit {: RESULT = new BinaryExpr(first, o, lit); :}
                     | math:first                    {: RESULT = first; :}
                     ;
                     
@@ -164,13 +157,27 @@ t                 ::= t:first MULT:o f:second      {: RESULT = new BinaryExpr(fi
                     | f:first                      {: RESULT = first; :}
                     ;
 
-f                 ::= g:first EXPONENT:o f:second  {: RESULT = new BinaryExpr(first, o, second); :}
-                    | g:first                      {: RESULT = first; :}
+f                 ::= k:first EXPONENT:o f:second  {: RESULT = new BinaryExpr(first, o, second); :}
+                    | k:first                     {: RESULT = first; :}
                     ;
 
-g                 ::= literal:lit  {: RESULT = lit; :}
+/* Terminal disambiguation */
+k                 ::= call_stmt:s            {: RESULT = s; :}
+                    | j:first                {: RESULT = first; :}
                     ;
 
+j                 ::= NAME:name               {: RESULT = new Var(name); :}
+                    | j:e DOT NAME:name       {: RESULT = new Var(e, name); :}
+                    | REF LPAR j:v RPAR       {: RESULT = new RefVar(v); :}
+                    | DEREF LPAR j:v RPAR     {: RESULT = new DerefVar(v); :}
+                    | g:first                 {: RESULT = first; :}
+                    ;
+                    
+g                 ::= literal:lit             {: RESULT = lit; :}
+                    | NEW NAME:name           {: RESULT = new New(name); :}
+                    | LPAR exp:e RPAR         {: RESULT = new NestedExpr(e); :}
+                    ;
+                    
 literal           ::= STRING_LITERAL:str {: RESULT = new Literal("STRING_LITERAL", str.toString()); :}
                     | INT_LITERAL:i {: RESULT = new Literal("INT_LITERAL", i.toString()); :}
                     | FLOAT_LITERAL:f {: RESULT = new Literal("FLOAT_LITERAL", f.toString()); :}
@@ -190,10 +197,8 @@ stmt              ::= assign_stmt:a {: RESULT = a; :}
                     | call_stmt:s   {: RESULT = s; :}
                     ;
 
-assign_stmt       ::= var:v ASSIGN_OP exp:e
-                            {: RESULT = new Assign(v.name, e); :}
-                    | deref_var:v ASSIGN_OP exp:e
-                            {: RESULT = new Assign(v.name, e); :}     
+assign_stmt       ::= j:v ASSIGN_OP exp:e
+                            {: RESULT = new Assign(v.toString(), e); :}
                     ;
 
 if_stmt           ::= IF exp:e THEN stmt_list:l FI
@@ -212,18 +217,6 @@ return_stmt       ::= RETURN exp:e {: RESULT = new Return(e); :}
 
 call_stmt         ::= NAME:name LPAR exp_list:el RPAR
                                 {: RESULT = new Call(name, el); :}
-                    ;
-
-/* Vars, refs and derefs */
-var               ::= NAME:name                     {: RESULT = new Var(name); :}
-                    | exp:e DOT NAME:name           {: RESULT = new Var(e, name); :}
-                    ;
-
-ref_var           ::= REF LPAR var:v RPAR           {: RESULT = new RefVar(v); :}
-                    ;
-
-deref_var         ::= DEREF LPAR var:v RPAR         {: RESULT = new DerefVar(v); :}
-                    | DEREF LPAR deref_var:v RPAR   {: RESULT = new DerefVar(v); :}
                     ;
 
 type              ::= FLOAT:f {: RESULT = new Type(f); :}

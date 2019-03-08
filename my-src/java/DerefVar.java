@@ -4,6 +4,10 @@ public class DerefVar extends Var {
         super(variable.expr, variable.name);
     }
 
+    public DerefVar(Object obj) {
+        super(obj.toString());
+    }
+
     public String printAst(int indentLevel) {
         if (this.expr == null) {
             return "(DEREFVAR " + PrintHelper.printName(name);
