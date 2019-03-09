@@ -9,7 +9,7 @@
 
 	<!-- Path definitions -->
 	<path id="path-cup">
-		<pathelement location="./my-src/lib/java-cup-11b.jar"/>
+		<pathelement location="./src/lib/java-cup-11b.jar"/>
 		<pathelement location="./lib/JFlex.jar"/>
 	</path>
 
@@ -29,7 +29,7 @@
 		<property name="dir.build" value="${dir.base}/build"/>
 		<property name="dir.src-gen" value="${dir.base}/src-gen"/>
 		<property name="dir.src-examples" value="${dir.base}/src-examples"/>
-		<property name="dir.src" value="${dir.base}/my-src"/>
+		<property name="dir.src" value="${dir.base}/src"/>
 		<property name="dir.desc" value="${dir.base}/desc"/>
 
 		<!-- Directories and files to be created. -->
@@ -62,8 +62,8 @@
 
 	<!-- Generate scanner and parser using JFlex and CUP  -->
 	<target name="generate" depends="mkdir">
-		<jflex file="./my-src/cuplex/compila.lex" destdir="src-gen"/>
-		<cup srcfile="./my-src/cuplex/compila.cup" destdir="src-gen" interface="true" />
+		<jflex file="./src/cuplex/compila.lex" destdir="src-gen"/>
+		<cup srcfile="./src/cuplex/compila.cup" destdir="src-gen" interface="true" />
 	</target>
 
 	<!-- Compile Java Files and store in /build/classes directory  -->
@@ -79,7 +79,7 @@
 	<target name="run" depends="init">
 		<java classname="Main" classpathref="path-run">
 			<arg value="material/sample-compila-ast/complexaddition.cmp"/> 
-		    <arg value="my-src/complex-ast.ast"/>
+		    <arg value="src/complex-ast.ast"/>
 		</java>
 	</target>
 </project>

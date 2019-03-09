@@ -1,6 +1,0 @@
-program p begin  
-  proc a ()
-  begin 
-    x :=  a < b + x < d;  /* error, semicolon is a separator */
-  end
-end  

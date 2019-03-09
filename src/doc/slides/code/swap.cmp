@@ -1,8 +1,0 @@
-proc swap (a: ref(int), b: ref(int))  // passed as reference
-begin
-   var tmp: int;
-   tmp := deref(a);                  // dereferencing
-   deref(a) := deref(b);             // deref can be used both  
-   deref(b) := tmp                   // left and right of
-                                     // an assignment.
-end;

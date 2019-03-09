@@ -1,5 +1,0 @@
-program R begin  
-  struct abc { };
-  struct ef { x : int };
-  struct a5 { x : int;      y : bool     }; /* should fail here: semicolon */
-end  

@@ -1,7 +1,0 @@
-program main 
-begin
-    proc x() 
-    begin 
-       proc := 1  /* keyword != identifier */
-    end 
-end 

@@ -1,4 +1,0 @@
-program main 
-begin
-    var x : 2int  /* wrong id */
-end 

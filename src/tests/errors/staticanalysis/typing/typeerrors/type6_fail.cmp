@@ -1,8 +1,0 @@
-program type6_fail
-begin
-
-    proc main()
-    begin
-       42.Foo := 42; /* error */
-    end;
-end

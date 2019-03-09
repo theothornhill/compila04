@@ -1,5 +1,0 @@
-program A_A begin  /* some ref's */
-  var x : x;      /* no type checking yet */
-  var x : ref ( x );
-  var x : ref ( ref (x))
-end  

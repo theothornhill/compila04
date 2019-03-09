@@ -1,6 +1,0 @@
-program main_wrong_parameters_fail
-begin
- proc main( errorhere : int ) /* Fail: parameter to main. */
- begin
- end
-end

@@ -21,7 +21,7 @@ import java_cup.runtime.*;
   return new Symbol(sym.EOF);
 %eofval}
 %eof{
-  System.out.println("Reached end of file!");
+  System.out.println("Scanning done");
 %eof}
  /* Whitespaces */
 LineTerminator  = \n|\r|\r\n

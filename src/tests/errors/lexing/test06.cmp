@@ -1,7 +1,0 @@
-program main 
-begin
-    proc x() 
-    begin 
-       x := .55  /* illegal float */
-    end 
-end 

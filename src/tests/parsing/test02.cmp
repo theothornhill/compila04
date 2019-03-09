@@ -1,5 +1,0 @@
-/* This program has comments  */
-program x begin end  /* --- */
-
-/* ------ including multiline comments.
-   ----     */

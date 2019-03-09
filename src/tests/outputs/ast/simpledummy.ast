@@ -1,4 +1,0 @@
-(PROGRAM (NAME DummyProgram)
-	(CLASS_DECL (NAME TestClass))
-	(CLASS_DECL (NAME TestClass2))
-)

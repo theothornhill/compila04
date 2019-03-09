@@ -1,5 +1,0 @@
-program p begin   /* testing proc declarations */
-  proc a (a:int,b:bool,) : int   /* that should not be allowed */
-  begin 
-  end
-end  

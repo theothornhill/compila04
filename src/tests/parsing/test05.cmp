@@ -1,9 +1,0 @@
-program R begin   /* some records */
-  var x : x;      
-  struct abc { };
-  var x : ref ( ref (x));
-  struct ef { x : int };
-  struct a5 { x : int;  
-              y : ref (x)      };
-  var x : ref ( x )
-end  

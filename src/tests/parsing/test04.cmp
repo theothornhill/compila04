@@ -1,5 +1,0 @@
-program R begin  /* some records */
-  struct abc { };
-  struct ef { x : int };
-  struct a5 { x : int;              y : bool     }
-end  
