@@ -19,7 +19,7 @@ exercise. It has been tested locally on my machine, and also on UiO over ssh
 Run all commands from root of git repository:
 ** Cleaning
 #+NAME: clean
-#+BEGIN_SRC shell :results output
+#+BEGIN_SRC shell :results output :exports both
 ant clean
 #+END_SRC
 
@@ -35,7 +35,7 @@ ant clean
 
 ** Building
 #+NAME: build
-#+BEGIN_SRC shell :results output
+#+BEGIN_SRC shell :results output :exports both
 ant build
 #+END_SRC
 
