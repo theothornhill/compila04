@@ -11,7 +11,7 @@ public class Program {
     public String printAst() {
         StringBuilder sb = new StringBuilder();
         int indentLevel = 0;
-        sb.append("(PROGRAM ");
+        sb.append("(PROGRAM");
         sb.append(PrintHelper.printName(name));
         if (declarations != null) {
             for (Decl decl : declarations) {

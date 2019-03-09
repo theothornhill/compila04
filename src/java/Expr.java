@@ -1,16 +1,4 @@
-public class Expr {
+public abstract class Expr {
     Object expr;
-    public Expr(Object expr) {
-        this.expr = expr;
-    }
-
-    public Expr() {
-        
-    }
-    
-    public String printAst(int indentLevel) {
-        return expr instanceof Expr
-            ? ((Expr) expr).printAst(indentLevel)
-            : expr.toString();
-    }
+    public abstract String printAst(int indentLevel);
 }

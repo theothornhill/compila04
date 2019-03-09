@@ -9,7 +9,7 @@ public class Call extends Stmt {
 
     public String printAst(int indentLevel) {
         StringBuilder sb = new StringBuilder();
-        sb.append("(CALL_STMT ");
+        sb.append("(CALL_STMT");
         sb.append(PrintHelper.printName(name));
         if (el != null) {
             for (Object e : el) {

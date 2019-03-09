@@ -9,7 +9,7 @@ public class RecDecl extends Decl {
 
     public String printAst(int indentLevel) {
         StringBuilder sb = new StringBuilder();
-        sb.append("(STRUCT ");
+        sb.append("(STRUCT");
         sb.append(PrintHelper.printName(name));
         if (pl != null) {
             for (Param param : pl) {

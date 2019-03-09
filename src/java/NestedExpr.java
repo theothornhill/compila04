@@ -1,6 +1,6 @@
 public class NestedExpr extends Expr {
     public NestedExpr(Object expr) {
-        super(expr);
+        this.expr = expr;
     }
 
     public String printAst(int indentLevel) {

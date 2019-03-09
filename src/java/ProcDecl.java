@@ -29,7 +29,7 @@ public class ProcDecl extends Decl {
     }
 
     private String printType(int indentLevel) {
-        return type == null ? "(TYPE void) " : type.printAst(indentLevel) + " ";
+        return type == null ? "(TYPE void)" : type.printAst(indentLevel);
     }
 
     public String printAst(int indentLevel) {

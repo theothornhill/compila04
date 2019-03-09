@@ -1,6 +1,6 @@
 public class Not extends Expr {
     public Not(Object expr) {
-        super(expr);
+        this.expr = expr;
     }
 
     public String printAst(int indentLevel) {

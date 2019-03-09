@@ -22,7 +22,7 @@ public class PrintHelper {
     }
 
     public static String printName(String name) {
-        return "(NAME " + name + ")";
+        return " (NAME " + name + ")";
     }
     
     public static String printDecl(Decl decl, int indentLevel) {
