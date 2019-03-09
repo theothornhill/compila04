@@ -83,7 +83,7 @@ Total time: 1 second
 
 ** Running
 #+NAME: test-run
-#+BEGIN_SRC shell :results output
+#+BEGIN_SRC shell :results output :exports both
 ant run
 #+END_SRC
 
