@@ -33,3 +33,121 @@ ant run
 #+END_SRC
 
 * Output from test-run
+#+BEGIN_SRC sh
+Buildfile: /Users/theodor/Dropbox/Studier/fag/INF5110/compila04/build.xml
+
+init:
+
+run:
+     [java] Scanning done
+     [java] (PROGRAM (NAME ComplexAddition)
+     [java] 	(STRUCT (NAME Complex)
+     [java] 		(PARAM_DECL (TYPE float)(NAME Real)
+     [java] 		(PARAM_DECL (TYPE float)(NAME Imag)
+     [java] 	)
+     [java] 	(PROC_DECL (TYPE void) (NAME Swap)
+     [java] 		(PARAM_DECL (REFTYPE (TYPE int))(NAME a)
+     [java] 		(PARAM_DECL (REFTYPE (TYPE int))(NAME b)
+     [java] 
+     [java] 		(VAR (TYPE int)(NAME tmp))
+     [java] 
+     [java] 		(ASSIGN_STMT
+     [java] 			(VAR (NAME tmp))
+     [java] 			(VAR (NAME a))
+     [java] 		)
+     [java] 		(ASSIGN_STMT
+     [java] 			(VAR (NAME a))
+     [java] 			(VAR (NAME b))
+     [java] 		)
+     [java] 		(ASSIGN_STMT
+     [java] 			(VAR (NAME b))
+     [java] 			(VAR (NAME tmp))
+     [java] 		)
+     [java] 	)
+     [java] 	(PROC_DECL (TYPE Complex) (NAME Add)
+     [java] 		(PARAM_DECL (TYPE Complex)(NAME a)
+     [java] 		(PARAM_DECL (TYPE Complex)(NAME b)
+     [java] 
+     [java] 		(VAR (TYPE Complex)(NAME retval))
+     [java] 
+     [java] 		(ASSIGN_STMT
+     [java] 			(VAR (NAME retval))
+     [java] 			(NEW Complex)
+     [java] 		)
+     [java] 		(ASSIGN_STMT
+     [java] 			(VAR (NAME retval))(NAME Real)
+     [java] 			)
+     [java] 			(BINARY_OPERATION +
+     [java] 				(VAR (NAME a))(NAME Real)
+     [java] 				)
+     [java] 				(VAR (NAME b))(NAME Real)
+     [java] 				)
+     [java] 			)
+     [java] 		)
+     [java] 		(ASSIGN_STMT
+     [java] 			(VAR (NAME retval))(NAME Imag)
+     [java] 			)
+     [java] 			(BINARY_OPERATION +
+     [java] 				(VAR (NAME a))(NAME Imag)
+     [java] 				)
+     [java] 				(VAR (NAME b))(NAME Imag)
+     [java] 				)
+     [java] 			)
+     [java] 		)
+     [java] 		(RETURN (VAR (NAME retval))
+     [java] 		)
+     [java] 	)
+     [java] 	(PROC_DECL (TYPE int) (NAME Max)
+     [java] 		(PARAM_DECL (TYPE int)(NAME a)
+     [java] 		(PARAM_DECL (TYPE int)(NAME b)
+     [java] 
+     [java] 
+     [java] 		(IF (NOT (BINARY_OPERATION >
+     [java] 					(VAR (NAME a))
+     [java] 					(VAR (NAME b))
+     [java] 				)
+     [java] 			)
+     [java] 			(RETURN (VAR (NAME a))
+     [java] 			)
+     [java] 		)
+     [java] 		(RETURN (VAR (NAME b))
+     [java] 		)
+     [java] 	)
+     [java] 	(PROC_DECL (TYPE void) (NAME main)
+     [java] 
+     [java] 		(PROC_DECL (TYPE float) (NAME Square)
+     [java] 			(PARAM_DECL (TYPE float)(NAME val)
+     [java] 
+     [java] 
+     [java] 			(RETURN (BINARY_OPERATION ^
+     [java] 					(VAR (NAME val))
+     [java] 					(FLOAT_LITERAL 2.0)
+     [java] 				)
+     [java] 			)
+     [java] 		)
+     [java] 		(VAR (TYPE float)(NAME num))
+     [java] 
+     [java] 		(ASSIGN_STMT
+     [java] 			(VAR (NAME num))
+     [java] 			(FLOAT_LITERAL 6.480740)
+     [java] 		)
+     [java] 		(CALL_STMT (NAME print_float)
+     [java] 			(VAR (NAME num))
+     [java] 		)
+     [java] 		(CALL_STMT (NAME print_str)
+     [java] 			(STRING_LITERAL " squared is ")
+     [java] 		)
+     [java] 		(CALL_STMT (NAME print_float)
+     [java] 			(CALL_STMT (NAME Square)
+     [java] 				(VAR (NAME num))
+     [java] 			)
+     [java] 		)
+     [java] 		(RETURN)
+     [java] 	)
+     [java] )
+
+BUILD SUCCESSFUL
+Total time: 0 seconds
+#+END_SRC
+
+
