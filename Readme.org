@@ -1,148 +1,24 @@
-#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t
-#+OPTIONS: broken-links:nil c:nil creator:nil d:(not "LOGBOOK") date:t e:t
-#+OPTIONS: email:nil f:t inline:t num:t p:nil pri:nil prop:nil stat:t
-#+OPTIONS: tags:nil tasks:t tex:t timestamp:t title:t toc:t todo:t |:t
-#+TITLE: Compila 19 (language and compiler skeleton)
-#+DATE: <2018-02-25 So>
-#+AUTHOR: Martin Steffen
-#+EMAIL: msteffen@ifi.uio.no
-#+LANGUAGE: en
-#+SELECT_TAGS: export slides B_frame B_againframe
-#+EXCLUDE_TAGS: private noexport B_note todo handout ARCHIVE script
-#+CREATOR: Emacs 25.3.1 (Org mode 9.1.6)
+* Introduction
+This is my attempt on the first obligatory exercise in INF5110 on UiO. The first
+exercise is to build a lexer and parser for a provided grammar/language, and
+produce its abstract syntax tree.
 
- 
+* How to build and run
+You need to have =ant= on your system, which also is recommended tool for this
+exercise. It has been tested locally on my machine, and also on UiO over ssh
 
+** Cleaning
+#+BEGIN_SRC sh
+ant clean
+#+END_SRC
 
-* Intro
+** Building
+#+BEGIN_SRC sh
+ant build
+#+END_SRC
 
-The repository host material for the /Compila 19/ compiler, which is the
-content of oblig 1 and 2 for the course ``compiler construction''
-([[http://www.uio.no/studier/emner/matnat/ifi/INF5110/][INF5110]]/INF9110). The material focuses on the code and the description and
-documentation of the compiler. /Not/ contained here is the compiler /course/
-itself (the slides, the exercises etc).  Those are kept in the respository
-of the course itself, and the generated slides are kept in the Vortex
-system on the course's web-page.
-
-
-* Overview over the directory's structure
-
-- [[./src]]: sources (of all kinds, including documentation).
-- [[./doc]]: generated documentation 
-  - language specification
-  - byte code interpreter
-  - instructions about the obligs
-- [[./material]]: extra material, for example a test expression evaluator and parser
-      (a simple working example of making use of lex and yacc)
-- [[./lib]]: lexer and yaccer tools (jlex + cup), as jar files
-
-- [[./build.xml]]: simple /ant/ build file. Type ~ant~ in a command shell to see current
-              possible targets. One can adapt according to one's needs. Also for oblig2,
-	      one will have to add more ``targets'' (because then there will be more things
-	      to do, like type checking etc.) Alternative ``build'' methods are allowed as well
-	      if preferred (make, maven) as long as they are commonly available.
-
--  [[./previoussemesters]]: not relevant, for ``historical'' purposes only
-      
-
-- ([[./build]]): generated (if one uses the .build.xml)
-
-
-  - [[Readme.org]]: this file
-
-  - [[.gitignore]]: git administrative file: things probably not intended to be
-                checked in
-
-
-
-* First steps
-
-
-
-Take this directory as ``starting point'', i.e., get yourself a ``copy''
-from this directory, for instance by downloading  the zip-file, using the
-corresponding green button of the github web-page)
-
-** Rename it to fit to your  own project:
-
-After getting a copy after unzipping, the directory will be called
-~compila-master~. Rename the directory to fit with your group number, so if
-your group is ~01~, your (resp. your groups) directory is called
-~compila01~.  If you instead of downloading the zip, get yourself a clone:
-Make sure that the original repos [[https://github.uio.no/msteffen/compila]] is
-no longer connected to your clone, as you should just use it as a starting
-point for your project, and not to work in the common code base.
-
-  
-
-** Some check to see if everything on your system is in place
-
-You should make sure that java runs (and the classpath is not messed up
-somehow etc).  Perhaps check if ~ant~ is running. 
-
-*** Check the simple evaluator
-
-Inside the compila-directory, do
-
-
-#+begin_src 
-   cd material/simpleexpression
-   ant 
-#+end_src
-watch the output, and try out the shown target (1 clean, 2 different
-programs that can be built and run).
-
-*** Check the dummy code
-
-Do the same for the dummy- and skeleton-classes provided as starting point
-for the real compiler. Again, inside the compila directory do
-
-#+begin_src 
- ant   
- ant build
- and run
-#+end_src
-
-
-There might be warnings about ``non-reproducible builds'', but you can
-ignore that.
-
-
-
-
-
-** Make it availabe via git
-
-Typically that means: create yourself a repos at ~github.uio.no~ called
-~compila<xxx>~. If the project is non-public, add me (~msteffen~) as
-collaborator. /Inform me via email about the url of the repos./ It's a good
-idea /not/ to wait for that until the deadline for the oblig, but at that
-time I need access to your project. Make sure that the project is usable
-``out-of-the-box'', like: if a third person (like me) does the following steps:
-
-#+begin_src 
-  git clone <url to your project>
-  cd compila<xxx>  
-  ant build        // or whatever
-#+end_src
-it does the intended thing. There must also be a simple top-level
-Readme-file that instruct a user what to do. If wished you can edit and
-clean up the ~Readme.org~ file here to fit the needs of your project, or
-replace it but another Readme file (but no need to have 2 readme-files
-around).
-
-
-
-* Some relevant external links 
-
-
-   - [[http://jflex.de][JFlex]] in particular the [[http://jflex.de/manual.html][user manual]]
-   - [[http://www2.cs.tum.edu/projects/cup/][CUP]], also here the [[http://www.cs.princeton.edu/~appel/modern/java/CUP/manual.html][manual]] from Princeton, 
-   - [[http://ant.apache.org/][ant]]
-
-
-In the cases of the tools, especially the input syntax (for the lexer and
-for the parser) are relevant. Probably one learns a lot from examples, that
-are provided with those tools. For ant, use the ~built.xml~ provided /here/
-as starting point, it should give a good start.
+** Running
+#+BEGIN_SRC sh
+ant run
+#+END_SRC
 
