@@ -6,7 +6,7 @@ produce its abstract syntax tree.
 * How to build and run
 You need to have =ant= on your system, which also is recommended tool for this
 exercise. It has been tested locally on my machine, and also on UiO over ssh
-
+Run all commands from root of git repository:
 ** Cleaning
 #+BEGIN_SRC sh
 ant clean
