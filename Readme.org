@@ -18,22 +18,78 @@ You need to have =ant= on your system, which also is recommended tool for this
 exercise. It has been tested locally on my machine, and also on UiO over ssh
 Run all commands from root of git repository:
 ** Cleaning
-#+BEGIN_SRC sh
+#+NAME: clean
+#+BEGIN_SRC shell :results output
 ant clean
 #+END_SRC
 
+#+RESULTS: clean
+: Buildfile: /Users/theodor/Dropbox/Studier/fag/INF5110/compila04/build.xml
+: 
+: init:
+: 
+: clean:
+: 
+: BUILD SUCCESSFUL
+: Total time: 0 seconds
+
 ** Building
-#+BEGIN_SRC sh
+#+NAME: build
+#+BEGIN_SRC shell :results output
 ant build
 #+END_SRC
 
+#+RESULTS: build
+#+begin_example
+Buildfile: /Users/theodor/Dropbox/Studier/fag/INF5110/compila04/build.xml
+
+init:
+
+mkdir:
+    [mkdir] Created dir: /Users/theodor/Dropbox/Studier/fag/INF5110/compila04/build/classes
+
+generate:
+    [jflex] Generated: Lexer.java
+      [cup] This is CUP v0.11a beta 20060608
+      [cup] Authors : Scott E. Hudson, Frank Flannery, Andrea Flexeder, Michael Petter and C. Scott Ananian
+      [cup] Bugreports to petter@cs.tum.edu
+      [cup] checking, whether this run is necessary
+      [cup] Either Parserfile or Symbolfile didn't exist
+      [cup] Parserfile src-gen/parser.java isn't actual
+      [cup] Symbolfile src-gen/sym.java isn't actual
+      [cup] ------- CUP v0.11a beta 20060608 Parser Generation Summary -------
+      [cup]   0 errors and 0 warnings
+      [cup]   54 terminals, 27 non-terminals, and 80 productions declared, 
+      [cup]   producing 145 unique parse states.
+      [cup]   0 terminals declared but not used.
+      [cup]   0 non-terminals declared but not used.
+      [cup]   0 productions never reduced.
+      [cup]   0 conflicts detected (0 expected).
+      [cup]   Code written to "parser.java", and "sym.java".
+      [cup] ---------------------------------------------------- (v0.11a beta 20060608)
+
+compile:
+    [javac] /Users/theodor/Dropbox/Studier/fag/INF5110/compila04/build.xml:59: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 25 source files to /Users/theodor/Dropbox/Studier/fag/INF5110/compila04/build/classes
+    [javac] Note: /Users/theodor/Dropbox/Studier/fag/INF5110/compila04/src-gen/parser.java uses unchecked or unsafe operations.
+    [javac] Note: Recompile with -Xlint:unchecked for details.
+    [javac] /Users/theodor/Dropbox/Studier/fag/INF5110/compila04/build.xml:60: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+
+build:
+
+BUILD SUCCESSFUL
+Total time: 1 second
+#+end_example
+
 ** Running
-#+BEGIN_SRC sh
+#+NAME: test-run
+#+BEGIN_SRC shell :results output
 ant run
 #+END_SRC
 
-* Output from test-run
-#+BEGIN_SRC sh
+* Results of test-run
+#+RESULTS: test-run
+#+begin_example
 Buildfile: /Users/theodor/Dropbox/Studier/fag/INF5110/compila04/build.xml
 
 init:
@@ -148,6 +204,4 @@ run:
 
 BUILD SUCCESSFUL
 Total time: 0 seconds
-#+END_SRC
-
-
+#+end_example
