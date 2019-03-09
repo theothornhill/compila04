@@ -20,8 +20,5 @@ material/simpleexpressions/src-gen/expression_eval/
 material/simpleexpressions/src-gen/expression_par/
 src/grammars/.#compila.cup
 .DS_Store
-my-src/.DS_Store
-my-src/Lexer.java
-my-src/parser.java
-my-src/sym.java
+src-gen/*.java
 *.class
