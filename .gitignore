@@ -22,4 +22,5 @@ src/grammars/.#compila.cup
 .DS_Store
 src-gen/parser.java
 src-gen/sym.java
+src-gen/Lexer.java
 *.class
