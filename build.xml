@@ -19,7 +19,7 @@
 	</path>
 
 	<!-- Task definitions -->
-	<taskdef classname="JFlex.anttask.JFlexTask" name="jflex" classpathref="path-cup" />
+	<taskdef classname="jflex.anttask.JFlexTask" name="jflex" classpathref="path-cup" />
 	<taskdef classname="java_cup.anttask.CUPTask" name="cup" classpathref="path-cup"/>
 
 	<!-- Target definitions -->
