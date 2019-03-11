@@ -66,8 +66,16 @@
 	<!-- Run the system  -->
 	<target name="run" depends="init">
 		<java classname="Main" classpathref="path-run">
-          <arg value="src/testfiles/euclid.cmp"/> 
-		  <arg value="src/complex-ast.ast"/>
+          <arg value="src/testfiles/euclid.cmp"/>
+		</java>
+		<java classname="Main" classpathref="path-run">
+          <arg value="src/testfiles/complexaddition.cmp"/>
+		</java>
+		<java classname="Main" classpathref="path-run">
+          <arg value="src/testfiles/plog.cmp"/>
+		</java>
+		<java classname="Main" classpathref="path-run">
+          <arg value="src/testfiles/runme.cmp"/> 
 		</java>
 	</target>
 </project>
