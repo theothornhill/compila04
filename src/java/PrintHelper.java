@@ -2,7 +2,7 @@ public class PrintHelper {
     public static String buildIndentation(int indentLevel) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < indentLevel; i++) {
-            sb.append("\t");
+            sb.append("  "); // Adds two spaces to indentation
         }
         return sb.toString();
     }
