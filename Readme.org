@@ -13,9 +13,10 @@ theodokt@ifi.uio.no | theodorthornhill@icloud.com
 This is my attempt on the first obligatory exercise in INF5110 on UiO. The first
 exercise is to build a lexer and parser for a provided grammar/language, and
 produce its abstract syntax tree.
-* How to build and runp
+* How to build and run
 You need to have =ant= on your system, which also is recommended tool for this
-exercise. It has been tested locally on my machine, and also on UiO over ssh
+exercise. It has been tested locally on my machine, and also on UiO over ssh.
+
 Run all commands from root of git repository:
 ** Cleaning
 #+NAME: clean
@@ -87,7 +88,7 @@ Total time: 1 second
 ant run
 #+END_SRC
 
-* Results of test-run
+* Results of run
 
 #+RESULTS: test-run
 #+begin_example
@@ -99,8 +100,8 @@ run:
      [java] Scanning done
      [java] (PROGRAM (NAME euclid)
      [java]   (PROC_DECL (TYPE int) (NAME gcd)
-     [java]     (PARAM_DECL (TYPE int) (NAME a)
-     [java]     (PARAM_DECL (TYPE int) (NAME b)
+     [java]     (PARAM_DECL (TYPE int) (NAME a))
+     [java]     (PARAM_DECL (TYPE int) (NAME b))
      [java] 
      [java]     (VAR (TYPE int) (NAME res))
      [java] 
@@ -149,8 +150,6 @@ run:
      [java]     )
      [java]   )
      [java]   (PROC_DECL (TYPE void) (NAME Main)
-     [java] 
-     [java] 
      [java]     (CALL_STMT (NAME printint)
      [java]       (CALL_STMT (NAME gcd)
      [java]         (INT_LITERAL 6)
@@ -183,12 +182,12 @@ run:
      [java] Scanning done
      [java] (PROGRAM (NAME ComplexAddition)
      [java]   (STRUCT (NAME Complex)
-     [java]     (PARAM_DECL (TYPE float) (NAME Real)
-     [java]     (PARAM_DECL (TYPE float) (NAME Imag)
+     [java]     (PARAM_DECL (TYPE float) (NAME Real))
+     [java]     (PARAM_DECL (TYPE float) (NAME Imag))
      [java]   )
      [java]   (PROC_DECL (TYPE void) (NAME Swap)
-     [java]     (PARAM_DECL (REFTYPE (TYPE int)) (NAME a)
-     [java]     (PARAM_DECL (REFTYPE (TYPE int)) (NAME b)
+     [java]     (PARAM_DECL (REFTYPE (TYPE int)) (NAME a))
+     [java]     (PARAM_DECL (REFTYPE (TYPE int)) (NAME b))
      [java] 
      [java]     (VAR (TYPE int) (NAME tmp))
      [java] 
@@ -206,8 +205,8 @@ run:
      [java]     )
      [java]   )
      [java]   (PROC_DECL (TYPE Complex) (NAME Add)
-     [java]     (PARAM_DECL (TYPE Complex) (NAME a)
-     [java]     (PARAM_DECL (TYPE Complex) (NAME b)
+     [java]     (PARAM_DECL (TYPE Complex) (NAME a))
+     [java]     (PARAM_DECL (TYPE Complex) (NAME b))
      [java] 
      [java]     (VAR (TYPE Complex) (NAME retval))
      [java] 
@@ -239,9 +238,8 @@ run:
      [java]     )
      [java]   )
      [java]   (PROC_DECL (TYPE void) (NAME Max)
-     [java]     (PARAM_DECL (TYPE int) (NAME a)
-     [java]     (PARAM_DECL (TYPE int) (NAME b)
-     [java] 
+     [java]     (PARAM_DECL (TYPE int) (NAME a))
+     [java]     (PARAM_DECL (TYPE int) (NAME b))
      [java] 
      [java]     (IF (BINARY_OPERATION >
      [java]         (VAR (NAME a))
@@ -254,10 +252,8 @@ run:
      [java]     )
      [java]   )
      [java]   (PROC_DECL (TYPE void) (NAME main)
-     [java] 
      [java]     (PROC_DECL (TYPE void) (NAME Square)
-     [java]       (PARAM_DECL (TYPE float) (NAME val)
-     [java] 
+     [java]       (PARAM_DECL (TYPE float) (NAME val))
      [java] 
      [java]       (RETURN (BINARY_OPERATION ^
      [java]           (VAR (NAME val))
@@ -288,8 +284,8 @@ run:
      [java] Scanning done
      [java] (PROGRAM (NAME plog)
      [java]   (PROC_DECL (TYPE void) (NAME symbols)
-     [java]     (PARAM_DECL (TYPE int) (NAME n)
-     [java]     (PARAM_DECL (TYPE string) (NAME zz)
+     [java]     (PARAM_DECL (TYPE int) (NAME n))
+     [java]     (PARAM_DECL (TYPE string) (NAME zz))
      [java] 
      [java]     (VAR (TYPE int) (NAME i))
      [java] 
@@ -314,7 +310,6 @@ run:
      [java]     )
      [java]   )
      [java]   (PROC_DECL (TYPE void) (NAME skriv_plog)
-     [java] 
      [java]     (VAR (TYPE int) (NAME h))
      [java]     (VAR (TYPE int) (NAME j))
      [java] 
@@ -368,21 +363,19 @@ run:
      [java]     )
      [java]   )
      [java]   (PROC_DECL (TYPE void) (NAME Main)
-     [java] 
-     [java] 
      [java]     (CALL_STMT (NAME skriv_plog))
      [java]   )
      [java] )
      [java] Scanning done
      [java] (PROGRAM (NAME runme)
      [java]   (STRUCT (NAME Complex)
-     [java]     (PARAM_DECL (TYPE float) (NAME Real)
-     [java]     (PARAM_DECL (TYPE float) (NAME Imag)
+     [java]     (PARAM_DECL (TYPE float) (NAME Real))
+     [java]     (PARAM_DECL (TYPE float) (NAME Imag))
      [java]   )
      [java]   (VAR (TYPE Complex) (NAME dummy))
      [java]   (PROC_DECL (TYPE Complex) (NAME Add)
-     [java]     (PARAM_DECL (TYPE Complex) (NAME a)
-     [java]     (PARAM_DECL (TYPE Complex) (NAME b)
+     [java]     (PARAM_DECL (TYPE Complex) (NAME a))
+     [java]     (PARAM_DECL (TYPE Complex) (NAME b))
      [java] 
      [java]     (VAR (TYPE Complex) (NAME retval))
      [java] 
@@ -414,8 +407,8 @@ run:
      [java]     )
      [java]   )
      [java]   (PROC_DECL (TYPE int) (NAME Max)
-     [java]     (PARAM_DECL (TYPE int) (NAME a)
-     [java]     (PARAM_DECL (TYPE int) (NAME b)
+     [java]     (PARAM_DECL (TYPE int) (NAME a))
+     [java]     (PARAM_DECL (TYPE int) (NAME b))
      [java] 
      [java]     (VAR (TYPE int) (NAME res))
      [java] 
@@ -438,8 +431,7 @@ run:
      [java]     )
      [java]   )
      [java]   (PROC_DECL (TYPE void) (NAME printCmplx)
-     [java]     (PARAM_DECL (TYPE Complex) (NAME pr)
-     [java] 
+     [java]     (PARAM_DECL (TYPE Complex) (NAME pr))
      [java] 
      [java]     (CALL_STMT (NAME printstr)
      [java]       (STRING_LITERAL "Real ")
@@ -463,7 +455,6 @@ run:
      [java]     )
      [java]   )
      [java]   (PROC_DECL (TYPE void) (NAME test)
-     [java] 
      [java]     (VAR (TYPE Complex) (NAME c1))
      [java]     (VAR (TYPE Complex) (NAME c2))
      [java]     (VAR (TYPE Complex) (NAME cAdd))
@@ -522,15 +513,13 @@ run:
      [java]     )
      [java]   )
      [java]   (PROC_DECL (TYPE void) (NAME printStr)
-     [java]     (PARAM_DECL (TYPE string) (NAME str)
-     [java] 
+     [java]     (PARAM_DECL (TYPE string) (NAME str))
      [java] 
      [java]     (CALL_STMT (NAME printstr)
      [java]       (VAR (NAME str))
      [java]     )
      [java]   )
      [java]   (PROC_DECL (TYPE void) (NAME inOutTest)
-     [java] 
      [java]     (VAR (TYPE int) (NAME v1))
      [java]     (VAR (TYPE int) (NAME v2))
      [java] 
@@ -562,7 +551,6 @@ run:
      [java]     )
      [java]   )
      [java]   (PROC_DECL (TYPE void) (NAME Main)
-     [java] 
      [java]     (VAR (TYPE float) (NAME num))
      [java]     (VAR (TYPE int) (NAME num2))
      [java]     (VAR (TYPE string) (NAME navn))
