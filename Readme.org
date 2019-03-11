@@ -14,8 +14,12 @@ This is my attempt on the first obligatory exercise in INF5110 on UiO. The first
 exercise is to build a lexer and parser for a provided grammar/language, and
 produce its abstract syntax tree.
 * How to build and run
-You need to have =ant= on your system, which also is recommended tool for this
-exercise. It has been tested locally on my machine, and also on UiO over ssh
+
+You need to have =ant=  and =java= on your system, which also is recommended tool for this
+exercise. It has been tested locally on my machine, and also on UiO over ssh.
+
+=JFlex= and =cup= should be provided in the repo and be sourced from there
+
 Run all commands from root of git repository:
 ** Cleaning
 #+NAME: clean
@@ -59,8 +63,8 @@ generate:
       [cup] Symbolfile src-gen/sym.java isn't actual
       [cup] ------- CUP v0.11a beta 20060608 Parser Generation Summary -------
       [cup]   0 errors and 0 warnings
-      [cup]   54 terminals, 27 non-terminals, and 80 productions declared, 
-      [cup]   producing 145 unique parse states.
+      [cup]   54 terminals, 27 non-terminals, and 82 productions declared, 
+      [cup]   producing 149 unique parse states.
       [cup]   0 terminals declared but not used.
       [cup]   0 non-terminals declared but not used.
       [cup]   0 productions never reduced.
@@ -69,11 +73,11 @@ generate:
       [cup] ---------------------------------------------------- (v0.11a beta 20060608)
 
 compile:
-    [javac] /Users/theodor/Dropbox/Studier/fag/INF5110/compila04/build.xml:59: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] /Users/theodor/Dropbox/Studier/fag/INF5110/compila04/build.xml:60: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
     [javac] Compiling 25 source files to /Users/theodor/Dropbox/Studier/fag/INF5110/compila04/build/classes
     [javac] Note: /Users/theodor/Dropbox/Studier/fag/INF5110/compila04/src-gen/parser.java uses unchecked or unsafe operations.
     [javac] Note: Recompile with -Xlint:unchecked for details.
-    [javac] /Users/theodor/Dropbox/Studier/fag/INF5110/compila04/build.xml:60: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] /Users/theodor/Dropbox/Studier/fag/INF5110/compila04/build.xml:61: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
 
 build:
 
@@ -87,7 +91,7 @@ Total time: 1 second
 ant run
 #+END_SRC
 
-* Results of test-run
+* Results of run
 
 #+RESULTS: test-run
 #+begin_example
@@ -97,112 +101,521 @@ init:
 
 run:
      [java] Scanning done
+     [java] (PROGRAM (NAME euclid)
+     [java]   (PROC_DECL (TYPE int) (NAME gcd)
+     [java]     (PARAM_DECL (TYPE int) (NAME a))
+     [java]     (PARAM_DECL (TYPE int) (NAME b))
+     [java] 
+     [java]     (VAR (TYPE int) (NAME res))
+     [java] 
+     [java]     (IF (BINARY_OPERATION =
+     [java]         (VAR (NAME a))
+     [java]         (INT_LITERAL 0)
+     [java]       )
+     [java]       (ASSIGN_STMT
+     [java]         (VAR (NAME res))
+     [java]         (VAR (NAME b))
+     [java]       )
+     [java]       (ELSE
+     [java]         (WHILE (BINARY_OPERATION <>
+     [java]             (VAR (NAME b))
+     [java]             (INT_LITERAL 0)
+     [java]           )
+     [java]           (IF (BINARY_OPERATION >
+     [java]               (VAR (NAME a))
+     [java]               (VAR (NAME b))
+     [java]             )
+     [java]             (ASSIGN_STMT
+     [java]               (VAR (NAME a))
+     [java]               (BINARY_OPERATION -
+     [java]                 (VAR (NAME a))
+     [java]                 (VAR (NAME b))
+     [java]               )
+     [java]             )
+     [java]             (ELSE
+     [java]               (ASSIGN_STMT
+     [java]                 (VAR (NAME b))
+     [java]                 (BINARY_OPERATION -
+     [java]                   (VAR (NAME b))
+     [java]                   (VAR (NAME a))
+     [java]                 )
+     [java]               )
+     [java]             )
+     [java]           )
+     [java]         )
+     [java]         (ASSIGN_STMT
+     [java]           (VAR (NAME res))
+     [java]           (VAR (NAME a))
+     [java]         )
+     [java]       )
+     [java]     )
+     [java]     (RETURN (VAR (NAME res))
+     [java]     )
+     [java]   )
+     [java]   (PROC_DECL (TYPE void) (NAME Main)
+     [java]     (CALL_STMT (NAME printint)
+     [java]       (CALL_STMT (NAME gcd)
+     [java]         (INT_LITERAL 6)
+     [java]         (INT_LITERAL 19)
+     [java]       )
+     [java]     )
+     [java]     (CALL_STMT (NAME printline)
+     [java]       (STRING_LITERAL "")
+     [java]     )
+     [java]     (CALL_STMT (NAME printint)
+     [java]       (CALL_STMT (NAME gcd)
+     [java]         (INT_LITERAL 6)
+     [java]         (INT_LITERAL 9)
+     [java]       )
+     [java]     )
+     [java]     (CALL_STMT (NAME printline)
+     [java]       (STRING_LITERAL "")
+     [java]     )
+     [java]     (CALL_STMT (NAME printint)
+     [java]       (CALL_STMT (NAME gcd)
+     [java]         (INT_LITERAL 629)
+     [java]         (INT_LITERAL 592)
+     [java]       )
+     [java]     )
+     [java]     (CALL_STMT (NAME printline)
+     [java]       (STRING_LITERAL "")
+     [java]     )
+     [java]   )
+     [java] )
+     [java] Scanning done
      [java] (PROGRAM (NAME ComplexAddition)
-     [java] 	(STRUCT (NAME Complex)
-     [java] 		(PARAM_DECL (TYPE float) (NAME Real)
-     [java] 		(PARAM_DECL (TYPE float) (NAME Imag)
-     [java] 	)
-     [java] 	(PROC_DECL (TYPE void) (NAME Swap)
-     [java] 		(PARAM_DECL (REFTYPE (TYPE int)) (NAME a)
-     [java] 		(PARAM_DECL (REFTYPE (TYPE int)) (NAME b)
+     [java]   (STRUCT (NAME Complex)
+     [java]     (PARAM_DECL (TYPE float) (NAME Real))
+     [java]     (PARAM_DECL (TYPE float) (NAME Imag))
+     [java]   )
+     [java]   (PROC_DECL (TYPE void) (NAME Swap)
+     [java]     (PARAM_DECL (REFTYPE (TYPE int)) (NAME a))
+     [java]     (PARAM_DECL (REFTYPE (TYPE int)) (NAME b))
      [java] 
-     [java] 		(VAR (TYPE int) (NAME tmp))
+     [java]     (VAR (TYPE int) (NAME tmp))
      [java] 
-     [java] 		(ASSIGN_STMT
-     [java] 			(VAR (NAME tmp))
-     [java] 			(VAR (NAME a))
-     [java] 		)
-     [java] 		(ASSIGN_STMT
-     [java] 			(VAR (NAME a))
-     [java] 			(VAR (NAME b))
-     [java] 		)
-     [java] 		(ASSIGN_STMT
-     [java] 			(VAR (NAME b))
-     [java] 			(VAR (NAME tmp))
-     [java] 		)
-     [java] 	)
-     [java] 	(PROC_DECL (TYPE Complex) (NAME Add)
-     [java] 		(PARAM_DECL (TYPE Complex) (NAME a)
-     [java] 		(PARAM_DECL (TYPE Complex) (NAME b)
+     [java]     (ASSIGN_STMT
+     [java]       (VAR (NAME tmp))
+     [java]       (VAR (NAME a))
+     [java]     )
+     [java]     (ASSIGN_STMT
+     [java]       (VAR (NAME a))
+     [java]       (VAR (NAME b))
+     [java]     )
+     [java]     (ASSIGN_STMT
+     [java]       (VAR (NAME b))
+     [java]       (VAR (NAME tmp))
+     [java]     )
+     [java]   )
+     [java]   (PROC_DECL (TYPE Complex) (NAME Add)
+     [java]     (PARAM_DECL (TYPE Complex) (NAME a))
+     [java]     (PARAM_DECL (TYPE Complex) (NAME b))
      [java] 
-     [java] 		(VAR (TYPE Complex) (NAME retval))
+     [java]     (VAR (TYPE Complex) (NAME retval))
      [java] 
-     [java] 		(ASSIGN_STMT
-     [java] 			(VAR (NAME retval))
-     [java] 			(NEW Complex)
-     [java] 		)
-     [java] 		(ASSIGN_STMT
-     [java] 			(VAR (NAME retval)) (NAME Real)
-     [java] 			)
-     [java] 			(BINARY_OPERATION +
-     [java] 				(VAR (NAME a)) (NAME Real)
-     [java] 				)
-     [java] 				(VAR (NAME b)) (NAME Real)
-     [java] 				)
-     [java] 			)
-     [java] 		)
-     [java] 		(ASSIGN_STMT
-     [java] 			(VAR (NAME retval)) (NAME Imag)
-     [java] 			)
-     [java] 			(BINARY_OPERATION +
-     [java] 				(VAR (NAME a)) (NAME Imag)
-     [java] 				)
-     [java] 				(VAR (NAME b)) (NAME Imag)
-     [java] 				)
-     [java] 			)
-     [java] 		)
-     [java] 		(RETURN (VAR (NAME retval))
-     [java] 		)
-     [java] 	)
-     [java] 	(PROC_DECL (TYPE int) (NAME Max)
-     [java] 		(PARAM_DECL (TYPE int) (NAME a)
-     [java] 		(PARAM_DECL (TYPE int) (NAME b)
+     [java]     (ASSIGN_STMT
+     [java]       (VAR (NAME retval))
+     [java]       (NEW Complex)
+     [java]     )
+     [java]     (ASSIGN_STMT
+     [java]       (VAR (NAME retval)) (NAME Real)
+     [java]       )
+     [java]       (BINARY_OPERATION +
+     [java]         (VAR (NAME a)) (NAME Real)
+     [java]         )
+     [java]         (VAR (NAME b)) (NAME Real)
+     [java]         )
+     [java]       )
+     [java]     )
+     [java]     (ASSIGN_STMT
+     [java]       (VAR (NAME retval)) (NAME Imag)
+     [java]       )
+     [java]       (BINARY_OPERATION +
+     [java]         (VAR (NAME a)) (NAME Imag)
+     [java]         )
+     [java]         (VAR (NAME b)) (NAME Imag)
+     [java]         )
+     [java]       )
+     [java]     )
+     [java]     (RETURN (VAR (NAME retval))
+     [java]     )
+     [java]   )
+     [java]   (PROC_DECL (TYPE void) (NAME Max)
+     [java]     (PARAM_DECL (TYPE int) (NAME a))
+     [java]     (PARAM_DECL (TYPE int) (NAME b))
      [java] 
+     [java]     (IF (BINARY_OPERATION >
+     [java]         (VAR (NAME a))
+     [java]         (VAR (NAME b))
+     [java]       )
+     [java]       (RETURN (VAR (NAME a))
+     [java]       )
+     [java]     )
+     [java]     (RETURN (VAR (NAME b))
+     [java]     )
+     [java]   )
+     [java]   (PROC_DECL (TYPE void) (NAME main)
+     [java]     (PROC_DECL (TYPE void) (NAME Square)
+     [java]       (PARAM_DECL (TYPE float) (NAME val))
      [java] 
-     [java] 		(IF (NOT (BINARY_OPERATION >
-     [java] 					(VAR (NAME a))
-     [java] 					(VAR (NAME b))
-     [java] 				)
-     [java] 			)
-     [java] 			(RETURN (VAR (NAME a))
-     [java] 			)
-     [java] 		)
-     [java] 		(RETURN (VAR (NAME b))
-     [java] 		)
-     [java] 	)
-     [java] 	(PROC_DECL (TYPE void) (NAME main)
+     [java]       (RETURN (BINARY_OPERATION ^
+     [java]           (VAR (NAME val))
+     [java]           (FLOAT_LITERAL 2.0)
+     [java]         )
+     [java]       )
+     [java]     )
+     [java]     (VAR (TYPE float) (NAME num))
      [java] 
-     [java] 		(PROC_DECL (TYPE float) (NAME Square)
-     [java] 			(PARAM_DECL (TYPE float) (NAME val)
+     [java]     (ASSIGN_STMT
+     [java]       (VAR (NAME num))
+     [java]       (FLOAT_LITERAL 6.480740)
+     [java]     )
+     [java]     (CALL_STMT (NAME print_float)
+     [java]       (VAR (NAME num))
+     [java]     )
+     [java]     (CALL_STMT (NAME print_str)
+     [java]       (STRING_LITERAL " squared is ")
+     [java]     )
+     [java]     (CALL_STMT (NAME print_float)
+     [java]       (CALL_STMT (NAME Square)
+     [java]         (VAR (NAME num))
+     [java]       )
+     [java]     )
+     [java]     (RETURN)
+     [java]   )
+     [java] )
+     [java] Scanning done
+     [java] (PROGRAM (NAME plog)
+     [java]   (PROC_DECL (TYPE void) (NAME symbols)
+     [java]     (PARAM_DECL (TYPE int) (NAME n))
+     [java]     (PARAM_DECL (TYPE string) (NAME zz))
      [java] 
+     [java]     (VAR (TYPE int) (NAME i))
      [java] 
-     [java] 			(RETURN (BINARY_OPERATION ^
-     [java] 					(VAR (NAME val))
-     [java] 					(FLOAT_LITERAL 2.0)
-     [java] 				)
-     [java] 			)
-     [java] 		)
-     [java] 		(VAR (TYPE float) (NAME num))
+     [java]     (ASSIGN_STMT
+     [java]       (VAR (NAME i))
+     [java]       (INT_LITERAL 0)
+     [java]     )
+     [java]     (WHILE (BINARY_OPERATION <
+     [java]         (VAR (NAME i))
+     [java]         (VAR (NAME n))
+     [java]       )
+     [java]       (CALL_STMT (NAME printstr)
+     [java]         (VAR (NAME zz))
+     [java]       )
+     [java]       (ASSIGN_STMT
+     [java]         (VAR (NAME i))
+     [java]         (BINARY_OPERATION +
+     [java]           (VAR (NAME i))
+     [java]           (INT_LITERAL 1)
+     [java]         )
+     [java]       )
+     [java]     )
+     [java]   )
+     [java]   (PROC_DECL (TYPE void) (NAME skriv_plog)
+     [java]     (VAR (TYPE int) (NAME h))
+     [java]     (VAR (TYPE int) (NAME j))
      [java] 
-     [java] 		(ASSIGN_STMT
-     [java] 			(VAR (NAME num))
-     [java] 			(FLOAT_LITERAL 6.480740)
-     [java] 		)
-     [java] 		(CALL_STMT (NAME print_float)
-     [java] 			(VAR (NAME num))
-     [java] 		)
-     [java] 		(CALL_STMT (NAME print_str)
-     [java] 			(STRING_LITERAL " squared is ")
-     [java] 		)
-     [java] 		(CALL_STMT (NAME print_float)
-     [java] 			(CALL_STMT (NAME Square)
-     [java] 				(VAR (NAME num))
-     [java] 			)
-     [java] 		)
-     [java] 		(RETURN)
-     [java] 	)
+     [java]     (ASSIGN_STMT
+     [java]       (VAR (NAME h))
+     [java]       (INT_LITERAL 5)
+     [java]     )
+     [java]     (ASSIGN_STMT
+     [java]       (VAR (NAME j))
+     [java]       (INT_LITERAL 0)
+     [java]     )
+     [java]     (WHILE (BINARY_OPERATION <
+     [java]         (VAR (NAME j))
+     [java]         (VAR (NAME h))
+     [java]       )
+     [java]       (CALL_STMT (NAME symbols)
+     [java]         (VAR (NAME j))
+     [java]         (STRING_LITERAL " ")
+     [java]       )
+     [java]       (CALL_STMT (NAME symbols)
+     [java]         (INT_LITERAL 1)
+     [java]         (STRING_LITERAL "X")
+     [java]       )
+     [java]       (CALL_STMT (NAME symbols)
+     [java]         (BINARY_OPERATION *
+     [java]           (BINARY_OPERATION -
+     [java]             (VAR (NAME h))
+     [java]             (BINARY_OPERATION -
+     [java]               (VAR (NAME j))
+     [java]               (INT_LITERAL 1)
+     [java]             )
+     [java]           )
+     [java]           (INT_LITERAL 2)
+     [java]         )
+     [java]         (STRING_LITERAL " ")
+     [java]       )
+     [java]       (CALL_STMT (NAME symbols)
+     [java]         (INT_LITERAL 1)
+     [java]         (STRING_LITERAL "X")
+     [java]       )
+     [java]       (CALL_STMT (NAME printline)
+     [java]         (STRING_LITERAL "")
+     [java]       )
+     [java]       (ASSIGN_STMT
+     [java]         (VAR (NAME j))
+     [java]         (BINARY_OPERATION +
+     [java]           (VAR (NAME j))
+     [java]           (INT_LITERAL 1)
+     [java]         )
+     [java]       )
+     [java]     )
+     [java]   )
+     [java]   (PROC_DECL (TYPE void) (NAME Main)
+     [java]     (CALL_STMT (NAME skriv_plog))
+     [java]   )
+     [java] )
+     [java] Scanning done
+     [java] (PROGRAM (NAME runme)
+     [java]   (STRUCT (NAME Complex)
+     [java]     (PARAM_DECL (TYPE float) (NAME Real))
+     [java]     (PARAM_DECL (TYPE float) (NAME Imag))
+     [java]   )
+     [java]   (VAR (TYPE Complex) (NAME dummy))
+     [java]   (PROC_DECL (TYPE Complex) (NAME Add)
+     [java]     (PARAM_DECL (TYPE Complex) (NAME a))
+     [java]     (PARAM_DECL (TYPE Complex) (NAME b))
+     [java] 
+     [java]     (VAR (TYPE Complex) (NAME retval))
+     [java] 
+     [java]     (ASSIGN_STMT
+     [java]       (VAR (NAME retval))
+     [java]       (NEW Complex)
+     [java]     )
+     [java]     (ASSIGN_STMT
+     [java]       (VAR (NAME retval)) (NAME Real)
+     [java]       )
+     [java]       (BINARY_OPERATION +
+     [java]         (VAR (NAME a)) (NAME Real)
+     [java]         )
+     [java]         (VAR (NAME b)) (NAME Real)
+     [java]         )
+     [java]       )
+     [java]     )
+     [java]     (ASSIGN_STMT
+     [java]       (VAR (NAME retval)) (NAME Imag)
+     [java]       )
+     [java]       (BINARY_OPERATION +
+     [java]         (VAR (NAME a)) (NAME Imag)
+     [java]         )
+     [java]         (VAR (NAME b)) (NAME Imag)
+     [java]         )
+     [java]       )
+     [java]     )
+     [java]     (RETURN (VAR (NAME retval))
+     [java]     )
+     [java]   )
+     [java]   (PROC_DECL (TYPE int) (NAME Max)
+     [java]     (PARAM_DECL (TYPE int) (NAME a))
+     [java]     (PARAM_DECL (TYPE int) (NAME b))
+     [java] 
+     [java]     (VAR (TYPE int) (NAME res))
+     [java] 
+     [java]     (IF (BINARY_OPERATION >
+     [java]         (VAR (NAME a))
+     [java]         (VAR (NAME b))
+     [java]       )
+     [java]       (ASSIGN_STMT
+     [java]         (VAR (NAME res))
+     [java]         (VAR (NAME a))
+     [java]       )
+     [java]       (ELSE
+     [java]         (ASSIGN_STMT
+     [java]           (VAR (NAME res))
+     [java]           (VAR (NAME b))
+     [java]         )
+     [java]       )
+     [java]     )
+     [java]     (RETURN (VAR (NAME res))
+     [java]     )
+     [java]   )
+     [java]   (PROC_DECL (TYPE void) (NAME printCmplx)
+     [java]     (PARAM_DECL (TYPE Complex) (NAME pr))
+     [java] 
+     [java]     (CALL_STMT (NAME printstr)
+     [java]       (STRING_LITERAL "Real ")
+     [java]     )
+     [java]     (CALL_STMT (NAME printfloat)
+     [java]       (VAR (NAME pr)) (NAME Real)
+     [java]       )
+     [java]     )
+     [java]     (CALL_STMT (NAME printline)
+     [java]       (STRING_LITERAL "")
+     [java]     )
+     [java]     (CALL_STMT (NAME printstr)
+     [java]       (STRING_LITERAL "Imag ")
+     [java]     )
+     [java]     (CALL_STMT (NAME printfloat)
+     [java]       (VAR (NAME pr)) (NAME Imag)
+     [java]       )
+     [java]     )
+     [java]     (CALL_STMT (NAME printline)
+     [java]       (STRING_LITERAL "")
+     [java]     )
+     [java]   )
+     [java]   (PROC_DECL (TYPE void) (NAME test)
+     [java]     (VAR (TYPE Complex) (NAME c1))
+     [java]     (VAR (TYPE Complex) (NAME c2))
+     [java]     (VAR (TYPE Complex) (NAME cAdd))
+     [java]     (VAR (TYPE int) (NAME x))
+     [java]     (VAR (TYPE int) (NAME y))
+     [java]     (VAR (TYPE int) (NAME max))
+     [java] 
+     [java]     (ASSIGN_STMT
+     [java]       (VAR (NAME c1))
+     [java]       (NEW Complex)
+     [java]     )
+     [java]     (ASSIGN_STMT
+     [java]       (VAR (NAME c2))
+     [java]       (NEW Complex)
+     [java]     )
+     [java]     (ASSIGN_STMT
+     [java]       (VAR (NAME c1)) (NAME Real)
+     [java]       )
+     [java]       (INT_LITERAL 1)
+     [java]     )
+     [java]     (ASSIGN_STMT
+     [java]       (VAR (NAME c1)) (NAME Imag)
+     [java]       )
+     [java]       (INT_LITERAL 2)
+     [java]     )
+     [java]     (ASSIGN_STMT
+     [java]       (VAR (NAME c2)) (NAME Real)
+     [java]       )
+     [java]       (INT_LITERAL 3)
+     [java]     )
+     [java]     (ASSIGN_STMT
+     [java]       (VAR (NAME c2)) (NAME Imag)
+     [java]       )
+     [java]       (INT_LITERAL 4)
+     [java]     )
+     [java]     (CALL_STMT (NAME printCmplx)
+     [java]       (CALL_STMT (NAME Add)
+     [java]         (VAR (NAME c1))
+     [java]         (VAR (NAME c2))
+     [java]       )
+     [java]     )
+     [java]     (ASSIGN_STMT
+     [java]       (VAR (NAME x))
+     [java]       (INT_LITERAL 3)
+     [java]     )
+     [java]     (ASSIGN_STMT
+     [java]       (VAR (NAME y))
+     [java]       (INT_LITERAL 7)
+     [java]     )
+     [java]     (ASSIGN_STMT
+     [java]       (VAR (NAME max))
+     [java]       (CALL_STMT (NAME Max)
+     [java]         (VAR (NAME y))
+     [java]         (VAR (NAME x))
+     [java]       )
+     [java]     )
+     [java]   )
+     [java]   (PROC_DECL (TYPE void) (NAME printStr)
+     [java]     (PARAM_DECL (TYPE string) (NAME str))
+     [java] 
+     [java]     (CALL_STMT (NAME printstr)
+     [java]       (VAR (NAME str))
+     [java]     )
+     [java]   )
+     [java]   (PROC_DECL (TYPE void) (NAME inOutTest)
+     [java]     (VAR (TYPE int) (NAME v1))
+     [java]     (VAR (TYPE int) (NAME v2))
+     [java] 
+     [java]     (CALL_STMT (NAME printline)
+     [java]       (STRING_LITERAL "skriv v1")
+     [java]     )
+     [java]     (ASSIGN_STMT
+     [java]       (VAR (NAME v1))
+     [java]       (CALL_STMT (NAME readint))
+     [java]     )
+     [java]     (CALL_STMT (NAME printline)
+     [java]       (STRING_LITERAL "skriv v2")
+     [java]     )
+     [java]     (ASSIGN_STMT
+     [java]       (VAR (NAME v2))
+     [java]       (CALL_STMT (NAME readint))
+     [java]     )
+     [java]     (CALL_STMT (NAME printstr)
+     [java]       (STRING_LITERAL "Storst ")
+     [java]     )
+     [java]     (CALL_STMT (NAME printint)
+     [java]       (CALL_STMT (NAME Max)
+     [java]         (VAR (NAME v1))
+     [java]         (VAR (NAME v2))
+     [java]       )
+     [java]     )
+     [java]     (CALL_STMT (NAME printline)
+     [java]       (STRING_LITERAL "")
+     [java]     )
+     [java]   )
+     [java]   (PROC_DECL (TYPE void) (NAME Main)
+     [java]     (VAR (TYPE float) (NAME num))
+     [java]     (VAR (TYPE int) (NAME num2))
+     [java]     (VAR (TYPE string) (NAME navn))
+     [java] 
+     [java]     (ASSIGN_STMT
+     [java]       (VAR (NAME num))
+     [java]       (FLOAT_LITERAL 6.480740)
+     [java]     )
+     [java]     (CALL_STMT (NAME printfloat)
+     [java]       (VAR (NAME num))
+     [java]     )
+     [java]     (CALL_STMT (NAME printline)
+     [java]       (STRING_LITERAL "")
+     [java]     )
+     [java]     (ASSIGN_STMT
+     [java]       (VAR (NAME num2))
+     [java]       (INT_LITERAL 7)
+     [java]     )
+     [java]     (CALL_STMT (NAME printint)
+     [java]       (VAR (NAME num2))
+     [java]     )
+     [java]     (CALL_STMT (NAME printline)
+     [java]       (STRING_LITERAL "")
+     [java]     )
+     [java]     (ASSIGN_STMT
+     [java]       (VAR (NAME navn))
+     [java]       (STRING_LITERAL "TestNavn")
+     [java]     )
+     [java]     (CALL_STMT (NAME printStr)
+     [java]       (VAR (NAME navn))
+     [java]     )
+     [java]     (CALL_STMT (NAME printline)
+     [java]       (STRING_LITERAL "")
+     [java]     )
+     [java]     (CALL_STMT (NAME test))
+     [java]     (CALL_STMT (NAME inOutTest))
+     [java]     (ASSIGN_STMT
+     [java]       (VAR (NAME dummy))
+     [java]       (NEW Complex)
+     [java]     )
+     [java]     (ASSIGN_STMT
+     [java]       (VAR (NAME dummy)) (NAME Real)
+     [java]       )
+     [java]       (FLOAT_LITERAL 1.0)
+     [java]     )
+     [java]     (ASSIGN_STMT
+     [java]       (VAR (NAME dummy)) (NAME Imag)
+     [java]       )
+     [java]       (FLOAT_LITERAL 2.0)
+     [java]     )
+     [java]     (CALL_STMT (NAME printCmplx)
+     [java]       (VAR (NAME dummy))
+     [java]     )
+     [java]     (CALL_STMT (NAME printline)
+     [java]       (STRING_LITERAL "DONE")
+     [java]     )
+     [java]   )
      [java] )
 
 BUILD SUCCESSFUL
 Total time: 0 seconds
 #+end_example
+
+
+

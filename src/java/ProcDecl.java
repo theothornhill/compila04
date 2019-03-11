@@ -5,7 +5,8 @@ public class ProcDecl extends Decl {
     LinkedList<Decl> dl;
     LinkedList<Stmt> sl;
     Type type;
-    
+
+    // Constructors
     public ProcDecl(String name,
                     LinkedList<Param> pl,
                     LinkedList<Decl> dl,
@@ -28,6 +29,24 @@ public class ProcDecl extends Decl {
         this.sl = sl;
     }
 
+    public ProcDecl(String name,
+                    LinkedList<Param> pl,
+                    Type type,
+                    LinkedList<Stmt> sl) {
+        this.name = name;
+        this.pl = pl;
+        this.sl = sl;
+    }
+
+    public ProcDecl(String name,
+                    LinkedList<Param> pl,
+                    LinkedList<Stmt> sl) {
+        this.name = name;
+        this.pl = pl;
+        this.dl = dl;
+        this.sl = sl;
+    }
+
     private String printType(int indentLevel) {
         return type == null ? "(TYPE void)" : type.printAst(indentLevel);
     }
@@ -41,15 +60,18 @@ public class ProcDecl extends Decl {
             for (Param param : pl) {
                 sb.append(PrintHelper.printParam(param, indentLevel+1));
             }
+            sb.append("\n");
         }
-        sb.append("\n");
+
         if (dl != null) {
             for (Decl decl : dl) {
                 sb.append(PrintHelper.printDecl(decl, indentLevel+1));
             }            
+            sb.append("\n");
         }
-        sb.append("\n");
+
         if (sl != null) {
+
             for (Stmt stmt : sl) {
                 sb.append(PrintHelper.printStmt(stmt, indentLevel+1));
             }            

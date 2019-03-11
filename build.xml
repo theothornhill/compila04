@@ -52,6 +52,7 @@
 	<target name="generate" depends="mkdir">
 		<jflex file="./src/cuplex/compila.lex" destdir="src-gen"/>
 		<cup srcfile="./src/cuplex/compila.cup" destdir="src-gen" interface="true" />
+        <!-- <cup srcfile="./src/cuplex/compila-nonambiguous.cup" destdir="src-gen" interface="true" /> -->
 	</target>
 
 	<!-- Compile Java Files and store in /build/classes directory  -->
@@ -66,8 +67,16 @@
 	<!-- Run the system  -->
 	<target name="run" depends="init">
 		<java classname="Main" classpathref="path-run">
-			<arg value="material/sample-compila-ast/complexaddition.cmp"/> 
-		    <arg value="src/complex-ast.ast"/>
+          <arg value="src/testfiles/euclid.cmp"/>
+		</java>
+		<java classname="Main" classpathref="path-run">
+          <arg value="src/testfiles/complexaddition.cmp"/>
+		</java>
+		<java classname="Main" classpathref="path-run">
+          <arg value="src/testfiles/plog.cmp"/>
+		</java>
+		<java classname="Main" classpathref="path-run">
+          <arg value="src/testfiles/runme.cmp"/> 
 		</java>
 	</target>
 </project>

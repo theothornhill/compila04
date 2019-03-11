@@ -45,6 +45,7 @@ nonterminal LinkedList<Stmt>       stmt_list;
 nonterminal LinkedList<Param>      param_list_comma, param_list_semi;
 nonterminal LinkedList<Object>     exp_list;
 
+precedence left SEMI;
 
 start with program;
 
@@ -116,6 +117,17 @@ proc_decl         ::= PROC_DECL NAME:name
                                 BEGIN decl_list:dl
                                 IN stmt_list:sl END
                                 {: RESULT = new ProcDecl(name, pl, t, dl, sl); :}
+                    | PROC_DECL NAME:name
+                                LPAR param_list_comma:pl RPAR
+                                BEGIN decl_list:dl
+                                stmt_list:sl END
+                                {: RESULT = new ProcDecl(name, pl, sl); :}
+                    | PROC_DECL NAME:name
+                                LPAR param_list_comma:pl RPAR
+                                COLON type:t
+                                BEGIN decl_list:dl
+                                stmt_list:sl END
+                                {: RESULT = new ProcDecl(name, pl, t, sl); :}
                     ;
 
 exp               ::= binop:b                 {: RESULT = b; :}
