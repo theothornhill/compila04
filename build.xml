@@ -66,8 +66,8 @@
 	<!-- Run the system  -->
 	<target name="run" depends="init">
 		<java classname="Main" classpathref="path-run">
-			<arg value="material/sample-compila-ast/complexaddition.cmp"/> 
-		    <arg value="src/complex-ast.ast"/>
+          <arg value="src/testfiles/euclid.cmp"/> 
+		  <arg value="src/complex-ast.ast"/>
 		</java>
 	</target>
 </project>
