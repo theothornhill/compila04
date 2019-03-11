@@ -14,8 +14,10 @@ This is my attempt on the first obligatory exercise in INF5110 on UiO. The first
 exercise is to build a lexer and parser for a provided grammar/language, and
 produce its abstract syntax tree.
 * How to build and run
-You need to have =ant= on your system, which also is recommended tool for this
+You need to have =ant=  and =java= on your system, which also is recommended tool for this
 exercise. It has been tested locally on my machine, and also on UiO over ssh.
+
+=JFlex= and =cup= should be provided in the repo and be sourced from there
 
 Run all commands from root of git repository:
 ** Cleaning
