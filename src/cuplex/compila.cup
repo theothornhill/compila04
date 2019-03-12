@@ -115,6 +115,15 @@ paramfield_decl   ::= NAME:name COLON type:t {: RESULT = new Param(name, t); :}
 
 proc_decl         ::= PROC_DECL NAME:name
                                 LPAR param_list_comma:pl RPAR
+                                BEGIN stmt_list:sl END
+                                {: RESULT = new ProcDecl(name, pl, sl); :}
+                    | PROC_DECL NAME:name
+                                LPAR param_list_comma:pl RPAR
+                                COLON type:t
+                                BEGIN stmt_list:sl END
+                                {: RESULT = new ProcDecl(name, pl, t, sl); :}
+                    | PROC_DECL NAME:name
+                                LPAR param_list_comma:pl RPAR
                                 BEGIN decl_list:dl
                                 IN stmt_list:sl END
                                 {: RESULT = new ProcDecl(name, pl, dl, sl); :}
@@ -124,17 +133,6 @@ proc_decl         ::= PROC_DECL NAME:name
                                 BEGIN decl_list:dl
                                 IN stmt_list:sl END
                                 {: RESULT = new ProcDecl(name, pl, t, dl, sl); :}
-                    | PROC_DECL NAME:name
-                                LPAR param_list_comma:pl RPAR
-                                BEGIN decl_list:dl
-                                stmt_list:sl END
-                                {: RESULT = new ProcDecl(name, pl, sl); :}
-                    | PROC_DECL NAME:name
-                                LPAR param_list_comma:pl RPAR
-                                COLON type:t
-                                BEGIN decl_list:dl
-                                stmt_list:sl END
-                                {: RESULT = new ProcDecl(name, pl, t, sl); :}
                     ;
 
 exp               ::= exp:e1 log_op:o exp:e2  {: RESULT = new BinaryExpr(e1, o, e2); :}
