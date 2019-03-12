@@ -2,10 +2,10 @@
 <project name="INF5110/INF9110 Obligatory exercise" default="menu" basedir=".">
 	<target name="menu" >
 		<echo>Targets                             </echo>
-		<echo>clean                		- Cleans up the project</echo>
-		<echo>build                		- Build compiler</echo>
-		<echo>run                  		- Run compiler</echo>
-        <echo>test                        - Test with many files</echo>
+		<echo>clean                     - Cleans up the project</echo>
+		<echo>build                     - Build compiler</echo>
+		<echo>run                       - Run compiler</echo>
+        <echo>test                      - Testcompiler</echo>
 	</target>
 
 	<!-- Path definitions -->
