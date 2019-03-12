@@ -65,7 +65,6 @@ decl_list         ::= decl:d {: LinkedList<Decl> l = new LinkedList<Decl>();
                                 l.add(d);
                                 RESULT = l; :}
                     | decl_list:dl SEMI decl:d {: dl.add(d); RESULT = dl; :}
-                    | 
                     ;
 
 stmt_list          ::= stmt:s {: LinkedList<Stmt> l = new LinkedList<>();
