@@ -8,8 +8,8 @@ import java.util.*;
 parser code
 {:
 public void syntax_error(Symbol s) {
-    System.err.printf("Syntax error on: [line: %s, column: %s, value: %s]\n",
-                                s.left + 1, s.right + 1, s.value);
+    System.err.printf("Syntax error on: [line: %s, column: %s]\n\n",
+                                s.left, s.right);
 }
 :};
 
