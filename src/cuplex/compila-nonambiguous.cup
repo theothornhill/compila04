@@ -45,8 +45,6 @@ nonterminal LinkedList<Stmt>       stmt_list;
 nonterminal LinkedList<Param>      param_list_comma, param_list_semi;
 nonterminal LinkedList<Object>     exp_list;
 
-precedence left SEMI;
-
 start with program;
 
 program           ::= PROGRAM NAME:name BEGIN decl_list:dl END
@@ -58,7 +56,6 @@ decl_list         ::= decl:d {: LinkedList<Decl> l = new LinkedList<Decl>();
                                 l.add(d);
                                 RESULT = l; :}
                     | decl_list:dl SEMI decl:d {: dl.add(d); RESULT = dl; :}
-                    | 
                     ;
 
 stmt_list          ::= stmt:s {: LinkedList<Stmt> l = new LinkedList<>();
@@ -119,14 +116,12 @@ proc_decl         ::= PROC_DECL NAME:name
                                 {: RESULT = new ProcDecl(name, pl, t, dl, sl); :}
                     | PROC_DECL NAME:name
                                 LPAR param_list_comma:pl RPAR
-                                BEGIN decl_list:dl
-                                stmt_list:sl END
+                                BEGIN stmt_list:sl END
                                 {: RESULT = new ProcDecl(name, pl, sl); :}
                     | PROC_DECL NAME:name
                                 LPAR param_list_comma:pl RPAR
                                 COLON type:t
-                                BEGIN decl_list:dl
-                                stmt_list:sl END
+                                BEGIN stmt_list:sl END
                                 {: RESULT = new ProcDecl(name, pl, t, sl); :}
                     ;
 
