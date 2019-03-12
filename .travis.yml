@@ -1,4 +1,5 @@
 language: java
+install: ant
 source:
   - ant build
   - ant run
