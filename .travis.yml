@@ -1,0 +1,4 @@
+language: java
+source:
+  - ant build
+  - ant run
