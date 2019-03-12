@@ -5,7 +5,7 @@
 		<echo>clean                		- Cleans up the project</echo>
 		<echo>build                		- Build compiler</echo>
 		<echo>run                  		- Run compiler</echo>
-        <echo>test                      - Test with many files</echo>
+        <echo>test                        - Test with many files</echo>
 	</target>
 
 	<!-- Path definitions -->
