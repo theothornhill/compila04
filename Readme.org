@@ -33,10 +33,10 @@ Buildfile: /Users/theodor/Dropbox/Studier/fag/INF5110/compila04/build.xml
 
 menu:
      [echo] Targets                             
-     [echo] clean                		- Cleans up the project
-     [echo] build                		- Build compiler
-     [echo] run                  		- Run compiler
-     [echo] test                        - Test with many files
+     [echo] clean                     - Cleans up the project
+     [echo] build                     - Build compiler
+     [echo] run                       - Run compiler
+     [echo] test                      - Testcompiler
 
 BUILD SUCCESSFUL
 Total time: 0 seconds
