@@ -5,6 +5,7 @@
 		<echo>clean                		- Cleans up the project</echo>
 		<echo>build                		- Build compiler</echo>
 		<echo>run                  		- Run compiler</echo>
+        <echo>test                      - Test with many files</echo>
 	</target>
 
 	<!-- Path definitions -->
@@ -66,6 +67,13 @@
 
 	<!-- Run the system  -->
 	<target name="run" depends="init">
+		<java classname="Main" classpathref="path-run">
+          <arg value="src/testfiles/runme.cmp"/> 
+		</java>
+	</target>
+    
+    <!-- Test the system -->
+    <target name="test" depends="init">
 		<java classname="Main" classpathref="path-run">
           <arg value="src/testfiles/euclid.cmp"/>
 		</java>
