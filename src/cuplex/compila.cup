@@ -52,7 +52,7 @@ precedence nonassoc                LT, LTEQ, GT, GTEQ, EQ, NEQ;
 precedence left                    ADD, MINUS;
 precedence left                    MULT, DIVIDE;
 precedence right                   EXPONENT, LPAR;
-precedence left                    DOT, SEMI;
+precedence left                    DOT;
 
 start with program;
 
