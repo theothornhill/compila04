@@ -9,7 +9,7 @@ parser code
 {:
 public void syntax_error(Symbol s) {
     System.err.printf("Syntax error on: [line: %s, column: %s, value:%s]\n\n",
-                                s.left, s.right, s.value);
+                                s.left+1, s.right+1, s.value);
 }
 :};
 
