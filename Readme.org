@@ -38,7 +38,6 @@ produce its abstract syntax tree.
     |   |   |-- programlogic
     |   |   |-- statements
     |   |   `-- types
-    |   |-- testfiles
     |   `-- tests
     |       |-- dummyprograms
     |       |-- errors
@@ -54,7 +53,7 @@ produce its abstract syntax tree.
     |       `-- parsing
     `-- src-gen
 
-    29 directories
+    28 directories
     #+end_example
 
 *** Grammar and lexer files
@@ -1160,6 +1159,4 @@ run:
 BUILD SUCCESSFUL
 Total time: 0 seconds
 #+end_example
-
-
 
