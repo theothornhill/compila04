@@ -20,9 +20,7 @@ import java_cup.runtime.*;
 %eofval{
   return new Symbol(sym.EOF);
 %eofval}
-%eof{
-  System.out.println("Scanning done");
-%eof}
+
  /* Whitespaces */
 LineTerminator  = \n|\r|\r\n
 WhiteSpace      = \s
