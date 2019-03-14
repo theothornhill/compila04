@@ -5,7 +5,7 @@
 Theodor Thornhill - theodokt
 
 ** Email
-theodokt@ifi.uio.no | theodorthornhill@icloud.com
+theodokt@ifi.uio.no | theothornhill@pm.me
 
 ** Telephone
 +47 41649298
@@ -16,7 +16,8 @@ produce its abstract syntax tree.
 * How to build and run
 
 You need to have =ant=  and =java= on your system, which also is recommended tool for this
-exercise. It has been tested locally on my machine, and also on UiO over ssh.
+exercise. I have used Travis CI for testing, and also tested manually on UiO
+pool, so things should hopefully work.
 
 =JFlex= and =cup= should be provided in the repo and be sourced from there
 
