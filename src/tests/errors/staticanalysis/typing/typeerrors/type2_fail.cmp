@@ -1,0 +1,9 @@
+program type2_fail
+begin
+    proc main()
+    begin
+        if 42 then  /* error, expression not bool */
+            printstr( "Should not happen" )
+        fi
+    end
+end

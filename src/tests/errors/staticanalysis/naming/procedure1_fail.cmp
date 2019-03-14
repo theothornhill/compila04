@@ -1,0 +1,10 @@
+program procedure1_fail
+begin
+
+	proc main()
+	begin
+	    var a : int
+            in
+	    b := a   /* Fail: The left side does not exist. */
+	end
+end

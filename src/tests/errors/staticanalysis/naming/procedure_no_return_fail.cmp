@@ -1,0 +1,11 @@
+program procedure_no_return_fail
+begin
+    proc main()
+    begin 
+    end;
+
+    proc test() : string
+    begin
+        /* Fail: No return statement. */
+    end;
+end

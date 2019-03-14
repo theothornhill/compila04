@@ -1,0 +1,16 @@
+program general6_fail
+begin
+	proc Proc( a : int )
+	begin
+	    a := 42;
+	end;
+
+	proc main()
+	begin
+	    var tmp : int
+        in
+	    tmp := 32;
+	    Proc( ref(tmp) ); /* error, procedure does not take a ref parameter */
+	    printint( tmp )
+	end
+end

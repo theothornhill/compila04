@@ -1,0 +1,20 @@
+program p_p begin   /* Testing expressions */
+  proc a ()
+  begin 
+    x := 5;
+    x := 6+6+8;
+    x := 6+6*8;
+    x := not 6+6*8;  
+    x :=  a && b || c * 4 + 2^5 &&  not x;
+    x :=  a && b || ((c < 4) < 4) + 2^5 &&  not x;
+    x :=  a < b + x < d;
+    x := new a;
+    x := 5.5;
+    x := ref (x);
+    x := deref (x);
+    x := e.x;
+    x := (deref(deref(e.x)));
+    x := "abs";
+    x := 01.0
+  end
+end  

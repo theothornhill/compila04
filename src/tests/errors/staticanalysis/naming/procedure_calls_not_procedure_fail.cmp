@@ -1,0 +1,8 @@
+program procedure_calls_not_procedure_fail
+begin
+  proc main()
+  begin
+    Test(0) /* Fail: Call to struct. */
+   end;
+   struct Test {  x : int }
+end

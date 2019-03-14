@@ -1,0 +1,7 @@
+program main 
+begin
+    proc x() 
+    begin 
+       x := 5.  /* illegal float */
+    end 
+end 

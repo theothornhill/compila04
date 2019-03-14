@@ -1,0 +1,6 @@
+program p begin   
+  proc a (x:int)
+  begin 
+   f(4,4,4,5,)    /* should fail. */
+  end
+end  
