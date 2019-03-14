@@ -46,28 +46,28 @@ CommentContent       = ( [^*] | \*+ [^/\*] )*
 /* Keywords*/
 <YYINITIAL> { 
              /* initial */
-             "program"               { return symbol(sym.PROGRAM); }
-             "begin"                 { return symbol(sym.BEGIN); }
-             "in"                    { return symbol(sym.IN); }             
-             "end"                   { return symbol(sym.END); }
+             "program"               { return symbol(sym.PROGRAM, yytext()); }
+             "begin"                 { return symbol(sym.BEGIN, yytext()); }
+             "in"                    { return symbol(sym.IN, yytext()); }             
+             "end"                   { return symbol(sym.END, yytext()); }
              /* declarations */
-             "struct"                { return symbol(sym.REC_DECL); }
-             "proc"                  { return symbol(sym.PROC_DECL); }
-             "var"                   { return symbol(sym.VAR_DECL); }
-             "new"                   { return symbol(sym.NEW); }
+             "struct"                { return symbol(sym.REC_DECL, yytext()); }
+             "proc"                  { return symbol(sym.PROC_DECL, yytext()); }
+             "var"                   { return symbol(sym.VAR_DECL, yytext()); }
+             "new"                   { return symbol(sym.NEW, yytext()); }
              /* program logic */
-             "if"                    { return symbol(sym.IF); }
-             "fi"                    { return symbol(sym.FI); }
-             "then"                  { return symbol(sym.THEN); }
-             "else"                  { return symbol(sym.ELSE); }
-             "while"                 { return symbol(sym.WHILE); }
-             "do"                    { return symbol(sym.DO); }
-             "od"                    { return symbol(sym.OD); }
-             "return"                { return symbol(sym.RETURN); }
-             "ref"                   { return symbol(sym.REF); }
-             "deref"                 { return symbol(sym.DEREF); }
+             "if"                    { return symbol(sym.IF, yytext()); }
+             "fi"                    { return symbol(sym.FI, yytext()); }
+             "then"                  { return symbol(sym.THEN, yytext()); }
+             "else"                  { return symbol(sym.ELSE, yytext()); }
+             "while"                 { return symbol(sym.WHILE, yytext()); }
+             "do"                    { return symbol(sym.DO, yytext()); }
+             "od"                    { return symbol(sym.OD, yytext()); }
+             "return"                { return symbol(sym.RETURN, yytext()); }
+             "ref"                   { return symbol(sym.REF, yytext()); }
+             "deref"                 { return symbol(sym.DEREF, yytext()); }
              /* Negation */
-             "not"                   { return symbol(sym.NOT); }
+             "not"                   { return symbol(sym.NOT, yytext()); }
              "true"                  { return symbol(sym.TRUE, yytext()); }
              "false"                 { return symbol(sym.FALSE, yytext()); }
              "null"                  { return symbol(sym.NULL, yytext()); }
@@ -103,10 +103,10 @@ CommentContent       = ( [^*] | \*+ [^/\*] )*
              ":"                        { return symbol(sym.COLON, yytext()); }
              ";"                        { return symbol(sym.SEMI, yytext()); }
              ","                        { return symbol(sym.COMMA, yytext()); }
-             "("                        { return symbol(sym.LPAR); }
-             ")"                        { return symbol(sym.RPAR); }
-             "{"                        { return symbol(sym.LCURLY); }
-             "}"                        { return symbol(sym.RCURLY); }             
+             "("                        { return symbol(sym.LPAR, yytext()); }
+             ")"                        { return symbol(sym.RPAR, yytext()); }
+             "{"                        { return symbol(sym.LCURLY, yytext()); }
+             "}"                        { return symbol(sym.RCURLY, yytext()); }             
 }
 
  /* Types and identifiers */
