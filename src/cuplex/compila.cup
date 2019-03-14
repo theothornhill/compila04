@@ -59,14 +59,13 @@ start with program;
 program           ::= PROGRAM NAME:name BEGIN decl_list:dl END
                                {: RESULT = new Program(name, dl);
                                   System.out.println(RESULT.printAst()); :}
-                    | PROGRAM NAME:name BEGIN END
-                               {: RESULT = new Program(name, null); :}
                     ; 
 
 decl_list         ::= decl:d {: LinkedList<Decl> l = new LinkedList<Decl>();
                                 l.add(d);
                                 RESULT = l; :}
                     | decl_list:dl SEMI decl:d {: dl.add(d); RESULT = dl; :}
+                    |
                     ;
 
 stmt_list          ::= stmt:s {: LinkedList<Stmt> l = new LinkedList<>();
