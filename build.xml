@@ -1,5 +1,5 @@
 <!-- Build file (as inspiration) for INF5110/INF9110 Obligatory exercise -->
-<project name="INF5110/INF9110 Obligatory exercise" default="menu" basedir=".">
+<project name="Compila theodokt" default="menu" basedir=".">
 	<target name="menu" >
 		<echo>Targets                             </echo>
 		<echo>clean                     - Cleans up the project</echo>
