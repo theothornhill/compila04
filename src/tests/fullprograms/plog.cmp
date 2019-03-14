@@ -3,7 +3,7 @@ begin
   proc symbols(n : int, zz : string) 
   begin
       var i : int
-      in
+  in
       i := 0;
       while( i < n)  
       do 
@@ -16,7 +16,7 @@ begin
   begin
       var h : int ; 
       var j : int 
-      in
+  in
       h := 5;
       j := 0;
       while(j < h) 
@@ -32,6 +32,7 @@ begin
   
   proc Main() 
   begin
-      skriv_plog()
+  in
+    skriv_plog()
   end
 end

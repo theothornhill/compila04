@@ -1,5 +1,6 @@
 program p begin   /* some procedure declarations */
   proc a () begin 
+  in
   end;
   proc a () : int 
   begin 
