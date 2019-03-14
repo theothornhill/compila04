@@ -14,6 +14,54 @@ This is my attempt on the first obligatory exercise in INF5110 on UiO. The first
 exercise is to build a lexer and parser for a provided grammar/language, and
 produce its abstract syntax tree.
 ** Information about my solution
+*** Project structure
+    I'll include the overview of the directories, so that it will be clear what
+    I have changed from the provided material.
+    #+BEGIN_SRC shell :results output  :exports both
+    tree -d
+    #+END_SRC
+
+    #+RESULTS:
+    #+begin_example
+    .
+    |-- build
+    |   `-- classes
+    |-- doc
+    |   |-- languagespec
+    |   `-- obligs
+    |-- lib
+    |-- src
+    |   |-- cuplex
+    |   |-- java
+    |   |   |-- declarations
+    |   |   |-- expressions
+    |   |   |-- programlogic
+    |   |   |-- statements
+    |   |   `-- types
+    |   |-- testfiles
+    |   `-- tests
+    |       |-- dummyprograms
+    |       |-- errors
+    |       |   |-- lexing
+    |       |   |-- parsing
+    |       |   `-- staticanalysis
+    |       |       |-- naming
+    |       |       `-- typing
+    |       |           `-- typeerrors
+    |       |-- fullprograms
+    |       |-- outputs
+    |       |   `-- ast
+    |       `-- parsing
+    `-- src-gen
+
+    29 directories
+    #+end_example
+
+*** Grammar and lexer files
+    The grammar and lexer files are located under =src/cuplex/=, and I use the one
+    with precedence rules to run the program. I can change in =build.xml=, but
+    I'll leave it for now.
+*** Special info
    I have chosen the =in= from =begin - in - end= to be strict and only accept
    when the =in= is present. As such I have changed a lot of the test-files, as
    they were, frankly, a mess. 
