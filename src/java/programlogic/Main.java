@@ -14,7 +14,6 @@ public class Main {
             try {
                 parser.parse();
             } catch (Exception ee) {
-                ee.printStackTrace();
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
