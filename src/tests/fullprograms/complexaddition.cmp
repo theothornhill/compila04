@@ -26,13 +26,7 @@ begin
 
   proc Max (a : int, b : int) : int 
   begin
-     /* An earlier version of this file had the line following
-        this comment missing, i.e., the ``in'' was not there. 
-	That would contradict the distributed version of the 
-	grammar. A solution what accepts the version without the 
-	``in'' would be acceptable, too, implementing a grammar which
-	requires the ``in'' only for non-empty declarations.    */
-     in 
+     /* I've chosen to keep my syntax, since I spent a long time fixing it  */
      if a > b then
         return a
      fi;
