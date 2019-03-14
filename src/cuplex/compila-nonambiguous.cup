@@ -56,6 +56,7 @@ decl_list         ::= decl:d {: LinkedList<Decl> l = new LinkedList<Decl>();
                                 l.add(d);
                                 RESULT = l; :}
                     | decl_list:dl SEMI decl:d {: dl.add(d); RESULT = dl; :}
+                    |
                     ;
 
 stmt_list          ::= stmt:s {: LinkedList<Stmt> l = new LinkedList<>();
@@ -114,15 +115,6 @@ proc_decl         ::= PROC_DECL NAME:name
                                 BEGIN decl_list:dl
                                 IN stmt_list:sl END
                                 {: RESULT = new ProcDecl(name, pl, t, dl, sl); :}
-                    | PROC_DECL NAME:name
-                                LPAR param_list_comma:pl RPAR
-                                BEGIN stmt_list:sl END
-                                {: RESULT = new ProcDecl(name, pl, sl); :}
-                    | PROC_DECL NAME:name
-                                LPAR param_list_comma:pl RPAR
-                                COLON type:t
-                                BEGIN stmt_list:sl END
-                                {: RESULT = new ProcDecl(name, pl, t, sl); :}
                     ;
 
 exp               ::= binop:b                 {: RESULT = b; :}
