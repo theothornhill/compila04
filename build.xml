@@ -5,7 +5,9 @@
 		<echo>clean                     - Cleans up the project</echo>
 		<echo>build                     - Build compiler</echo>
 		<echo>run                       - Run compiler</echo>
-        <echo>test                      - Test compiler</echo>
+        <echo>test-fullprograms         - Test compiler programs</echo>
+        <echo>test-fail                 - Test compiler parsing fails</echo>
+        <echo>test-passing              - Test compiler parsing passes</echo>
 	</target>
 
 	<!-- Path definitions -->
@@ -68,23 +70,74 @@
 	<!-- Run the system  -->
 	<target name="run" depends="init">
 		<java classname="Main" classpathref="path-run">
-          <arg value="src/testfiles/runme.cmp"/> 
+          <arg value="src/tests/fullprograms/complexaddition.cmp"/> 
 		</java>
 	</target>
     
     <!-- Test the system -->
-    <target name="test" depends="init">
+    <target name="test-fullprograms" depends="init">
 		<java classname="Main" classpathref="path-run">
-          <arg value="src/testfiles/euclid.cmp"/>
+          <arg value="src/tests/fullprograms/euclid.cmp"/>
 		</java>
 		<java classname="Main" classpathref="path-run">
-          <arg value="src/testfiles/complexaddition.cmp"/>
+          <arg value="src/tests/fullprograms/complexaddition.cmp"/>
 		</java>
 		<java classname="Main" classpathref="path-run">
-          <arg value="src/testfiles/plog.cmp"/>
+          <arg value="src/tests/fullprograms/plog.cmp"/>
 		</java>
 		<java classname="Main" classpathref="path-run">
-          <arg value="src/testfiles/runme.cmp"/> 
+          <arg value="src/tests/fullprograms/runme.cmp"/> 
 		</java>
 	</target>
+
+    <!-- Tests that will fail -->
+    <target name="test-fail" depends="init">
+		<java classname="Main" classpathref="path-run">
+          <arg value="src/tests/errors/parsing/test01.cmp"/>
+		</java>
+        <java classname="Main" classpathref="path-run">
+          <arg value="src/tests/errors/parsing/test02.cmp"/>
+		</java>
+        <java classname="Main" classpathref="path-run">
+          <arg value="src/tests/errors/parsing/test03.cmp"/>
+		</java>
+        <java classname="Main" classpathref="path-run">
+          <arg value="src/tests/errors/parsing/test04.cmp"/>
+		</java>
+        <java classname="Main" classpathref="path-run">
+          <arg value="src/tests/errors/parsing/test05.cmp"/>
+		</java>
+        <java classname="Main" classpathref="path-run">
+          <arg value="src/tests/errors/parsing/test06.cmp"/>
+		</java>
+	</target>
+
+    <!-- Tests that will fail -->
+    <target name="test-passing" depends="init">
+		<java classname="Main" classpathref="path-run">
+          <arg value="src/tests/parsing/test01.cmp"/>
+		</java>
+        <java classname="Main" classpathref="path-run">
+          <arg value="src/tests/parsing/test02.cmp"/>
+		</java>
+        <java classname="Main" classpathref="path-run">
+          <arg value="src/tests/parsing/test03.cmp"/>
+		</java>
+        <java classname="Main" classpathref="path-run">
+          <arg value="src/tests/parsing/test04.cmp"/>
+		</java>
+        <java classname="Main" classpathref="path-run">
+          <arg value="src/tests/parsing/test05.cmp"/>
+		</java>
+        <java classname="Main" classpathref="path-run">
+          <arg value="src/tests/parsing/test06.cmp"/>
+		</java>
+        <java classname="Main" classpathref="path-run">
+          <arg value="src/tests/parsing/test07.cmp"/>
+		</java>
+        <java classname="Main" classpathref="path-run">
+          <arg value="src/tests/parsing/test08.cmp"/>
+		</java>
+	</target>
+
 </project>
