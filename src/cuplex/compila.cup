@@ -116,15 +116,6 @@ paramfield_decl   ::= NAME:name COLON type:t {: RESULT = new Param(name, t); :}
 
 proc_decl         ::= PROC_DECL NAME:name
                                 LPAR param_list_comma:pl RPAR
-                                BEGIN stmt_list:sl END
-                                {: RESULT = new ProcDecl(name, pl, sl); :}
-                    | PROC_DECL NAME:name
-                                LPAR param_list_comma:pl RPAR
-                                COLON type:t
-                                BEGIN stmt_list:sl END
-                                {: RESULT = new ProcDecl(name, pl, t, sl); :}
-                    | PROC_DECL NAME:name
-                                LPAR param_list_comma:pl RPAR
                                 BEGIN decl_list:dl
                                 IN stmt_list:sl END
                                 {: RESULT = new ProcDecl(name, pl, dl, sl); :}
