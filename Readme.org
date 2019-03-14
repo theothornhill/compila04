@@ -13,6 +13,10 @@ theodokt@ifi.uio.no | theothornhill@pm.me
 This is my attempt on the first obligatory exercise in INF5110 on UiO. The first
 exercise is to build a lexer and parser for a provided grammar/language, and
 produce its abstract syntax tree.
+** Information about my solution
+   I have chosen the =in= from =begin - in - end= to be strict and only accept
+   when the =in= is present. As such I have changed a lot of the test-files, as
+   they were, frankly, a mess. 
 * How to build and run
 
 You need to have =ant=  and =java= on your system, which also is recommended tool for this
