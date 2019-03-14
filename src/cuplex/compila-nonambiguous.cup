@@ -48,8 +48,7 @@ nonterminal LinkedList<Object>     exp_list;
 start with program;
 
 program           ::= PROGRAM NAME:name BEGIN decl_list:dl END
-                               {: RESULT = new Program(name, dl);
-                                  System.out.println(RESULT.printAst()); :}
+                               {: RESULT = new Program(name, dl); :}
                     ;
 
 decl_list         ::= decl:d {: LinkedList<Decl> l = new LinkedList<Decl>();
