@@ -1,0 +1,9 @@
+program general3_fail
+begin
+  proc main()
+    begin
+      var foo : int
+      in
+      bar := 42 /* error, bar not declared */
+  end
+end

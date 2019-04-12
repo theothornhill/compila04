@@ -1,0 +1,10 @@
+program wrong_new_arg_type_fail
+begin
+
+    proc main()
+    begin
+        proc f() begin in return  end
+     in
+        return new f /* Error: argument of new is not declared. */
+    end
+end

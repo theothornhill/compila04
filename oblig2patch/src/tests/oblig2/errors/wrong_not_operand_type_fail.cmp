@@ -1,0 +1,14 @@
+program wrong_not_operand_type_fail
+begin
+
+    /* Argument of the not operator not of type bool. */
+    proc main()
+    begin
+        var b : bool;
+        var s : string
+    in 
+        s := "bad operand";
+        b := not s
+    end
+
+end

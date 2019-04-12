@@ -1,0 +1,11 @@
+program type7_fail
+begin
+    struct Foo  {  Attr : int };
+    proc main()
+    begin
+        var foo : Foo
+    in 
+        (foo).DoesntExist := 42 /* error, no such attribute */
+    end
+
+end

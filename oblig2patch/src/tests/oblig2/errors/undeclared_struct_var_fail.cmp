@@ -1,0 +1,11 @@
+program undeclared_struct_var_fail
+begin
+    proc main()
+    begin
+       struct Zot { x : int } ;
+       var zot : Zot
+    in 
+       zot := new Zot;
+       (zot).bar := 42 /* error, zot.bar not declared */
+    end
+end

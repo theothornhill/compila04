@@ -1,0 +1,15 @@
+program procedure5_fail
+begin
+
+    proc Add( val1 : int , val2 : int ) : int 
+    begin
+        in
+        return val1 + val2
+    end;
+
+    proc main()
+    begin
+        in
+        printint( Add( 42, true ) ) /* error, second arg should be int */
+    end
+end

@@ -1,0 +1,15 @@
+program general1_fail
+begin
+  proc Main()
+  begin
+    proc Tmp() : string
+    begin
+        in
+        return "Top of the world, ma!"
+    end;
+
+    var Tmp : int /* Error: already a symbol named Tmp in the current scope. */
+    in
+    printstr( Tmp() )
+   end
+end

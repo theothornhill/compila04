@@ -1,0 +1,14 @@
+program general2_fail
+begin
+  proc Proc( a : int )
+  begin
+    var a : int  /* error, param already named a */ 
+    in
+    printint( a )
+  end;
+  proc main()
+  begin 
+    in
+    Proc()
+  end
+end

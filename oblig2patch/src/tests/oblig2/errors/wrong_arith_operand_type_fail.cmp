@@ -1,0 +1,14 @@
+program wrong_arith_operand_type_fail
+begin
+    /* Arguments of an arithmetical operator not of arithmetical type. */
+    proc main()
+    begin
+        var n : int;
+        var s : string;
+        var b : bool
+     in 
+        s := "bad operand";
+    /*    n := s + s / s; */
+        n := true + b
+    end
+end

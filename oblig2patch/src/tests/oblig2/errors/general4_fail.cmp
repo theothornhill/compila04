@@ -1,0 +1,8 @@
+program general4_fail /* error, no procedure main() */
+begin
+  proc Proc()
+  begin
+    in
+    printstr( "Hello world!" )
+  end
+end

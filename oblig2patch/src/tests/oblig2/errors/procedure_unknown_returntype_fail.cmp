@@ -1,0 +1,12 @@
+program procedure_unknown_return_type_fail
+begin
+	proc main()
+	begin
+        in
+	end;
+	proc test() : notexist /* Fail: notexist does not exist. */
+	begin
+            in
+	    return (new notexist)
+	end
+end

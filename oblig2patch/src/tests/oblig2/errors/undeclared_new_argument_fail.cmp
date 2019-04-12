@@ -1,0 +1,9 @@
+program undeclared_new_argument_fail
+begin
+
+    proc main()
+    begin
+     in
+        return new foobar /* Error: argument of new is not declared. */
+    end
+end

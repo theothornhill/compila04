@@ -1,0 +1,15 @@
+program wrong_rel_operand_type_fail
+begin
+
+    
+    proc main()
+    begin
+        var b : bool;
+        var s : string;
+        var b2 : bool
+     in
+        s := "bad operand";
+        b := 5 = b2
+    end
+
+end

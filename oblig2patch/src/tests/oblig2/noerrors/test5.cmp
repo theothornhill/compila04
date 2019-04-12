@@ -1,0 +1,17 @@
+program test5
+begin
+  proc Proc( a : ref(int))
+  begin
+    in
+    deref(a) := 42
+  end;
+
+ proc main()
+   begin
+     var a : int
+     in
+        a := 32;
+	    Proc( ref(a) );
+	    printint( a )
+	end
+end

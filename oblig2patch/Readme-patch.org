@@ -1,0 +1,79 @@
+This is information about the ``patch'' for the oblig 2.
+
+
+Note: as I don't know to which extent the original structure has been
+changed in a given group, this material is NOT intended to work
+``out-of-the-box'' for everyone (or even the majority).
+
+
+Again, it's meant has (helpful) guidelines of what to to.
+
+The oblig is specified as the second part of the Compila19 document (type
+checking and code generation). Therefore, also the documentation how do
+make use of the given library needs to be consulted. The documentation is
+(in your original project) under ~/doc/:
+
+
+
+
+#+begin_example
+ ./bytecodeinterpreter
+ ./languagespec
+  ./obligs
+#+end_example
+
+
+If you did not delete that part from your repos, it should still be
+there. Otherwise it's still browsable at
+
+    https://github.uio.no/msteffen/compila
+
+I also included slides that cover oblig2 here.
+
+
+So much for the background information. As far as code is concerned given
+in this patch:
+
+
+  - ~./src~ : that contains new code, namely the implementation of the byte code and run-time
+              support library and some code for testing. 
+
+             There is also a ``new'' version of the ~Compiler.java~ file.
+            It is basically an extension the the older file, that was provided
+	    as starting point. Basically, you should adapt your ~Compiler.java~ file
+	    accordingly (most people made adaptations from the starting version, so
+	    that's one of the points where you cannot expect that the newly proposed
+	    inspirational version will just work for you directly.
+
+
+
+          Move the directories to a place that suits your compiler (perhaps as
+	   subdirectories of src, but some people changed also that)
+
+
+
+   - ~./build.xml~ : analogous remarks also here. you will perhaps have worked with
+                     ant (as suggested) and may have taken the previous
+                  ~build.xml~ as start point (but perhaps adapted things).  Again: this
+                  one is a suggestion on how to extend your build-file to support the new
+                  needs and target. 
+
+		    In particular, code generation and the tests etc. MUST
+                    BE AUTOMATED and executable (for me) in an EASY manner.
+
+
+
+    - test files: For the test-compila-files: I include them here in the
+      patch, there are files for testing the 
+
+           1) type checker and the static       analysis phase
+	   2) code generator
+
+      For the first ones: they are separated into those which should work
+      and those where the type checker should report an error.
+
+
+
+      
+
+

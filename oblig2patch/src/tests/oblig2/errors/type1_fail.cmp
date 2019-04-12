@@ -1,0 +1,11 @@
+program type1_fail
+begin
+
+    proc main()
+    begin
+        var tmp : bool
+    in 
+        tmp := 42 /* Error, can't assign int to bool */
+    end
+
+end
