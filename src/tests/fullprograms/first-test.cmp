@@ -1,0 +1,8 @@
+program firsttest
+begin
+  struct Complex {
+     Real : float;
+     Imag : float;
+     Another : wtf
+  }
+end

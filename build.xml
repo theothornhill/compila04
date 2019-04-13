@@ -70,7 +70,8 @@
 	<!-- Run the system  -->
 	<target name="run" depends="init">
 		<java classname="Main" classpathref="path-run">
-          <arg value="src/tests/fullprograms/complexaddition.cmp"/> 
+          <!-- <arg value="src/tests/fullprograms/complexaddition.cmp"/> -->
+          <arg value="src/tests/fullprograms/first-test.cmp"/> 
 		</java>
 	</target>
     
