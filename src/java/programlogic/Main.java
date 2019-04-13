@@ -65,9 +65,26 @@ public class Main {
             try {
                 returnSymbol = parser.parse();
                 Program program = (Program)returnSymbol.value;
-                // System.out.println(program.printAst());
-                // VirtualMachine vm = new VirtualMachine("/Users/theodor/Dropbox/Studier/fag/INF5110/compila04/example.bin");
-                // vm.run();
+                // Add some custom things after parsing - in particular main-method
+                CodeFile codeFile = new CodeFile();
+
+                codeFile.addProcedure("Main");
+                CodeProcedure main = new CodeProcedure("Main", VoidType.TYPE, codeFile);
+                main.addInstruction(new RETURN());
+                codeFile.updateProcedure(main);
+
+                program.generateCode(codeFile);
+
+                codeFile.setMain("Main");
+                
+                byte[] bytecode = codeFile.getBytecode();
+
+                DataOutputStream stream = new DataOutputStream(new FileOutputStream("/Users/theodor/Dropbox/Studier/fag/INF5110/compila04/example.bin"));
+                stream.write(bytecode);
+                stream.close();
+                System.out.println(program.printAst());
+                VirtualMachine vm = new VirtualMachine("/Users/theodor/Dropbox/Studier/fag/INF5110/compila04/example.bin");
+                vm.list();
             } catch (Exception ee) {
             }
         } catch (FileNotFoundException e) {
