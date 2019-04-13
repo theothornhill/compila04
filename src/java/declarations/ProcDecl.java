@@ -1,4 +1,5 @@
 import java.util.*;
+import bytecode.*;
 
 public class ProcDecl extends Decl {
     LinkedList<Param> pl;
@@ -45,6 +46,10 @@ public class ProcDecl extends Decl {
         this.pl = pl;
         this.dl = dl;
         this.sl = sl;
+    }
+
+    public void generateCode(CodeFile codeFile) {
+        
     }
 
     private String printType(int indentLevel) {

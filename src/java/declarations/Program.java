@@ -1,4 +1,6 @@
 import java.util.*;
+import bytecode.*;
+
 
 public class Program {
     String name;
@@ -6,6 +8,16 @@ public class Program {
     public Program(String name, LinkedList<Decl> declarations) {
         this.name = name;
         this.declarations = declarations;
+    }
+
+    public void generateCode(CodeFile codeFile) {
+        if (declarations != null) {
+            for (Decl decl : declarations) {
+                if (decl != null) {
+                    decl.generateCode(codeFile);
+                }
+            }            
+        }
     }
 
     public String printAst() {

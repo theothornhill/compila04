@@ -1,10 +1,26 @@
 import java.util.*;
+import bytecode.*;
+import bytecode.type.*;
+import bytecode.instructions.*;
 
 public class RecDecl extends Decl {
     LinkedList<Param> pl;
+    CodeStruct struct;
+
     public RecDecl(String name, LinkedList<Param> pl) {
         this.name = name;
         this.pl = pl;
+        struct = new CodeStruct(this.name);
+    }
+
+    public void generateCode(CodeFile codeFile) {
+        codeFile.addStruct(this.name);
+        if (pl != null) {
+            for (Param param : pl) {
+                param.generateCode(struct);
+                codeFile.updateStruct(struct);
+            }
+        }
     }
 
     public String printAst(int indentLevel) {
