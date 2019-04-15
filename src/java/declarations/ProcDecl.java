@@ -1,6 +1,7 @@
 import java.util.*;
 import bytecode.*;
 import bytecode.type.*;
+import bytecode.instructions.*;
 
 public class ProcDecl extends Decl {
     LinkedList<Param> pl;
@@ -78,6 +79,7 @@ public class ProcDecl extends Decl {
                 System.out.println("Statements here!");
             }            
         }
+        proc.addInstruction(new RETURN());
         codeFile.updateProcedure(proc);
 
     }
