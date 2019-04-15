@@ -1,11 +1,13 @@
 import java.util.*;
 import bytecode.*;
+import bytecode.type.*;
 
 public class ProcDecl extends Decl {
     LinkedList<Param> pl;
     LinkedList<Decl> dl;
     LinkedList<Stmt> sl;
     Type type;
+    CodeProcedure proc;
 
     // Constructors
     public ProcDecl(String name,
@@ -49,7 +51,35 @@ public class ProcDecl extends Decl {
     }
 
     public void generateCode(CodeFile codeFile) {
-        
+        codeFile.addProcedure(this.name);
+        // check return-type
+        if (type == null) {
+            proc = new CodeProcedure(this.name, VoidType.TYPE, codeFile);
+        } else {
+            proc = new CodeProcedure(this.name,
+                                     type.setCodeType(type.toString()),
+                                     codeFile);
+        }
+
+        if (pl != null) {
+            for (Param param : pl) {
+                param.generateCode(proc);
+            }
+        }
+
+        if (dl != null) {
+            for (Decl decl : dl) {
+                decl.generateCode(codeFile);
+            }            
+        }
+
+        if (sl != null) {
+            for (Stmt stmt : sl) {
+                System.out.println("Statements here!");
+            }            
+        }
+        codeFile.updateProcedure(proc);
+
     }
 
     private String printType(int indentLevel) {
@@ -76,7 +106,6 @@ public class ProcDecl extends Decl {
         }
 
         if (sl != null) {
-
             for (Stmt stmt : sl) {
                 sb.append(PrintHelper.printStmt(stmt, indentLevel+1));
             }            
