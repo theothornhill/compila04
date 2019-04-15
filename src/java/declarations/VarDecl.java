@@ -8,7 +8,7 @@ public class VarDecl extends Decl {
     public VarDecl(String name, Type type) {
         this.name = name;
         this.type = type;
-        this.t = type.setCodeType(t.toString());
+        this.t = type.setCodeType(type.toString());
     }
 
     public void generateCode(CodeFile codeFile) {
