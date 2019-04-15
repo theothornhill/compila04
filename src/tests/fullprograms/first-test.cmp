@@ -1,5 +1,6 @@
 program firsttest
 begin
+  var x : int;
   struct Complex {
      Real : float;
      Imag : int;
