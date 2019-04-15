@@ -68,14 +68,9 @@ public class Main {
                 // Add some custom things after parsing - in particular main-method
                 CodeFile codeFile = new CodeFile();
 
-                codeFile.addProcedure("Main");
-                CodeProcedure main = new CodeProcedure("Main", VoidType.TYPE, codeFile);
-                main.addInstruction(new RETURN());
-                codeFile.updateProcedure(main);
-
                 program.generateCode(codeFile);
 
-                codeFile.setMain("Main");
+                codeFile.setMain("Main"); // This needs to go somewhere else?
                 
                 byte[] bytecode = codeFile.getBytecode();
 
