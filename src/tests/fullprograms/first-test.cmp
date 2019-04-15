@@ -4,5 +4,14 @@ begin
      Real : float;
      Imag : int;
      Another : string
-  }
+  };
+
+  proc Hello(a : int)
+  begin
+    struct C {
+    One : float
+    }
+  in
+  a := 5
+  end
 end
