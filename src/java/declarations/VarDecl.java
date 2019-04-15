@@ -1,14 +1,19 @@
 import bytecode.*;
+import bytecode.type.*;
 
 public class VarDecl extends Decl {
     Type type;
+    CodeType t;
+    
     public VarDecl(String name, Type type) {
         this.name = name;
         this.type = type;
+        this.t = type.setCodeType(t.toString());
     }
 
     public void generateCode(CodeFile codeFile) {
-        
+        codeFile.addVariable(this.name);
+        codeFile.updateVariable(this.name, t);
     }
     
     public String printAst(int indentLevel) {
