@@ -2,7 +2,7 @@ program firsttest
 begin
   struct Complex {
      Real : float;
-     Imag : float;
-     Another : wtf
+     Imag : int;
+     Another : string
   }
 end

@@ -9,6 +9,10 @@ public class Type {
         this.t = t;
     }
 
+    public String toString() {
+        return this.type;
+    }
+
     public String printAst(int indentLevel) {
         StringBuilder sb = new StringBuilder();
         sb.append("(TYPE ");
