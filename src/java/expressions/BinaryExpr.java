@@ -7,6 +7,7 @@ public class BinaryExpr extends Expr {
     Object e2;
     Object op;
     Instruction operator;
+
     public BinaryExpr(Object e1, Object op, Object e2) {
         this.e1 = e1;
         this.op = op;

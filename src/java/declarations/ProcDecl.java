@@ -76,6 +76,7 @@ public class ProcDecl extends Decl {
 
         if (sl != null) {
             for (Stmt stmt : sl) {
+                // stmt.generateCode(proc);
                 System.out.println("Statements here!");
             }            
         }
