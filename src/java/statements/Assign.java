@@ -1,7 +1,14 @@
+import bytecode.*;
+import bytecode.type.*;
+
 public class Assign extends Stmt {
     public Assign(Object name, Object e) {
         this.e2 = name;
         this.e = e;
+    }
+
+    public void generateCode(CodeFile codeFile) {
+        
     }
 
     public String printAst(int indentLevel) {

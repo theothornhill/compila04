@@ -1,4 +1,7 @@
 import java.util.*;
+import bytecode.*;
+import bytecode.type.*;
+
 public class If extends Stmt {
     LinkedList<Stmt> sl2;
     public If(Object e, LinkedList<Stmt> sl) {
@@ -10,6 +13,10 @@ public class If extends Stmt {
         this.e = e;
         this.sl = sl;
         this.sl2 = sl2;
+    }
+
+    public void generateCode(CodeFile codeFile) {
+        
     }
 
     public String printAst(int indentLevel) {

@@ -1,11 +1,18 @@
 import java.util.*;
+import bytecode.*;
+import bytecode.type.*;
 
 public class While extends Stmt {
     Object e;
     LinkedList<Stmt> el;
+
     public While(Object e, LinkedList<Stmt> el) {
         this.e = e;
         this.el = el;
+    }
+
+    public void generateCode(CodeFile codeFile) {
+        
     }
 
     public String printAst(int indentLevel) {

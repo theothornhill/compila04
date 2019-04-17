@@ -1,3 +1,6 @@
+import bytecode.*;
+import bytecode.type.*;
+
 public class Return extends Stmt {
     public Return(Object expr) {
         this.e = expr;
@@ -7,6 +10,10 @@ public class Return extends Stmt {
         
     }
 
+    public void generateCode(CodeFile codeFile) {
+        
+    }
+    
     public String printAst(int indentLevel) {
         if (this.e == null) {
             return "(RETURN)";

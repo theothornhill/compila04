@@ -1,10 +1,16 @@
 import java.util.*;
+import bytecode.*;
+import bytecode.type.*;
 
 public class Call extends Stmt {
     LinkedList<Object> el;
     public Call(String name, LinkedList<Object> el) {
         this.name = name;
         this.el = el;
+    }
+
+    public void generateCode(CodeFile codeFile) {
+        
     }
 
     public String printAst(int indentLevel) {
