@@ -14,6 +14,18 @@ public class Literal {
         
     }
 
+    public CodeType getLiteralType(String type) {
+        return type.equals("INT_LITERAL")
+            ? IntType.TYPE
+            : type.equals("STRING_LITERAL")
+            ? StringType.TYPE
+            : type.equals("FLOAT_LITERAL")
+            ? FloatType.TYPE
+            : type.equals("BOOL_LITERAL")
+            ? BoolType.TYPE
+            : type.equals("NULL_LITERAL");
+    }
+
     public String printAst(int indentLevel) {
         StringBuilder sb = new StringBuilder();
         sb.append("(" + type + " ");
