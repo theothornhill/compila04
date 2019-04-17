@@ -23,7 +23,7 @@ public class Literal {
             ? FloatType.TYPE
             : type.equals("BOOL_LITERAL")
             ? BoolType.TYPE
-            : type.equals("NULL_LITERAL");
+            : VoidType.TYPE;
     }
 
     public String printAst(int indentLevel) {
