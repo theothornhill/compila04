@@ -1155,3 +1155,28 @@ BUILD SUCCESSFUL
 Total time: 0 seconds
 #+end_example
 
+* Todos 
+** [0/5] Statements
+   Add code for generateCode
+     - [ ] [[file:src/java/statements/While.java::public%20void%20generateCode(CodeFile%20codeFile)%20{%20}][while]] 
+     - [ ] [[file:src/java/statements/Call.java::public%20void%20generateCode(CodeFile%20codeFile)%20{%20}][call]]
+     - [ ] [[file:src/java/statements/If.java::public%20void%20generateCode(CodeFile%20codeFile)%20{%20}][if]]
+     - [ ] [[file:src/java/statements/Return.java::public%20void%20generateCode(CodeFile%20codeFile)%20{%20}][return]]
+     - [ ] [[file:src/java/statements/Assign.java::public%20void%20generateCode(CodeFile%20codeFile)%20{%20}][assign]]
+** [0/5] Declarations
+   - [ ] [[file:src/java/declarations/ProcDecl.java::public%20void%20generateCode(CodeFile%20codeFile)%20{][proc]]
+   - [ ] [[file:src/java/declarations/Param.java::public%20void%20generateCode(CodeStruct%20struct)%20{][param]]
+   - [ ] [[file:src/java/declarations/Program.java::public%20void%20generateCode(CodeFile%20codeFile)%20{][program]]
+   - [ ] [[file:src/java/declarations/RecDecl.java::public%20void%20generateCode(CodeFile%20codeFile)%20{][recdecl]]
+   - [ ] [[file:src/java/declarations/VarDecl.java::public%20void%20generateCode(CodeFile%20codeFile)%20{][vardecl]]
+
+** [0/7] Expressions
+   - [ ] [[file:src/java/expressions/BinaryExpr.java::public%20void%20generateCode(CodeFile%20codeFile)%20{%20}][Binaryexpr]]
+   - [ ] [[file:src/java/expressions/Var.java::public%20void%20generateCode(CodeFile%20codeFile)%20{%20}][var]]
+   - [ ][[file:src/java/expressions/DerefVar.java::public%20void%20generateCode(CodeFile%20codeFile)%20{][ derefvar]]
+   - [ ] [[file:src/java/expressions/Literal.java::public%20void%20generateCode(CodeFile%20codeFile)%20{][literal]]
+   - [ ] [[file:src/java/expressions/NestedExpr.java::public%20void%20generateCode(CodeFile%20codeFile)%20{][nestedexpr]]
+   - [ ] [[file:src/java/expressions/New.java::public%20void%20generateCode(CodeFile%20codeFile)%20{][new]]
+   - [ ] [[file:src/java/expressions/Not.java::public%20void%20generateCode(CodeFile%20codeFile)%20{][not]]
+   - [ ] [[file:src/java/expressions/RefVar.java::public%20void%20generateCode(CodeFile%20codeFile)%20{][refvar]]
+

@@ -1,3 +1,6 @@
+import bytecode.*;
+import bytecode.type.*;
+
 public class BinaryExpr extends Expr {
     Object e1;
     Object e2;
@@ -6,6 +9,10 @@ public class BinaryExpr extends Expr {
         this.e1 = e1;
         this.op = op;
         this.e2 = e2;
+    }
+
+    public void generateCode(CodeFile codeFile) {
+        
     }
 
     public String printAst(int indentLevel) {

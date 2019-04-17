@@ -1,3 +1,6 @@
+import bytecode.*;
+import bytecode.type.*;
+
 public class RefVar extends Var {
     public RefVar(Var variable) {
         super(variable.expr, variable.name);
@@ -5,6 +8,10 @@ public class RefVar extends Var {
 
     public RefVar(Object obj) {
         super(obj.toString());
+    }
+
+    public void generateCode(CodeFile codeFile) {
+        
     }
 
     public String printAst(int indentLevel) {

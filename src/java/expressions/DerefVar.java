@@ -1,3 +1,5 @@
+import bytecode.*;
+import bytecode.type.*;
 
 public class DerefVar extends Var {
     public DerefVar(Var variable) {
@@ -6,6 +8,10 @@ public class DerefVar extends Var {
 
     public DerefVar(Object obj) {
         super(obj.toString());
+    }
+
+    public void generateCode(CodeFile codeFile) {
+        
     }
 
     public String printAst(int indentLevel) {

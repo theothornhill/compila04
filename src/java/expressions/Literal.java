@@ -1,3 +1,6 @@
+import bytecode.*;
+import bytecode.type.*;
+
 public class Literal {
     String type;
     String value;
@@ -5,6 +8,10 @@ public class Literal {
     public Literal(String type, String value) {
         this.type = type;
         this.value = value;
+    }
+
+    public void generateCode(CodeFile codeFile) {
+        
     }
 
     public String printAst(int indentLevel) {

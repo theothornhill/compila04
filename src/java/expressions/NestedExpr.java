@@ -1,6 +1,13 @@
+import bytecode.*;
+import bytecode.type.*;
+
 public class NestedExpr extends Expr {
     public NestedExpr(Object expr) {
         this.expr = expr;
+    }
+
+    public void generateCode(CodeFile codeFile) {
+        
     }
 
     public String printAst(int indentLevel) {
