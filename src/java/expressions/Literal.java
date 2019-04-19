@@ -16,6 +16,10 @@ public class Literal {
         
     }
 
+    public void generateCode(CodeProcedure proc) {
+
+    }
+
     public CodeType getLiteralType(String type) {
         return type.equals("INT_LITERAL")
             ? IntType.TYPE
