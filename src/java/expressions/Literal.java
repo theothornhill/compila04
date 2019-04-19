@@ -4,10 +4,12 @@ import bytecode.type.*;
 public class Literal {
     String type;
     String value;
+    CodeType t;
 
     public Literal(String type, String value) {
         this.type = type;
         this.value = value;
+        this.t = getLiteralType(this.type);
     }
 
     public void generateCode(CodeFile codeFile) {
