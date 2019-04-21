@@ -9,4 +9,5 @@ public abstract class Stmt {
     LinkedList<Stmt> sl;
     public abstract String printAst(int indentLevel);
     public abstract void generateCode(CodeFile codeFile);
+    public abstract void generateCode(CodeProcedure proc);
 }

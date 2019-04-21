@@ -13,6 +13,10 @@ public class Call extends Stmt {
         
     }
 
+    public void generateCode(CodeProcedure proc) {
+        
+    }
+
     public String printAst(int indentLevel) {
         StringBuilder sb = new StringBuilder();
         sb.append("(CALL_STMT");

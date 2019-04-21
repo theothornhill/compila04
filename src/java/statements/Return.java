@@ -13,6 +13,10 @@ public class Return extends Stmt {
     public void generateCode(CodeFile codeFile) {
         
     }
+
+    public void generateCode(CodeProcedure proc) {
+        
+    }
     
     public String printAst(int indentLevel) {
         if (this.e == null) {

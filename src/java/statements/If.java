@@ -19,6 +19,10 @@ public class If extends Stmt {
         
     }
 
+    public void generateCode(CodeProcedure proc) {
+        
+    }    
+
     public String printAst(int indentLevel) {
         StringBuilder sb = new StringBuilder();
         sb.append("(IF ");
