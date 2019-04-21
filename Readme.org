@@ -1155,7 +1155,22 @@ BUILD SUCCESSFUL
 Total time: 0 seconds
 #+end_example
 
-* Todos 
+* Notes
+** Thoughts
+*** Expressions need to know what they evaluate to.
+    For example, I need to know if the =not= expression is legal. =not= cannot
+    negate arithmetic, only boolean values. Maybe create a different class for
+    logical operations compared to arithmetic  operations?
+*** What can expressions be?
+**** literals - they are self evaluating
+**** compound expressions - they need to recur, or bottom out to literal
+**** call-stmt - evaluates its parameters, can be literals or exprs
+**** var-refvar-derefvar - recurs exprs again
+**** binary operators can be logical, relational or arit. 
+**** unary only =not=
+**** call is only =stmt=, others inherit from =expr=
+** [0/1] CodeGenerationHelper
+   - [ ] [[file:src/java/programlogic/CodeGenerationHelper.java::public%20static%20CodeType%20exprEelper(CodeFile%20codeFile,%20Object%20node)%20{][exprHelper]]
 ** [0/5] Statements
    Add code for generateCode
      - [ ] [[file:src/java/statements/While.java::public%20void%20generateCode(CodeFile%20codeFile)%20{%20}][while]] 
@@ -1179,4 +1194,9 @@ Total time: 0 seconds
    - [ ] [[file:src/java/expressions/New.java::public%20void%20generateCode(CodeFile%20codeFile)%20{][new]]
    - [ ] [[file:src/java/expressions/Not.java::public%20void%20generateCode(CodeFile%20codeFile)%20{][not]]
    - [ ] [[file:src/java/expressions/RefVar.java::public%20void%20generateCode(CodeFile%20codeFile)%20{][refvar]]
+
+** [0/2] Literals
+   - [ ] How to handle the [[file:src/cuplex/compila.lex::"true"%20{%20return%20symbol(sym.TRUE,%20yytext());%20}%20"false"%20{%20return%20symbol(sym.FALSE,%20yytext());%20}][bool literal]] 
+   - [ ] Literals can never be [[file:src/java/expressions/Literal.java:::%20VoidType.TYPE;%20//%20TODO:%20Literals%20can%20never%20be%20void.%20Fix][void]]. Error report?
+
 
