@@ -10,6 +10,9 @@ public class NestedExpr extends Expr {
         
     }
 
+    public void generateCode(CodeProcedure proc) {
+        
+    }
     public String printAst(int indentLevel) {
         return ""+ PrintHelper.astHelper(this.expr, indentLevel) +"";
     }

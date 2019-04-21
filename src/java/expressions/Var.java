@@ -14,6 +14,10 @@ public class Var extends Expr {
     public void generateCode(CodeFile codeFile) {
         
     }
+
+    public void generateCode(CodeProcedure proc) {
+        
+    }
     
     public String printAst(int indentLevel) {
         if (this.expr == null) {

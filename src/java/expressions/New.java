@@ -11,6 +11,10 @@ public class New extends Expr {
         
     }
 
+    public void generateCode(CodeProcedure proc) {
+        
+    }
+
     public String printAst(int indentLevel) {
         return "(NEW " + PrintHelper.astHelper(name, indentLevel) + ")";
     }

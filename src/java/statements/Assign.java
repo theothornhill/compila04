@@ -8,7 +8,11 @@ public class Assign extends Stmt {
     }
 
     public void generateCode(CodeFile codeFile) {
-        
+        codeFile.addStringConstant("Added constant here asshole");
+    }
+
+    public void generateCode(CodeProcedure proc) {
+
     }
 
     public String printAst(int indentLevel) {
