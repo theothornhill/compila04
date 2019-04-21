@@ -76,10 +76,15 @@ public class ProcDecl extends Decl {
 
         if (sl != null) {
             for (Stmt stmt : sl) {
-                stmt.generateCode(codeFile);
-                // System.out.println("Statements here!");
+                // Idea here is that assign needs to access codeFile, others don't
+                if (stmt instanceof Assign) {
+                    stmt.generateCode(codeFile);                    
+                } else {
+                    stmt.generateCode(proc);                     
+                }
             }            
         }
+        // Handle the return statement differently
         proc.addInstruction(new RETURN());
         codeFile.updateProcedure(proc);
 
