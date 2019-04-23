@@ -14,7 +14,11 @@ public class Call extends Stmt {
     }
 
     public void generateCode(CodeProcedure proc) {
-        
+        if (el != null)  {
+            for (Object e : el) {
+                CodeGenerationHelper.exprHelper(proc, e);
+            }
+        }
     }
 
     public String printAst(int indentLevel) {
