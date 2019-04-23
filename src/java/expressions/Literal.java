@@ -2,14 +2,14 @@ import bytecode.*;
 import bytecode.type.*;
 
 public class Literal {
-    String type;
-    String value;
-    CodeType t;
+    public String type;
+    public String value;
+    CodeType codeType;
 
     public Literal(String type, String value) {
         this.type = type;
         this.value = value;
-        this.t = getLiteralType(this.type);
+        this.codeType = getLiteralType();
     }
 
     public void generateCode(CodeFile codeFile) {
@@ -20,17 +20,24 @@ public class Literal {
 
     }
 
-    public CodeType getLiteralType(String type) {
-        return type.equals("INT_LITERAL")
+    public CodeType getLiteralType() {
+        return this.type.equals("INT_LITERAL")
             ? IntType.TYPE
-            : type.equals("STRING_LITERAL")
+            : this.type.equals("STRING_LITERAL")
             ? StringType.TYPE
-            : type.equals("FLOAT_LITERAL")
+            : this.type.equals("FLOAT_LITERAL")
             ? FloatType.TYPE
-            : type.equals("BOOL_LITERAL")
+            : this.type.equals("BOOL_LITERAL")
             ? BoolType.TYPE
             : VoidType.TYPE;    // TODO: Literals can never be void. Fix
+    }
 
+    public CodeType getCodeType() {
+        return this.codeType;
+    }
+
+    public Object getValue() {
+        return this.value;
     }
 
     public String printAst(int indentLevel) {
