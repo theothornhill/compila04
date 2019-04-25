@@ -4,11 +4,11 @@ import bytecode.type.*;
 
 public class While extends Stmt {
     Object e;
-    LinkedList<Stmt> el;
+    LinkedList<Stmt> sl;
 
-    public While(Object e, LinkedList<Stmt> el) {
+    public While(Object e, LinkedList<Stmt> sl) {
         this.e = e;
-        this.el = el;
+        this.sl = sl;
     }
 
     public void generateCode(CodeFile codeFile) {
