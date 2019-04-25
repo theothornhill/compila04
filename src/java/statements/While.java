@@ -16,8 +16,10 @@ public class While extends Stmt {
     }
 
     public void generateCode(CodeProcedure proc) {
-        
-    }    
+        CodeGenerationHelper.exprHelper(proc, e);
+        CodeGenerationHelper.exprTraverser(el, proc);
+    }
+    
     public String printAst(int indentLevel) {
         StringBuilder sb = new StringBuilder();
         sb.append("(WHILE ");
