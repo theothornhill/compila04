@@ -1,6 +1,7 @@
 import java.util.*;
 import bytecode.*;
 import bytecode.type.*;
+import bytecode.instructions.*;
 
 public class Call extends Stmt {
     LinkedList<Object> el;
@@ -15,6 +16,7 @@ public class Call extends Stmt {
 
     public void generateCode(CodeProcedure proc) {
         CodeGenerationHelper.exprTraverser(el, proc);
+        proc.addInstruction(new CALL(proc.procedureNumber(this.name)));
     }
 
     public String printAst(int indentLevel) {
