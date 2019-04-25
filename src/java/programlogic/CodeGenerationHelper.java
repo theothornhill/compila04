@@ -9,8 +9,8 @@ public class CodeGenerationHelper {
     public static void exprHelper(CodeProcedure proc, Object node) {
         if (node instanceof Expr)
             ((Expr) node).generateCode(proc);
-        // else if (node instanceof Call)
-        //     ((Call) node).generateCode(proc);
+        else if (node instanceof Call)
+            ((Call) node).generateCode(proc);
         else if (node instanceof Literal) {
             // Get the literal and add it as a variable. Good for now, but must
             // be changed later I believe.
