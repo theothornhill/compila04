@@ -53,38 +53,18 @@ public class ProcDecl extends Decl {
 
     public void generateCode(CodeFile codeFile) {
         codeFile.addProcedure(this.name);
-        // check return-type
-        if (type == null) {
-            proc = new CodeProcedure(this.name, VoidType.TYPE, codeFile);
-        } else {
-            proc = new CodeProcedure(this.name,
-                                     type.setCodeType(type.toString()),
-                                     codeFile);
-        }
 
-        if (pl != null) {
-            for (Param param : pl) {
-                param.generateCode(proc);
-            }
-        }
+        if (type == null)
+            proc = CodeGenerationHelper.newProc(name, null, codeFile);
+        else 
+            proc = CodeGenerationHelper.newProc(name, type, codeFile);
+        
+        CodeGenerationHelper.paramTraverser(pl, proc);
 
-        if (dl != null) {
-            for (Decl decl : dl) {
-                decl.generateCode(codeFile);
-            }            
-        }
+        CodeGenerationHelper.declTraverser(dl, codeFile);
 
-        if (sl != null) {
-            for (Stmt stmt : sl) {
-                // Idea here is that assign needs to access codeFile, others don't
-                if (stmt instanceof Assign) {
-                    stmt.generateCode(codeFile);                    
-                } else {
-                    stmt.generateCode(proc);                     
-                }
-            }            
-        }
-        // Handle the return statement differently
+        CodeGenerationHelper.stmtTraverser(sl, codeFile, proc);
+        // Handle the return statement differently?
         proc.addInstruction(new RETURN());
         codeFile.updateProcedure(proc);
 
