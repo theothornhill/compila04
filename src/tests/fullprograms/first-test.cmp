@@ -14,6 +14,6 @@ begin
     }
   in
   a := 5;
-  // callThisFunction("hello")
+  callThisFunction(a - a + 12 / 3)
   end
 end
