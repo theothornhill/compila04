@@ -16,15 +16,19 @@ public class While extends Stmt {
     }
 
     public void generateCode(CodeProcedure proc) {
+        
+    }
+    
+    public void generateCode(CodeFile codeFile, CodeProcedure proc) {
         CodeGenerationHelper.exprHelper(proc, e);
-        CodeGenerationHelper.exprTraverser(el, proc);
+        CodeGenerationHelper.stmtTraverser(sl, codeFile, proc);
     }
     
     public String printAst(int indentLevel) {
         StringBuilder sb = new StringBuilder();
         sb.append("(WHILE ");
         sb.append(PrintHelper.astHelper(e, indentLevel+1));
-        for (Stmt stmt : el) {
+        for (Stmt stmt : sl) {
             sb.append(PrintHelper.printStmt(stmt, indentLevel+1));
         }
         sb.append(PrintHelper.endWithParen(indentLevel));
