@@ -15,7 +15,7 @@ public class Return extends Stmt {
     }
 
     public void generateCode(CodeProcedure proc) {
-        
+        CodeGenerationHelper.returnHelper(proc);
     }
     
     public String printAst(int indentLevel) {
