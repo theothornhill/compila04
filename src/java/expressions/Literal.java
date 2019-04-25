@@ -9,24 +9,11 @@ public class Literal {
     public Literal(String type, String value) {
         this.type = type;
         this.value = value;
-        this.codeType = getLiteralType();
+        this.codeType = CodeGenerationHelper.getLiteralType(this.type);
     }
-
 
     public void generateCode(CodeProcedure proc) {
 
-    }
-
-    public CodeType getLiteralType() {
-        return this.type.equals("INT_LITERAL")
-            ? IntType.TYPE
-            : this.type.equals("STRING_LITERAL")
-            ? StringType.TYPE
-            : this.type.equals("FLOAT_LITERAL")
-            ? FloatType.TYPE
-            : this.type.equals("BOOL_LITERAL")
-            ? BoolType.TYPE
-            : VoidType.TYPE;    // TODO: Literals can never be void. Fix
     }
 
     public CodeType getCodeType() {

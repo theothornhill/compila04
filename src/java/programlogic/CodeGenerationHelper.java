@@ -35,4 +35,18 @@ public class CodeGenerationHelper {
             : new MUL();
     }
 
+    // Return the literal value. Helps when you want to know what codetype a
+    // literal is
+    public static CodeType getLiteralType(String type) {
+        return type.equals("INT_LITERAL")
+            ? IntType.TYPE
+            : type.equals("STRING_LITERAL")
+            ? StringType.TYPE
+            : type.equals("FLOAT_LITERAL")
+            ? FloatType.TYPE
+            : type.equals("BOOL_LITERAL")
+            ? BoolType.TYPE
+            : VoidType.TYPE;    // TODO: Literals can never be void. Fix
+    }
+
 }
