@@ -54,11 +54,10 @@ public class ProcDecl extends Decl {
     public void generateCode(CodeFile codeFile) {
         codeFile.addProcedure(this.name);
 
-        if (type == null)
-            proc = CodeGenerationHelper.newProc(name, null, codeFile);
-        else 
-            proc = CodeGenerationHelper.newProc(name, type, codeFile);
-        
+        proc = type == null
+            ? CodeGenerationHelper.newProc(name, null, codeFile)
+            : CodeGenerationHelper.newProc(name, type, codeFile);
+                
         CodeGenerationHelper.paramTraverser(pl, proc);
 
         CodeGenerationHelper.declTraverser(dl, codeFile);
@@ -67,7 +66,6 @@ public class ProcDecl extends Decl {
         // Handle the return statement differently?
         proc.addInstruction(new RETURN());
         codeFile.updateProcedure(proc);
-
     }
 
     private String printType(int indentLevel) {
