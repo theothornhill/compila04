@@ -67,9 +67,10 @@ public class CodeGenerationHelper {
                                      CodeProcedure proc) {
         if (sl != null) {
             for (Stmt stmt : sl) {
-                // Idea here is that assign needs to access codeFile, others don't
                 if (stmt instanceof Assign) {
-                    stmt.generateCode(codeFile);                    
+                    ((Assign) stmt).generateCode(codeFile);
+                } else if (stmt instanceof If) {
+                    ((If) stmt).generateCode(codeFile, proc);
                 } else {
                     stmt.generateCode(proc);                     
                 }

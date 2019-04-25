@@ -21,6 +21,13 @@ public class If extends Stmt {
 
     public void generateCode(CodeProcedure proc) {
         
+    }
+
+    public void generateCode(CodeFile codeFile, CodeProcedure proc) {
+        CodeGenerationHelper.exprHelper(proc, e);
+        CodeGenerationHelper.stmtTraverser(sl, codeFile, proc);
+        if (sl2 != null)
+            CodeGenerationHelper.stmtTraverser(sl2, codeFile, proc);
     }    
 
     public String printAst(int indentLevel) {

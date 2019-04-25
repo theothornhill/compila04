@@ -14,6 +14,12 @@ begin
     }
   in
   a := 5;
-  callThisFunction((5 - 4) + 12 / 3)
+
+  if (5 + 5)
+  then
+  callme("halla")
+  fi
+  
+  // callThisFunction((5 - 4) + 12 / 3)
   end
 end
