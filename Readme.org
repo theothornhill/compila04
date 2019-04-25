@@ -1,3 +1,4 @@
+#+EXCLUDE_TAGS: noexport
 * Information
 
 ** Name
@@ -19,7 +20,13 @@ theodokt@ifi.uio.no | theodorthornhill@icloud.com
     .
     |-- build
     |   `-- classes
+    |       |-- bytecode
+    |       |   |-- instructions
+    |       |   `-- type
+    |       |-- runtime
+    |       `-- test
     |-- doc
+    |   |-- bytecodeinterpinfo
     |   |-- languagespec
     |   `-- obligs
     |-- lib
@@ -31,6 +38,20 @@ theodokt@ifi.uio.no | theodorthornhill@icloud.com
     |   |   |-- programlogic
     |   |   |-- statements
     |   |   `-- types
+    |   |-- oblig2patch
+    |   |   |-- doc
+    |   |   `-- src
+    |   |       |-- bytecode
+    |   |       |   |-- instructions
+    |   |       |   `-- type
+    |   |       |-- compiler
+    |   |       |-- runtime
+    |   |       |-- test
+    |   |       `-- tests
+    |   |           |-- fullprograms
+    |   |           `-- oblig2
+    |   |               |-- errors
+    |   |               `-- noerrors
     |   `-- tests
     |       |-- dummyprograms
     |       |-- errors
@@ -46,7 +67,7 @@ theodokt@ifi.uio.no | theodorthornhill@icloud.com
     |       `-- parsing
     `-- src-gen
 
-    28 directories
+    48 directories
     #+end_example
 
 *** Grammar and lexer files
@@ -144,7 +165,9 @@ generate:
 
 compile:
     [javac] /Users/theodor/Dropbox/Studier/fag/INF5110/compila04/build.xml:63: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
-    [javac] Compiling 26 source files to /Users/theodor/Dropbox/Studier/fag/INF5110/compila04/build/classes
+    [javac] Compiling 88 source files to /Users/theodor/Dropbox/Studier/fag/INF5110/compila04/build/classes
+    [javac] Note: Some input files use or override a deprecated API.
+    [javac] Note: Recompile with -Xlint:deprecation for details.
     [javac] Note: /Users/theodor/Dropbox/Studier/fag/INF5110/compila04/src-gen/parser.java uses unchecked or unsafe operations.
     [javac] Note: Recompile with -Xlint:unchecked for details.
     [javac] /Users/theodor/Dropbox/Studier/fag/INF5110/compila04/build.xml:64: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
@@ -1049,113 +1072,61 @@ Buildfile: /Users/theodor/Dropbox/Studier/fag/INF5110/compila04/build.xml
 init:
 
 run:
-     [java] (PROGRAM (NAME ComplexAddition)
+     [java] (PROGRAM (NAME firsttest)
+     [java]   (VAR (TYPE int) (NAME x))
      [java]   (STRUCT (NAME Complex)
      [java]     (PARAM_DECL (TYPE float) (NAME Real))
-     [java]     (PARAM_DECL (TYPE float) (NAME Imag))
+     [java]     (PARAM_DECL (TYPE int) (NAME Imag))
+     [java]     (PARAM_DECL (TYPE string) (NAME Another))
      [java]   )
-     [java]   (PROC_DECL (TYPE void) (NAME Swap)
-     [java]     (PARAM_DECL (REFTYPE (TYPE int)) (NAME a))
-     [java]     (PARAM_DECL (REFTYPE (TYPE int)) (NAME b))
-     [java] 
-     [java]     (VAR (TYPE int) (NAME tmp))
-     [java] 
-     [java]     (ASSIGN_STMT
-     [java]       (VAR (NAME tmp))
-     [java]       (VAR (NAME a))
-     [java]     )
-     [java]     (ASSIGN_STMT
-     [java]       (VAR (NAME a))
-     [java]       (VAR (NAME b))
-     [java]     )
-     [java]     (ASSIGN_STMT
-     [java]       (VAR (NAME b))
-     [java]       (VAR (NAME tmp))
-     [java]     )
-     [java]   )
-     [java]   (PROC_DECL (TYPE Complex) (NAME Add)
-     [java]     (PARAM_DECL (TYPE Complex) (NAME a))
-     [java]     (PARAM_DECL (TYPE Complex) (NAME b))
-     [java] 
-     [java]     (VAR (TYPE Complex) (NAME retval))
-     [java] 
-     [java]     (ASSIGN_STMT
-     [java]       (VAR (NAME retval))
-     [java]       (NEW Complex)
-     [java]     )
-     [java]     (ASSIGN_STMT
-     [java]       (VAR (NAME retval)) (NAME Real)
-     [java]       )
-     [java]       (BINARY_OPERATION +
-     [java]         (VAR (NAME a)) (NAME Real)
-     [java]         )
-     [java]         (VAR (NAME b)) (NAME Real)
-     [java]         )
-     [java]       )
-     [java]     )
-     [java]     (ASSIGN_STMT
-     [java]       (VAR (NAME retval)) (NAME Imag)
-     [java]       )
-     [java]       (BINARY_OPERATION +
-     [java]         (VAR (NAME a)) (NAME Imag)
-     [java]         )
-     [java]         (VAR (NAME b)) (NAME Imag)
-     [java]         )
-     [java]       )
-     [java]     )
-     [java]     (RETURN (VAR (NAME retval))
-     [java]     )
-     [java]   )
-     [java]   (PROC_DECL (TYPE int) (NAME Max)
+     [java]   (PROC_DECL (TYPE void) (NAME Main)
      [java]     (PARAM_DECL (TYPE int) (NAME a))
-     [java]     (PARAM_DECL (TYPE int) (NAME b))
      [java] 
-     [java]     (IF (BINARY_OPERATION >
-     [java]         (VAR (NAME a))
-     [java]         (VAR (NAME b))
-     [java]       )
-     [java]       (RETURN (VAR (NAME a))
-     [java]       )
+     [java]     (STRUCT (NAME C)
+     [java]       (PARAM_DECL (TYPE float) (NAME One))
      [java]     )
-     [java]     (RETURN (VAR (NAME b))
-     [java]     )
-     [java]   )
-     [java]   (PROC_DECL (TYPE void) (NAME main)
-     [java]     (PROC_DECL (TYPE float) (NAME Square)
-     [java]       (PARAM_DECL (TYPE float) (NAME val))
-     [java] 
-     [java]       (RETURN (BINARY_OPERATION ^
-     [java]           (VAR (NAME val))
-     [java]           (FLOAT_LITERAL 2.0)
-     [java]         )
-     [java]       )
-     [java]     )
-     [java]     (VAR (TYPE float) (NAME num))
      [java] 
      [java]     (ASSIGN_STMT
-     [java]       (VAR (NAME num))
-     [java]       (FLOAT_LITERAL 6.480740)
+     [java]       (VAR (NAME a))
+     [java]       (INT_LITERAL 5)
      [java]     )
-     [java]     (CALL_STMT (NAME print_float)
-     [java]       (VAR (NAME num))
-     [java]     )
-     [java]     (CALL_STMT (NAME print_str)
-     [java]       (STRING_LITERAL " squared is ")
-     [java]     )
-     [java]     (CALL_STMT (NAME print_float)
-     [java]       (CALL_STMT (NAME Square)
-     [java]         (VAR (NAME num))
+     [java]     (IF (BINARY_OPERATION +
+     [java]         (INT_LITERAL 5)
+     [java]         (INT_LITERAL 5)
+     [java]       )
+     [java]       (CALL_STMT (NAME Main)
+     [java]         (STRING_LITERAL "halla")
      [java]       )
      [java]     )
-     [java]     (RETURN)
      [java]   )
      [java] )
+     [java] Loading from file: /Users/theodor/Dropbox/Studier/fag/INF5110/compila04/example.bin
+     [java] Variables:
+     [java] 0: var int x
+     [java] Procedures:
+     [java] 0: proc void Main(int 0)
+     [java]     var int 1
+     [java]     var int 2
+     [java]     var string 3
+     [java]     0: add
+     [java]     1: call Main {0}
+     [java]     4: return
+     [java] Structs:
+     [java] 0: Complex
+     [java]     0: float
+     [java]     1: int
+     [java]     2: string
+     [java] 1: C
+     [java]     0: float
+     [java] Constants:
+     [java] 0: Added constant here asshole
+     [java] STARTWITH: Main
 
 BUILD SUCCESSFUL
 Total time: 0 seconds
 #+end_example
 
-* Notes
+* Notes :noexport:
 ** Thoughts
 *** Expressions need to know what they evaluate to.
     For example, I need to know if the =not= expression is legal. =not= cannot
