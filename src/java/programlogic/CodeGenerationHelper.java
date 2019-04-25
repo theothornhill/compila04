@@ -1,6 +1,7 @@
 import bytecode.*;
 import bytecode.type.*;
 import bytecode.instructions.*;
+import java.util.LinkedList;
 
 // The idea of this helper class is to act like a factory for exprs. The problem
 // with the expressions is that they can be a statement or expression. Therefore
@@ -47,6 +48,53 @@ public class CodeGenerationHelper {
             : type.equals("BOOL_LITERAL")
             ? BoolType.TYPE
             : VoidType.TYPE;    // TODO: Literals can never be void. Fix
+    }
+
+    public static CodeProcedure newProc(String name, Type type, CodeFile codeFile) {
+        CodeProcedure proc;
+        if (type == null) {
+            proc = new CodeProcedure(name, VoidType.TYPE, codeFile);
+        } else {
+            proc = new CodeProcedure(name,
+                                     type.setCodeType(type.toString()),
+                                     codeFile);
+        }
+        return proc;
+    }
+
+    public static void stmtTraverser(LinkedList<Stmt> sl,
+                                     CodeFile codeFile,
+                                     CodeProcedure proc) {
+        if (sl != null) {
+            for (Stmt stmt : sl) {
+                // Idea here is that assign needs to access codeFile, others don't
+                if (stmt instanceof Assign) {
+                    stmt.generateCode(codeFile);                    
+                } else {
+                    stmt.generateCode(proc);                     
+                }
+            }            
+        }
+    }
+
+    // Generates code for all the parameters connected to a CodeProcedure
+    public static void paramTraverser(LinkedList<Param> pl,
+                                      CodeProcedure proc) {
+        if (pl != null) {
+            for (Param param : pl) {
+                param.generateCode(proc);
+            }
+        }
+    }
+
+    // Generates code for all the declarations connected to a codeFile
+    public static void declTraverser(LinkedList<Decl> dl,
+                                     CodeFile codeFile) {
+        if (dl != null) {
+            for (Decl decl : dl) {
+                decl.generateCode(codeFile);
+            }            
+        }
     }
 
 }
