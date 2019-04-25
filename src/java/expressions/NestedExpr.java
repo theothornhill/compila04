@@ -11,7 +11,7 @@ public class NestedExpr extends Expr {
     }
 
     public void generateCode(CodeProcedure proc) {
-        
+        CodeGenerationHelper.exprHelper(proc, expr);
     }
     public String printAst(int indentLevel) {
         return ""+ PrintHelper.astHelper(this.expr, indentLevel) +"";
