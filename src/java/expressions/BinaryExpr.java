@@ -22,22 +22,7 @@ public class BinaryExpr extends Expr {
         proc.addInstruction(new ADD());
         CodeGenerationHelper.exprHelper(proc, e1);
         CodeGenerationHelper.exprHelper(proc, e2);
-        proc.addInstruction(new RETURN());
     }
-
-    // TODO: Add more operators here
-    public Instruction getInstruction() {
-        return op.toString().equals("+")
-            ? new ADD()
-            : op.toString().equals("-")
-            ? new SUB()
-            : op.toString().equals("/")
-            ? new DIV()
-            // : op.toString().equals("*")
-            : new MUL();
-
-    }
-        
 
     public String printAst(int indentLevel) {
         StringBuilder sb = new StringBuilder();

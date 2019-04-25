@@ -7,8 +7,8 @@ import bytecode.instructions.*;
 // I need an elegant way to assign the values. 
 public class CodeGenerationHelper {
     public static void exprHelper(CodeProcedure proc, Object node) {
-        if (node instanceof BinaryExpr)
-            ((BinaryExpr) node).generateCode(proc);
+        if (node instanceof Expr)
+            ((Expr) node).generateCode(proc);
         // else if (node instanceof Call)
         //     ((Call) node).generateCode(proc);
         else if (node instanceof Literal) {
@@ -21,4 +21,18 @@ public class CodeGenerationHelper {
         else
             System.out.println("Bug in Codegenerationhelper");
     }
+
+    public static Instruction instructionHelper(CodeProcedure proc, Object op) {
+        // Make this safer, don't use equals, and also dont default to
+        // multiplication, wtf is that :P
+        return op.toString().equals("+")
+            ? new ADD()
+            : op.toString().equals("-")
+            ? new SUB()
+            : op.toString().equals("/")
+            ? new DIV()
+            // : op.toString().equals("*")
+            : new MUL();
+    }
+
 }
