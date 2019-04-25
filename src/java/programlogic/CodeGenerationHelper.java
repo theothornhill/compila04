@@ -15,6 +15,7 @@ public class CodeGenerationHelper {
             // Get the literal and add it as a variable. Good for now, but must
             // be changed later I believe.
             Literal lit = ((Literal) node);
+            // Also, dont use the toString later. 
             proc.addLocalVariable(lit.getValue().toString(), lit.getCodeType());
         }
         else
