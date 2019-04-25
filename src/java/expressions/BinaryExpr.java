@@ -7,6 +7,11 @@ public class BinaryExpr extends Expr {
     Object e2;
     Object op;
     Instruction operator;
+    // Booleans for type-checker. In example we need our type checker to know
+    // when expressions are boolean
+    boolean isLogical;
+    boolean isArit;
+    boolean isRelational;
 
     public BinaryExpr(Object e1, Object op, Object e2) {
         this.e1 = e1;
