@@ -10,10 +10,6 @@ public class DerefVar extends Var {
         super(obj.toString());
     }
 
-    public void generateCode(CodeFile codeFile) {
-        
-    }
-
     public String printAst(int indentLevel) {
         if (this.expr == null) {
             return "(DEREFVAR" + PrintHelper.printName(name) + ")";

@@ -14,10 +14,6 @@ public class BinaryExpr extends Expr {
         this.e2 = e2;
     }
 
-    public void generateCode(CodeFile codeFile) {
-        
-    }
-
     public void generateCode(CodeProcedure proc) {
         proc.addInstruction(CodeGenerationHelper.instructionHelper(proc, op));
         CodeGenerationHelper.exprHelper(proc, e1);

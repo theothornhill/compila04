@@ -11,10 +11,6 @@ public class Var extends Expr {
         this.name = name;
     }
 
-    public void generateCode(CodeFile codeFile) {
-        
-    }
-
     public void generateCode(CodeProcedure proc) {
         
     }

@@ -12,9 +12,6 @@ public class Literal {
         this.codeType = getLiteralType();
     }
 
-    public void generateCode(CodeFile codeFile) {
-        
-    }
 
     public void generateCode(CodeProcedure proc) {
 

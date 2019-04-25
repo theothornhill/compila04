@@ -8,10 +8,6 @@ public class Not extends Expr {
         this.expr = expr;
     }
 
-    public void generateCode(CodeFile codeFile) {
-        
-    }
-
     public void generateCode(CodeProcedure proc) {
         
     }    
