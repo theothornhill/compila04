@@ -15,12 +15,8 @@ public class RecDecl extends Decl {
 
     public void generateCode(CodeFile codeFile) {
         codeFile.addStruct(this.name);
-        if (pl != null) {
-            for (Param param : pl) {
-                param.generateCode(struct);
-                codeFile.updateStruct(struct);
-            }
-        }
+        CodeGenerationHelper.paramTraverser(pl, struct);
+        codeFile.updateStruct(struct);
     }
 
     public String printAst(int indentLevel) {

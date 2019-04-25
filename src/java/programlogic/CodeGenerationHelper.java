@@ -88,6 +88,16 @@ public class CodeGenerationHelper {
         }
     }
 
+    // Generates code for all the parameters connected to a CodeStruct
+    public static void paramTraverser(LinkedList<Param> pl,
+                                      CodeStruct struct) {
+        if (pl != null) {
+            for (Param param : pl) {
+                param.generateCode(struct);
+            }
+        }
+    }
+
     // Generates code for all the declarations connected to a codeFile
     public static void declTraverser(LinkedList<Decl> dl,
                                      CodeFile codeFile) {

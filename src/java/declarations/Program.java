@@ -4,20 +4,14 @@ import bytecode.*;
 
 public class Program {
     String name;
-    List<Decl> declarations;
+    LinkedList<Decl> declarations;
     public Program(String name, LinkedList<Decl> declarations) {
         this.name = name;
         this.declarations = declarations;
     }
 
     public void generateCode(CodeFile codeFile) {
-        if (declarations != null) {
-            for (Decl decl : declarations) {
-                if (decl != null) {
-                    decl.generateCode(codeFile);
-                }
-            }            
-        }
+        CodeGenerationHelper.declTraverser(declarations, codeFile);
     }
 
     public String printAst() {
