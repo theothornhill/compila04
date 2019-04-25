@@ -16,7 +16,6 @@ public class Param {
         struct.addVariable(name, t);
     }
 
-    // TODO: Maybe not necessary to overload this?
     public void generateCode(CodeProcedure proc) {
         proc.addParameter(name, t);
     }

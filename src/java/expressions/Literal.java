@@ -13,7 +13,8 @@ public class Literal {
     }
 
     public void generateCode(CodeProcedure proc) {
-
+        // TODO: Do we need to generate code for the literals? Or can we just
+        // return them directly?
     }
 
     public CodeType getCodeType() {

@@ -17,7 +17,7 @@ begin
 
   if (5 + 5)
   then
-  callme("halla")
+  Main("halla")
   fi
   
   // callThisFunction((5 - 4) + 12 / 3)
