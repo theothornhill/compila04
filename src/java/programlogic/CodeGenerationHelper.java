@@ -62,6 +62,15 @@ public class CodeGenerationHelper {
         return proc;
     }
 
+    public static void exprTraverser(LinkedList<Object> el,
+                                     CodeProcedure proc) {
+        if (el != null)  {
+            for (Object e : el) {
+                CodeGenerationHelper.exprHelper(proc, e);
+            }
+        }
+    }
+
     public static void stmtTraverser(LinkedList<Stmt> sl,
                                      CodeFile codeFile,
                                      CodeProcedure proc) {
