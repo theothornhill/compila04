@@ -117,4 +117,8 @@ public class CodeGenerationHelper {
         }
     }
 
+    public static void returnHelper(CodeProcedure proc) {
+        
+    }
+
 }
