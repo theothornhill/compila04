@@ -24,16 +24,29 @@ public class CodeGenerationHelper {
     }
 
     public static Instruction instructionHelper(CodeProcedure proc, Object op) {
-        // Make this safer, don't use equals, and also dont default to
-        // multiplication, wtf is that :P
         return op.toString().equals("+")
             ? new ADD()
             : op.toString().equals("-")
             ? new SUB()
             : op.toString().equals("/")
             ? new DIV()
-            // : op.toString().equals("*")
-            : new MUL();
+            : op.toString().equals("*")
+            ? new MUL()
+            : op.toString().equals("<")
+            ? new LT()
+            : op.toString().equals("<=")
+            ? new LTEQ()
+            : op.toString().equals(">")
+            ? new GT()
+            : op.toString().equals(">=")
+            ? new GTEQ()
+            : op.toString().equals("<>")
+            ? new NEQ()
+            : op.toString().equals("||")
+            ? new OR()
+            : op.toString().equals("&&")
+            ? new AND()
+            : null;             // TODO: This seems like a terrible idea
     }
 
     // Return the literal value. Helps when you want to know what codetype a
