@@ -134,4 +134,10 @@ public class CodeGenerationHelper {
         
     }
 
+    public static boolean isLibraryProcedure(String name) {
+        return name.equals("print_int")
+            ? true
+            : false;
+    }
+
 }
