@@ -1,5 +1,6 @@
 import bytecode.*;
 import bytecode.type.*;
+import bytecode.instructions.*;
 
 public class Param {
     Type type;
@@ -18,6 +19,7 @@ public class Param {
 
     public void generateCode(CodeProcedure proc) {
         proc.addParameter(name, t);
+        proc.addInstruction(new LOADLOCAL(proc.variableNumber(name)));
     }
 
     public String printAst(int indentLevel) {
