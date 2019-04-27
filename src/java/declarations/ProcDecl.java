@@ -53,7 +53,11 @@ public class ProcDecl extends Decl {
 
     public void generateCode(CodeFile codeFile) {
         codeFile.addProcedure(this.name);
-
+        // meant to handle if it is a library procedure, and as such just update
+        // at once
+        if (CodeGenerationHelper.isLibraryProcedure(name))
+            codeFile.updateProcedure(proc);
+        else
         proc = type == null
             ? CodeGenerationHelper.newProc(name, null, codeFile)
             : CodeGenerationHelper.newProc(name, type, codeFile);
