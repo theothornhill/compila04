@@ -1,5 +1,6 @@
 import bytecode.*;
 import bytecode.type.*;
+import bytecode.instructions.*;
 
 public class Literal {
     public String type;
