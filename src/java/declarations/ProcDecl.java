@@ -9,6 +9,7 @@ public class ProcDecl extends Decl {
     LinkedList<Stmt> sl;
     Type type;
     CodeProcedure proc;
+    SymbolTable table = new SymbolTable();
 
     // Constructors
     public ProcDecl(String name,
@@ -58,9 +59,9 @@ public class ProcDecl extends Decl {
         if (CodeGenerationHelper.isLibraryProcedure(name))
             codeFile.updateProcedure(proc);
         else
-        proc = type == null
-            ? CodeGenerationHelper.newProc(name, null, codeFile)
-            : CodeGenerationHelper.newProc(name, type, codeFile);
+            proc = type == null
+                ? CodeGenerationHelper.newProc(name, null, codeFile)
+                : CodeGenerationHelper.newProc(name, type, codeFile);
                 
         CodeGenerationHelper.paramTraverser(pl, proc);
 
@@ -70,6 +71,13 @@ public class ProcDecl extends Decl {
         // Handle the return statement differently?
         proc.addInstruction(new RETURN());
         codeFile.updateProcedure(proc);
+    }
+
+    public void generateCode() {
+        table.insert("Name", name);
+        pl.stream().forEach(param -> table.insert(param.name, param.type));
+        dl.stream().forEach(decl -> table.insert(decl.name, decl));
+        sl.stream().forEach(stmt -> table.insert(stmt.name, stmt));
     }
 
     private String printType(int indentLevel) {
