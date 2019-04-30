@@ -6,11 +6,17 @@ public class Literal {
     public String type;
     public String value;
     CodeType codeType;
+    SymbolTable table = new SymbolTable();
 
     public Literal(String type, String value) {
         this.type = type;
         this.value = value;
         this.codeType = CodeGenerationHelper.getLiteralType(this.type);
+    }
+
+    public void addToSymbolTable() {
+        table.insert("Type", type);
+        table.insert("Value", value);
     }
 
     public void generateCode(CodeProcedure proc) {

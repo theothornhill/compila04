@@ -8,6 +8,11 @@ public class Not extends Expr {
         this.expr = expr;
     }
 
+    public void addToSymbolTable() {
+        // Doesn't give ant type checking info here
+        table.insert("Expr", expr);
+    }
+
     public void generateCode(CodeProcedure proc) {
         
     }    

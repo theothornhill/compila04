@@ -6,6 +6,10 @@ public class NestedExpr extends Expr {
         this.expr = expr;
     }
 
+    public void addToSymbolTable() {
+        table.insert("Expr", expr);
+    }
+
     public void generateCode(CodeProcedure proc) {
         CodeGenerationHelper.exprHelper(proc, expr);
     }

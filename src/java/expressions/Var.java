@@ -11,6 +11,11 @@ public class Var extends Expr {
         this.name = name;
     }
 
+    public void addToSymbolTable() {
+        table.insert("Name", name);
+        table.insert("Expr", expr);
+    }
+
     public void generateCode(CodeProcedure proc) {
         
     }
