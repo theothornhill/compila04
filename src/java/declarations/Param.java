@@ -6,6 +6,7 @@ public class Param {
     Type type;
     String name;
     CodeType t;
+    SymbolTable table = new SymbolTable();
 
     public Param(String name, Type type) {
         this.name = name;
@@ -13,6 +14,11 @@ public class Param {
         this.t = type.setCodeType(this.type.toString());
     }
 
+    public void addToSymbolTable() {
+        table.insert("Name", name);
+        table.insert("Type", type);
+    }
+    
     public void generateCode(CodeStruct struct) {
         struct.addVariable(name, t);
     }
@@ -20,6 +26,10 @@ public class Param {
     public void generateCode(CodeProcedure proc) {
         proc.addParameter(name, t);
         proc.addInstruction(new LOADLOCAL(proc.variableNumber(name)));
+    }
+
+    public SymbolTable getInfo() {
+        return table;
     }
 
     public String printAst(int indentLevel) {
