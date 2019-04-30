@@ -116,13 +116,19 @@ proc_decl         ::= PROC_DECL NAME:name
                                 LPAR param_list_comma:pl RPAR
                                 BEGIN decl_list:dl
                                 IN stmt_list:sl END
-                                {: RESULT = new ProcDecl(name, pl, dl, sl); :}
+                                {:
+                                    RESULT = new ProcDecl(name, pl, dl, sl);
+                                    RESULT.addToSymbolTable();
+                                :}
                     | PROC_DECL NAME:name
                                 LPAR param_list_comma:pl RPAR
                                 COLON type:t
                                 BEGIN decl_list:dl
                                 IN stmt_list:sl END
-                                {: RESULT = new ProcDecl(name, pl, t, dl, sl); :}
+                                {:
+                                    RESULT = new ProcDecl(name, pl, t, dl, sl);
+                                    RESULT.addToSymbolTable();
+                                :}
                     ;
 
 exp               ::= exp:e1 log_op:o exp:e2  {:
