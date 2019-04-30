@@ -11,6 +11,10 @@ public class VarDecl extends Decl {
         this.t = type.setCodeType(type.toString());
     }
 
+    public String toString() {
+        return table.toString();
+    }
+
     public void addToSymbolTable() {
         table.insert("Name", name);
         table.insert("Type", type);

@@ -11,7 +11,8 @@ public class SymbolTable {
     }
 
     public String toString() {
-        return Arrays.asList(table).toString();
+        // return Arrays.asList(table).toString();
+        return Arrays.toString(table.entrySet().toArray());
     }
 
     public void insert(String key, Object val) {

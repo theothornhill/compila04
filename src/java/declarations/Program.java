@@ -1,7 +1,6 @@
 import java.util.*;
 import bytecode.*;
 
-
 public class Program {
     String name;
     LinkedList<Decl> declarations;
@@ -23,7 +22,6 @@ public class Program {
 
     public void printTable() {
         System.out.println(table.toString());
-        declarations.stream().forEach(d -> System.out.println(d.table.toString()));
     }
 
     public String printAst() {
