@@ -5,6 +5,8 @@ import bytecode.*;
 public class Program {
     String name;
     LinkedList<Decl> declarations;
+    public SymbolTable table = new SymbolTable();
+
     public Program(String name, LinkedList<Decl> declarations) {
         this.name = name;
         this.declarations = declarations;
@@ -12,6 +14,10 @@ public class Program {
 
     public void generateCode(CodeFile codeFile) {
         CodeGenerationHelper.declTraverser(declarations, codeFile);
+    }
+
+    public void generateCode() {
+        declarations.stream().forEach(decl -> table.insert(decl.name, decl));
     }
 
     public String printAst() {
