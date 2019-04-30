@@ -6,6 +6,7 @@ import bytecode.instructions.*;
 public class RecDecl extends Decl {
     LinkedList<Param> pl;
     CodeStruct struct;
+    SymbolTable table = new SymbolTable();
 
     public RecDecl(String name, LinkedList<Param> pl) {
         this.name = name;
