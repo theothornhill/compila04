@@ -68,7 +68,9 @@ public class Main {
                 // Add some custom things after parsing - in particular main-method
                 CodeFile codeFile = new CodeFile();
 
-                program.generateCode(codeFile);
+                // program.generateCode(codeFile);
+                program.generateCode();
+                System.out.println(program.table.toString());
 
                 codeFile.setMain("Main"); // This needs to go somewhere else?
                 
@@ -80,6 +82,7 @@ public class Main {
                 System.out.println(program.printAst());
                 VirtualMachine vm = new VirtualMachine("/Users/theodor/Dropbox/Studier/fag/INF5110/compila04/example.bin");
                 vm.list();
+
             } catch (Exception ee) {
             }
         } catch (FileNotFoundException e) {

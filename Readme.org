@@ -1,4 +1,3 @@
-#+EXCLUDE_TAGS: noexport
 * Information
 
 ** Name
@@ -1126,7 +1125,7 @@ BUILD SUCCESSFUL
 Total time: 0 seconds
 #+end_example
 
-* Notes :noexport:
+* Notes 
 ** Thoughts
 *** Expressions need to know what they evaluate to.
     For example, I need to know if the =not= expression is legal. =not= cannot
