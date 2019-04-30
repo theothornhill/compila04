@@ -6,7 +6,6 @@ import bytecode.instructions.*;
 public class RecDecl extends Decl {
     LinkedList<Param> pl;
     CodeStruct struct;
-    SymbolTable table = new SymbolTable();
 
     public RecDecl(String name, LinkedList<Param> pl) {
         this.name = name;
@@ -14,16 +13,18 @@ public class RecDecl extends Decl {
         struct = new CodeStruct(this.name);
     }
 
+    public void addToSymbolTable() {
+        table.insert("name", name);
+        pl.stream().forEach(param -> table.insert(param.name, param.type));
+    }
+    
     public void generateCode(CodeFile codeFile) {
         codeFile.addStruct(this.name);
         CodeGenerationHelper.paramTraverser(pl, struct);
         codeFile.updateStruct(struct);
     }
 
-    public void generateCode() {
-        table.insert("name", name);
-        pl.stream().forEach(param -> table.insert(param.name, param.type));
-    }
+
 
     public String printAst(int indentLevel) {
         StringBuilder sb = new StringBuilder();

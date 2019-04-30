@@ -16,8 +16,13 @@ public class Program {
         CodeGenerationHelper.declTraverser(declarations, codeFile);
     }
 
-    public void generateCode() {
+    public void addToSymbolTable() {
         declarations.stream().forEach(decl -> table.insert(decl.name, decl));
+    }
+
+    public void printTable() {
+        System.out.println(table.toString());
+        declarations.stream().forEach(d -> System.out.println(d.table.toString()));
     }
 
     public String printAst() {

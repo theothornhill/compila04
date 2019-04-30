@@ -4,7 +4,6 @@ import bytecode.type.*;
 public class VarDecl extends Decl {
     Type type;
     CodeType t;
-    SymbolTable table = new SymbolTable();
     
     public VarDecl(String name, Type type) {
         this.name = name;
@@ -12,18 +11,18 @@ public class VarDecl extends Decl {
         this.t = type.setCodeType(type.toString());
     }
 
+    public void addToSymbolTable() {
+        table.insert(name, name);
+        table.insert(type.toString(), type);
+        table.insert(t.toString(), t);
+        
+    }
+
     // Adds a global variable. This is because vardecl when called from Program
     // adds directly to the codefiles namespace.
     public void generateCode(CodeFile codeFile) {
         codeFile.addVariable(this.name);
         codeFile.updateVariable(this.name, t);
-    }
-
-    public void generateCode() {
-        table.insert(name, name);
-        table.insert(type.toString(), type);
-        table.insert(t.toString(), t);
-        
     }
 
     // This is a local variable for the procedure. VarDecls are allowed in
