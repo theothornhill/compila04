@@ -10,6 +10,12 @@ public class Call extends Stmt {
         this.el = el;
     }
 
+    public void addToSymbolTable() {
+        table.insert("Statement-type", "call");
+        table.insert("Name", name);
+        el.stream().forEach(e -> table.insert(e.toString(), e));
+    }
+
     public void generateCode(CodeFile codeFile) {
         
     }

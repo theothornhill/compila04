@@ -11,6 +11,12 @@ public class While extends Stmt {
         this.sl = sl;
     }
 
+    public void addToSymbolTable() {
+        table.insert("Statement-type", "while");
+        table.insert("Expr", e);
+        sl.stream().forEach(s -> table.insert(s.toString(), s));
+    }
+
     public void generateCode(CodeFile codeFile) {
         
     }

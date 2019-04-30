@@ -7,6 +7,12 @@ public class Assign extends Stmt {
         this.e = e;
     }
 
+    public void addToSymbolTable() {
+        table.insert("Statement-type", "assign");
+        table.insert("Name", name);
+        table.insert("Expr", e);
+    }
+
     public void generateCode(CodeFile codeFile) {
         codeFile.addStringConstant("Added constant here asshole");
     }

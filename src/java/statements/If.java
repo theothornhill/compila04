@@ -15,6 +15,13 @@ public class If extends Stmt {
         this.sl2 = sl2;
     }
 
+    public void addToSymbolTable() {
+        table.insert("Statement-type", "if");
+        table.insert("Expr", e);
+        sl.stream().forEach(s -> table.insert(s.toString(), s));
+        sl2.stream().forEach(s -> table.insert(s.toString(), s));
+    }
+
     public void generateCode(CodeFile codeFile) {
         
     }

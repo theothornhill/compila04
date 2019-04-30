@@ -10,6 +10,11 @@ public class Return extends Stmt {
         
     }
 
+    public void addToSymbolTable() {
+        table.insert("Statement-type", "Return");
+        table.insert("Expr", e);
+    }
+
     public void generateCode(CodeFile codeFile) {
         
     }
