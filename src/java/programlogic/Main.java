@@ -69,8 +69,8 @@ public class Main {
                 CodeFile codeFile = new CodeFile();
 
                 // program.generateCode(codeFile);
-                program.generateCode();
-                System.out.println(program.table.toString());
+                // program.generateCode();
+                program.printTable();
 
                 codeFile.setMain("Main"); // This needs to go somewhere else?
                 
@@ -79,7 +79,7 @@ public class Main {
                 DataOutputStream stream = new DataOutputStream(new FileOutputStream("/Users/theodor/Dropbox/Studier/fag/INF5110/compila04/example.bin"));
                 stream.write(bytecode);
                 stream.close();
-                System.out.println(program.printAst());
+                // System.out.println(program.printAst());
                 VirtualMachine vm = new VirtualMachine("/Users/theodor/Dropbox/Studier/fag/INF5110/compila04/example.bin");
                 vm.list();
 
