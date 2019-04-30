@@ -14,7 +14,7 @@ public class RecDecl extends Decl {
     }
 
     public void addToSymbolTable() {
-        table.insert("name", name);
+        table.insert("Name", name);
         pl.stream().forEach(param -> table.insert(param.name, param.type));
     }
     

@@ -12,10 +12,8 @@ public class VarDecl extends Decl {
     }
 
     public void addToSymbolTable() {
-        table.insert(name, name);
-        table.insert(type.toString(), type);
-        table.insert(t.toString(), t);
-        
+        table.insert("Name", name);
+        table.insert("Type", type);
     }
 
     // Adds a global variable. This is because vardecl when called from Program

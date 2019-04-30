@@ -5,7 +5,7 @@ import bytecode.*;
 public class Program {
     String name;
     LinkedList<Decl> declarations;
-    public SymbolTable table = new SymbolTable();
+    SymbolTable table = new SymbolTable();
 
     public Program(String name, LinkedList<Decl> declarations) {
         this.name = name;
@@ -17,6 +17,7 @@ public class Program {
     }
 
     public void addToSymbolTable() {
+        table.insert("Name", name);
         declarations.stream().forEach(decl -> table.insert(decl.name, decl));
     }
 
