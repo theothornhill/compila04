@@ -1,19 +1,25 @@
+import java.util.Map;
 import java.util.HashMap;
+import java.util.Arrays;
 
 public class SymbolTable {
 
-    public HashMap<String, String> table;
+    public Map<String, Object> table;
 
     public SymbolTable() {
-        table = new HashMap<String, String>();
+        table = new HashMap<String, Object>();
     }
 
-    public void insert() {
-        
+    public String toString() {
+        return Arrays.asList(table).toString();
     }
 
-    public HashMap lookup() {
-        return null;
+    public void insert(String key, Object val) {
+        table.put(key, val);
+    }
+
+    public Object lookup(String key) {
+         return table.get(key);
     }
         
 }
