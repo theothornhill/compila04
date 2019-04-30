@@ -17,7 +17,7 @@ public class Program {
 
     public void addToSymbolTable() {
         table.insert("Name", name);
-        declarations.stream().forEach(decl -> table.insert(decl.name, decl));
+        declarations.stream().forEach(decl -> table.insert(decl.getClass().toString(), decl));
     }
 
     public void printTable() {
