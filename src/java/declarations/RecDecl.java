@@ -20,6 +20,11 @@ public class RecDecl extends Decl {
         codeFile.updateStruct(struct);
     }
 
+    public void generateCode() {
+        table.insert("name", name);
+        pl.stream().forEach(param -> table.insert(param.name, param.type));
+    }
+
     public String printAst(int indentLevel) {
         StringBuilder sb = new StringBuilder();
         sb.append("(STRUCT");
