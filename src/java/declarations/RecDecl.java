@@ -19,7 +19,10 @@ public class RecDecl extends Decl {
 
     public void addToSymbolTable() {
         table.insert("Name", name);
-        pl.stream().forEach(param -> table.insert(param.name, param.type));
+        int count = 0;
+        for (Param p : pl) {
+            table.insert("" + count++, p.getInfo());
+        }
     }
     
     public void generateCode(CodeFile codeFile) {
