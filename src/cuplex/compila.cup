@@ -57,7 +57,10 @@ precedence left                    DOT;
 start with program;
 
 program           ::= PROGRAM NAME:name BEGIN decl_list:dl END
-                               {: RESULT = new Program(name, dl); :}
+                               {:
+                                    RESULT = new Program(name, dl);
+                                    RESULT.addToSymbolTable();
+                               :}                             
                     ; 
 
 decl_list         ::= decl:d {: LinkedList<Decl> l = new LinkedList<Decl>();
@@ -102,14 +105,23 @@ decl              ::= rec_decl:d {: RESULT = d; :}
                     ;
 
 var_decl          ::= VAR_DECL NAME:name COLON type:t
-                      {: RESULT = new VarDecl(name, t); :}
+                      {:
+                        RESULT = new VarDecl(name, t);
+                        RESULT.addToSymbolTable();
+                      :}
                     ;
 
 rec_decl          ::= REC_DECL NAME:name LCURLY param_list_semi:pl RCURLY
-                               {: RESULT = new RecDecl(name, pl); :}
+                               {:
+                                    RESULT = new RecDecl(name, pl);
+                                    RESULT.addToSymbolTable();
+                               :}
                     ;
 
-paramfield_decl   ::= NAME:name COLON type:t {: RESULT = new Param(name, t); :}
+paramfield_decl   ::= NAME:name COLON type:t {:
+                                                RESULT = new Param(name, t);
+                                                RESULT.addToSymbolTable();
+                                             :}
                     ;
 
 proc_decl         ::= PROC_DECL NAME:name
