@@ -1,27 +1,27 @@
 program firsttest
 begin
-  var x : int;
-  var y : float;
+  // var x : int;
+  // var y : float;
 
-  struct Complex {
-     Real : float;
-     Imag : int;
-     Another : string
-  };
+  // struct Complex {
+  //    Real : float;
+  //    Imag : int;
+  //    Another : string
+  // };
 
   proc Main(a : int)
   begin
-    struct C {
-    One : float
-    }
+    // struct C {
+    // One : float
+    // }
   in
   a := 5;
 
-  if (5 + 5)
-  then
-  Main("halla")
-  fi
+  // if (5 + 5)
+  // then
+  // Main("halla")
+  // fi;
   
-  // callThisFunction((5 - 4) + 12 / 3)
+  callThisFunction(5.0 + 5 - 3 * 5)
   end
 end

@@ -1139,6 +1139,11 @@ Total time: 0 seconds
 **** binary operators can be logical, relational or arit. 
 **** unary only =not=
 **** call is only =stmt=, others inherit from =expr=
+*** Initializing scope
+    I've chosen to not initialize scope in a separate method, but include it in
+    its constructor wherever necessary. That means for instance that we create a
+    new =SymbolTable= whenever we create a =Program=, =ProcDecl= and so forth. Using
+    the attribute grammar we fill the tables with information.
 ** [0/1] CodeGenerationHelper
    - [ ] [[file:src/java/programlogic/CodeGenerationHelper.java::public%20static%20CodeType%20exprEelper(CodeFile%20codeFile,%20Object%20node)%20{][exprHelper]]
 ** [0/5] Statements
