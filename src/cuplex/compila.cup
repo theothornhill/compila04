@@ -13,6 +13,24 @@ public void syntax_error(Symbol s) {
 }
 :};
 
+action code
+{:
+SymbolTable table = new SymbolTable();
+SymbolTable currentTable = table;
+int currentLevel = 0;
+
+public void initializeScope() {
+    SymbolTable newScope = new SymbolTable();
+    currentTable.insert("" + currentLevel, newScope);
+    currentTable = newScope;
+    currentLevel++;
+}
+
+public void finalizeScope() {
+    currentLevel--;
+}
+
+:}
 scan with {: return getScanner().next_token(); :};
 
 terminal                           PROGRAM;
@@ -57,9 +75,10 @@ precedence left                    DOT;
 start with program;
 
 program           ::= PROGRAM NAME:name BEGIN decl_list:dl END
-                               {:
+                               {:   initializeScope();
                                     RESULT = new Program(name, dl);
-                                    RESULT.addToSymbolTable();
+                                    RESULT.addToSymbolTable(currentTable);
+                                    RESULT.printTable(currentTable);
                                :}                             
                     ; 
 
@@ -99,13 +118,13 @@ exp_list          ::= exp:e {: LinkedList<Object> l = new LinkedList<>();
                     |
                     ;
 
-decl              ::= rec_decl:d {: d.addToSymbolTable();
+decl              ::= rec_decl:d {: d.addToSymbolTable(currentTable);
                                     RESULT = d;
                                  :}
-                    | proc_decl:d {: d.addToSymbolTable();
+                    | proc_decl:d {: d.addToSymbolTable(currentTable);
                                         RESULT = d;
                                   :}
-                    | var_decl:d {: d.addToSymbolTable();
+                    | var_decl:d {: d.addToSymbolTable(currentTable);
                                     RESULT = d;
                                  :}
                     ;
@@ -124,7 +143,7 @@ rec_decl          ::= REC_DECL NAME:name LCURLY param_list_semi:pl RCURLY
 
 paramfield_decl   ::= NAME:name COLON type:t {:
                                                 RESULT = new Param(name, t);
-                                                RESULT.addToSymbolTable();
+                                                RESULT.addToSymbolTable(currentTable);
                                              :}
                     ;
 
@@ -148,76 +167,76 @@ proc_decl         ::= PROC_DECL NAME:name
 exp               ::= exp:e1 log_op:o exp:e2  {:
                                                 Expr e = new BinaryExpr(e1, o, e2);
                                                 RESULT = e;
-                                                e.addToSymbolTable();
+                                                e.addToSymbolTable(currentTable);
                                               :}
                     | NOT exp:e               {:
                                                 Expr exp = new Not(e);
                                                 RESULT = e;
-                                                exp.addToSymbolTable();
+                                                exp.addToSymbolTable(currentTable);
                                               :}
                     | exp:e1 rel_op:o exp:e2  {:
                                                 Expr e = new BinaryExpr(e1, o, e2);
                                                 RESULT = e;
-                                                e.addToSymbolTable();
+                                                e.addToSymbolTable(currentTable);
                                               :}
                     | exp:e1 arit_op:o exp:e2 {:
                                                 Expr e = new BinaryExpr(e1, o, e2);
                                                 RESULT = e;
-                                                e.addToSymbolTable();
+                                                e.addToSymbolTable(currentTable);
                                               :}
                     | literal:lit             {:
                                                 Literal l = (Literal) lit;
                                                 RESULT = lit;
-                                                lit.addToSymbolTable();
+                                                lit.addToSymbolTable(currentTable);
                                               :}
                     | call_stmt:s             {:
                                                 Stmt stmt = (Stmt) s;
                                                 RESULT = s;
-                                                stmt.addToSymbolTable();
+                                                stmt.addToSymbolTable(currentTable);
                                               :}
                     | NEW NAME:name           {:
                                                 Expr e = new New(name);
                                                 RESULT = e;
-                                                e.addToSymbolTable();
+                                                e.addToSymbolTable(currentTable);
                                               :}
                     | var:v                   {:
                                                 RESULT = v;
-                                                v.addToSymbolTable();
+                                                v.addToSymbolTable(currentTable);
                                               :}
                     | ref_var:v               {:
                                                 RESULT = v;
-                                                v.addToSymbolTable();
+                                                v.addToSymbolTable(currentTable);
                                               :}
                     | deref_var:v             {:
                                                 RESULT = v;
-                                                v.addToSymbolTable();
+                                                v.addToSymbolTable(currentTable);
                                               :}
                     | LPAR exp:e RPAR         {:
                                                 Expr exp = new NestedExpr(e);
                                                 RESULT = e;
-                                                exp.addToSymbolTable();
+                                                exp.addToSymbolTable(currentTable);
                                               :}
                     ;
 
 literal           ::= STRING_LITERAL:str {:
                                             RESULT = new Literal("STRING_LITERAL", str.toString());
-                                            RESULT.addToSymbolTable();
+                                            RESULT.addToSymbolTable(currentTable);
                                             :}
                     | INT_LITERAL:i {:
                                         RESULT = new Literal("INT_LITERAL", i.toString());
-                                        RESULT.addToSymbolTable();
+                                        RESULT.addToSymbolTable(currentTable);
                                     :}
                     | FLOAT_LITERAL:f {:
                                       RESULT = new Literal("FLOAT_LITERAL", f.toString());
-                                      RESULT.addToSymbolTable();
+                                      RESULT.addToSymbolTable(currentTable);
                                       :}
                     | bool:b {:
                              RESULT = new Literal("BOOL_LITERAL", b.toString());
-                             RESULT.addToSymbolTable();
+                             RESULT.addToSymbolTable(currentTable);
                              :}
                     | NULL:n {:
                              RESULT = new Literal("NULL_LITERAL", n.toString());
-                             RESULT.addToSymbolTable();
+                             RESULT.addToSymbolTable(currentTable);
                              :}
                     ;
 
@@ -245,11 +264,11 @@ log_op            ::= AND:o       {: RESULT = o; :}
                     ;
 
 /* Statements */
-stmt              ::= assign_stmt:a {: RESULT = a; a.addToSymbolTable(); :}
-                    | if_stmt:i     {: RESULT = i; i.addToSymbolTable(); :}
-                    | while_stmt:w  {: RESULT = w; w.addToSymbolTable(); :}
-                    | return_stmt:r {: RESULT = r; r.addToSymbolTable(); :}
-                    | call_stmt:s   {: RESULT = s; s.addToSymbolTable(); :}
+stmt              ::= assign_stmt:a {: RESULT = a; a.addToSymbolTable(currentTable); :}
+                    | if_stmt:i     {: RESULT = i; i.addToSymbolTable(currentTable); :}
+                    | while_stmt:w  {: RESULT = w; w.addToSymbolTable(currentTable); :}
+                    | return_stmt:r {: RESULT = r; r.addToSymbolTable(currentTable); :}
+                    | call_stmt:s   {: RESULT = s; s.addToSymbolTable(currentTable); :}
                     ;
 
 assign_stmt       ::= var:v ASSIGN_OP exp:e

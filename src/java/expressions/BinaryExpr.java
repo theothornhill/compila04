@@ -35,7 +35,7 @@ public class BinaryExpr extends Expr {
             isArit = true;
     }
 
-    public void addToSymbolTable() {
+    public void addToSymbolTable(SymbolTable table) {
         table.insert("Name", this.getClass());
         table.insert("Operation", op);
         table.insert("Expr1", CodeGenerationHelper.getTable(e1));

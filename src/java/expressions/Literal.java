@@ -18,7 +18,7 @@ public class Literal {
         return table;
     }
 
-    public void addToSymbolTable() {
+    public void addToSymbolTable(SymbolTable table) {
         table.insert("Type", type);
         table.insert("Value", value);
     }

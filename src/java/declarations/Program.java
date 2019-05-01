@@ -15,12 +15,12 @@ public class Program {
         CodeGenerationHelper.declTraverser(declarations, codeFile);
     }
 
-    public void addToSymbolTable() {
+    public void addToSymbolTable(SymbolTable table) {
         table.insert("Name", name);
         declarations.stream().forEach(decl -> table.insert(decl.getClass().toString(), decl));
     }
 
-    public void printTable() {
+    public void printTable(SymbolTable table) {
         System.out.println(table.toString());
     }
 

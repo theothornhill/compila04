@@ -70,7 +70,7 @@ public class Main {
 
                 // program.generateCode(codeFile);
                 // program.generateCode();
-                program.printTable();
+                // program.printTable();
 
                 codeFile.setMain("Main"); // This needs to go somewhere else?
                 

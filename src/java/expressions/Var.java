@@ -11,7 +11,7 @@ public class Var extends Expr {
         this.name = name;
     }
 
-    public void addToSymbolTable() {
+    public void addToSymbolTable(SymbolTable table) {
         table.insert("Name", name);
         table.insert("Expr", expr);
     }

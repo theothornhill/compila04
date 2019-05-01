@@ -7,7 +7,7 @@ public class New extends Expr {
         this.name = name;
     }
 
-    public void addToSymbolTable() {
+    public void addToSymbolTable(SymbolTable table) {
         // Some reference stuff here. How to handle this?
         table.insert("Name", name);
     }

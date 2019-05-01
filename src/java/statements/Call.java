@@ -10,7 +10,7 @@ public class Call extends Stmt {
         this.el = el;
     }
 
-    public void addToSymbolTable() {
+    public void addToSymbolTable(SymbolTable table) {
         table.insert("Statement-type", "call");
         table.insert("Name", name);
         el.stream()

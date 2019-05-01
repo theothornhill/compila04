@@ -7,7 +7,7 @@ public class Assign extends Stmt {
         this.e = e;
     }
 
-    public void addToSymbolTable() {
+    public void addToSymbolTable(SymbolTable table) {
         table.insert("Statement-type", "assign");
         table.insert("Name", name);
         table.insert("Expr", e);

@@ -6,7 +6,7 @@ public class NestedExpr extends Expr {
         this.expr = expr;
     }
 
-    public void addToSymbolTable() {
+    public void addToSymbolTable(SymbolTable table) {
         table.insert("Expr", expr);
     }
 
