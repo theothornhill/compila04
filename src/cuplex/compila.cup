@@ -99,22 +99,26 @@ exp_list          ::= exp:e {: LinkedList<Object> l = new LinkedList<>();
                     |
                     ;
 
-decl              ::= rec_decl:d {: RESULT = d; :}
-                    | proc_decl:d {: RESULT = d; :}
-                    | var_decl:d {: RESULT = d; :}
+decl              ::= rec_decl:d {: d.addToSymbolTable();
+                                    RESULT = d;
+                                 :}
+                    | proc_decl:d {: d.addToSymbolTable();
+                                        RESULT = d;
+                                  :}
+                    | var_decl:d {: d.addToSymbolTable();
+                                    RESULT = d;
+                                 :}
                     ;
 
 var_decl          ::= VAR_DECL NAME:name COLON type:t
                       {:
                         RESULT = new VarDecl(name, t);
-                        RESULT.addToSymbolTable();
                       :}
                     ;
 
 rec_decl          ::= REC_DECL NAME:name LCURLY param_list_semi:pl RCURLY
                                {:
                                     RESULT = new RecDecl(name, pl);
-                                    RESULT.addToSymbolTable();
                                :}
                     ;
 
@@ -130,7 +134,6 @@ proc_decl         ::= PROC_DECL NAME:name
                                 IN stmt_list:sl END
                                 {:
                                     RESULT = new ProcDecl(name, pl, dl, sl);
-                                    RESULT.addToSymbolTable();
                                 :}
                     | PROC_DECL NAME:name
                                 LPAR param_list_comma:pl RPAR
@@ -139,7 +142,6 @@ proc_decl         ::= PROC_DECL NAME:name
                                 IN stmt_list:sl END
                                 {:
                                     RESULT = new ProcDecl(name, pl, t, dl, sl);
-                                    RESULT.addToSymbolTable();
                                 :}
                     ;
 
