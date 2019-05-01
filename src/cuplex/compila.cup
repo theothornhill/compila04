@@ -245,11 +245,11 @@ log_op            ::= AND:o       {: RESULT = o; :}
                     ;
 
 /* Statements */
-stmt              ::= assign_stmt:a {: RESULT = a; :}
-                    | if_stmt:i     {: RESULT = i; :}
-                    | while_stmt:w  {: RESULT = w; :}
-                    | return_stmt:r {: RESULT = r; :}
-                    | call_stmt:s   {: RESULT = s; :}
+stmt              ::= assign_stmt:a {: RESULT = a; a.addToSymbolTable(); :}
+                    | if_stmt:i     {: RESULT = i; i.addToSymbolTable(); :}
+                    | while_stmt:w  {: RESULT = w; w.addToSymbolTable(); :}
+                    | return_stmt:r {: RESULT = r; r.addToSymbolTable(); :}
+                    | call_stmt:s   {: RESULT = s; s.addToSymbolTable(); :}
                     ;
 
 assign_stmt       ::= var:v ASSIGN_OP exp:e
