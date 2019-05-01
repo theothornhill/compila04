@@ -12,4 +12,14 @@ public abstract class Stmt {
     public abstract void addToSymbolTable();
     public abstract void generateCode(CodeFile codeFile);
     public abstract void generateCode(CodeProcedure proc);
+
+    public SymbolTable getTable() {
+        return table;
+    }
+
+    public String toString() {
+        return table.toString();
+    }
+
+
 }
