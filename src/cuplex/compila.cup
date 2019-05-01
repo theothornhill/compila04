@@ -199,11 +199,26 @@ exp               ::= exp:e1 log_op:o exp:e2  {:
                                               :}
                     ;
 
-literal           ::= STRING_LITERAL:str {: RESULT = new Literal("STRING_LITERAL", str.toString()); :}
-                    | INT_LITERAL:i {: RESULT = new Literal("INT_LITERAL", i.toString()); :}
-                    | FLOAT_LITERAL:f {: RESULT = new Literal("FLOAT_LITERAL", f.toString()); :}
-                    | bool:b {: RESULT = new Literal("BOOL_LITERAL", b.toString()); :}
-                    | NULL:n {: RESULT = new Literal("NULL_LITERAL", n.toString()); :}
+literal           ::= STRING_LITERAL:str {:
+                                            RESULT = new Literal("STRING_LITERAL", str.toString());
+                                            RESULT.addToSymbolTable();
+                                            :}
+                    | INT_LITERAL:i {:
+                                        RESULT = new Literal("INT_LITERAL", i.toString());
+                                        RESULT.addToSymbolTable();
+                                    :}
+                    | FLOAT_LITERAL:f {:
+                                      RESULT = new Literal("FLOAT_LITERAL", f.toString());
+                                      RESULT.addToSymbolTable();
+                                      :}
+                    | bool:b {:
+                             RESULT = new Literal("BOOL_LITERAL", b.toString());
+                             RESULT.addToSymbolTable();
+                             :}
+                    | NULL:n {:
+                             RESULT = new Literal("NULL_LITERAL", n.toString());
+                             RESULT.addToSymbolTable();
+                             :}
                     ;
 
 rel_op            ::= LT:o      {: RESULT = o; :}
