@@ -14,6 +14,10 @@ public class Literal {
         this.codeType = CodeGenerationHelper.getLiteralType(this.type);
     }
 
+    public SymbolTable getTable() {
+        return table;
+    }
+
     public void addToSymbolTable() {
         table.insert("Type", type);
         table.insert("Value", value);
@@ -37,5 +41,9 @@ public class Literal {
         sb.append("(" + type + " ");
         sb.append(value + ")");
         return sb.toString();
+    }
+
+    public String toString() {
+        return table.toString();
     }
 }
