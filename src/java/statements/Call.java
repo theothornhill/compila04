@@ -13,7 +13,9 @@ public class Call extends Stmt {
     public void addToSymbolTable() {
         table.insert("Statement-type", "call");
         table.insert("Name", name);
-        el.stream().forEach(e -> table.insert(e.toString(), e));
+        el.stream()
+            .forEach(e -> table.insert(e.getClass().toString(),
+                                       CodeGenerationHelper.getTable(e)));
     }
 
     public void generateCode(CodeFile codeFile) {
