@@ -140,4 +140,15 @@ public class CodeGenerationHelper {
             : false;
     }
 
+    public static SymbolTable getTable(Object node) {
+        return node instanceof Expr
+            ? ((Expr) node).getTable()
+            : node instanceof Call
+            ? ((Call) node).getTable()
+            : node instanceof Literal
+            ? ((Literal) node).getTable()
+            : null;
+    }
+
+
 }
