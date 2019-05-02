@@ -13,11 +13,10 @@ public class RecDecl extends Decl {
         struct = new CodeStruct(this.name);
     }
 
-    public void addToSymbolTable(SymbolTable table) {
-        table.insert("Name", name);
-        int count = 0;
+    public void addToSymbolTable(SymbolTable table, int scope) {
+        table.insert("" + scope, name);
         for (Param p : pl) {
-            table.insert("" + count++, p);
+            table.insert("" + scope, p);
         }
     }
     

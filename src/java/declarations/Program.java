@@ -1,10 +1,10 @@
 import java.util.*;
 import bytecode.*;
+import java.util.*;
 
 public class Program {
     String name;
     LinkedList<Decl> declarations;
-    SymbolTable table = new SymbolTable();
 
     public Program(String name, LinkedList<Decl> declarations) {
         this.name = name;
@@ -15,13 +15,12 @@ public class Program {
         CodeGenerationHelper.declTraverser(declarations, codeFile);
     }
 
-    public void addToSymbolTable(SymbolTable table) {
-        table.insert("Name", name);
-        declarations.stream().forEach(decl -> table.insert(decl.getClass().toString(), decl));
+    public void addToSymbolTable(SymbolTable table, int scope) {
+        declarations.stream().forEach(decl -> table.insert("" + scope, decl));
     }
 
     public void printTable(SymbolTable table) {
-        System.out.println(table.toString());
+        System.out.println(table);
     }
 
     public String printAst() {

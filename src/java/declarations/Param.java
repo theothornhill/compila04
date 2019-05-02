@@ -13,9 +13,9 @@ public class Param {
         this.t = type.setCodeType(this.type.toString());
     }
 
-    public void addToSymbolTable(SymbolTable table) {
-        table.insert("Name", name);
-        table.insert("Type", type);
+    public void addToSymbolTable(SymbolTable table, int scope) {
+        table.insert("" + scope, name);
+        table.insert("" + scope, type);
     }
     
     public void generateCode(CodeStruct struct) {

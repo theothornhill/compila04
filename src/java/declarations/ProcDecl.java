@@ -52,7 +52,7 @@ public class ProcDecl extends Decl {
     }
 
 
-    public void addToSymbolTable(SymbolTable table) {
+    public void addToSymbolTable(SymbolTable table, int scope) {
         table.insert("Name", name);
         if (pl != null)
             pl.stream().forEach(param -> table.insert(param.name, param.type));
