@@ -16,7 +16,7 @@ public class Program {
     }
 
     public void addToSymbolTable(SymbolTable table, int scope) {
-        declarations.stream().forEach(decl -> table.insert("" + scope, decl));
+        declarations.stream().forEach(decl -> table.insert(scope, decl));
     }
 
     public void printTable(SymbolTable table) {

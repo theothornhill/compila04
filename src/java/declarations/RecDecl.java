@@ -14,9 +14,9 @@ public class RecDecl extends Decl {
     }
 
     public void addToSymbolTable(SymbolTable table, int scope) {
-        table.insert("" + scope, name);
+        table.insert(scope, name);
         for (Param p : pl) {
-            table.insert("" + scope, p);
+            table.insert(scope, p);
         }
     }
     

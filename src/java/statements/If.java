@@ -15,11 +15,10 @@ public class If extends Stmt {
         this.sl2 = sl2;
     }
 
-    public void addToSymbolTable(SymbolTable table) {
-        table.insert("Statement-type", "if");
-        // table.insert("Expr", CodeGenerationHelper.getTable(e));
-        sl.stream().forEach(s -> table.insert(s.toString(), s));
-        sl2.stream().forEach(s -> table.insert(s.toString(), s));
+    public void addToSymbolTable(SymbolTable table, int scope) {
+        // // table.insert("Expr", CodeGenerationHelper.getTable(e));
+        // sl.stream().forEach(s -> table.insert(s.toString(), s));
+        // sl2.stream().forEach(s -> table.insert(s.toString(), s));
     }
 
     public void generateCode(CodeFile codeFile) {

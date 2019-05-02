@@ -7,10 +7,10 @@ public class Assign extends Stmt {
         this.e = e;
     }
 
-    public void addToSymbolTable(SymbolTable table) {
-        table.insert("Statement-type", "assign");
-        table.insert("Name", name);
-        table.insert("Expr", e);
+    public void addToSymbolTable(SymbolTable table, int scope) {
+        table.insert(scope, "assign");
+        table.insert(scope, name);
+        table.insert(scope, e);
     }
 
     public void generateCode(CodeFile codeFile) {

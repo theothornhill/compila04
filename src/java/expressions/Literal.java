@@ -13,9 +13,9 @@ public class Literal {
         this.codeType = CodeGenerationHelper.getLiteralType(this.type);
     }
 
-    public void addToSymbolTable(SymbolTable table) {
-        table.insert("Type", type);
-        table.insert("Value", value);
+    public void addToSymbolTable(SymbolTable table, int scope) {
+        table.insert(scope, type);
+        table.insert(scope, value);
     }
 
     public void generateCode(CodeProcedure proc) {

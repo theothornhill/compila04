@@ -7,9 +7,9 @@ public class New extends Expr {
         this.name = name;
     }
 
-    public void addToSymbolTable(SymbolTable table) {
+    public void addToSymbolTable(SymbolTable table, int scope) {
         // Some reference stuff here. How to handle this?
-        table.insert("Name", name);
+        table.insert(scope, name);
     }
 
     public void generateCode(CodeProcedure proc) {

@@ -17,8 +17,8 @@ public class SymbolTable {
         // return Arrays.toString(table.entrySet().toArray());
     }
 
-    public void insert(String key, Object val) {
-        this.table.get(key).add(val);
+    public void insert(int key, Object val) {
+        this.table.get("" + key).add(val);
     }
 
     public LinkedList lookup(String key) {
