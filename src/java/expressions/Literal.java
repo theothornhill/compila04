@@ -6,16 +6,11 @@ public class Literal {
     public String type;
     public String value;
     CodeType codeType;
-    SymbolTable table = new SymbolTable();
 
     public Literal(String type, String value) {
         this.type = type;
         this.value = value;
         this.codeType = CodeGenerationHelper.getLiteralType(this.type);
-    }
-
-    public SymbolTable getTable() {
-        return table;
     }
 
     public void addToSymbolTable(SymbolTable table) {
@@ -41,9 +36,5 @@ public class Literal {
         sb.append("(" + type + " ");
         sb.append(value + ")");
         return sb.toString();
-    }
-
-    public String toString() {
-        return table.toString();
     }
 }

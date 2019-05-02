@@ -38,8 +38,8 @@ public class BinaryExpr extends Expr {
     public void addToSymbolTable(SymbolTable table) {
         table.insert("Name", this.getClass());
         table.insert("Operation", op);
-        table.insert("Expr1", CodeGenerationHelper.getTable(e1));
-        table.insert("Expr2", CodeGenerationHelper.getTable(e2));
+        // table.insert("Expr1", CodeGenerationHelper.getTable(e1));
+        // table.insert("Expr2", CodeGenerationHelper.getTable(e2));
     }
 
     public void generateCode(CodeProcedure proc) {

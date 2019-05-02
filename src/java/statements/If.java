@@ -17,7 +17,7 @@ public class If extends Stmt {
 
     public void addToSymbolTable(SymbolTable table) {
         table.insert("Statement-type", "if");
-        table.insert("Expr", CodeGenerationHelper.getTable(e));
+        // table.insert("Expr", CodeGenerationHelper.getTable(e));
         sl.stream().forEach(s -> table.insert(s.toString(), s));
         sl2.stream().forEach(s -> table.insert(s.toString(), s));
     }
