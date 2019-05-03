@@ -17,16 +17,16 @@ action code
 {:
 SymbolTable table = new SymbolTable(0);
 SymbolTable currentTable = table;
-int currentLevel = -1;
 
 public void initializeScope() {
-    currentLevel++;
-    SymbolTable newScope = new SymbolTable(currentLevel);
-    currentTable = newScope;
+    int scopeLevel = currentTable.getKey();
+    currentTable.setKey(scopeLevel+1);
+    currentTable.addTable();
 }
 
 public void finalizeScope() {
-    currentLevel--;
+    int scopeLevel = currentTable.getKey();
+    currentTable.setKey(scopeLevel-1);
 }
 :}
 
