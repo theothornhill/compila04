@@ -23,8 +23,7 @@ public void initializeScope() {
 }
 
 public void finalizeScope() {
-    int scopeLevel = currentTable.getKey();
-    currentTable.setKey(scopeLevel-1);
+    table.decrementKey();
 }
 :}
 
