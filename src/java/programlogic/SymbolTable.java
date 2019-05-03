@@ -28,7 +28,8 @@ public class SymbolTable {
 
     public void addTable() {
         // must be used after key as been incremented
-        table.put("" + this.key, new LinkedList<Object>());
+        if (!table.containsKey("" + key)) 
+            table.put("" + key, new LinkedList<Object>());
     }
 
     public void insert(Object val) {
