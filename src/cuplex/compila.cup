@@ -16,12 +16,10 @@ public void syntax_error(Symbol s) {
 action code
 {:
 SymbolTable table = new SymbolTable(0);
-SymbolTable currentTable = table;
 
 public void initializeScope() {
-    int scopeLevel = currentTable.getKey();
-    currentTable.setKey(scopeLevel+1);
-    currentTable.addTable();
+    table.incrementKey();
+    table.addTable();
 }
 
 public void finalizeScope() {
