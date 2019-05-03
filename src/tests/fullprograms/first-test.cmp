@@ -4,20 +4,25 @@ begin
   var y : float;
 
   struct Complex {
-     Real : float
-  }
+     Real : float;
+     Imag : float
+  };
 
-  // proc Main(a : int)
-  // begin
-  //   // struct C {
-  //   // One : float
-  //   // }
-  // in
-  // // if (5 + 5)
-  // // then
-  // // Main("halla")
-  // // fi;
+  proc Main(a : int)
+  begin
+    struct C {
+    One : float
+    };
+    var z : int
+  in
+  // if (5 + 5)
+  // then
+  // Main("halla")
+  // fi;
   
   // // callThisFunction(5 + 5)
-  // end
+   end;
+   struct L {
+     MyNum : int
+   }
 end
