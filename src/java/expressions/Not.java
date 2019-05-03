@@ -8,9 +8,9 @@ public class Not extends Expr {
         this.expr = expr;
     }
 
-    public void addToSymbolTable(SymbolTable table, int scope) {
+    public void addToSymbolTable(SymbolTable table) {
         // Doesn't give ant type checking info here
-        table.insert(scope, expr);
+        table.insert(expr);
     }
 
     public void generateCode(CodeProcedure proc) {

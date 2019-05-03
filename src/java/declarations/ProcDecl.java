@@ -52,13 +52,13 @@ public class ProcDecl extends Decl {
     }
 
 
-    public void addToSymbolTable(SymbolTable table, int scope) {
+    public void addToSymbolTable(SymbolTable table) {
         if (pl != null)
-            pl.stream().forEach(param -> table.insert(scope, param.type));
+            pl.stream().forEach(param -> table.insert(param.type));
         if (dl != null)
-            dl.stream().forEach(decl -> table.insert(scope, decl));
+            dl.stream().forEach(decl -> table.insert(decl));
         if (sl != null)
-            sl.stream().forEach(stmt -> table.insert(scope, stmt));
+            sl.stream().forEach(stmt -> table.insert(stmt));
     }
 
     public void generateCode(CodeFile codeFile) {

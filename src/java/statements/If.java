@@ -15,7 +15,7 @@ public class If extends Stmt {
         this.sl2 = sl2;
     }
 
-    public void addToSymbolTable(SymbolTable table, int scope) {
+    public void addToSymbolTable(SymbolTable table) {
         // // table.insert("Expr", CodeGenerationHelper.getTable(e));
         // sl.stream().forEach(s -> table.insert(s.toString(), s));
         // sl2.stream().forEach(s -> table.insert(s.toString(), s));

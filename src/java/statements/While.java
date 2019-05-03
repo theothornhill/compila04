@@ -11,7 +11,7 @@ public class While extends Stmt {
         this.sl = sl;
     }
 
-    public void addToSymbolTable(SymbolTable table, int scope) {
+    public void addToSymbolTable(SymbolTable table) {
         // table.insert("Expr", e);
         // sl.stream().forEach(s -> table.insert(s.toString(), s));
     }

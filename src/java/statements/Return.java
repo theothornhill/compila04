@@ -10,7 +10,7 @@ public class Return extends Stmt {
         
     }
 
-    public void addToSymbolTable(SymbolTable table, int scope) {
+    public void addToSymbolTable(SymbolTable table) {
         // table.insert("Statement-type", "Return");
         // table.insert("Expr", e);
     }

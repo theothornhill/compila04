@@ -15,8 +15,8 @@ public class Program {
         CodeGenerationHelper.declTraverser(declarations, codeFile);
     }
 
-    public void addToSymbolTable(SymbolTable table, int scope) {
-        declarations.stream().forEach(decl -> table.insert(scope, decl));
+    public void addToSymbolTable(SymbolTable table) {
+        declarations.stream().forEach(decl -> table.insert(decl));
     }
 
     public void printTable(SymbolTable table) {

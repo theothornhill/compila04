@@ -14,8 +14,8 @@ public class Param {
     }
 
     public void addToSymbolTable(SymbolTable table, int scope) {
-        table.insert(scope, name);
-        table.insert(scope, type);
+        table.insert(name);
+        table.insert(type);
     }
     
     public void generateCode(CodeStruct struct) {
