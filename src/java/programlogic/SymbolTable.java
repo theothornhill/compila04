@@ -18,8 +18,12 @@ public class SymbolTable {
         return this.key;
     }
 
-    public void setKey(int scope) {
-        this.key = scope;
+    public void incrementKey() {
+        this.key++;
+    }
+
+    public void decrementKey() {
+        this.key--;
     }
 
     public void addTable() {
