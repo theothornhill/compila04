@@ -41,8 +41,8 @@ public class SymbolTable {
         this.table.put(val.toString(), val); 
     }
 
-    public Object lookup(String key) {
-        if (table.containsKey(key))
+    public Object lookup(Object key) {
+        if (table.containsKey(key.toString()))
             return null;
         else
             return "hello";

@@ -164,6 +164,8 @@ rec_decl          ::= REC_DECL NAME:name LCURLY param_list_semi:pl RCURLY
 paramfield_decl   ::= NAME:name COLON type:t {:
                                                 Param p = new Param(name, t); 
                                                 RESULT = p;
+                                                p.typeCheck(table);
+                                                table.insert(p);
                                              :}
                     ;
 
@@ -188,19 +190,15 @@ proc_decl         ::= PROC_DECL NAME:name
 
 exp               ::= exp:e1 log_op:o exp:e2  {:
                                                 RESULT  = new BinaryExpr(e1, o, e2);
-                                                ((BinaryExpr)RESULT).typeCheck();
                                               :}
                     | NOT exp:e               {:
                                                 RESULT = new Not(e);
-                                                ((Not)RESULT).typeCheck();
                                               :}
                     | exp:e1 rel_op:o exp:e2  {:
                                                 RESULT = new BinaryExpr(e1, o, e2);;
-                                                ((BinaryExpr)RESULT).typeCheck();
                                               :}
                     | exp:e1 arit_op:o exp:e2 {:
                                                 RESULT = new BinaryExpr(e1, o, e2);
-                                                ((BinaryExpr)RESULT).typeCheck();
                                               :}
                     | literal:lit             {:
                                                 Literal l = (Literal) lit;
@@ -272,6 +270,8 @@ log_op            ::= AND:o       {: RESULT = o; :}
 /* Statements */
 stmt              ::= assign_stmt:a {: RESULT = a;
                                        RESULT.setCreatorOf();
+                                       RESULT.typeCheck(table);
+                                       table.insert(RESULT);
                                     :}
                     | if_stmt:i     {: RESULT = i;
                                        RESULT.setCreatorOf();
@@ -289,19 +289,19 @@ stmt              ::= assign_stmt:a {: RESULT = a;
 
 assign_stmt       ::= var:v ASSIGN_OP exp:e
                             {: RESULT = new Assign(v, e);
-                               RESULT.typeCheck();
+                               RESULT.typeCheck(table);
 
                             :}
                     | deref_var:v ASSIGN_OP exp:e
                             {: RESULT = new Assign(v, e);
-                               RESULT.typeCheck();
+                               RESULT.typeCheck(table);
                             :}     
                     ;
 
 if_stmt           ::= IF exp:e THEN stmt_list:l FI
                                            {:
                                            RESULT = new If(e, l);
-                                           RESULT.typeCheck();
+                                           RESULT.typeCheck(table);
                                            :}
                     | IF exp:e THEN stmt_list:l ELSE stmt_list:l2 FI
                                            {: RESULT = new If(e, l, l2); :}
@@ -310,24 +310,24 @@ if_stmt           ::= IF exp:e THEN stmt_list:l FI
 while_stmt        ::= WHILE exp:e DO stmt_list:l OD
                             {:
                             RESULT = new While(e, l);
-                            RESULT.typeCheck();
+                            RESULT.typeCheck(table);
                             :}
                     ;
 
 return_stmt       ::= RETURN exp:e {:
                                     RESULT = new Return(e);
-                                    RESULT.typeCheck();
+                                    RESULT.typeCheck(table);
                                    :}
                     | RETURN {:
                                 RESULT = new Return();
-                                RESULT.typeCheck();
+                                RESULT.typeCheck(table);
                              :}
                     ;
 
 call_stmt         ::= NAME:name LPAR exp_list:el RPAR
                                 {:
                                 RESULT = new Call(name, el);
-                                RESULT.typeCheck();
+                                RESULT.typeCheck(table);
                                 :}
                     ;
 

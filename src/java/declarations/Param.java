@@ -15,6 +15,11 @@ public class Param implements AttributeGrammar {
         this.t = type.setCodeType(this.type.toString());
     }
 
+    public void typeCheck(SymbolTable table) throws Exception {
+        if (table.lookup(this) == null)
+            throw new Exception("Symbol " + this.name + " already declared");
+    }
+
     public Object getCreatedBy() {
         return createdBy;
     }
@@ -51,4 +56,9 @@ public class Param implements AttributeGrammar {
             + PrintHelper.printName(name)
             + ")";
     }
+
+    public String toString() {
+        return name;
+    }
+
 }

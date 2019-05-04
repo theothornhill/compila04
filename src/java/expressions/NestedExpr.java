@@ -6,7 +6,7 @@ public class NestedExpr extends Expr {
         this.expr = expr;
     }
 
-    public void typeCheck() {
+    public void typeCheck(SymbolTable table) {
         
     }
 

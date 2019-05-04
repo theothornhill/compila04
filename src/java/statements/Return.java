@@ -26,7 +26,7 @@ public class Return extends Stmt {
         this.lexicalScopeLevel = scope;
     }
 
-    public void typeCheck() {
+    public void typeCheck(SymbolTable table) throws Exception {
         
     }
 

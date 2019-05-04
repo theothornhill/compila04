@@ -10,7 +10,7 @@ public class Call extends Stmt {
         this.el = el;
     }
 
-    public void typeCheck() {
+    public void typeCheck(SymbolTable table) throws Exception {
         
     }
 

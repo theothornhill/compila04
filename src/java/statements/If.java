@@ -31,7 +31,7 @@ public class If extends Stmt {
         this.lexicalScopeLevel = scope;
     }
 
-    public void typeCheck() throws Exception {
+    public void typeCheck(SymbolTable table) throws Exception {
         if (!(e instanceof BinaryExpr))
             throw new Exception("Condition in if-statement must be binary");
         if (!((BinaryExpr)e).isBoolean) {

@@ -7,7 +7,9 @@ public class Assign extends Stmt {
         this.e = e;
     }
 
-    public void typeCheck() {
+    public void typeCheck(SymbolTable table) throws Exception {
+        if (table.lookup(e2) == null)
+            throw new Exception("Symbol is not declared");
     }
 
     public Object getCreatedBy() {
@@ -48,4 +50,9 @@ public class Assign extends Stmt {
         sb.append(PrintHelper.endWithParen(indentLevel));
         return sb.toString();
     }
+
+    public String toString() {
+        return e2.toString();
+    }
+
 }

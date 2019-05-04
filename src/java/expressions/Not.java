@@ -8,7 +8,7 @@ public class Not extends Expr {
         this.expr = expr;
     }
 
-    public void typeCheck() throws Exception {
+    public void typeCheck(SymbolTable table) throws Exception {
         if (!(expr instanceof BinaryExpr))
             throw new Exception("Condition in if-statement must be binary");
         if (!((BinaryExpr)expr).isBoolean) {

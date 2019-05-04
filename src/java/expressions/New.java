@@ -7,7 +7,7 @@ public class New extends Expr {
         this.name = name;
     }
 
-    public void typeCheck() {
+    public void typeCheck(SymbolTable table) {
         
     }
 

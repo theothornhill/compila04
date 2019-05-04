@@ -12,7 +12,7 @@ public class VarDecl extends Decl {
     }
 
     public void typeCheck(SymbolTable table) throws Exception {
-        if (table.lookup(this.name) == null)
+        if (table.lookup(this) == null)
             throw new Exception("Symbol " + this.name + " already declared");
     }
 

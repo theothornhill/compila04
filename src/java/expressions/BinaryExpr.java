@@ -35,7 +35,7 @@ public class BinaryExpr extends Expr {
             isArit = true;
     }
 
-    public void typeCheck() throws Exception {
+    public void typeCheck(SymbolTable table) throws Exception {
         if (((Literal)e1).getType() != ((Literal)e2).getType())
             throw new Exception("Operands in binary expr not the same type");
     }
