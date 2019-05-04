@@ -19,7 +19,7 @@ public class Return extends Stmt {
     }
 
     public void setCreatorOf() {
-        // Nothing yet
+
     }
 
     public void setLexicalScopeLevel(int scope) {
