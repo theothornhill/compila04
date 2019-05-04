@@ -16,8 +16,10 @@ public void syntax_error(Symbol s) {
 action code
 {:
 SymbolTable table = new SymbolTable(0);
+int currentLevel = 0;
 
 public void initializeScope() {
+    SymbolTable newTable = new SymbolTable(table.getKey());
     table.incrementKey();
     table.addTable();
 }
@@ -71,11 +73,11 @@ precedence left                    DOT;
 start with program;
 
 program           ::= PROGRAM NAME:name BEGIN decl_list:dl END
-                               {:   
-                                    RESULT = new Program(name, dl);
-                                    table.insert(RESULT);  
-                                    finalizeScope();
-                                    CodeGenerationHelper.printTable(table);
+                               {:
+                                    Program program = new Program(name, dl);
+                                    RESULT = program;
+                                    program.setCreatorOf();
+                                    program.setLexicalScopeLevel(currentLevel+1);
                                :}                             
                     ; 
 
@@ -98,11 +100,17 @@ stmt_list          ::= stmt:s {: LinkedList<Stmt> l = new LinkedList<>();
                     |
                     ;
 
-param_list_semi   ::= paramfield_decl:p {: LinkedList<Param> l = new LinkedList<>();
+
+param_list_semi   ::= paramfield_decl:p {:
+                                           LinkedList<Param> l = new LinkedList<>();  
                                            l.add(p);
-                                           RESULT = l; :}
+                                           RESULT = l;
+                                         :}
                     | param_list_semi:pl SEMI paramfield_decl:p
-                                         {: pl.add(p); RESULT = pl; :}
+                                         {:
+                                         pl.add(p);
+                                         RESULT = pl;
+                                         :}
                     |
                     ;
 param_list_comma  ::= paramfield_decl:p {: LinkedList<Param> l = new LinkedList<>();
@@ -122,38 +130,35 @@ exp_list          ::= exp:e {: LinkedList<Object> l = new LinkedList<>();
 
 decl              ::= rec_decl:d {: 
                                     RESULT = d;
+                                    RESULT.setCreatorOf();
                                  :}
                     | proc_decl:d {:
-                                     RESULT = d;
+                                    RESULT = d;
+                                    RESULT.setCreatorOf();
                                   :}
                     | var_decl:d {:
                                     RESULT = d;
+                                    RESULT.setCreatorOf();
                                  :}
                     ;
 
 var_decl          ::= VAR_DECL NAME:name COLON type:t
                       {:
-                      initializeScope();
-                      RESULT = new VarDecl(name, t);
-                      table.insert(RESULT);
-                      finalizeScope();
+                      VarDecl d = new VarDecl(name, t);
+                      RESULT = d;
                       :}
                     ;
 
 rec_decl          ::= REC_DECL NAME:name LCURLY param_list_semi:pl RCURLY
                                {:
-                                 initializeScope();
-                                 RESULT = new RecDecl(name, pl);
-                                 table.insert(RESULT);
-                                 finalizeScope();
+                                 RecDecl record = new RecDecl(name, pl);
+                                 RESULT = record;
                                :}
                     ;
 
 paramfield_decl   ::= NAME:name COLON type:t {:
-                                                initializeScope();
-                                                RESULT = new Param(name, t);
-                                                table.insert(RESULT);
-                                                finalizeScope();
+                                                Param p = new Param(name, t); 
+                                                RESULT = p;
                                              :}
                     ;
 
@@ -162,10 +167,8 @@ proc_decl         ::= PROC_DECL NAME:name
                                 BEGIN decl_list:dl
                                 IN stmt_list:sl END
                                 {:
-                                    initializeScope();
-                                    RESULT = new ProcDecl(name, pl, dl, sl);
-                                    table.insert(RESULT);
-                                    finalizeScope();
+                                    ProcDecl procdecl = new ProcDecl(name, pl, dl, sl);
+                                    RESULT = procdecl;
                                 :}
                     | PROC_DECL NAME:name
                                 LPAR param_list_comma:pl RPAR
@@ -173,28 +176,26 @@ proc_decl         ::= PROC_DECL NAME:name
                                 BEGIN decl_list:dl
                                 IN stmt_list:sl END
                                 {:
-                                    initializeScope();
-                                    RESULT = new ProcDecl(name, pl, t, dl, sl);
-                                    table.insert(RESULT);
-                                    finalizeScope();
+                                    ProcDecl procdecl = new ProcDecl(name, pl, t, dl, sl);
+                                    RESULT = procdecl;
                                 :}
                     ;
 
 exp               ::= exp:e1 log_op:o exp:e2  {:
-                                                Expr e = new BinaryExpr(e1, o, e2);
-                                                RESULT = e;
+                                                RESULT  = new BinaryExpr(e1, o, e2);
+                                                ((BinaryExpr)RESULT).typeCheck();
                                               :}
                     | NOT exp:e               {:
-                                                Expr exp = new Not(e);
-                                                RESULT = e;
+                                                RESULT = new Not(e);
+                                                ((Not)RESULT).typeCheck();
                                               :}
                     | exp:e1 rel_op:o exp:e2  {:
-                                                Expr e = new BinaryExpr(e1, o, e2);
-                                                RESULT = e;
+                                                RESULT = new BinaryExpr(e1, o, e2);;
+                                                ((BinaryExpr)RESULT).typeCheck();
                                               :}
                     | exp:e1 arit_op:o exp:e2 {:
-                                                Expr e = new BinaryExpr(e1, o, e2);
-                                                RESULT = e;
+                                                RESULT = new BinaryExpr(e1, o, e2);
+                                                ((BinaryExpr)RESULT).typeCheck();
                                               :}
                     | literal:lit             {:
                                                 Literal l = (Literal) lit;
@@ -265,39 +266,64 @@ log_op            ::= AND:o       {: RESULT = o; :}
 
 /* Statements */
 stmt              ::= assign_stmt:a {: RESULT = a;
+                                       RESULT.setCreatorOf();
                                     :}
                     | if_stmt:i     {: RESULT = i;
+                                       RESULT.setCreatorOf();
                                     :}
                     | while_stmt:w  {: RESULT = w;
+                                       RESULT.setCreatorOf();
                                     :}
                     | return_stmt:r {: RESULT = r;
+                                       RESULT.setCreatorOf();
                                     :}
                     | call_stmt:s   {: RESULT = s;
+                                       RESULT.setCreatorOf();
                                     :}
                     ;
 
 assign_stmt       ::= var:v ASSIGN_OP exp:e
-                            {: RESULT = new Assign(v, e); :}
+                            {: RESULT = new Assign(v, e);
+                               RESULT.typeCheck();
+
+                            :}
                     | deref_var:v ASSIGN_OP exp:e
-                            {: RESULT = new Assign(v, e); :}     
+                            {: RESULT = new Assign(v, e);
+                               RESULT.typeCheck();
+                            :}     
                     ;
 
 if_stmt           ::= IF exp:e THEN stmt_list:l FI
-                                           {: RESULT = new If(e, l); :}
+                                           {:
+                                           RESULT = new If(e, l);
+                                           RESULT.typeCheck();
+                                           :}
                     | IF exp:e THEN stmt_list:l ELSE stmt_list:l2 FI
                                            {: RESULT = new If(e, l, l2); :}
                     ;
 
 while_stmt        ::= WHILE exp:e DO stmt_list:l OD
-                            {: RESULT = new While(e, l); :}
+                            {:
+                            RESULT = new While(e, l);
+                            RESULT.typeCheck();
+                            :}
                     ;
 
-return_stmt       ::= RETURN exp:e {: RESULT = new Return(e); :}
-                    | RETURN {: RESULT = new Return(); :}
+return_stmt       ::= RETURN exp:e {:
+                                    RESULT = new Return(e);
+                                    RESULT.typeCheck();
+                                   :}
+                    | RETURN {:
+                                RESULT = new Return();
+                                RESULT.typeCheck();
+                             :}
                     ;
 
 call_stmt         ::= NAME:name LPAR exp_list:el RPAR
-                                {: RESULT = new Call(name, el); :}
+                                {:
+                                RESULT = new Call(name, el);
+                                RESULT.typeCheck();
+                                :}
                     ;
 
 /* Vars, refs and derefs */

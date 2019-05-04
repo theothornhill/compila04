@@ -1,28 +1,35 @@
 program firsttest
 begin
-  var x : int;
   var y : float;
+  var x : int;
 
   struct Complex {
-     Real : float;
-     Imag : float
+     Imag : int
   };
+
+   struct L {
+     MyNum  : int;
+     MyNumx : float
+   };
 
   proc Main(a : int)
   begin
     struct C {
     One : float
     };
+    var z : int;
+    proc newFunc()
+    begin
     var z : int
+    in
+    end
   in
-  // if (5 + 5)
-  // then
-  // Main("halla")
-  // fi;
+  if (5 = 5)
+  then
+  Main("halla")
+  fi
   
-  // // callThisFunction(5 + 5)
-   end;
-   struct L {
-     MyNum : int
-   }
+  // // // // // // // // callThisFunction(5 + 5)
+   end
+
 end
