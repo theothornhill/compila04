@@ -51,8 +51,9 @@ public class ProcDecl extends Decl {
         this.sl = sl;
     }
 
-    public void typeCheck() throws Exception {
-        
+    public void typeCheck(SymbolTable table) throws Exception {
+        if (table.lookup(this.name) == null)
+            throw new Exception("Symbol " + this.name + " already declared");
     }
 
     public Object getCreatedBy() {

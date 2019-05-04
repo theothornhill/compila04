@@ -38,11 +38,14 @@ public class SymbolTable {
 
     public void insert(Object val) {
         // this.table.get("" + this.key).add(val);
-        this.table.put("" + key, val);
+        this.table.put(val.toString(), val); 
     }
 
     public Object lookup(String key) {
-         return this.table.get(key);
+        if (table.containsKey(key))
+            return null;
+        else
+            return "hello";
     }
 
     public String toString() {

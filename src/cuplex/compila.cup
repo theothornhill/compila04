@@ -19,13 +19,13 @@ SymbolTable table = new SymbolTable(0);
 int currentLevel = 0;
 
 public void initializeScope() {
-    SymbolTable newTable = new SymbolTable(table.getKey());
-    table.incrementKey();
-    table.addTable();
+    // SymbolTable newTable = new SymbolTable(table.getKey());
+    // table.incrementKey();
+    // table.addTable();
 }
 
 public void finalizeScope() {
-    table.decrementKey();
+    // table.decrementKey();
 }
 :}
 
@@ -78,6 +78,7 @@ program           ::= PROGRAM NAME:name BEGIN decl_list:dl END
                                     RESULT = program;
                                     program.setCreatorOf();
                                     program.setLexicalScopeLevel(currentLevel+1);
+                                    CodeGenerationHelper.printTable(table);
                                :}                             
                     ; 
 
@@ -135,10 +136,14 @@ decl              ::= rec_decl:d {:
                     | proc_decl:d {:
                                     RESULT = d;
                                     RESULT.setCreatorOf();
+                                    RESULT.typeCheck(table);
+                                    table.insert(RESULT);
                                   :}
                     | var_decl:d {:
                                     RESULT = d;
                                     RESULT.setCreatorOf();
+                                    RESULT.typeCheck(table);
+                                    table.insert(RESULT);
                                  :}
                     ;
 

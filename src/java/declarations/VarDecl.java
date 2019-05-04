@@ -11,8 +11,9 @@ public class VarDecl extends Decl {
         this.t = type.setCodeType(type.toString());
     }
 
-    public void typeCheck() {
-        
+    public void typeCheck(SymbolTable table) throws Exception {
+        if (table.lookup(this.name) == null)
+            throw new Exception("Symbol " + this.name + " already declared");
     }
 
     public Object getCreatedBy() {

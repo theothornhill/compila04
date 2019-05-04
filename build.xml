@@ -71,7 +71,8 @@
 	<target name="run" depends="init">
 		<java classname="Main" classpathref="path-run">
           <!-- <arg value="src/tests/fullprograms/complexaddition.cmp"/> -->
-          <arg value="src/tests/fullprograms/first-test.cmp"/> 
+          <!-- <arg value="src/tests/fullprograms/first-test.cmp"/> -->
+          <arg value="src/oblig2patch/src/tests/oblig2/errors/general1_fail.cmp"/>
 		</java>
 	</target>
     

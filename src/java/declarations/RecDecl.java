@@ -13,7 +13,7 @@ public class RecDecl extends Decl {
         struct = new CodeStruct(this.name);
     }
 
-    public void typeCheck() throws Exception {
+    public void typeCheck(SymbolTable table) throws Exception {
         // pl.stream().forEach(p -> {
         //         if (!(p.type instanceof Type))
         //             throw new Exception("Wrong type declaration in RecDecl");
