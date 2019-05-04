@@ -11,6 +11,26 @@ public class VarDecl extends Decl {
         this.t = type.setCodeType(type.toString());
     }
 
+    public void typeCheck() {
+        
+    }
+
+    public Object createdBy() {
+        return this.createdBy;
+    }
+
+    public void setCreatedBy(Object node) {
+        this.createdBy = node;
+    }
+
+    public void setCreatorOf() {
+        
+    }
+
+    public void setLexicalScopeLevel(int scope) {
+        this.lexicalScopeLevel = scope;
+    }
+
     public void addToSymbolTable(SymbolTable table) {
         table.insert(name);
         table.insert(type);

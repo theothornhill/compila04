@@ -10,6 +10,27 @@ public class Call extends Stmt {
         this.el = el;
     }
 
+    public void typeCheck() {
+        
+    }
+
+    public Object createdBy() {
+        return this.createdBy;
+    }
+
+    public void setCreatorOf() {
+        
+    }
+
+    public void setLexicalScopeLevel(int scope) {
+        
+    }
+
+    public void setCreatedBy(Object node) {
+        
+    }
+
+
     public void addToSymbolTable(SymbolTable table) {
         table.insert("call");
         table.insert(name);

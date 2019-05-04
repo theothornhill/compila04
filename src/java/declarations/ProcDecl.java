@@ -51,6 +51,48 @@ public class ProcDecl extends Decl {
         this.sl = sl;
     }
 
+    public void typeCheck() throws Exception {
+        
+    }
+
+    public Object createdBy() {
+        return this.createdBy;
+    }
+
+    public void setCreatedBy(Object node) {
+        this.createdBy = node;
+    }
+
+    public void setCreatorOf() {
+        if (pl != null) 
+            pl.stream().forEach(d -> d.setCreatedBy(this));
+        if (dl != null) 
+            dl.stream().forEach(d -> d.setCreatedBy(this));
+        if (sl != null) 
+            sl.stream().forEach(d -> d.setCreatedBy(this));
+    }
+
+    public void setLexicalScopeLevel(int scope) {
+        this.lexicalScopeLevel = scope;
+        if (pl != null) {
+            pl.stream().forEach(d -> d.setLexicalScopeLevel(lexicalScopeLevel+1));
+            pl.stream().forEach(d ->
+                                System.out.println("" + d.name + d.lexicalScopeLevel +
+                                                   " createdby " + d.createdBy));            
+        }
+        if (dl != null) {
+            dl.stream().forEach(d -> d.setLexicalScopeLevel(lexicalScopeLevel+1));
+            dl.stream().forEach(d ->
+                                System.out.println("" + d.name + d.lexicalScopeLevel +
+                                                   " createdby " + d.createdBy));            
+        }
+        if (sl != null) {
+            sl.stream().forEach(d -> d.setLexicalScopeLevel(lexicalScopeLevel+1));
+            sl.stream().forEach(d ->
+                                System.out.println("" + d.name + d.lexicalScopeLevel +
+                                                   " createdby " + d.createdBy));            
+        }
+    }
 
     public void addToSymbolTable(SymbolTable table) {
         if (pl != null)

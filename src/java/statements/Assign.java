@@ -7,6 +7,25 @@ public class Assign extends Stmt {
         this.e = e;
     }
 
+    public void typeCheck() {
+    }
+
+    public Object createdBy() {
+        return this.createdBy;
+    }
+
+    public void setCreatorOf() {
+        
+    }
+
+    public void setLexicalScopeLevel(int scope) {
+        
+    }
+
+    public void setCreatedBy(Object node) {
+        
+    }
+
     public void addToSymbolTable(SymbolTable table) {
         table.insert("assign");
         table.insert(name);

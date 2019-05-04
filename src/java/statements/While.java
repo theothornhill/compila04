@@ -11,6 +11,31 @@ public class While extends Stmt {
         this.sl = sl;
     }
 
+    public void typeCheck() throws Exception {
+        if (!(e instanceof BinaryExpr))
+            throw new Exception("Condition in while-statement must be binary");
+        if (!((BinaryExpr)e).isBoolean) {
+            throw new Exception("Condition in while-statement must be boolean");
+        }
+    }
+
+    public Object createdBy() {
+        return this.createdBy;
+    }
+
+    public void setCreatorOf() {
+        
+    }
+
+    public void setLexicalScopeLevel(int scope) {
+        
+    }
+
+    public void setCreatedBy(Object node) {
+        
+    }
+
+
     public void addToSymbolTable(SymbolTable table) {
         // table.insert("Expr", e);
         // sl.stream().forEach(s -> table.insert(s.toString(), s));

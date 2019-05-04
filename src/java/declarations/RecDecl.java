@@ -13,8 +13,38 @@ public class RecDecl extends Decl {
         struct = new CodeStruct(this.name);
     }
 
+    public void typeCheck() throws Exception {
+        // pl.stream().forEach(p -> {
+        //         if (!(p.type instanceof Type))
+        //             throw new Exception("Wrong type declaration in RecDecl");
+        //     });
+    }
+
+    public Object createdBy() {
+        return this.createdBy;
+    }
+
+    public void setCreatedBy(Object node) {
+        this.createdBy = node;
+    }
+
+    public void setCreatorOf() {
+        if (pl != null)
+            pl.stream().forEach(p -> p.setCreatedBy(this));
+    }
+
+    public void setLexicalScopeLevel(int scope) {
+        this.lexicalScopeLevel = scope;
+        if (pl != null) {
+            pl.stream().forEach(d -> d.setLexicalScopeLevel(lexicalScopeLevel+1));
+            pl.stream().forEach(d ->
+                                System.out.println("" + d.name + d.lexicalScopeLevel +
+                                                   " createdby " + d.createdBy));                        
+        }
+    }
+
     public void addToSymbolTable(SymbolTable table) {
-        table.insert(name);
+        // table.insert(name);
         for (Param p : pl) {
             table.insert(p);
         }

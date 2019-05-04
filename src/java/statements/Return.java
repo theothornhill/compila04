@@ -10,6 +10,27 @@ public class Return extends Stmt {
         
     }
 
+    public Object createdBy() {
+        return this.createdBy;
+    }
+
+    public void setCreatorOf() {
+        
+    }
+
+    public void setLexicalScopeLevel(int scope) {
+        
+    }
+
+    public void setCreatedBy(Object node) {
+        
+    }
+
+
+    public void typeCheck() {
+        
+    }
+
     public void addToSymbolTable(SymbolTable table) {
         // table.insert("Statement-type", "Return");
         // table.insert("Expr", e);

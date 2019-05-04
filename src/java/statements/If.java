@@ -15,6 +15,31 @@ public class If extends Stmt {
         this.sl2 = sl2;
     }
 
+    public Object createdBy() {
+        return this.createdBy;
+    }
+
+    public void setCreatorOf() {
+        
+    }
+
+    public void setLexicalScopeLevel(int scope) {
+        
+    }
+
+    public void setCreatedBy(Object node) {
+        
+    }
+
+
+    public void typeCheck() throws Exception {
+        if (!(e instanceof BinaryExpr))
+            throw new Exception("Condition in if-statement must be binary");
+        if (!((BinaryExpr)e).isBoolean) {
+            throw new Exception("Condition in if-statement must be boolean");
+        }
+    }
+
     public void addToSymbolTable(SymbolTable table) {
         // // table.insert("Expr", CodeGenerationHelper.getTable(e));
         // sl.stream().forEach(s -> table.insert(s.toString(), s));

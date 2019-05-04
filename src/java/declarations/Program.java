@@ -2,14 +2,36 @@ import java.util.*;
 import bytecode.*;
 import java.util.*;
 
-public class Program {
+public class Program implements AttributeGrammar {
     String name;
     LinkedList<Decl> declarations;
+    public Object createdBy;
 
     public Program(String name, LinkedList<Decl> declarations) {
         this.name = name;
         this.declarations = declarations;
     }
+
+    // Attribute grammar methods
+    public void setCreatorOf() {
+        declarations.stream().forEach(d -> d.setCreatedBy(this));
+    }
+
+    public Object createdBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(Object node) {
+        this.createdBy = "Base level program";
+    }
+
+    public void setLexicalScopeLevel(int scope) {
+        declarations.stream().forEach(d -> d.setLexicalScopeLevel(scope));
+        declarations.stream().forEach(d ->
+                   System.out.println("" + d.name + d.lexicalScopeLevel +
+                                      " createdby " + d.createdBy));
+    }
+    
 
     public void generateCode(CodeFile codeFile) {
         CodeGenerationHelper.declTraverser(declarations, codeFile);
@@ -38,4 +60,9 @@ public class Program {
         sb.append(PrintHelper.endWithParen(indentLevel));
         return sb.toString();
     }
+
+    public String toString() {
+        return "Program " + name;
+    }
+
 }
