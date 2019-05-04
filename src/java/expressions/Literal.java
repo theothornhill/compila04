@@ -23,6 +23,10 @@ public class Literal {
         // return them directly?
     }
 
+    public String getType() {
+        return this.type;
+    }
+
     public CodeType getCodeType() {
         return this.codeType;
     }

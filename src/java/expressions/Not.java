@@ -8,6 +8,14 @@ public class Not extends Expr {
         this.expr = expr;
     }
 
+    public void typeCheck() throws Exception {
+        if (!(expr instanceof BinaryExpr))
+            throw new Exception("Condition in if-statement must be binary");
+        if (!((BinaryExpr)expr).isBoolean) {
+            throw new Exception("Condition in if-statement must be boolean");
+        }            
+    }
+
     public void addToSymbolTable(SymbolTable table) {
         // Doesn't give ant type checking info here
         table.insert(expr);

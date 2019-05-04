@@ -11,7 +11,7 @@ public class BinaryExpr extends Expr {
     // when expressions are boolean
     public boolean isLogical;
     public boolean isArit;
-    public boolean isRelational;
+    public boolean isBoolean;
 
     public BinaryExpr(Object e1, Object op, Object e2) {
         this.e1 = e1;
@@ -28,11 +28,16 @@ public class BinaryExpr extends Expr {
                  || op.equals("<=")
                  || op.equals(">")
                  || op.equals(">=")
-                 || op.equals("==")
+                 || op.equals("=")
                  || op.equals("<>"))
-            isRelational = true;
+            isBoolean = true;
         else
             isArit = true;
+    }
+
+    public void typeCheck() throws Exception {
+        if (((Literal)e1).getType() != ((Literal)e2).getType())
+            throw new Exception("Operands in binary expr not the same type");
     }
 
     public void addToSymbolTable(SymbolTable table) {
