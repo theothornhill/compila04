@@ -55,7 +55,7 @@ public class ProcDecl extends Decl {
         
     }
 
-    public Object createdBy() {
+    public Object getCreatedBy() {
         return this.createdBy;
     }
 
@@ -77,19 +77,19 @@ public class ProcDecl extends Decl {
         if (pl != null) {
             pl.stream().forEach(d -> d.setLexicalScopeLevel(lexicalScopeLevel+1));
             pl.stream().forEach(d ->
-                                System.out.println("" + d.name + d.lexicalScopeLevel +
+                                System.out.println("" + d.name + ": scope " + d.lexicalScopeLevel +
                                                    " createdby " + d.createdBy));            
         }
         if (dl != null) {
             dl.stream().forEach(d -> d.setLexicalScopeLevel(lexicalScopeLevel+1));
             dl.stream().forEach(d ->
-                                System.out.println("" + d.name + d.lexicalScopeLevel +
+                                System.out.println("" + d.name + ": scope " + d.lexicalScopeLevel +
                                                    " createdby " + d.createdBy));            
         }
         if (sl != null) {
             sl.stream().forEach(d -> d.setLexicalScopeLevel(lexicalScopeLevel+1));
             sl.stream().forEach(d ->
-                                System.out.println("" + d.name + d.lexicalScopeLevel +
+                                System.out.println("" + d.name + ": scope " + d.lexicalScopeLevel +
                                                    " createdby " + d.createdBy));            
         }
     }

@@ -15,7 +15,7 @@ public class Param implements AttributeGrammar {
         this.t = type.setCodeType(this.type.toString());
     }
 
-    public Object createdBy() {
+    public Object getCreatedBy() {
         return createdBy;
     }
 
@@ -24,7 +24,7 @@ public class Param implements AttributeGrammar {
     }
 
     public void setCreatorOf() {
-        
+        type.setCreatedBy(this);
     }
 
     public void setLexicalScopeLevel(int scope) {

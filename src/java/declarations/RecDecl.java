@@ -20,7 +20,8 @@ public class RecDecl extends Decl {
         //     });
     }
 
-    public Object createdBy() {
+    // Attribute grammar annotation methods
+    public Object getCreatedBy() {
         return this.createdBy;
     }
 
@@ -38,7 +39,7 @@ public class RecDecl extends Decl {
         if (pl != null) {
             pl.stream().forEach(d -> d.setLexicalScopeLevel(lexicalScopeLevel+1));
             pl.stream().forEach(d ->
-                                System.out.println("" + d.name + d.lexicalScopeLevel +
+                                System.out.println("" + d.name + ": scope " + d.lexicalScopeLevel +
                                                    " createdby " + d.createdBy));                        
         }
     }
@@ -55,8 +56,6 @@ public class RecDecl extends Decl {
         CodeGenerationHelper.paramTraverser(pl, struct);
         codeFile.updateStruct(struct);
     }
-
-
 
     public String printAst(int indentLevel) {
         StringBuilder sb = new StringBuilder();

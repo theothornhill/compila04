@@ -13,25 +13,24 @@ public class Program implements AttributeGrammar {
     }
 
     // Attribute grammar methods
-    public void setCreatorOf() {
-        declarations.stream().forEach(d -> d.setCreatedBy(this));
-    }
-
-    public Object createdBy() {
+    public Object getCreatedBy() {
         return createdBy;
     }
-
+    
     public void setCreatedBy(Object node) {
         this.createdBy = "Base level program";
+    }
+
+    public void setCreatorOf() {
+        declarations.stream().forEach(d -> d.setCreatedBy(this));
     }
 
     public void setLexicalScopeLevel(int scope) {
         declarations.stream().forEach(d -> d.setLexicalScopeLevel(scope));
         declarations.stream().forEach(d ->
-                   System.out.println("" + d.name + d.lexicalScopeLevel +
+                   System.out.println("" + d.name + ": scope " + d.lexicalScopeLevel +
                                       " createdby " + d.createdBy));
     }
-    
 
     public void generateCode(CodeFile codeFile) {
         CodeGenerationHelper.declTraverser(declarations, codeFile);

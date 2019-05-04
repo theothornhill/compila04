@@ -19,22 +19,21 @@ public class While extends Stmt {
         }
     }
 
-    public Object createdBy() {
+    public Object getCreatedBy() {
         return this.createdBy;
     }
 
+    public void setCreatedBy(Object node) {
+        this.createdBy = node;
+    }
+
     public void setCreatorOf() {
-        
+        // Nothing yet
     }
 
     public void setLexicalScopeLevel(int scope) {
-        
+        this.lexicalScopeLevel = scope;
     }
-
-    public void setCreatedBy(Object node) {
-        
-    }
-
 
     public void addToSymbolTable(SymbolTable table) {
         // table.insert("Expr", e);

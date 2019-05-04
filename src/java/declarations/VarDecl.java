@@ -15,7 +15,7 @@ public class VarDecl extends Decl {
         
     }
 
-    public Object createdBy() {
+    public Object getCreatedBy() {
         return this.createdBy;
     }
 
@@ -24,11 +24,12 @@ public class VarDecl extends Decl {
     }
 
     public void setCreatorOf() {
-        
+        type.setCreatedBy(this);
     }
 
     public void setLexicalScopeLevel(int scope) {
         this.lexicalScopeLevel = scope;
+        type.setLexicalScopeLevel(lexicalScopeLevel+1);
     }
 
     public void addToSymbolTable(SymbolTable table) {

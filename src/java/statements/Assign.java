@@ -10,20 +10,20 @@ public class Assign extends Stmt {
     public void typeCheck() {
     }
 
-    public Object createdBy() {
+    public Object getCreatedBy() {
         return this.createdBy;
     }
 
+    public void setCreatedBy(Object node) {
+        this.createdBy = node;
+    }
+
     public void setCreatorOf() {
-        
+        // Does not do anything yet
     }
 
     public void setLexicalScopeLevel(int scope) {
-        
-    }
-
-    public void setCreatedBy(Object node) {
-        
+        this.lexicalScopeLevel = scope;
     }
 
     public void addToSymbolTable(SymbolTable table) {
