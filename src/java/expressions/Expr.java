@@ -1,7 +1,8 @@
 import bytecode.*;
 import bytecode.type.*;
 public abstract class Expr {
-    Object expr;
+    public Object expr;
+    public Type type;
     public abstract String printAst(int indentLevel);
     public abstract void typeCheck(SymbolTable table) throws Exception;
     public abstract void addToSymbolTable(SymbolTable table);
