@@ -8,8 +8,15 @@ public class Assign extends Stmt {
     }
 
     public void typeCheck(SymbolTable table) throws Exception {
-        if (table.lookup(e2.toString()) == null)
-            throw new Exception("Symbol " + e2 + " is not declared");
+        Object expr = table.lookup(this.e2.toString());
+        if (expr == null)
+            throw new Exception("Symbol " + expr + " is not declared");
+        if (expr instanceof VarDecl) {
+            VarDecl v = (VarDecl)expr;
+            if (!v.type.equals(((Expr)e).type))
+                throw new Exception("" + v.type + " cannot be assigned a " +
+                                    ((Expr)e).type);
+        }
     }
 
     public Object getCreatedBy() {
