@@ -36,7 +36,7 @@ public class Param extends Expr implements AttributeGrammar {
         this.lexicalScopeLevel = scope;
     }
 
-    public void addToSymbolTable(SymbolTable table, int scope) {
+    public void addToSymbolTable(SymbolTable table) {
         table.insert(name);
         table.insert(type);
     }
