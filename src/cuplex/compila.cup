@@ -215,6 +215,8 @@ exp               ::= exp:e1 log_op:o exp:e2  {:
                                               :}
                     | var:v                   {:
                                                 RESULT = v;
+                                                v.typeCheck(table);
+                                                table.insert(v);
                                               :}
                     | ref_var:v               {:
                                                 RESULT = v;
@@ -224,7 +226,9 @@ exp               ::= exp:e1 log_op:o exp:e2  {:
                                               :}
                     | LPAR exp:e RPAR         {:
                                                 Expr exp = new NestedExpr(e);
-                                                RESULT = e;
+                                                RESULT = exp;
+                                                exp.typeCheck(table);
+                                                table.insert(exp);
                                               :}
                     ;
 
