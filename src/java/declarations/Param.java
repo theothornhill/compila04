@@ -2,7 +2,7 @@ import bytecode.*;
 import bytecode.type.*;
 import bytecode.instructions.*;
 
-public class Param implements AttributeGrammar {
+public class Param extends Expr implements AttributeGrammar {
     public Type type;
     public String name;
     public Object createdBy;
