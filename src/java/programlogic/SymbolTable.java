@@ -41,11 +41,12 @@ public class SymbolTable {
         this.table.put(val.toString(), val); 
     }
 
-    public Object lookup(Object key) {
-        if (table.containsKey(key.toString()))
+    public Object lookup(String key) {
+        if (table.containsKey(key))
+            return table.get(key);
+        else if (!table.containsKey(key))
             return null;
-        else
-            return "hello";
+        return null;
     }
 
     public String toString() {

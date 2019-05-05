@@ -12,11 +12,11 @@ public class Param implements AttributeGrammar {
     public Param(String name, Type type) {
         this.name = name;
         this.type = type;
-        this.t = type.setCodeType(this.type.toString());
+        // this.t = type.setCodeType(this.type.toString());
     }
 
     public void typeCheck(SymbolTable table) throws Exception {
-        if (table.lookup(this) == null)
+        if (table.lookup(this.name) != null)
             throw new Exception("Symbol " + this.name + " already declared");
     }
 

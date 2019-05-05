@@ -11,7 +11,15 @@ public class Call extends Stmt {
     }
 
     public void typeCheck(SymbolTable table) throws Exception {
-        
+        Object proc = table.lookup(name);
+        if (proc == null)
+            throw new Exception("Procedure not declared");
+        LinkedList<Param> params = ((ProcDecl)proc).pl;
+        for (int i = 0; i < el.size(); i++) {
+            Param p = params.get(i); Object e = el.get(i);
+            if (p.type.toString() != e.toString())
+                throw new Exception("argument " + e + " not the same type as param " + p);
+        }
     }
 
     public Object getCreatedBy() {

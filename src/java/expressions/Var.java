@@ -34,4 +34,8 @@ public class Var extends Expr {
             + PrintHelper.printName(name)
             + PrintHelper.endWithParen(indentLevel);
     }
+
+    public String toString() {
+        return name;
+    }
 }

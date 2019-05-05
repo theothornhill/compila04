@@ -65,14 +65,15 @@ public class CodeGenerationHelper {
 
     public static CodeProcedure newProc(String name, Type type, CodeFile codeFile) {
         CodeProcedure proc;
-        if (type == null) {
-            proc = new CodeProcedure(name, VoidType.TYPE, codeFile);
-        } else {
-            proc = new CodeProcedure(name,
-                                     type.setCodeType(type.toString()),
-                                     codeFile);
-        }
-        return proc;
+        // if (type == null) {
+        //     proc = new CodeProcedure(name, VoidType.TYPE, codeFile);
+        // } else {
+        //     proc = new CodeProcedure(name,
+        //                              type.setCodeType(type.toString()),
+        //                              codeFile);
+        // }
+        // return proc;
+        return null;
     }
 
     public static void exprTraverser(LinkedList<Object> el,

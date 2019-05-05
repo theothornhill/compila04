@@ -12,6 +12,13 @@ public class Program implements AttributeGrammar {
         this.declarations = declarations;
     }
 
+    public void typeCheck(SymbolTable table) throws Exception {
+        if (table.lookup("Main") == null
+            || table.lookup("main") == null) {
+            throw new Exception("No Main procedure declared in program");
+        }
+    }
+
     // Attribute grammar methods
     public Object getCreatedBy() {
         return createdBy;
