@@ -14,7 +14,7 @@ public class Program implements AttributeGrammar {
 
     public void typeCheck(SymbolTable table) throws Exception {
         if (table.lookup("Main") == null
-            || table.lookup("main") == null) {
+            && table.lookup("main") == null) {
             throw new Exception("No Main procedure declared in program");
         }
     }
