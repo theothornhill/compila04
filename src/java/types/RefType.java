@@ -10,4 +10,9 @@ public class RefType extends Type {
         sb.append(")");
         return sb.toString();
     }
+
+    public String toString() {
+        return type;
+    }
+
 }

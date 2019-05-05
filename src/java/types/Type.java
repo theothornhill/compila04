@@ -62,4 +62,8 @@ public class Type implements AttributeGrammar {
         return sb.toString();
     }
 
+    public boolean equals(Type t) {
+        return this.type.equals(t.type) ? true : false;
+    }
+
 }
