@@ -1144,6 +1144,7 @@ Total time: 0 seconds
     its constructor wherever necessary. That means for instance that we create a
     new =SymbolTable= whenever we create a =Program=, =ProcDecl= and so forth. Using
     the attribute grammar we fill the tables with information.
+*** Exp can only be Expr and Stmt (call)
 ** [0/1] CodeGenerationHelper
    - [ ] [[file:src/java/programlogic/CodeGenerationHelper.java::public%20static%20CodeType%20exprEelper(CodeFile%20codeFile,%20Object%20node)%20{][exprHelper]]
 ** [0/5] Statements
