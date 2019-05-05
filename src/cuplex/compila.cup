@@ -76,6 +76,7 @@ program           ::= PROGRAM NAME:name BEGIN decl_list:dl END
                                {:
                                     Program program = new Program(name, dl);
                                     RESULT = program;
+                                    program.typeCheck(table);   
                                     program.setCreatorOf();
                                     program.setLexicalScopeLevel(currentLevel+1);
                                     CodeGenerationHelper.printTable(table);
@@ -284,12 +285,13 @@ stmt              ::= assign_stmt:a {: RESULT = a;
                                     :}
                     | call_stmt:s   {: RESULT = s;
                                        RESULT.setCreatorOf();
+                                       RESULT.typeCheck(table);
+                                       table.insert(RESULT);
                                     :}
                     ;
 
 assign_stmt       ::= var:v ASSIGN_OP exp:e
                             {: RESULT = new Assign(v, e);
-                               RESULT.typeCheck(table);
 
                             :}
                     | deref_var:v ASSIGN_OP exp:e
