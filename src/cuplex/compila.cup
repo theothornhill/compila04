@@ -229,19 +229,19 @@ exp               ::= exp:e1 log_op:o exp:e2  {:
                     ;
 
 literal           ::= STRING_LITERAL:str {:
-                                            RESULT = new Literal("STRING_LITERAL", str.toString());
+                                            RESULT = new Literal("string", str.toString());
                                             :}
                     | INT_LITERAL:i {:
-                                        RESULT = new Literal("INT_LITERAL", i.toString());
+                                        RESULT = new Literal("int", i.toString());
                                     :}
                     | FLOAT_LITERAL:f {:
-                                      RESULT = new Literal("FLOAT_LITERAL", f.toString());
+                                      RESULT = new Literal("float", f.toString());
                                       :}
                     | bool:b {:
-                             RESULT = new Literal("BOOL_LITERAL", b.toString());
+                             RESULT = new Literal("bool", b.toString());
                              :}
                     | NULL:n {:
-                             RESULT = new Literal("NULL_LITERAL", n.toString());
+                             RESULT = new Literal("null", n.toString());
                              :}
                     ;
 
