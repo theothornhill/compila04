@@ -276,6 +276,7 @@ stmt              ::= assign_stmt:a {: RESULT = a;
                                     :}
                     | if_stmt:i     {: RESULT = i;
                                        RESULT.setCreatorOf();
+                                       RESULT.typeCheck(table);
                                     :}
                     | while_stmt:w  {: RESULT = w;
                                        RESULT.setCreatorOf();
@@ -292,18 +293,15 @@ stmt              ::= assign_stmt:a {: RESULT = a;
 
 assign_stmt       ::= var:v ASSIGN_OP exp:e
                             {: RESULT = new Assign(v, e);
-
                             :}
                     | deref_var:v ASSIGN_OP exp:e
                             {: RESULT = new Assign(v, e);
-                               RESULT.typeCheck(table);
                             :}     
                     ;
 
 if_stmt           ::= IF exp:e THEN stmt_list:l FI
                                            {:
                                            RESULT = new If(e, l);
-                                           RESULT.typeCheck(table);
                                            :}
                     | IF exp:e THEN stmt_list:l ELSE stmt_list:l2 FI
                                            {: RESULT = new If(e, l, l2); :}
