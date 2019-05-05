@@ -336,8 +336,9 @@ call_stmt         ::= NAME:name LPAR exp_list:el RPAR
                     ;
 
 /* Vars, refs and derefs */
-var               ::= NAME:name                     {: RESULT = new Var(name); :}
-                    | exp:e DOT NAME:name           {: RESULT = new Var(e, name); :}
+var               ::= exp:e DOT NAME:name           {: RESULT = new Var(e, name); :}
+                    | NAME:name                     {: RESULT = new Var(name); :}
+
                     ;
 
 ref_var           ::= REF LPAR var:v RPAR           {: RESULT = new RefVar(v); :}
