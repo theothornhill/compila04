@@ -13,8 +13,13 @@ public class Var extends Expr {
         this.name = name;
     }
 
-    public void typeCheck(SymbolTable table) {
-        
+    public void typeCheck(SymbolTable table) throws Exception {
+        VarDecl e;
+        if (expr != null)
+            e = (VarDecl)table.lookup(name);
+        // if (expr == null)
+            // throw new Exception("No such expression in variable");
+
     }
 
     public void addToSymbolTable(SymbolTable table) {
