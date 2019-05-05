@@ -2,15 +2,20 @@ import bytecode.*;
 import bytecode.type.*;
 import bytecode.instructions.*;
 
-public class Literal {
-    public String type;
+public class Literal extends Expr {
+    public String t;
     public String value;
     CodeType codeType;
 
     public Literal(String type, String value) {
-        this.type = type;
+        this.t = type;
         this.value = value;
-        this.codeType = CodeGenerationHelper.getLiteralType(this.type);
+        this.type = new Type(type);
+        this.codeType = CodeGenerationHelper.getLiteralType(this.t);
+    }
+
+    public void typeCheck(SymbolTable table) throws Exception {
+        
     }
 
     public void addToSymbolTable(SymbolTable table) {
@@ -24,7 +29,7 @@ public class Literal {
     }
 
     public String getType() {
-        return this.type;
+        return this.t;
     }
 
     public CodeType getCodeType() {
