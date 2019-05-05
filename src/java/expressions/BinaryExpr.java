@@ -18,6 +18,7 @@ public class BinaryExpr extends Expr {
         this.op = op;
         this.e2 = e2;
         setOperationType(op.toString());
+        setExprType();
     }
 
     // This is not proper type checking. Think through this.
@@ -35,8 +36,19 @@ public class BinaryExpr extends Expr {
             isArit = true;
     }
 
+    public void setExprType() {
+        String e1type = ((Expr)this.e1).type.toString();
+        String e2type = ((Expr)this.e2).type.toString();
+        if (e1type == "int" && e2type == "float" ||
+            e1type == "float" && e2type == "int" ||
+            e1type == "float" && e2type == "float")
+            this.type = new Type("float");
+        if (e1type == "int" && e2type == "int")
+            this.type = new Type("int");
+    }
+
     public void typeCheck(SymbolTable table) throws Exception {
-        if (((Expr)e1).getType() != ((Expr)e2).getType())
+        if (!((Expr)e1).type.equals(((Expr)e2).type))
             throw new Exception("Operands in binary expr not the same type");
     }
 
