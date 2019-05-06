@@ -8,7 +8,7 @@ public class Return extends Stmt {
     }
 
     public Return() {
-        
+        this.type = new Type("null");
     }
 
     public Object getCreatedBy() {
@@ -28,7 +28,7 @@ public class Return extends Stmt {
     }
 
     public void typeCheck(SymbolTable table) throws Exception {
-        
+        // System.out.println(type);
     }
 
     public void addToSymbolTable(SymbolTable table) {
