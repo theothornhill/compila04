@@ -10,7 +10,7 @@ public class Assign extends Stmt {
     public void typeCheck(SymbolTable table) throws Exception {
         Object expr = table.lookup(this.e2.toString());
         if (expr == null)
-            throw new Exception("Symbol " + expr + " is not declared");
+            throw new Exception("Symbol " + e2 + " is not declared");
         if (expr instanceof VarDecl) {
             VarDecl v = (VarDecl)expr;
             Object vname = table.lookup(v.name);
