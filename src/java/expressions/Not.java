@@ -6,11 +6,14 @@ public class Not extends Expr {
     CodeType t;
     public Not(Object expr) {
         this.expr = expr;
+        this.type = new Type("bool");
     }
 
     public void typeCheck(SymbolTable table) throws Exception {
-        if (!(expr instanceof BinaryExpr))
-            throw new Exception("Condition in if-statement must be binary");
+        Object e = table.lookup(((Var)expr).name);
+        if (expr instanceof Expr)
+            if (!((Expr)e).type.equals("bool"))
+                throw new Exception("Argument of not operator not of type bool");
         if (!((BinaryExpr)expr).isBoolean) {
             throw new Exception("Condition in if-statement must be boolean");
         }            
