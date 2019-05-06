@@ -13,9 +13,13 @@ public class Assign extends Stmt {
             throw new Exception("Symbol " + expr + " is not declared");
         if (expr instanceof VarDecl) {
             VarDecl v = (VarDecl)expr;
-            if (!v.type.equals(((Expr)e).type))
-                throw new Exception("" + v.type + " cannot be assigned a " +
-                                    ((Expr)e).type);
+            Object vname = table.lookup(v.name);
+            if (v == null)
+                throw new Exception("" + v + "." + v.name + " not declared");
+            if (vname == null)
+                throw new Exception("" + v + "." + v.name + " not declared");
+            if (!v.type.equals(((Expr)e).type.toString()))
+                throw new Exception("" + v.type + " cannot be assigned a " + ((Expr)e).type);
         }
     }
 
