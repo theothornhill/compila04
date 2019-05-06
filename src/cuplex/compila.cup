@@ -158,6 +158,7 @@ var_decl          ::= VAR_DECL NAME:name COLON type:t
 rec_decl          ::= REC_DECL NAME:name LCURLY param_list_semi:pl RCURLY
                                {:
                                  RecDecl record = new RecDecl(name, pl);
+                                 table.insert(record);
                                  RESULT = record;
                                :}
                     ;
@@ -193,16 +194,23 @@ exp               ::= exp:e1 log_op:o exp:e2  {:
                                                 RESULT  = new BinaryExpr(e1, o, e2);
                                               :}
                     | NOT exp:e               {:
-                                                RESULT = new Not(e);
+                                                Not not = new Not(e);
+                                                RESULT = not;
+                                                not.typeCheck(table);
+                                                table.insert(not);
                                               :}
                     | exp:e1 rel_op:o exp:e2  {:
                                                 RESULT = new BinaryExpr(e1, o, e2);;
                                               :}
                     | exp:e1 arit_op:o exp:e2 {:
-                                                RESULT = new BinaryExpr(e1, o, e2);
+                                                BinaryExpr e = new BinaryExpr(e1, o, e2);
+                                                e.typeCheck(table);
+                                                table.insert(e);
+                                                RESULT = e;
                                               :}
                     | literal:lit             {:
                                                 Literal l = (Literal) lit;
+                                                l.typeCheck(table);
                                                 RESULT = lit;
                                               :}
                     | call_stmt:s             {:
@@ -211,6 +219,7 @@ exp               ::= exp:e1 log_op:o exp:e2  {:
                                               :}
                     | NEW NAME:name           {:
                                                 Expr e = new New(name);
+                                                e.typeCheck(table);
                                                 RESULT = e;
                                               :}
                     | var:v                   {:
