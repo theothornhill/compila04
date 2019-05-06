@@ -7,8 +7,10 @@ public class New extends Expr {
         this.name = name;
     }
 
-    public void typeCheck(SymbolTable table) {
-        
+    public void typeCheck(SymbolTable table) throws Exception {
+        Object struct = table.lookup(name);
+        if (struct == null)
+            throw new Exception("Argument of new is not declared");
     }
 
     public void addToSymbolTable(SymbolTable table) {
