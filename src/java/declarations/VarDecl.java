@@ -2,7 +2,6 @@ import bytecode.*;
 import bytecode.type.*;
 
 public class VarDecl extends Decl {
-    Type type;
     CodeType t;
     
     public VarDecl(String name, Type type) {

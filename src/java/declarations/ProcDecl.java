@@ -7,7 +7,6 @@ public class ProcDecl extends Decl {
     LinkedList<Param> pl;
     LinkedList<Decl> dl;
     LinkedList<Stmt> sl;
-    Type type;
     CodeProcedure proc;
 
     // Constructors
@@ -19,6 +18,7 @@ public class ProcDecl extends Decl {
         this.pl = pl;
         this.dl = dl;
         this.sl = sl;
+        this.type = new Type("null");
     }
 
     public ProcDecl(String name,
@@ -33,28 +33,16 @@ public class ProcDecl extends Decl {
         this.sl = sl;
     }
 
-    public ProcDecl(String name,
-                    LinkedList<Param> pl,
-                    Type type,
-                    LinkedList<Stmt> sl) {
-        this.name = name;
-        this.pl = pl;
-        this.sl = sl;
-    }
-
-    public ProcDecl(String name,
-                    LinkedList<Param> pl,
-                    LinkedList<Stmt> sl) {
-        this.name = name;
-        this.pl = pl;
-        this.dl = dl;
-        this.sl = sl;
-    }
-
     public void typeCheck(SymbolTable table) throws Exception {
+        Object returnTypeCheck = table.lookup(type.toString());
+        if (returnTypeCheck == null && !type.equals("null"))
+            throw new Exception("Procedure definition has undeclared return type");
+
         if (table.lookup(this.name) != null)
             throw new Exception("Procedure " + this.name + " already declared");
-        if (sl.getLast() instanceof Return)
+
+        // TODO:There is a major bug here... nullpointer and type assignment??
+        if (sl != null && sl.getLast() instanceof Return)
             if (!sl.getLast().type.equals(this.type))
                 throw new Exception("Not matching return type");
     }

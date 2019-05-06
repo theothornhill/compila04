@@ -10,14 +10,12 @@ public class RecDecl extends Decl {
     public RecDecl(String name, LinkedList<Param> pl) {
         this.name = name;
         this.pl = pl;
+        this.type = new Type(name);
         struct = new CodeStruct(this.name);
     }
 
     public void typeCheck(SymbolTable table) throws Exception {
-        // pl.stream().forEach(p -> {
-        //         if (!(p.type instanceof Type))
-        //             throw new Exception("Wrong type declaration in RecDecl");
-        //     });
+
     }
 
     // Attribute grammar annotation methods
