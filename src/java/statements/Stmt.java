@@ -7,6 +7,7 @@ public abstract class Stmt implements AttributeGrammar {
     Object e;
     Object e2;
     LinkedList<Stmt> sl;
+    public Type type;
     public Object createdBy;
     public int lexicalScopeLevel;
     public abstract String printAst(int indentLevel);

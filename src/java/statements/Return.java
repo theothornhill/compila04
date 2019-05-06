@@ -4,6 +4,7 @@ import bytecode.type.*;
 public class Return extends Stmt {
     public Return(Object expr) {
         this.e = expr;
+        this.type = ((Expr)expr).type;
     }
 
     public Return() {

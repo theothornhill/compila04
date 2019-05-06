@@ -54,6 +54,9 @@ public class ProcDecl extends Decl {
     public void typeCheck(SymbolTable table) throws Exception {
         if (table.lookup(this.name) != null)
             throw new Exception("Procedure " + this.name + " already declared");
+        if (sl.getLast() instanceof Return)
+            if (!sl.getLast().type.equals(this.type))
+                throw new Exception("Not matching return type");
     }
 
     public Object getCreatedBy() {
