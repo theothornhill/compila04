@@ -2,6 +2,7 @@ import bytecode.*;
 
 public abstract class Decl implements AttributeGrammar {
     public String name;
+    public Type type;
     public Object createdBy;
     public int lexicalScopeLevel;
     public abstract String printAst(int indentLevel);
