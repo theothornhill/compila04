@@ -18,7 +18,8 @@ public class BinaryExpr extends Expr {
         this.op = op;
         this.e2 = e2;
         setOperationType(op.toString());
-        setExprType();
+        setExprType(((Expr)this.e1).type.toString(),
+                    ((Expr)this.e2).type.toString());
     }
 
     // This is not proper type checking. Think through this.
@@ -36,20 +37,37 @@ public class BinaryExpr extends Expr {
             isArit = true;
     }
 
-    public void setExprType() {
-        String e1type = ((Expr)this.e1).type.toString();
-        String e2type = ((Expr)this.e2).type.toString();
-        if (e1type == "int" && e2type == "float" ||
+    public void setExprType(String e1type, String e2type) {
+        // System.out.println(e1type);
+        if (e1type == "int" && e2type == "int")
+            this.type = new Type("int");
+        else if (e1type == "int" && e2type == "float" ||
             e1type == "float" && e2type == "int" ||
             e1type == "float" && e2type == "float")
             this.type = new Type("float");
-        if (e1type == "int" && e2type == "int")
-            this.type = new Type("int");
+
     }
 
     public void typeCheck(SymbolTable table) throws Exception {
         if (!((Expr)e1).type.equals(((Expr)e2).type))
             throw new Exception("Operands in binary expr not the same type");
+        if (e1 instanceof Var && e2 instanceof Var) {
+            Var v1 = (Var)e1;
+            Object e = table.lookup(v1.name);
+            Var v2 = (Var)e2;
+            Object ee = table.lookup(v2.name);
+            if (e == null || ee == null)
+                throw new Exception("Variable not declared");
+            System.out.println("" + v1.type.toString() + " " + v2.type.toString());
+            this.type = new Type("int");
+            if (v1.type.toString() == "int" && v2.type.toString() == "int") {
+
+                System.out.println("WTF");
+            }
+
+            // ((Var)e1).setType(((Var)e).type);
+            // ((Var)e2).setType(((Var)ee).type);
+        }
     }
 
     public void addToSymbolTable(SymbolTable table) {

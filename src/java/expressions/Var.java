@@ -2,7 +2,7 @@ import bytecode.*;
 import bytecode.type.*;
     
 public class Var extends Expr {
-    String name;
+    public String name;
 
     public Var(Object expr, String name) {
         this.expr = expr;
@@ -14,17 +14,30 @@ public class Var extends Expr {
     }
 
     public void typeCheck(SymbolTable table) throws Exception {
-        VarDecl e;
-        if (expr != null)
-            e = (VarDecl)table.lookup(name);
+        Object v = table.lookup(name);
+        if (v == null)
+            throw new Exception("Variable " + name + " not declared");
+        if (v instanceof Expr) {
+            Expr variable = (Expr)v;
+            this.type = variable.type;            
+        }
+        if (v instanceof Decl) {
+            Decl variable = (Decl)v;
+            System.out.println(variable.type);
+            this.type = variable.type;
+        }
         // if (expr == null)
-            // throw new Exception("No such expression in variable");
+        //     throw new Exception("No such expression in variable");
 
     }
 
     public void addToSymbolTable(SymbolTable table) {
         table.insert(name);
         table.insert(expr);
+    }
+
+    public void setType(Type t) {
+        this.type = t;
     }
 
     public void generateCode(CodeProcedure proc) {
