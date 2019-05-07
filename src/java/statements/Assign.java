@@ -5,15 +5,17 @@ public class Assign extends Stmt {
     public Assign(Object name, Object e) {
         this.e2 = name;
         this.e = e;
+        this.type = new Type(((Expr)e).type.toString()); // Ugh
     }
 
-    public void typeCheck(SymbolTable table) throws Exception {
-        Object expr = table.lookup(this.e2.toString());
+    public void typeCheck(SymbolTable table, Object scope) throws Exception {
+        Object expr = table.lookup(scope, e2.toString());
         if (expr == null)
-            throw new Exception("Symbol " + e2 + " is not declared");
+            throw new Exception("Symbol " + e + " is not declared");
+
         if (expr instanceof VarDecl) {
             VarDecl v = (VarDecl)expr;
-            Object vname = table.lookup(v.name);
+            Object vname = table.lookup(this.getCreatedBy(), v.name);
             if (v == null)
                 throw new Exception("" + v + "." + v.name + " not declared");
             if (vname == null)
@@ -40,9 +42,13 @@ public class Assign extends Stmt {
     }
 
     public void addToSymbolTable(SymbolTable table) {
-        table.insert("assign");
-        table.insert(name);
-        table.insert(e);
+        try {
+            table.insert("assign");
+            table.insert(name);
+            table.insert(e);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void generateCode(CodeFile codeFile) {

@@ -6,16 +6,28 @@ public class NestedExpr extends Expr {
         this.expr = expr;
     }
 
-    public void typeCheck(SymbolTable table) {
+    public void typeCheck() {
+        
+    }
+
+    public void typeCheck(SymbolTable table, Object scope) throws Exception {
         
     }
 
     public void addToSymbolTable(SymbolTable table) {
-        table.insert(expr);
+        try {
+            table.insert(expr);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void generateCode(CodeProcedure proc) {
         CodeGenerationHelper.exprHelper(proc, expr);
+    }
+    
+    public String toString() {
+        return expr.toString();
     }
 
     public String printAst(int indentLevel) {

@@ -27,8 +27,23 @@ public class Return extends Stmt {
         this.lexicalScopeLevel = scope;
     }
 
-    public void typeCheck(SymbolTable table) throws Exception {
-        // System.out.println(type);
+    public void typeCheck(SymbolTable table, Object scope) throws Exception {
+        Object proc = table.lookup(scope, ((ProcDecl)scope).name);
+        if (proc == null)
+            throw new Exception("Procedure not declared");
+        typecheckExpressionsInReturn(table, scope);
+        Type returnType = ((ProcDecl)proc).type;
+        if (!this.type.equals(returnType.toString()))
+            throw new Exception("Return type differs from stated returntype");
+    }
+
+    public void typecheckExpressionsInReturn(SymbolTable table, Object scope) {
+        try {
+            if (e != null)
+                ((Expr)e).typeCheck(table, scope);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void addToSymbolTable(SymbolTable table) {

@@ -9,8 +9,8 @@ public class Not extends Expr {
         this.type = new Type("bool");
     }
 
-    public void typeCheck(SymbolTable table) throws Exception {
-        Object e = table.lookup(((Var)expr).name);
+    public void typeCheck() throws Exception {
+        Object e = table.lookup(this, ((Var)expr).name);
         if (expr instanceof Expr)
             if (!((Expr)e).type.equals("bool"))
                 throw new Exception("Argument of not operator not of type bool");
@@ -19,14 +19,31 @@ public class Not extends Expr {
         }            
     }
 
+    public void typeCheck(SymbolTable table, Object scope) throws Exception {
+        Object e = table.lookup(scope, ((Var)expr).name);
+        if (expr instanceof Expr)
+            if (!((Expr)e).type.equals("bool"))
+                throw new Exception("Argument of not operator not of type bool");
+        if (!((BinaryExpr)expr).isBoolean) {
+            throw new Exception("Condition in if-statement must be boolean");
+        }
+    }
+
     public void addToSymbolTable(SymbolTable table) {
-        // Doesn't give ant type checking info here
-        table.insert(expr);
+        try {
+            table.insert(expr);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void generateCode(CodeProcedure proc) {
         
     }    
+
+    public String toString() {
+        return expr.toString();
+    }
 
     public String printAst(int indentLevel) {
         return "(NOT " + PrintHelper.astHelper(expr, indentLevel+1)

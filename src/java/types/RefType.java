@@ -1,6 +1,6 @@
 public class RefType extends Type {
-    public RefType(Type type) {
-        super(type);
+    public RefType(Type refType) {
+        super(refType);
     }
 
     public String printAst(int indentLevel) {

@@ -11,10 +11,11 @@ public class Var extends Expr {
 
     public Var(String name) {
         this.name = name;
+        // this.type = new Type("int");
     }
 
-    public void typeCheck(SymbolTable table) throws Exception {
-        Object v = table.lookup(name);
+    public void typeCheck() throws Exception {
+        Object v = table.lookup(this, name);
         if (v == null)
             throw new Exception("Variable " + name + " not declared");
         if (v instanceof Expr) {
@@ -31,9 +32,17 @@ public class Var extends Expr {
 
     }
 
+    public void typeCheck(SymbolTable table, Object scope) throws Exception {
+        
+    }
+
     public void addToSymbolTable(SymbolTable table) {
-        table.insert(name);
-        table.insert(expr);
+        try {
+            table.insert(name);
+            table.insert(expr);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void setType(Type t) {

@@ -15,7 +15,12 @@ public class Type implements AttributeGrammar {
 
     public Type(Type t) {
         this.t = t;
+        this.type = "reftype";
         // codetype = setCodeType(type.toString());
+    }
+
+    public int getLexicalScopeLevel() {
+        return lexicalScopeLevel;
     }
 
     public Object getCreatedBy() {
@@ -63,7 +68,7 @@ public class Type implements AttributeGrammar {
     }
 
     public boolean equals(String t) {
-        return this.type.toString().equals(t) ? true : false;
+        return this.type.toString().equals(t);
     }
 
 }

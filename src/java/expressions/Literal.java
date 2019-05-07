@@ -14,13 +14,21 @@ public class Literal extends Expr {
         this.codeType = CodeGenerationHelper.getLiteralType(this.t);
     }
 
-    public void typeCheck(SymbolTable table) throws Exception {
+    public void typeCheck() throws Exception {
+        
+    }
+
+    public void typeCheck(SymbolTable table, Object scope) throws Exception {
         
     }
 
     public void addToSymbolTable(SymbolTable table) {
-        table.insert(type);
-        table.insert(value);
+        try {
+            table.insert(type);
+            table.insert(value);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void generateCode(CodeProcedure proc) {
@@ -38,6 +46,10 @@ public class Literal extends Expr {
 
     public Object getValue() {
         return this.value;
+    }
+
+    public String toString() {
+        return value;
     }
 
     public String printAst(int indentLevel) {

@@ -4,9 +4,9 @@ import bytecode.type.*;
 import bytecode.instructions.*;
 
 public class ProcDecl extends Decl {
-    LinkedList<Param> pl;
-    LinkedList<Decl> dl;
-    LinkedList<Stmt> sl;
+    public LinkedList<Param> pl;
+    public LinkedList<Decl> dl;
+    public LinkedList<Stmt> sl;
     CodeProcedure proc;
 
     // Constructors
@@ -33,22 +33,68 @@ public class ProcDecl extends Decl {
         this.sl = sl;
     }
 
-    public void typeCheck(SymbolTable table) throws Exception {
-        Object returnTypeCheck = table.lookup(type.toString());
-        if (returnTypeCheck == null && !type.equals("null"))
-            throw new Exception("Procedure definition has undeclared return type");
+    public void typeCheck() throws Exception {
+        Object returnTypeCheck = table.lookup(this, type.toString());
+        if (returnTypeCheck == null)
+            if (!type.equals("null"))
+                throw new Exception("Undeclared return type");
 
-        if (table.lookup(this.name) != null)
+        ProcDecl proc = null;
+        if (table.lookup(this, this.name) instanceof ProcDecl)
+            table.lookup(this, this.name);
+
+        if (proc != null && proc.getLexicalScopeLevel() != this.lexicalScopeLevel)
             throw new Exception("Procedure " + this.name + " already declared");
 
         // TODO:There is a major bug here... nullpointer and type assignment??
-        if (sl != null && sl.getLast() instanceof Return)
-            if (!sl.getLast().type.equals(this.type))
-                throw new Exception("Not matching return type");
+        // if (sl != null && sl.getLast() instanceof Return)
+        //     if (!sl.getLast().type.equals(this.type))
+        //         throw new Exception("Not matching return type");
+        typecheckParamsInProcDecl();
+        typecheckDeclarationsInProcDecl();
+        typecheckStatementsInProcDecl();
+    }
+
+    public void typecheckParamsInProcDecl() {
+        try {
+            if (pl != null)
+                for (Param p : pl) {
+                    p.typeCheck();
+                }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void typecheckDeclarationsInProcDecl() {
+        try {
+            if (dl != null)
+                for (Decl d : dl) {
+                    d.addToSymbolTable();
+                    d.typeCheck();
+                }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void typecheckStatementsInProcDecl() {
+        try {
+            if (sl != null)
+                for (Stmt s : sl) {
+                    s.typeCheck(this.table, this);
+                }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public Object getCreatedBy() {
         return this.createdBy;
+    }
+
+    public LinkedList<Param> getParams() {
+        return pl;
     }
 
     public void setCreatedBy(Object node) {
@@ -86,13 +132,18 @@ public class ProcDecl extends Decl {
         }
     }
 
-    public void addToSymbolTable(SymbolTable table) {
-        if (pl != null)
-            pl.stream().forEach(param -> table.insert(param.type));
-        if (dl != null)
-            dl.stream().forEach(decl -> table.insert(decl));
-        if (sl != null)
-            sl.stream().forEach(stmt -> table.insert(stmt));
+    public void addToSymbolTable() throws Exception {
+        try {
+            if (pl != null)
+                for (Param p : pl)
+                    table.insert(p);
+            if (dl != null)
+                for (Decl d : dl)
+                    table.insert(d);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
     public void generateCode(CodeFile codeFile) {

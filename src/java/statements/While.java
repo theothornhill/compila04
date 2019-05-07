@@ -11,7 +11,7 @@ public class While extends Stmt {
         this.sl = sl;
     }
 
-    public void typeCheck(SymbolTable table) throws Exception {
+    public void typeCheck(SymbolTable table, Object scope) throws Exception {
         if (!(e instanceof BinaryExpr))
             throw new Exception("Condition in while-statement must be binary");
         if (!((BinaryExpr)e).isBoolean) {

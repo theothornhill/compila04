@@ -10,23 +10,34 @@ public class Call extends Stmt {
         this.el = el;
     }
 
-    public void typeCheck(SymbolTable table) throws Exception {
-        Object proc = table.lookup(name);
+    public void typeCheck(SymbolTable table, Object scope) throws Exception {
+        int procedureParamNumber = 0;
+        int exprParamNumber = 0;
+        Object proc = table.lookup(scope, name);
         // Is procedure declared?
         if (proc == null)
             throw new Exception("Procedure not declared");
         ProcDecl procedure = (ProcDecl)proc;
-        if (procedure.pl.size() != el.size())
-            throw new Exception("Procedure requires " + procedure.pl.size() +
-                                " arguments, but was given " + el.size() +
+        // Need to account for when one or the other is null...
+        if (procedure.pl != null)
+            procedureParamNumber = procedure.pl.size();
+        if (el != null)
+            exprParamNumber = el.size();
+                    
+        if (procedureParamNumber != exprParamNumber)
+            throw new Exception("Procedure requires " + procedureParamNumber + 
+                                " arguments, but was given " + exprParamNumber +
                                 " arguments");
-        LinkedList<Param> params = ((ProcDecl)procedure).pl;
-        for (int i = 0; i < el.size(); i++) {
-            Param p = params.get(i); Expr e = (Expr)el.get(i);
-            if (!p.type.toString().equals(e.type.toString()))
-                throw new Exception("argument " + e + ": type " + e.type +
-                                    " is not the same type as param " + p +
-                                    ": type " + p.type);
+        LinkedList<Param> params = procedure.getParams();
+        if (params != null && el != null) {
+            for (int i = 0; i < el.size(); i++) {
+                Param p = params.get(i);
+                Expr e = (Expr)el.get(i);
+                if (!p.type.equals(e.type.toString()))
+                    throw new Exception("argument " + e + ": type " + e.type +
+                                        " is not the same type as param " + p +
+                                        ": type " + p.type);
+            }            
         }
     }
 
@@ -47,11 +58,12 @@ public class Call extends Stmt {
     }
 
     public void addToSymbolTable(SymbolTable table) {
-        table.insert("call");
-        table.insert(name);
-        // el.stream()
-        //     .forEach(e -> table.insert(e.getClass().toString(),
-        //                                CodeGenerationHelper.getTable(e)));
+        try {
+            table.insert("call");
+            table.insert(name);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void generateCode(CodeFile codeFile) {

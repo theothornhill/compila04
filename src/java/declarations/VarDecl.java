@@ -10,10 +10,16 @@ public class VarDecl extends Decl {
         // this.t = type.setCodeType(type.toString());
     }
 
-    public void typeCheck(SymbolTable table) throws Exception {
-        if (table.lookup(this.name) != null)
+    public void typeChecker(SymbolTable table) throws Exception {
+        if (table.lookup(this.getCreatedBy(), this.name) != null)
             throw new Exception("Symbol " + this.name + " already declared");
     }
+
+    public void typeCheck() throws Exception {
+        // if (table.lookup(this.getCreatedBy(), this.name, lexicalScopeLevel) != null)
+        //     throw new Exception("Symbol " + this.name + " already declared");
+    }
+
 
     public Object getCreatedBy() {
         return this.createdBy;
@@ -32,9 +38,13 @@ public class VarDecl extends Decl {
         type.setLexicalScopeLevel(lexicalScopeLevel+1);
     }
 
-    public void addToSymbolTable(SymbolTable table) {
-        table.insert(name);
-        table.insert(type);
+    public void addToSymbolTable() {
+        try {
+            table.insert(name);
+            table.insert(type);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     // Adds a global variable. This is because vardecl when called from Program

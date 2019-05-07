@@ -1,22 +1,43 @@
 import java.util.*;
 import bytecode.*;
-import java.util.*;
 
-public class Program implements AttributeGrammar {
+public class Program extends Decl implements AttributeGrammar {
     String name;
     LinkedList<Decl> declarations;
+    public SymbolTable table = new SymbolTable();
     public Object createdBy;
+    public int lexicalScopeLevel;
 
     public Program(String name, LinkedList<Decl> declarations) {
         this.name = name;
         this.declarations = declarations;
     }
 
-    public void typeCheck(SymbolTable table) throws Exception {
-        if (table.lookup("Main") == null
-            && table.lookup("main") == null) {
+    public void typeCheck() throws Exception {
+        if (table.lookup(this, "Main") == null
+            && table.lookup(this, "main") == null) {
             throw new Exception("No Main procedure declared in program");
         }
+        typecheckDeclarationsInProgram();
+    }
+
+    public void typecheckDeclarationsInProgram() throws Exception {
+        try {
+            for (Decl d : declarations) {
+                d.typeCheck();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public int getLexicalScopeLevel() {
+        return this.lexicalScopeLevel;
+    }
+
+    public SymbolTable getTable() {
+        return this.table;
     }
 
     // Attribute grammar methods
@@ -43,17 +64,28 @@ public class Program implements AttributeGrammar {
         CodeGenerationHelper.declTraverser(declarations, codeFile);
     }
 
-    public void addToSymbolTable(SymbolTable table) {
-        declarations.stream().forEach(decl -> table.insert(decl));
+    public void addToSymbolTable() throws Exception {
+        try {
+            if (declarations != null) {
+                for (Decl d : declarations) {
+                    table.insert(d);
+                    d.addToSymbolTable();
+                }
+            }
+                
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
     public void printTable(SymbolTable table) {
         System.out.println(table);
     }
 
-    public String printAst() {
+    public String printAst(int indentLevel) {
         StringBuilder sb = new StringBuilder();
-        int indentLevel = 0;
+        indentLevel = 0;
         sb.append("(PROGRAM");
         sb.append(PrintHelper.printName(name));
         if (declarations != null) {

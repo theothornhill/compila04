@@ -14,8 +14,23 @@ public class RecDecl extends Decl {
         struct = new CodeStruct(this.name);
     }
 
-    public void typeCheck(SymbolTable table) throws Exception {
+    public void typeCheck() throws Exception {
+        typecheckParamsInRecDecl();
+    }
 
+    public void typecheckParamsInRecDecl() {
+        try {
+            if (pl != null)
+                for (Param p : pl) {
+                    p.typeCheck();
+                }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public int getLexicalScopeLevel() {
+        return lexicalScopeLevel;
     }
 
     // Attribute grammar annotation methods
@@ -42,10 +57,13 @@ public class RecDecl extends Decl {
         }
     }
 
-    public void addToSymbolTable(SymbolTable table) {
-        // table.insert(name);
-        for (Param p : pl) {
-            table.insert(p);
+    public void addToSymbolTable() throws Exception {
+        try {
+            for (Param p : pl) {
+                table.insert(p);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
     

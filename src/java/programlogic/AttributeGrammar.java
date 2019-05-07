@@ -3,4 +3,5 @@ public interface AttributeGrammar {
     public void setCreatedBy(Object node);    
     public void setCreatorOf();
     public void setLexicalScopeLevel(int scope);
+    public int getLexicalScopeLevel();
 }
