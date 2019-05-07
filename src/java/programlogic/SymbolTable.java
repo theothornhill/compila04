@@ -8,7 +8,7 @@ public class SymbolTable {
     public Map<String, Object> table;
     public int key;
         
-    public SymbolTable(int key) {
+    public SymbolTable() {
         this.key = key;
         this.table = new HashMap<String, Object>();
         // this.table.put("" + this.key, new LinkedList<Object>());
@@ -36,17 +36,29 @@ public class SymbolTable {
             table.put("" + key + "a", new LinkedList<Object>());
     }
 
-    public void insert(Object val) {
+    public void insert(Object val) throws Exception {
         // this.table.get("" + this.key).add(val);
+        if (this.table.containsKey(val.toString()))
+            throw new Exception("Double declaration of symbol " + val);
         this.table.put(val.toString(), val); 
     }
 
-    public Object lookup(String key) {
-        if (table.containsKey(key))
-            return table.get(key);
-        else if (!table.containsKey(key))
-            return null;
-        return null;
+    public Object lookup(Object scope, String key) {
+        SymbolTable currentScope;
+        if (scope instanceof Program) {
+            currentScope = ((Program)scope).getTable();
+            return currentScope.table.containsKey(key)
+                ? currentScope.table.get(key)
+                : null;
+        }
+        // if (scope instanceof Stmt)
+        //     currentScope = ((Stmt)scope).getTable();
+        // if (scope instanceof Decl)
+        currentScope = ((Decl)scope).getTable();
+
+        return currentScope.table.containsKey(key)
+            ? currentScope.table.get(key)
+            : lookup(((Decl)scope).getCreatedBy(), key);
     }
 
     public String toString() {
