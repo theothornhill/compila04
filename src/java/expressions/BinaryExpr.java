@@ -41,12 +41,22 @@ public class BinaryExpr extends Expr {
 
     public void setExprType(String e1type, String e2type) throws Exception {
         // System.out.println(e1type);
-        if (e1type == "int" && e2type == "int")
-            this.type = new Type("int");
-        else if (e1type == "int" && e2type == "float" ||
-            e1type == "float" && e2type == "int" ||
-            e1type == "float" && e2type == "float")
-            this.type = new Type("float");
+        if (isArit) {
+            if (op.equals("/"))
+                this.type = new Type("float");
+            else if (e1type == "int" && e2type == "int")
+                this.type = new Type("int");
+            else if (e1type == "int" && e2type == "float" ||
+                     e1type == "float" && e2type == "int" ||
+                     e1type == "float" && e2type == "float")
+                this.type = new Type("float");
+
+        } else if (isBoolean) {
+            this.type = new Type("bool");
+        } else if (isLogical) {
+            if (e1type == "bool" && e2type == "bool")
+                this.type = new Type("bool");
+        }
         else
             throw new Exception("Arguments of operation not correct type");
 
