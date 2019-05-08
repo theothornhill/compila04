@@ -5,7 +5,6 @@ public class Assign extends Stmt {
     public Assign(Object name, Object e) {
         this.e2 = name;
         this.e = e;
-        this.type = new Type(((Expr)e).type.toString()); // Ugh
     }
 
     public void typeCheck(SymbolTable table, Object scope) throws Exception {
@@ -13,6 +12,22 @@ public class Assign extends Stmt {
         if (expr == null)
             throw new Exception("Symbol " + e + " is not declared");
 
+        System.out.println(((VarDecl)expr) + " " + ((VarDecl)expr).type + ": " + e);
+
+        if (e instanceof Var)
+            ((Var)e).typeCheck(table, scope);
+
+        if (e instanceof BinaryExpr) {
+            ((BinaryExpr)e).typeCheck(table, scope);
+        }
+
+        // TODO: Do this later
+        // if (e instanceof Call) {
+        //     ((Call)e).typeCheck(table, scope);
+        // }
+
+
+        
         if (expr instanceof VarDecl) {
             VarDecl v = (VarDecl)expr;
             Object vname = table.lookup(this.getCreatedBy(), v.name);
@@ -20,9 +35,16 @@ public class Assign extends Stmt {
                 throw new Exception("" + v + "." + v.name + " not declared");
             if (vname == null)
                 throw new Exception("" + v + "." + v.name + " not declared");
-            if (!v.type.equals(((Expr)e).type.toString()))
+            if (!v.type.equals(((Expr)e).type.toString()) && !isAssignable(v))
                 throw new Exception("" + v.type + " cannot be assigned a " + ((Expr)e).type);
         }
+    }
+
+    // Checks whether conversion can be done implicitly
+    public boolean isAssignable(VarDecl v) {
+        if (v.type.equals("float") && ((Expr)e).type.equals("int"))
+            return true;
+        return false;
     }
 
     public Object getCreatedBy() {
