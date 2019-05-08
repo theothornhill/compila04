@@ -22,7 +22,7 @@ public class RecDecl extends Decl {
         try {
             if (pl != null)
                 for (Param p : pl) {
-                    p.typeCheck();
+                    p.typeCheck(table, this);
                 }
         } catch (Exception e) {
             e.printStackTrace();
