@@ -18,10 +18,6 @@ public class BinaryExpr extends Expr {
         this.op = op;
         this.e2 = e2;
         setOperationType(op.toString());
-        // System.out.println(((Literal)e1).type);
-        // System.out.println(((Var)e2).type);
-        setExprType(((Expr)e1).type.toString(),
-                    ((Expr)e2).type.toString());
     }
 
     // This is not proper type checking. Think through this.
@@ -39,22 +35,22 @@ public class BinaryExpr extends Expr {
             isArit = true;
     }
 
-    public void setExprType(String e1type, String e2type) throws Exception {
+    public void setExprType(Expr e1, Expr e2) throws Exception {
         // System.out.println(e1type);
         if (isArit) {
             if (op.equals("/"))
                 this.type = new Type("float");
-            else if (e1type == "int" && e2type == "int")
+            else if (e1.type.equals("int")  && e2.type.equals("int"))
                 this.type = new Type("int");
-            else if (e1type == "int" && e2type == "float" ||
-                     e1type == "float" && e2type == "int" ||
-                     e1type == "float" && e2type == "float")
+            else if (e1.type.equals("int") && e2.type.equals("float") ||
+                     e1.type.equals("float") && e2.type.equals("int") ||
+                     e1.type.equals("float") && e2.type.equals("float"))
                 this.type = new Type("float");
 
         } else if (isBoolean) {
             this.type = new Type("bool");
         } else if (isLogical) {
-            if (e1type == "bool" && e2type == "bool")
+            if (e1.type.equals("bool") && e2.type.equals("bool"))
                 this.type = new Type("bool");
         }
         else
@@ -62,21 +58,24 @@ public class BinaryExpr extends Expr {
 
     }
 
-    public void typeCheck() throws Exception {
-        if (!((Expr)e1).type.equals(((Expr)e2).type))
-            throw new Exception("Operands in binary expr not the same type");
-        if (e1 instanceof Var && e2 instanceof Var) {
-            Var v1 = (Var)e1;
-            Object e = table.lookup(this, v1.name);
-            Var v2 = (Var)e2;
-            Object ee = table.lookup(this, v2.name);
-            if (e == null || ee == null)
-                throw new Exception("Variable not declared");
-        }
-    }
-
     public void typeCheck(SymbolTable table, Object scope) throws Exception {
 
+        // if (!((Expr)e1).type.equals(((Expr)e2).type))
+        //     throw new Exception("Operands in binary expr not the same type");
+        typeCheckExpr(e1, table, scope);
+        typeCheckExpr(e2, table, scope);
+        System.out.println(e1 + " " + e2);
+        setExprType(((Expr)e1), ((Expr)e2));
+
+    }
+
+    public void typeCheckExpr(Object e, SymbolTable table, Object scope) throws Exception {
+        Var v = null;
+        if (e instanceof Var) {
+            v = (Var)e;
+            v.typeCheck(table, scope);
+            e = table.lookup(scope, v.name); 
+        }
     }
 
     public void addToSymbolTable(SymbolTable table) {
@@ -100,4 +99,5 @@ public class BinaryExpr extends Expr {
         sb.append(PrintHelper.endWithParen(indentLevel));
         return sb.toString();
     }
+
 }
