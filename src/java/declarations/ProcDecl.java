@@ -34,25 +34,36 @@ public class ProcDecl extends Decl {
     }
 
     public void typeCheck() throws Exception {
-        Object returnTypeCheck = table.lookup(this, type.toString());
-        if (returnTypeCheck == null)
-            if (!type.equals("null"))
-                throw new Exception("Undeclared return type");
-
         ProcDecl proc = null;
         if (table.lookup(this, this.name) instanceof ProcDecl)
             table.lookup(this, this.name);
-
-        if (proc != null && proc.getLexicalScopeLevel() != this.lexicalScopeLevel)
-            throw new Exception("Procedure " + this.name + " already declared");
-
-        // TODO:There is a major bug here... nullpointer and type assignment??
-        // if (sl != null && sl.getLast() instanceof Return)
-        //     if (!sl.getLast().type.equals(this.type))
-        //         throw new Exception("Not matching return type");
+        typecheckReturnType();
         typecheckParamsInProcDecl();
         typecheckDeclarationsInProcDecl();
         typecheckStatementsInProcDecl();
+        typecheckIfReturnTypeIsMatching();
+    }
+
+    public boolean returntypeIsUserDefined() {
+        return !(type.equals("string") ||
+                 type.equals("float")  ||
+                 type.equals("int")    ||
+                 type.equals("bool")   ||
+                 type.equals("null"));
+    }
+
+    public void typecheckReturnType() throws Exception {
+        if (returntypeIsUserDefined()) {
+            if (table.lookup(this, type.toString()) == null)
+                throw new Exception("Undeclared user defined return type " + type);
+            
+        }
+    }
+
+    public void typecheckIfReturnTypeIsMatching() {
+        if (sl != null && sl.getLast() instanceof Return)
+            if (!sl.getLast().type.equals(this.type.toString()))
+                throw new Exception("Not matching return type");
     }
 
     public void typecheckParamsInProcDecl() {
