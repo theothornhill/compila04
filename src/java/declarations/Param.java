@@ -2,7 +2,7 @@ import bytecode.*;
 import bytecode.type.*;
 import bytecode.instructions.*;
 
-public class Param extends Decl implements AttributeGrammar {
+public class Param extends Expr implements AttributeGrammar {
     public Type type;
     public String name;
     public Object createdBy;
@@ -18,6 +18,10 @@ public class Param extends Decl implements AttributeGrammar {
     public void typeCheck() throws Exception {
         // if (table.lookup(this.getCreatedBy(), this.name, lexicalScopeLevel) != null)
         //     throw new Exception("Symbol " + this.name + " already declared");
+    }
+
+    public void typeCheck(SymbolTable table, Object scope) throws Exception {
+        
     }
 
     public int getLexicalScopeLevel() {
@@ -45,8 +49,12 @@ public class Param extends Decl implements AttributeGrammar {
     }
 
     public void addToSymbolTable(SymbolTable table) throws Exception {
-        table.insert(name);
-        table.insert(type);
+        try {
+            table.insert(name);
+            table.insert(type);                
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     
     public void generateCode(CodeStruct struct) {

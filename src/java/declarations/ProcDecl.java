@@ -60,7 +60,7 @@ public class ProcDecl extends Decl {
         }
     }
 
-    public void typecheckIfReturnTypeIsMatching() {
+    public void typecheckIfReturnTypeIsMatching() throws Exception {
         if (sl != null && sl.getLast() instanceof Return)
             if (!sl.getLast().type.equals(this.type.toString()))
                 throw new Exception("Not matching return type");
