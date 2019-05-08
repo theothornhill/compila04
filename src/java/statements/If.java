@@ -32,10 +32,24 @@ public class If extends Stmt {
     }
 
     public void typeCheck(SymbolTable table, Object scope) throws Exception {
-        if (!(e instanceof BinaryExpr))
-            throw new Exception("Condition in if-statement must be binary");
-        if (!((BinaryExpr)e).isBoolean) {
-            throw new Exception("Condition in if-statement must be boolean");
+        ((Expr)e).typeCheck(table, scope);
+        if (!(((Expr)e).type.equals("bool"))) {
+            throw new Exception("Condition in while-statement must be boolean");
+        }
+        if (sl != null)
+            typecheckStmtList(table, scope, sl);
+        if (sl2 != null)
+            typecheckStmtList(table, scope, sl2);
+    }
+
+    public void typecheckStmtList(SymbolTable table, Object scope, LinkedList<Stmt> stmts) throws Exception {
+        try {
+            for (Stmt s : stmts) {
+                s.typeCheck(table, scope);
+            }
+            
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

@@ -8,35 +8,53 @@ public class Assign extends Stmt {
     }
 
     public void typeCheck(SymbolTable table, Object scope) throws Exception {
-        Object expr = table.lookup(scope, e2.toString());
+        Object expr = null;
+        RecDecl o = null;
+        Param p = null;
+        if (((Var)e2).expr != null)
+            expr = table.lookup(scope, ((Var)e2).expr.toString());
+        else
+            expr = table.lookup(scope, ((Var)e2).name.toString());
+
         if (expr == null)
-            throw new Exception("Symbol " + e + " is not declared");
+            throw new Exception("Symbol " + e2 + " is not declared");
 
-        System.out.println(((VarDecl)expr) + " " + ((VarDecl)expr).type + ": " + e);
-
-        if (e instanceof Var)
-            ((Var)e).typeCheck(table, scope);
-
-        if (e instanceof BinaryExpr) {
-            ((BinaryExpr)e).typeCheck(table, scope);
-        }
-
-        // TODO: Do this later
-        // if (e instanceof Call) {
-        //     ((Call)e).typeCheck(table, scope);
-        // }
-
-
-        
         if (expr instanceof VarDecl) {
-            VarDecl v = (VarDecl)expr;
-            Object vname = table.lookup(this.getCreatedBy(), v.name);
-            if (v == null)
-                throw new Exception("" + v + "." + v.name + " not declared");
-            if (vname == null)
-                throw new Exception("" + v + "." + v.name + " not declared");
-            if (!v.type.equals(((Expr)e).type.toString()) && !isAssignable(v))
-                throw new Exception("" + v.type + " cannot be assigned a " + ((Expr)e).type);
+            if (((Expr)e2).expr == null) {
+                if (table.lookup(scope, ((Var)e2).name) == null)
+                    throw new Exception("Variable not declared");
+                if (e instanceof Call) {
+                    ((Call)e).typeCheck(table, scope);
+                    if (!((Call)e).type.equals(((VarDecl)expr).type.toString()))
+                        throw new Exception("Wrong type in assignment");
+                } else {
+                    ((Expr)e).typeCheck(table, scope);                    
+                    if (!((Expr)e).type.equals(((VarDecl)expr).type.toString()))
+                        throw new Exception("Wrong type in assignment on " + expr + " and " + e);
+                }
+
+
+            }
+            
+            if (((Expr)e2).expr != null) {
+                // Now we know it is a RecDecl
+                o = (RecDecl)table.lookup(scope, ((VarDecl)expr).type.toString());
+                if (o == null)
+                    throw new Exception("Record not declared");
+                p = (Param)table.lookup(o, ((Var)e2).name);
+                if (p == null)
+                    throw new Exception("Attribute not declared");
+                if (e instanceof BinaryExpr)
+                    ((BinaryExpr)e).typeCheck(table, scope);
+                if (!p.type.equals(((Expr)e).type.toString())) {
+                    if (!isAssignable(((VarDecl)expr))) {
+                        // TDOO: This seems very weird...?
+                    }
+                    else {
+                        throw new Exception(""+ p + " type: " + p.type + " cannot be assigned a " + ((Expr)e).type);                        
+                    }                                
+                }                    
+            }
         }
     }
 

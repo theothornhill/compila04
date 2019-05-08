@@ -11,13 +11,16 @@ public class Call extends Stmt {
     }
 
     public void typeCheck(SymbolTable table, Object scope) throws Exception {
+        typecheckArguments(table, scope);
         int procedureParamNumber = 0;
         int exprParamNumber = 0;
         Object proc = table.lookup(scope, name);
         // Is procedure declared?
+        System.out.println(name);
         if (proc == null)
             throw new Exception("Procedure not declared");
         ProcDecl procedure = (ProcDecl)proc;
+        this.type = new Type(procedure.type.toString());
         // Need to account for when one or the other is null...
         if (procedure.pl != null)
             procedureParamNumber = procedure.pl.size();
@@ -28,16 +31,48 @@ public class Call extends Stmt {
             throw new Exception("Procedure requires " + procedureParamNumber + 
                                 " arguments, but was given " + exprParamNumber +
                                 " arguments");
+
         LinkedList<Param> params = procedure.getParams();
         if (params != null && el != null) {
             for (int i = 0; i < el.size(); i++) {
+                Expr e = null;
+                Call c = null;
                 Param p = params.get(i);
-                Expr e = (Expr)el.get(i);
-                if (!p.type.equals(e.type.toString()))
-                    throw new Exception("argument " + e + ": type " + e.type +
-                                        " is not the same type as param " + p +
-                                        ": type " + p.type);
+                if (el.get(i) instanceof Call)
+                    c = (Call)el.get(i);
+                else 
+                    e = (Expr)el.get(i);
+                if (e != null) {
+                    if (e.type != null)
+                        if (e instanceof RefVar) {
+                            e.type = new Type("reftype");                            
+                        }
+                    if (!p.type.equals(e.type.toString()))
+                        throw new Exception("argument " + e + ": type " + e.type +
+                                            " is not the same type as param " + p +
+                                            ": type " + p.type);                    
+                }
+                if (c != null)
+                    if (c.type != null)
+                        if (!p.type.equals(c.type.toString()))
+                            throw new Exception("argument " + c + ": type " + c.type +
+                                                " is not the same type as param " + p +
+                                                ": type " + p.type);
             }            
+        }
+    }
+
+    public void typecheckArguments(SymbolTable table, Object scope) throws Exception {
+        try {
+            if (el != null)
+                for (Object e : el) {
+                    if (e instanceof Expr)
+                        ((Expr)e).typeCheck(table, scope);
+                    if (e instanceof Call)
+                        ((Call)e).typeCheck(table, scope);
+                }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

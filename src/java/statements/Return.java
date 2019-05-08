@@ -39,16 +39,20 @@ public class Return extends Stmt {
 
     public void typecheckExpressionsInReturn(SymbolTable table, Object scope) {
         try {
-            if (e != null)
+            if (e != null) {
                 ((Expr)e).typeCheck(table, scope);
+                // Sets the return type based on the expressions it has
+                this.type = new Type(((Expr)e).type.toString()); 
+
+            }
+            
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public void addToSymbolTable(SymbolTable table) {
-        // table.insert("Statement-type", "Return");
-        // table.insert("Expr", e);
+
     }
 
     public void generateCode(CodeFile codeFile) {
