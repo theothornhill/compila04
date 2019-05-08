@@ -36,22 +36,39 @@ public class BinaryExpr extends Expr {
     }
 
     public void setExprType(Expr e1, Expr e2) throws Exception {
-        // System.out.println(e1type);
+        // TODO: this is very dirty and error prone code. Fix
         if (isArit) {
-            if (op.equals("/"))
+            if (op.equals("/")) {
+                if (e1.type.equals("int") && e2.type.equals("int")    ||
+                    e1.type.equals("int") && e2.type.equals("float")  ||
+                     e1.type.equals("float") && e2.type.equals("int") ||
+                     e1.type.equals("float") && e2.type.equals("float"))
                 this.type = new Type("float");
+                else
+                    throw new Exception("Arguments of divsion operation not correct type");
+            }
             else if (e1.type.equals("int")  && e2.type.equals("int"))
                 this.type = new Type("int");
             else if (e1.type.equals("int") && e2.type.equals("float") ||
                      e1.type.equals("float") && e2.type.equals("int") ||
                      e1.type.equals("float") && e2.type.equals("float"))
                 this.type = new Type("float");
-
+            else
+                throw new Exception("Arguments of artihmetic operation not correct type");
         } else if (isBoolean) {
+            if (e1.type.equals("int") && e2.type.equals("bool")    ||
+                e1.type.equals("float") && e2.type.equals("bool")  ||
+                e1.type.equals("string") && e2.type.equals("bool") ||
+                e1.type.equals("bool") && e2.type.equals("int")    ||
+                e1.type.equals("bool") && e2.type.equals("float")  ||
+                e1.type.equals("bool") && e2.type.equals("string"))
+                throw new Exception("Arguments of relational operation not correct type");
             this.type = new Type("bool");
         } else if (isLogical) {
             if (e1.type.equals("bool") && e2.type.equals("bool"))
                 this.type = new Type("bool");
+            else
+                throw new Exception("Arguments of logical operation not correct type");
         }
         else
             throw new Exception("Arguments of operation not correct type");
@@ -59,23 +76,42 @@ public class BinaryExpr extends Expr {
     }
 
     public void typeCheck(SymbolTable table, Object scope) throws Exception {
-
-        // if (!((Expr)e1).type.equals(((Expr)e2).type))
-        //     throw new Exception("Operands in binary expr not the same type");
         typeCheckExpr(e1, table, scope);
         typeCheckExpr(e2, table, scope);
-        System.out.println(e1 + " " + e2);
         setExprType(((Expr)e1), ((Expr)e2));
-
     }
 
     public void typeCheckExpr(Object e, SymbolTable table, Object scope) throws Exception {
+        Object exp = table.lookup(scope, e.toString());
         Var v = null;
+        Param p = null;
         if (e instanceof Var) {
-            v = (Var)e;
-            v.typeCheck(table, scope);
-            e = table.lookup(scope, v.name); 
+            if (((Var)e).expr != null)
+                exp = table.lookup(scope, ((Var)e).expr.toString());
+            else
+                exp = table.lookup(scope, ((Var)e).name.toString());  
         }
+        if (exp instanceof Param) {
+            p = (Param)exp;
+            RecDecl record = null;
+            if (paramtypeIsUserDefined(p)) {
+                record = (RecDecl)table.lookup(scope, p.type.toString());
+                Param recParam = (Param)table.lookup(record, e.toString());
+                ((Expr)e).type = new Type(recParam.type.toString());
+            } else {
+                ((Expr)e).type = new Type(p.type.toString());
+            }
+            p.typeCheck(table, scope);
+        } else if (exp instanceof VarDecl) {
+            ((Expr)e).type = new Type(((VarDecl)exp).type.toString());
+        } 
+    }
+
+    public boolean paramtypeIsUserDefined(Param p) {
+        return !(p.type.equals("string") ||
+                 p.type.equals("float")  ||
+                 p.type.equals("int")    ||
+                 p.type.equals("bool"));
     }
 
     public void addToSymbolTable(SymbolTable table) {
