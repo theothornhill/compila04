@@ -6,12 +6,9 @@ public class NestedExpr extends Expr {
         this.expr = expr;
     }
 
-    public void typeCheck() {
-        
-    }
-
     public void typeCheck(SymbolTable table, Object scope) throws Exception {
-        
+        ((Expr)expr).typeCheck(table, scope);
+        this.type = new Type(((Expr)expr).type.toString());
     }
 
     public void addToSymbolTable(SymbolTable table) {

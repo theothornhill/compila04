@@ -11,40 +11,26 @@ public class Var extends Expr {
 
     public Var(String name) {
         this.name = name;
-        // this.type = new Type("int");
-    }
-
-    public void typeCheck() throws Exception {
-        Object v = table.lookup(this, name);
-        if (v == null)
-            throw new Exception("Variable " + name + " not declared");
-        if (v instanceof Expr) {
-            Expr variable = (Expr)v;
-            this.type = variable.type;            
-        }
-        if (v instanceof Decl) {
-            Decl variable = (Decl)v;
-            this.type = variable.type;
-        }
-        // if (expr == null)
-        //     throw new Exception("No such expression in variable");
-
     }
 
     public void typeCheck(SymbolTable table, Object scope) throws Exception {
         Object v = table.lookup(scope, name);
+
         if (v == null)
             throw new Exception("Variable " + name + " not declared");
-        if (v instanceof Expr) {
+        if (v instanceof Param) {
+            this.type = ((Param)v).type;
+        } else if (v instanceof Literal) {
+            this.type = new Type(((Literal)v).type.toString());
+        } else if (v instanceof Expr) {
             Expr variable = (Expr)v;
             this.type = variable.type;            
-        }
-        if (v instanceof Decl) {
+        } else if (v instanceof Decl) {
             Decl variable = (Decl)v;
             this.type = variable.type;
+        } else if (this instanceof RefVar) {
+            this.type = new Type("reftype");
         }
-        // if (expr == null)
-        //     throw new Exception("No such expression in variable");
     }
 
     public void addToSymbolTable(SymbolTable table) {

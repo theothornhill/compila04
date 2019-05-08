@@ -9,21 +9,13 @@ public class Not extends Expr {
         this.type = new Type("bool");
     }
 
-    public void typeCheck() throws Exception {
-        Object e = table.lookup(this, ((Var)expr).name);
-        if (expr instanceof Expr)
-            if (!((Expr)e).type.equals("bool"))
-                throw new Exception("Argument of not operator not of type bool");
-        if (!((BinaryExpr)expr).isBoolean) {
-            throw new Exception("Condition in if-statement must be boolean");
-        }            
-    }
-
     public void typeCheck(SymbolTable table, Object scope) throws Exception {
         Object e = table.lookup(scope, ((Var)expr).name);
-        if (expr instanceof Expr)
-            if (!((Expr)e).type.equals("bool"))
-                throw new Exception("Argument of not operator not of type bool");
+        if (expr instanceof Expr) {
+            ((Expr)expr).typeCheck(table, scope);
+            if (!((Expr)expr).type.equals("bool"))
+                throw new Exception("Argument of not operator not of type bool");            
+        }
         if (!((BinaryExpr)expr).isBoolean) {
             throw new Exception("Condition in if-statement must be boolean");
         }

@@ -7,6 +7,6 @@ public abstract class Expr {
     public SymbolTable table = new SymbolTable();
     public abstract String printAst(int indentLevel);
     public abstract void typeCheck(SymbolTable table, Object scope) throws Exception;
-    public abstract void addToSymbolTable(SymbolTable table);
+    public abstract void addToSymbolTable(SymbolTable table) throws Exception;
     public abstract void generateCode(CodeProcedure proc);
 }
