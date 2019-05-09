@@ -167,7 +167,7 @@ public class ProcDecl extends Decl {
         } else {
             proc = type == null
                 ? CodeGenerationHelper.newProc(name, null, codeFile)
-                : CodeGenerationHelper.newProc(name, type, codeFile);
+                : CodeGenerationHelper.newProc(name, type.toString(), codeFile);
                 
             CodeGenerationHelper.paramTraverser(pl, proc, table, this);
 
@@ -192,7 +192,7 @@ public class ProcDecl extends Decl {
         } else {
             proc = type == null
                 ? CodeGenerationHelper.newProc(name, null, codeFile)
-                : CodeGenerationHelper.newProc(name, type, codeFile);
+                : CodeGenerationHelper.newProc(name, type.toString(), codeFile);
                 
             CodeGenerationHelper.paramTraverser(pl, proc, table, this);
 
