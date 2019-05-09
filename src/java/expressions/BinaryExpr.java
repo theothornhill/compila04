@@ -130,7 +130,7 @@ public class BinaryExpr extends Expr {
     public void codeGenExpr(Object ex, CodeProcedure proc,
                             SymbolTable table, Object scope) {
         if (ex instanceof Literal)
-            proc.addInstruction(CodeGenerationHelper.literalHelper(((Literal)ex)));
+            proc.addInstruction(CodeGenerationHelper.literalHelper(((Literal)ex), proc));
         else if (ex instanceof Var) {
             if (((Var)ex).expr != null) {
                 CodeGenerationHelper.generateRecordGetField(ex, proc, table, scope);

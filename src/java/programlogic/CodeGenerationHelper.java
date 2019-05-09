@@ -185,7 +185,7 @@ public class CodeGenerationHelper {
         System.out.println(table);
     }
 
-    public static Instruction literalHelper(Literal e) {
+    public static Instruction literalHelper(Literal e, CodeProcedure proc) {
         // returns correct instruction when fed a Literal
         if (e.type.equals("int")) {
             return new PUSHINT(Integer.parseInt(e.toString()));
@@ -193,9 +193,9 @@ public class CodeGenerationHelper {
             return new PUSHFLOAT(Float.parseFloat(e.toString()));
         } else if (e.type.equals("bool")) {
             return new PUSHBOOL(Boolean.parseBoolean(e.toString()));
-        // } else if (e.type.equals("string")) {
-        //     // THIS WILL FAIL: get correct string literal 
-        //     return new PUSHSTRING(0);
+        } else if (e.type.equals("string")) {
+            int constant = proc.getCodeFile().addStringConstant(e.toString());
+            return new PUSHSTRING(constant);
         } else {
             return new PUSHNULL();
         }

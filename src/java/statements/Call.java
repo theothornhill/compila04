@@ -124,7 +124,6 @@ public class Call extends Stmt {
         if (el != null) {
             for (Object ex : el) {
                 if (ex instanceof RefVar) {
-                    System.out.println(ex + " is a refvar ");
                 } else if (ex instanceof Var) {
                     // For when we are dealing with a struct
                     if (((Var)ex).expr != null) {
@@ -133,13 +132,16 @@ public class Call extends Stmt {
                         proc.addInstruction(new LOADLOCAL(proc.variableNumber(ex.toString())));
                     }
                 } else if (ex instanceof Literal) {
-                    // account for pushstring
-                    proc.addInstruction(CodeGenerationHelper.literalHelper(((Literal)ex)));
+                    proc.addInstruction(CodeGenerationHelper.literalHelper(((Literal)ex), proc));
                 } else if (ex instanceof Call) {
                     ((Call)ex).generateCode(proc, table, scope);
                 }
             }
         }
+    }
+
+    public String toString() {
+        return name;
     }
 
     public String printAst(int indentLevel) {

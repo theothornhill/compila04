@@ -105,7 +105,7 @@ public class Assign extends Stmt {
     public void generateCode(CodeProcedure proc, SymbolTable table, Object scope) {
         // System.out.println(e2.getClass());
         if (e instanceof Literal) {
-            proc.addInstruction(CodeGenerationHelper.literalHelper(((Literal)e)));
+            proc.addInstruction(CodeGenerationHelper.literalHelper(((Literal)e), proc));
             if (e2 instanceof Var)
                 if (((Var)e2).expr != null) {
                     // we need to load a variable and put in record field
@@ -116,7 +116,6 @@ public class Assign extends Stmt {
         else if (e instanceof BinaryExpr) {
             ((BinaryExpr)e).generateCode(proc, table, scope);
             if (e2 instanceof Var) {
-                System.out.println("Are we here?");
                 if (((Var)e2).expr != null) {
                     // we need to load a variable and put in record field
                     generateRecordPutField(e2, proc, table, scope);
