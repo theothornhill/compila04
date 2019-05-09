@@ -25,9 +25,12 @@ public class Assign extends Stmt {
                 if (table.lookup(scope, ((Var)e2).name) == null)
                     throw new Exception("Variable not declared");
                 if (e instanceof Call) {
-                    ((Call)e).typeCheck(table, scope);
-                    if (!((Call)e).type.equals(((VarDecl)expr).type.toString()))
-                        throw new Exception("Wrong type in assignment");
+                    if (!CodeGenerationHelper.isLibraryProcedure(e.toString())) {
+                        ((Call)e).typeCheck(table, scope);
+                        if (!((Call)e).type.equals(((VarDecl)expr).type.toString())) {
+                            throw new Exception("Wrong type in assignment");                
+                        }
+                    }
                 } else {
                     ((Expr)e).typeCheck(table, scope);
                     if (!((Expr)e).type.equals(((VarDecl)expr).type.toString())) {
