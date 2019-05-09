@@ -103,7 +103,7 @@ public class Assign extends Stmt {
     }
 
     public void generateCode(CodeProcedure proc, SymbolTable table, Object scope) {
-        // System.out.println(e.getClass());
+        // System.out.println(e2.getClass());
         if (e instanceof Literal) {
             proc.addInstruction(CodeGenerationHelper.literalHelper(((Literal)e)));
             if (e2 instanceof Var)
@@ -113,9 +113,17 @@ public class Assign extends Stmt {
                     return;
                 }
         }
-
-        else if (e instanceof BinaryExpr)
+        else if (e instanceof BinaryExpr) {
             ((BinaryExpr)e).generateCode(proc, table, scope);
+            if (e2 instanceof Var) {
+                System.out.println("Are we here?");
+                if (((Var)e2).expr != null) {
+                    // we need to load a variable and put in record field
+                    generateRecordPutField(e2, proc, table, scope);
+                    return;
+                }
+            }
+        }
         else if (e instanceof Var)
             proc.addInstruction(new LOADLOCAL(proc.variableNumber(e.toString())));
         else if (e instanceof New) {
@@ -123,7 +131,6 @@ public class Assign extends Stmt {
         } else if (e instanceof Call) {
             ((Call)e).generateCode(proc, table, scope);
         }
-
         proc.addInstruction(new STORELOCAL(proc.variableNumber(e2.toString())));
     }
 
@@ -132,6 +139,7 @@ public class Assign extends Stmt {
         String varName = ((Var)ex).expr.toString();
         String fieldName = ((Var)ex).toString();
         String type = ((VarDecl)table.lookup(scope, varName)).type.toString();
+        // System.out.println("did this happen?" + varName + "." + fieldName);
         proc.addInstruction(new LOADLOCAL(proc.variableNumber(varName)));
         proc.addInstruction(new PUTFIELD(proc.fieldNumber(type, fieldName),
                                          proc.structNumber(type)));        

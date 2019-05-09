@@ -189,14 +189,31 @@ public class CodeGenerationHelper {
             return new PUSHFLOAT(Float.parseFloat(e.toString()));
         } else if (e.type.equals("bool")) {
             return new PUSHBOOL(Boolean.parseBoolean(e.toString()));
-        } else if (e.type.equals("string")) {
-            // THIS WILL FAIL: get correct string literal 
-            return new PUSHSTRING(0);
+        // } else if (e.type.equals("string")) {
+        //     // THIS WILL FAIL: get correct string literal 
+        //     return new PUSHSTRING(0);
         } else {
             return new PUSHNULL();
         }
-            
+    }
 
+
+    public static void generateRecordGetField(Object ex, CodeProcedure proc,
+                                              SymbolTable table, Object scope) {
+        String varName = "";
+        String fieldName = "";
+        String type = "";
+        if (ex instanceof Var) {
+            varName = ((Var)ex).expr.toString();
+            fieldName = ((Var)ex).toString();
+            if (table.lookup(scope, varName) instanceof Param)
+                type = ((Param)table.lookup(scope, varName)).type.toString();
+            else 
+                type = ((VarDecl)table.lookup(scope, varName)).type.toString();
+        }
+        proc.addInstruction(new LOADLOCAL(proc.variableNumber(varName)));
+        proc.addInstruction(new GETFIELD(proc.fieldNumber(type, fieldName),
+                                         proc.structNumber(type)));        
     }
 }
 

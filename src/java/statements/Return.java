@@ -1,5 +1,6 @@
 import bytecode.*;
 import bytecode.type.*;
+import bytecode.instructions.*;
 
 public class Return extends Stmt {
     public Return(Object expr) {
@@ -62,7 +63,10 @@ public class Return extends Stmt {
     public void generateCode(CodeProcedure proc, SymbolTable table, Object scope) {
         // CodeGenerationHelper.returnHelper(proc, table, scope);
         if (e != null) {
-            ((BinaryExpr)e).generateCode(proc, table, scope);
+            if (e instanceof BinaryExpr)
+                ((BinaryExpr)e).generateCode(proc, table, scope);
+            else
+                proc.addInstruction(new LOADLOCAL(proc.variableNumber(e.toString())));
         }
     }
     

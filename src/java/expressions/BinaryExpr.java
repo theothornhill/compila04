@@ -115,32 +115,32 @@ public class BinaryExpr extends Expr {
     }
 
     public void addToSymbolTable(SymbolTable table) {
-        // table.insert("Name", this.getClass());
-        // table.insert("Operation", op);
-        // table.insert("Expr1", CodeGenerationHelper.getTable(e1));
-        // table.insert("Expr2", CodeGenerationHelper.getTable(e2));
     }
 
     public void generateCode(CodeProcedure proc, SymbolTable table, Object scope) {
         // CodeGenerationHelper.exprHelper(proc, e1, table, scope);
         // CodeGenerationHelper.exprHelper(proc, e2, table, scope);
-        if (e1 instanceof Literal)
-            proc.addInstruction(CodeGenerationHelper.literalHelper(((Literal)e1)));
-        else if (e1 instanceof Var) {
-            proc.addInstruction(new LOADLOCAL(proc.variableNumber(e1.toString())));            
-        }
-
-        if (e2 instanceof Literal)
-            proc.addInstruction(CodeGenerationHelper.literalHelper(((Literal)e2)));
-        else if (e2 instanceof Var) {
-            proc.addInstruction(new LOADLOCAL(proc.variableNumber(e2.toString())));            
-        }
+        codeGenExpr(e1, proc, table, scope);
+        codeGenExpr(e2, proc, table, scope);
         // proc.addInstruction(new LOADLOCAL(proc.variableNumber(e1.toString())));
         // proc.addInstruction(new LOADLOCAL(proc.variableNumber(e2.toString())));
         proc.addInstruction(CodeGenerationHelper.instructionHelper(proc, op));
-        
     }
 
+    public void codeGenExpr(Object ex, CodeProcedure proc,
+                            SymbolTable table, Object scope) {
+        if (ex instanceof Literal)
+            proc.addInstruction(CodeGenerationHelper.literalHelper(((Literal)ex)));
+        else if (ex instanceof Var) {
+            if (((Var)ex).expr != null) {
+                CodeGenerationHelper.generateRecordGetField(ex, proc, table, scope);
+            } else {
+                proc.addInstruction(new LOADLOCAL(proc.variableNumber(ex.toString()))); 
+            }
+        }
+        
+    }
+    
     public String printAst(int indentLevel) {
         StringBuilder sb = new StringBuilder();
         sb.append("(BINARY_OPERATION " + op.toString());
