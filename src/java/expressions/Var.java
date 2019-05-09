@@ -15,6 +15,18 @@ public class Var extends Expr {
 
     public void typeCheck(SymbolTable table, Object scope) throws Exception {
         Object v = table.lookup(scope, name);
+        RecDecl r = null;
+        Param p = null;
+        if (expr != null) {
+            ((Expr)expr).typeCheck(table, scope);
+            r = (RecDecl)table.lookup(scope, ((Expr)expr).type.toString());
+            System.out.println(expr);
+            if (r == null)
+                throw new Exception("Record not declared");
+            p = (Param)table.lookup(r, name);
+            if (p == null)
+                throw new Exception("Attribute not declared");
+        }
 
         if (v == null)
             throw new Exception("Variable " + name + " not declared");
@@ -46,7 +58,7 @@ public class Var extends Expr {
         this.type = t;
     }
 
-    public void generateCode(CodeProcedure proc) {
+    public void generateCode(CodeProcedure proc, SymbolTable table, Object scope) {
         
     }
     

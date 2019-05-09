@@ -26,7 +26,7 @@ public class Main {
                 // Add some custom things after parsing - in particular main-method
                 CodeFile codeFile = new CodeFile();
 
-                // program.generateCode(codeFile);
+                program.generateCode(codeFile);
                 // program.generateCode();
                 // program.printTable();
 
@@ -39,17 +39,13 @@ public class Main {
                 stream.close();
                 // System.out.println(program.printAst());
                 VirtualMachine vm = new VirtualMachine("/Users/theodor/Dropbox/Studier/fag/INF5110/compila04/example.bin");
-                // vm.list();
-
+                vm.list();
+                vm.run();
             } catch (Exception ee) {
                 ee.printStackTrace();
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-
     }
-
 }
-
-

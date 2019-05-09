@@ -43,21 +43,21 @@ public class Type implements AttributeGrammar {
         return this.type;
     }
 
-    // public CodeType setCodeType(String type) {
-    //     if (type.equals("float")) {
-    //         return FloatType.TYPE;
-    //     } else if (type.equals("int")) {
-    //         return IntType.TYPE;
-    //     } else if (type.equals("void")) {
-    //         return VoidType.TYPE;            
-    //     } else if (type.equals("bool")) {
-    //         return BoolType.TYPE;
-    //     } else if (type.equals("string")) {
-    //         return StringType.TYPE;
-    //     }
-    //     return VoidType.TYPE; // TODO: not good, handle correctly
+    public CodeType setCodeType(String type) {
+        if (type.equals("float")) {
+            return FloatType.TYPE;
+        } else if (type.equals("int")) {
+            return IntType.TYPE;
+        } else if (type.equals("void")) {
+            return VoidType.TYPE;            
+        } else if (type.equals("bool")) {
+            return BoolType.TYPE;
+        } else if (type.equals("string")) {
+            return StringType.TYPE;
+        }
+        return VoidType.TYPE; // TODO: not good, handle correctly
 
-    // }
+    }
 
     public String printAst(int indentLevel) {
         StringBuilder sb = new StringBuilder();

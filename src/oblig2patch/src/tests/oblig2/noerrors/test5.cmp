@@ -6,7 +6,7 @@ begin
     deref(a) := 42
   end;
 
- proc main()
+ proc Main()
    begin
      var a : int
      in

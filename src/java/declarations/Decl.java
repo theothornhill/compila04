@@ -10,6 +10,7 @@ public abstract class Decl implements AttributeGrammar {
     public abstract void typeCheck() throws Exception;
     public abstract void addToSymbolTable() throws Exception;
     public abstract void generateCode(CodeFile codeFile);
+    public abstract void generateCode(CodeProcedure proc);
 
     public SymbolTable getTable() {
         return this.table;

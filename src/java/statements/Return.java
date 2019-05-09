@@ -55,12 +55,15 @@ public class Return extends Stmt {
 
     }
 
-    public void generateCode(CodeFile codeFile) {
+    public void generateCode(CodeFile codeFile, SymbolTable table, Object scope) {
         
     }
 
-    public void generateCode(CodeProcedure proc) {
-        CodeGenerationHelper.returnHelper(proc);
+    public void generateCode(CodeProcedure proc, SymbolTable table, Object scope) {
+        // CodeGenerationHelper.returnHelper(proc, table, scope);
+        if (e != null) {
+            ((BinaryExpr)e).generateCode(proc, table, scope);
+        }
     }
     
     public String printAst(int indentLevel) {

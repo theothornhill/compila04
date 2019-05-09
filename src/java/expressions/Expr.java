@@ -8,5 +8,5 @@ public abstract class Expr {
     public abstract String printAst(int indentLevel);
     public abstract void typeCheck(SymbolTable table, Object scope) throws Exception;
     public abstract void addToSymbolTable(SymbolTable table) throws Exception;
-    public abstract void generateCode(CodeProcedure proc);
+    public abstract void generateCode(CodeProcedure proc, SymbolTable table, Object object);
 }

@@ -11,55 +11,64 @@ public class Call extends Stmt {
     }
 
     public void typeCheck(SymbolTable table, Object scope) throws Exception {
-        typecheckArguments(table, scope);
-        int procedureParamNumber = 0;
-        int exprParamNumber = 0;
-        Object proc = table.lookup(scope, name);
-        // Is procedure declared?
-        System.out.println(name);
-        if (proc == null)
-            throw new Exception("Procedure not declared");
-        ProcDecl procedure = (ProcDecl)proc;
-        this.type = new Type(procedure.type.toString());
-        // Need to account for when one or the other is null...
-        if (procedure.pl != null)
-            procedureParamNumber = procedure.pl.size();
-        if (el != null)
-            exprParamNumber = el.size();
-                    
-        if (procedureParamNumber != exprParamNumber)
-            throw new Exception("Procedure requires " + procedureParamNumber + 
-                                " arguments, but was given " + exprParamNumber +
-                                " arguments");
+        if (!CodeGenerationHelper.isLibraryProcedure(name)) {
+            typecheckArguments(table, scope);
+            int procedureParamNumber = 0;
+            int exprParamNumber = 0;
+            boolean isLibraryProcedure = isLibraryProcedure(name);
 
-        LinkedList<Param> params = procedure.getParams();
-        if (params != null && el != null) {
-            for (int i = 0; i < el.size(); i++) {
-                Expr e = null;
-                Call c = null;
-                Param p = params.get(i);
-                if (el.get(i) instanceof Call)
-                    c = (Call)el.get(i);
-                else 
-                    e = (Expr)el.get(i);
-                if (e != null) {
-                    if (e.type != null)
-                        if (e instanceof RefVar) {
-                            e.type = new Type("reftype");                            
-                        }
-                    if (!p.type.equals(e.type.toString()))
-                        throw new Exception("argument " + e + ": type " + e.type +
-                                            " is not the same type as param " + p +
-                                            ": type " + p.type);                    
-                }
-                if (c != null)
-                    if (c.type != null)
-                        if (!p.type.equals(c.type.toString()))
-                            throw new Exception("argument " + c + ": type " + c.type +
+            Object proc = table.lookup(scope, name);
+            // Is procedure declared?
+            if (proc == null)
+                throw new Exception("Procedure not declared");
+            ProcDecl procedure = (ProcDecl)proc;
+            this.type = new Type(procedure.type.toString());
+            // Need to account for when one or the other is null...
+            if (procedure.pl != null)
+                procedureParamNumber = procedure.pl.size();
+            if (el != null)
+                exprParamNumber = el.size();
+                    
+            if (procedureParamNumber != exprParamNumber)
+                throw new Exception("Procedure requires " + procedureParamNumber + 
+                                    " arguments, but was given " + exprParamNumber +
+                                    " arguments");
+
+            LinkedList<Param> params = procedure.getParams();
+            if (params != null && el != null) {
+                for (int i = 0; i < el.size(); i++) {
+                    Expr e = null;
+                    Call c = null;
+                    Param p = params.get(i);
+                    if (el.get(i) instanceof Call)
+                        c = (Call)el.get(i);
+                    else 
+                        e = (Expr)el.get(i);
+                    if (e != null) {
+                        if (e.type != null)
+                            if (e instanceof RefVar) {
+                                e.type = new Type("reftype");                            
+                            }
+                        if (!p.type.equals(e.type.toString()))
+                            throw new Exception("argument " + e + ": type " + e.type +
                                                 " is not the same type as param " + p +
-                                                ": type " + p.type);
+                                                ": type " + p.type);                    
+                    }
+                    if (c != null)
+                        if (c.type != null)
+                            if (!p.type.equals(c.type.toString()))
+                                throw new Exception("argument " + c + ": type " + c.type +
+                                                    " is not the same type as param " + p +
+                                                    ": type " + p.type);
+                }            
             }            
         }
+    }
+
+    public boolean isLibraryProcedure(String name) {
+        if (name.equals("printint"))
+            return true;
+        return false;
     }
 
     public void typecheckArguments(SymbolTable table, Object scope) throws Exception {
@@ -101,13 +110,66 @@ public class Call extends Stmt {
         }
     }
 
-    public void generateCode(CodeFile codeFile) {
-        
+    public void generateCode(CodeFile codeFile, SymbolTable table, Object scope) {
+
     }
 
-    public void generateCode(CodeProcedure proc) {
-        CodeGenerationHelper.exprTraverser(el, proc);
-        proc.addInstruction(new CALL(proc.procedureNumber(this.name)));
+    public void generateCode(CodeProcedure proc, SymbolTable table, Object scope) {
+        // CodeGenerationHelper.exprTraverser(el, proc, table, scope);
+        if (CodeGenerationHelper.isLibraryProcedure(name)) {
+            proc.getCodeFile().addProcedure(name);
+            if (el != null) {
+                for (Object ex : el) {
+                    if (ex instanceof Var) {
+                        // For when we are dealing with a struct
+                        if (((Var)ex).expr != null) {
+                            String varName = ((Var)ex).expr.toString();
+                            String fieldName = ((Var)ex).toString();
+                            String type = ((VarDecl)table.lookup(scope, varName)).type.toString();
+                            proc.addInstruction(new LOADLOCAL(proc.variableNumber(varName)));
+                            proc.addInstruction(new GETFIELD(proc.fieldNumber(type, fieldName),
+                                                             proc.structNumber(type)));
+                        } else {
+                            System.out.println(ex);
+                            proc.addInstruction(new LOADLOCAL(proc.variableNumber(ex.toString())));
+                        }
+                    } else {
+                        if (ex instanceof Literal) {
+                            proc.addInstruction(CodeGenerationHelper.literalHelper(((Literal)ex)));
+                        }
+                    }
+                }
+            }
+            proc.getCodeFile().updateProcedure(new CodeProcedure(this.name,
+                                                                 CodeGenerationHelper.getLiteralType(name),
+                                                                 proc.getCodeFile())); 
+            proc.addInstruction(new CALL(proc.procedureNumber(name))); 
+            return;
+        }
+        if (el != null) {
+            for (Object ex : el) {
+                if (ex instanceof Var) {
+                    // For when we are dealing with a struct
+                    if (((Var)ex).expr != null) {
+                        String varName = ((Var)ex).expr.toString();
+                        String fieldName = ((Var)ex).toString();
+                        String type = ((VarDecl)table.lookup(scope, varName)).type.toString();
+                        proc.addInstruction(new LOADLOCAL(proc.variableNumber(varName)));
+                        proc.addInstruction(new GETFIELD(proc.fieldNumber(type, fieldName),
+                                                         proc.structNumber(type)));
+                    } else {
+                        System.out.println(ex);
+                        proc.addInstruction(new LOADLOCAL(proc.variableNumber(ex.toString())));
+                    }
+                } else {
+                    if (ex instanceof Literal) {
+                        proc.addInstruction(CodeGenerationHelper.literalHelper(((Literal)ex)));
+                    }
+                }
+            }
+        }
+        proc.addInstruction(new CALL(proc.procedureNumber(name))); 
+
     }
 
     public String printAst(int indentLevel) {

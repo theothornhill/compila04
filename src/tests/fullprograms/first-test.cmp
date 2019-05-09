@@ -1,7 +1,7 @@
 program firsttest
 begin
-  var y : float;
-  var x : int;
+  // var y : float;
+  // var x : int;
 
   struct Complex {
      Imag : int
@@ -12,24 +12,32 @@ begin
      MyNumx : float
    };
 
-  proc Main(a : int)
-  begin
-    struct C {
-    One : float
-    };
-    var z : int;
-    proc newFunc()
-    begin
-    var z : int
-    in
-    end
-  in
-  if (5 = 5)
-  then
-  Main("halla")
-  fi
+  // proc Main(a : int)
+  // begin
+  //   struct C {
+  //   One : float
+  //   };
+  //   var z : int;
+  //   proc newFunc()
+  //   begin
+  //   var z : int
+  //   in
+  //   end
+  // in
+  // if (5 = 5)
+  // then
+  // Main("halla")
+  // fi
   
-  // // // // // // // // callThisFunction(5 + 5)
-   end
+  // // // // // // // // // callThisFunction(5 + 5)
+  //  end
+
+  proc main()
+  begin
+  in
+  end;
+
+  var y : float;
+  var x : int
 
 end

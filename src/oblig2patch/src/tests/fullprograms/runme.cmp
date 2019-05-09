@@ -30,12 +30,12 @@ begin
   proc printCmplx( pr : Complex ) 
   begin
   in
-      printstr("Real ");
-      printfloat((pr).Real);
-      printline("");
-      printstr("Imag ");
-      printfloat((pr).Imag);
-      printline("")
+      // printstr("Real ");
+      // printfloat((pr).Real);
+      // printline("");
+      // printstr("Imag ");
+      // printfloat((pr).Imag);
+      // printline("")
   end;
   
   proc test()
@@ -66,7 +66,7 @@ begin
   begin
   /*    str := "Navn " + str; */
   in
-        printstr(str)
+        // printstr(str)
   end;
   
   proc inOutTest()
@@ -74,13 +74,13 @@ begin
       var v1 : int ;
       var v2 : int 
   in
-      printline("skriv v1");
-      v1 := readint();
-      printline("skriv v2");
-      v2 := readint();
-      printstr("Storst ");
-      printint(Max(v1, v2));
-      printline("")
+      // printline("skriv v1");
+      // v1 := readint();
+      // printline("skriv v2");
+      // v2 := readint();
+      // printstr("Storst ");
+      // printint(Max(v1, v2));
+      // printline("")
   end;
   
   proc Main() 
@@ -91,16 +91,16 @@ begin
   in
 
       num := 6.480740;
-      printfloat( num );
-      printline("");
+      // printfloat( num );
+      // printline("");
 
       num2 := 7;
-      printint(num2);
-      printline("");
+      // printint(num2);
+      // printline("");
     
       navn := "TestNavn";
       printStr(navn);
-      printline("");
+      // printline("");
     
       test();
       inOutTest();
@@ -108,9 +108,9 @@ begin
       dummy := new Complex;
       dummy.Real := 1.0;
       dummy.Imag := 2.0;
-      printCmplx(dummy);
+      printCmplx(dummy)
 
 
-      printline("DONE")
+      // printline("DONE")
   end
 end

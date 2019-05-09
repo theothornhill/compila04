@@ -59,19 +59,19 @@ public class If extends Stmt {
         // sl2.stream().forEach(s -> table.insert(s.toString(), s));
     }
 
-    public void generateCode(CodeFile codeFile) {
+    public void generateCode(CodeFile codeFile, SymbolTable table, Object scope) {
         
     }
 
-    public void generateCode(CodeProcedure proc) {
+    public void generateCode(CodeProcedure proc, SymbolTable table, Object scope) {
         
     }
 
-    public void generateCode(CodeFile codeFile, CodeProcedure proc) {
-        CodeGenerationHelper.exprHelper(proc, e);
-        CodeGenerationHelper.stmtTraverser(sl, codeFile, proc);
+    public void generateCode(CodeFile codeFile, CodeProcedure proc, SymbolTable table, Object scope) {
+        CodeGenerationHelper.exprHelper(proc, e, table, scope);
+        CodeGenerationHelper.stmtTraverser(sl, codeFile, proc, table, scope);
         if (sl2 != null)
-            CodeGenerationHelper.stmtTraverser(sl2, codeFile, proc);
+            CodeGenerationHelper.stmtTraverser(sl2, codeFile, proc, table, scope);
     }    
 
     public String printAst(int indentLevel) {

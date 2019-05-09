@@ -52,17 +52,20 @@ public class While extends Stmt {
         // sl.stream().forEach(s -> table.insert(s.toString(), s));
     }
 
-    public void generateCode(CodeFile codeFile) {
+    public void generateCode(CodeFile codeFile, SymbolTable table, Object scope) {
         
     }
 
-    public void generateCode(CodeProcedure proc) {
+    public void generateCode(CodeProcedure proc, SymbolTable table, Object scope) {
         
     }
     
-    public void generateCode(CodeFile codeFile, CodeProcedure proc) {
-        CodeGenerationHelper.exprHelper(proc, e);
-        CodeGenerationHelper.stmtTraverser(sl, codeFile, proc);
+    public void generateCode(CodeFile codeFile,
+                             CodeProcedure proc,
+                             SymbolTable table,
+                             Object scope) {
+        CodeGenerationHelper.exprHelper(proc, e, table, scope);
+        CodeGenerationHelper.stmtTraverser(sl, codeFile, proc, table, scope);
     }
     
     public String printAst(int indentLevel) {

@@ -19,8 +19,8 @@ public class NestedExpr extends Expr {
         }
     }
 
-    public void generateCode(CodeProcedure proc) {
-        CodeGenerationHelper.exprHelper(proc, expr);
+    public void generateCode(CodeProcedure proc, SymbolTable table, Object scope) {
+        CodeGenerationHelper.exprHelper(proc, expr, table, scope);
     }
     
     public String toString() {

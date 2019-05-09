@@ -55,13 +55,17 @@ public class Program extends Decl implements AttributeGrammar {
 
     public void setLexicalScopeLevel(int scope) {
         declarations.stream().forEach(d -> d.setLexicalScopeLevel(scope));
-        declarations.stream().forEach(d ->
-                   System.out.println("" + d.name + ": scope " + d.lexicalScopeLevel +
-                                      " createdby " + d.createdBy));
+        // declarations.stream().forEach(d ->
+        //            System.out.println("" + d.name + ": scope " + d.lexicalScopeLevel +
+        //                               " createdby " + d.createdBy));
     }
 
     public void generateCode(CodeFile codeFile) {
         CodeGenerationHelper.declTraverser(declarations, codeFile);
+    }
+
+    public void generateCode(CodeProcedure proc) {
+        
     }
 
     public void addToSymbolTable() throws Exception {

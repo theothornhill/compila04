@@ -51,9 +51,9 @@ public class RecDecl extends Decl {
         this.lexicalScopeLevel = scope;
         if (pl != null) {
             pl.stream().forEach(d -> d.setLexicalScopeLevel(lexicalScopeLevel+1));
-            pl.stream().forEach(d ->
-                                System.out.println("" + d.name + ": scope " + d.lexicalScopeLevel +
-                                                   " createdby " + d.createdBy));                        
+            // pl.stream().forEach(d ->
+            //                     System.out.println("" + d.name + ": scope " + d.lexicalScopeLevel +
+            //                                        " createdby " + d.createdBy));                        
         }
     }
 
@@ -71,6 +71,12 @@ public class RecDecl extends Decl {
         codeFile.addStruct(this.name);
         CodeGenerationHelper.paramTraverser(pl, struct);
         codeFile.updateStruct(struct);
+    }
+
+    public void generateCode(CodeProcedure proc) {
+        // proc.getCodeFile().addStruct(this.name);
+        // CodeGenerationHelper.paramTraverser(pl, struct);
+        // codeFile.updateStruct(struct);
     }
 
     public String printAst(int indentLevel) {

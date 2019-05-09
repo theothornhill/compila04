@@ -12,7 +12,7 @@ public class Param extends Expr implements AttributeGrammar {
     public Param(String name, Type type) {
         this.name = name;
         this.type = type;
-        // this.t = type.setCodeType(this.type.toString());
+        this.t = type.setCodeType(this.type.toString());
     }
 
     public void typeCheck() throws Exception {
@@ -65,9 +65,9 @@ public class Param extends Expr implements AttributeGrammar {
         
     }
 
-    public void generateCode(CodeProcedure proc) {
+    public void generateCode(CodeProcedure proc, SymbolTable table, Object scope) {
         proc.addParameter(name, t);
-        proc.addInstruction(new LOADLOCAL(proc.variableNumber(name)));
+        // proc.addInstruction(new LOADLOCAL(proc.variableNumber(name)));
     }
 
     public String printAst(int indentLevel) {

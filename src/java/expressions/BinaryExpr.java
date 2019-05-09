@@ -121,10 +121,24 @@ public class BinaryExpr extends Expr {
         // table.insert("Expr2", CodeGenerationHelper.getTable(e2));
     }
 
-    public void generateCode(CodeProcedure proc) {
-        CodeGenerationHelper.exprHelper(proc, e1);
+    public void generateCode(CodeProcedure proc, SymbolTable table, Object scope) {
+        // CodeGenerationHelper.exprHelper(proc, e1, table, scope);
+        // CodeGenerationHelper.exprHelper(proc, e2, table, scope);
+        if (e1 instanceof Literal)
+            proc.addInstruction(CodeGenerationHelper.literalHelper(((Literal)e1)));
+        else if (e1 instanceof Var) {
+            proc.addInstruction(new LOADLOCAL(proc.variableNumber(e1.toString())));            
+        }
+
+        if (e2 instanceof Literal)
+            proc.addInstruction(CodeGenerationHelper.literalHelper(((Literal)e2)));
+        else if (e2 instanceof Var) {
+            proc.addInstruction(new LOADLOCAL(proc.variableNumber(e2.toString())));            
+        }
+        // proc.addInstruction(new LOADLOCAL(proc.variableNumber(e1.toString())));
+        // proc.addInstruction(new LOADLOCAL(proc.variableNumber(e2.toString())));
         proc.addInstruction(CodeGenerationHelper.instructionHelper(proc, op));
-        CodeGenerationHelper.exprHelper(proc, e2);
+        
     }
 
     public String printAst(int indentLevel) {

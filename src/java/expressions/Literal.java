@@ -31,7 +31,7 @@ public class Literal extends Expr {
         }
     }
 
-    public void generateCode(CodeProcedure proc) {
+    public void generateCode(CodeProcedure proc, SymbolTable table, Object scope) {
         // TODO: Do we need to generate code for the literals? Or can we just
         // return them directly?
     }

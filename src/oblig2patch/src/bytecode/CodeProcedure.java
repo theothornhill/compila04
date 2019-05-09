@@ -25,6 +25,10 @@ public class CodeProcedure {
 		this.codeFile = codeFile;
 	}
 
+    public CodeFile getCodeFile() {
+        return this.codeFile;
+    }
+
 	public void addParameter(String name, CodeType type) {
 		this.parameterNames.add(name);
 		this.parameterTypes.add(type);

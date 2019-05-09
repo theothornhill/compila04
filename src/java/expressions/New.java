@@ -1,5 +1,6 @@
 import bytecode.*;
 import bytecode.type.*;
+import bytecode.instructions.*;
 
 public class New extends Expr {
     String name;
@@ -28,7 +29,8 @@ public class New extends Expr {
         }
     }
 
-    public void generateCode(CodeProcedure proc) {
+    public void generateCode(CodeProcedure proc, SymbolTable table, Object scope) {
+        proc.addInstruction(new NEW(proc.structNumber(type.toString())));
         
     }
 

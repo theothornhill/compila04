@@ -41,7 +41,7 @@ public class ProcDecl extends Decl {
         typecheckParamsInProcDecl();
         typecheckDeclarationsInProcDecl();
         typecheckStatementsInProcDecl();
-        typecheckIfReturnTypeIsMatching();
+        typecheckIfReturnTypeIsMatching();            
     }
 
     public boolean returntypeIsUserDefined() {
@@ -125,21 +125,21 @@ public class ProcDecl extends Decl {
         this.lexicalScopeLevel = scope;
         if (pl != null) {
             pl.stream().forEach(d -> d.setLexicalScopeLevel(lexicalScopeLevel+1));
-            pl.stream().forEach(d ->
-                                System.out.println("" + d.name + ": scope " + d.lexicalScopeLevel +
-                                                   " createdby " + d.createdBy));            
+            // pl.stream().forEach(d ->
+            //                     System.out.println("" + d.name + ": scope " + d.lexicalScopeLevel +
+            //                                        " createdby " + d.createdBy));            
         }
         if (dl != null) {
             dl.stream().forEach(d -> d.setLexicalScopeLevel(lexicalScopeLevel+1));
-            dl.stream().forEach(d ->
-                                System.out.println("" + d.name + ": scope " + d.lexicalScopeLevel +
-                                                   " createdby " + d.createdBy));            
+            // dl.stream().forEach(d ->
+            //                     System.out.println("" + d.name + ": scope " + d.lexicalScopeLevel +
+            //                                        " createdby " + d.createdBy));            
         }
         if (sl != null) {
             sl.stream().forEach(d -> d.setLexicalScopeLevel(lexicalScopeLevel+1));
-            sl.stream().forEach(d ->
-                                System.out.println("" + d.name + ": scope " + d.lexicalScopeLevel +
-                                                   " createdby " + d.createdBy));            
+            // sl.stream().forEach(d ->
+            //                     System.out.println("" + d.name + ": scope " + d.lexicalScopeLevel +
+            //                                        " createdby " + d.createdBy));            
         }
     }
 
@@ -161,21 +161,48 @@ public class ProcDecl extends Decl {
         codeFile.addProcedure(this.name);
         // meant to handle if it is a library procedure, and as such just update
         // at once
-        if (CodeGenerationHelper.isLibraryProcedure(name))
-            codeFile.updateProcedure(proc);
-        else
+        // System.out.println(this.name);
+        if (CodeGenerationHelper.isLibraryProcedure(this.name)) {
+            // codeFile.updateProcedure(new CodeProcedure(this.name, IntType.TYPE, codeFile));
+        } else {
             proc = type == null
                 ? CodeGenerationHelper.newProc(name, null, codeFile)
                 : CodeGenerationHelper.newProc(name, type, codeFile);
                 
-        CodeGenerationHelper.paramTraverser(pl, proc);
+            CodeGenerationHelper.paramTraverser(pl, proc, table, this);
 
-        CodeGenerationHelper.declTraverser(dl, codeFile);
+            CodeGenerationHelper.declTraverser(dl, proc);
 
-        CodeGenerationHelper.stmtTraverser(sl, codeFile, proc);
-        // Handle the return statement differently?
-        proc.addInstruction(new RETURN());
-        codeFile.updateProcedure(proc);
+            CodeGenerationHelper.stmtTraverser(sl, codeFile, proc, table, this);
+            // Handle the return statement differently?
+            proc.addInstruction(new RETURN());
+            codeFile.updateProcedure(proc);            
+        }
+
+    }
+
+    public void generateCode(CodeProcedure proc) {
+        CodeFile codeFile = proc.getCodeFile();
+        codeFile.addProcedure(this.name);
+        // meant to handle if it is a library procedure, and as such just update
+        // at once
+        // System.out.println(this.name);
+        if (CodeGenerationHelper.isLibraryProcedure(this.name)) {
+            codeFile.updateProcedure(new CodeProcedure(this.name, IntType.TYPE, codeFile));
+        } else {
+            proc = type == null
+                ? CodeGenerationHelper.newProc(name, null, codeFile)
+                : CodeGenerationHelper.newProc(name, type, codeFile);
+                
+            CodeGenerationHelper.paramTraverser(pl, proc, table, this);
+
+            CodeGenerationHelper.declTraverser(dl, proc);
+
+            CodeGenerationHelper.stmtTraverser(sl, codeFile, proc, table, this);
+            // Handle the return statement differently?
+            proc.addInstruction(new RETURN());
+            codeFile.updateProcedure(proc);            
+        }
     }
 
     private String printType(int indentLevel) {

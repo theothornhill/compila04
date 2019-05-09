@@ -29,7 +29,7 @@ public class Not extends Expr {
         }
     }
 
-    public void generateCode(CodeProcedure proc) {
+    public void generateCode(CodeProcedure proc, SymbolTable table, Object scope) {
         
     }    
 
