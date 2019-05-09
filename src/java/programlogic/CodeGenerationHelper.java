@@ -70,14 +70,12 @@ public class CodeGenerationHelper {
             : VoidType.TYPE;    // TODO: Literals can never be void. Fix
     }
 
-    public static CodeProcedure newProc(String name, Type type, CodeFile codeFile) {
+    public static CodeProcedure newProc(String name, String type, CodeFile codeFile) {
         CodeProcedure proc;
         if (type == null) {
             proc = new CodeProcedure(name, VoidType.TYPE, codeFile);
         } else {
-            proc = new CodeProcedure(name,
-                                     type.setCodeType(type.toString()),
-                                     codeFile);
+            proc = new CodeProcedure(name, getLiteralType(type), codeFile);
         }
         return proc;
     }
