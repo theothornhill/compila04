@@ -67,6 +67,10 @@ public class CodeGenerationHelper {
             ? IntType.TYPE
             : type.equals("printfloat")
             ? FloatType.TYPE
+            : type.equals("readint")
+            ? IntType.TYPE
+            : type.equals("printline")
+            ? StringType.TYPE
             : VoidType.TYPE;    // TODO: Literals can never be void. Fix
     }
 
