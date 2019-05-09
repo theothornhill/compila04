@@ -15,8 +15,6 @@ public class Call extends Stmt {
             typecheckArguments(table, scope);
             int procedureParamNumber = 0;
             int exprParamNumber = 0;
-            boolean isLibraryProcedure = isLibraryProcedure(name);
-
             Object proc = table.lookup(scope, name);
             // Is procedure declared?
             if (proc == null)
@@ -63,12 +61,6 @@ public class Call extends Stmt {
                 }            
             }            
         }
-    }
-
-    public boolean isLibraryProcedure(String name) {
-        if (name.equals("printint"))
-            return true;
-        return false;
     }
 
     public void typecheckArguments(SymbolTable table, Object scope) throws Exception {
