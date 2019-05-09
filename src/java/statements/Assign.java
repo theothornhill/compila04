@@ -108,14 +108,10 @@ public class Assign extends Stmt {
             proc.addInstruction(CodeGenerationHelper.literalHelper(((Literal)e)));
             if (e2 instanceof Var)
                 if (((Var)e2).expr != null) {
-                    System.out.println(((Var)e2) + " will be assigned a " + e);
-                    proc.addInstruction(new LOADLOCAL(proc.variableNumber("f")));
-                    proc.addInstruction(new PUTFIELD(proc.fieldNumber("Foo", ((Var)e2).toString()),
-                                                     proc.structNumber("Foo")));
-                    // proc.addInstruction(new STORELOCAL(proc.variableNumber(((Var)e2).expr.toString())));
+                    // we need to load a variable and put in record field
+                    generateRecordPutField(e2, proc, table, scope);
                     return;
                 }
-
         }
 
         else if (e instanceof BinaryExpr)
@@ -124,14 +120,21 @@ public class Assign extends Stmt {
             proc.addInstruction(new LOADLOCAL(proc.variableNumber(e.toString())));
         else if (e instanceof New) {
             ((New)e).generateCode(proc, table, scope);
-            // System.out.println(((Expr)e2).expr);
-            // if (e instanceof Literal)
-            //     proc.addInstruction(CodeGenerationHelper.literalHelper(((Literal)e)));
         } else if (e instanceof Call) {
             ((Call)e).generateCode(proc, table, scope);
         }
 
         proc.addInstruction(new STORELOCAL(proc.variableNumber(e2.toString())));
+    }
+
+    public void generateRecordPutField(Object ex, CodeProcedure proc,
+                                       SymbolTable table, Object scope) {
+        String varName = ((Var)ex).expr.toString();
+        String fieldName = ((Var)ex).toString();
+        String type = ((VarDecl)table.lookup(scope, varName)).type.toString();
+        proc.addInstruction(new LOADLOCAL(proc.variableNumber(varName)));
+        proc.addInstruction(new PUTFIELD(proc.fieldNumber(type, fieldName),
+                                         proc.structNumber(type)));        
     }
 
     public String printAst(int indentLevel) {
