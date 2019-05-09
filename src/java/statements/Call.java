@@ -117,46 +117,27 @@ public class Call extends Stmt {
     public void generateCode(CodeProcedure proc, SymbolTable table, Object scope) {
         // CodeGenerationHelper.exprTraverser(el, proc, table, scope);
         if (CodeGenerationHelper.isLibraryProcedure(name)) {
-            proc.getCodeFile().addProcedure(name);
-            if (el != null) {
-                for (Object ex : el) {
-                    if (ex instanceof Var) {
-                        // For when we are dealing with a struct
-                        if (((Var)ex).expr != null) {
-                            String varName = ((Var)ex).expr.toString();
-                            String fieldName = ((Var)ex).toString();
-                            String type = ((VarDecl)table.lookup(scope, varName)).type.toString();
-                            proc.addInstruction(new LOADLOCAL(proc.variableNumber(varName)));
-                            proc.addInstruction(new GETFIELD(proc.fieldNumber(type, fieldName),
-                                                             proc.structNumber(type)));
-                        } else {
-                            System.out.println(ex);
-                            proc.addInstruction(new LOADLOCAL(proc.variableNumber(ex.toString())));
-                        }
-                    } else {
-                        if (ex instanceof Literal) {
-                            proc.addInstruction(CodeGenerationHelper.literalHelper(((Literal)ex)));
-                        }
-                    }
-                }
-            }
-            proc.getCodeFile().updateProcedure(new CodeProcedure(this.name,
-                                                                 CodeGenerationHelper.getLiteralType(name),
-                                                                 proc.getCodeFile())); 
+            proc.getCodeFile().addProcedure(name); 
+            traverseExprs(proc, table, scope);
+            proc.getCodeFile().updateProcedure(CodeGenerationHelper.newProc(this.name, name, proc.getCodeFile())); 
             proc.addInstruction(new CALL(proc.procedureNumber(name))); 
-            return;
+        } else {
+            traverseExprs(proc, table, scope);
+            proc.addInstruction(new CALL(proc.procedureNumber(name)));             
         }
+
+    }
+
+    public void traverseExprs(CodeProcedure proc, SymbolTable table, Object scope) {
         if (el != null) {
             for (Object ex : el) {
+                if (ex instanceof RefVar) {
+                    System.out.println(ex + " is a refvar ");
+                }
                 if (ex instanceof Var) {
                     // For when we are dealing with a struct
                     if (((Var)ex).expr != null) {
-                        String varName = ((Var)ex).expr.toString();
-                        String fieldName = ((Var)ex).toString();
-                        String type = ((VarDecl)table.lookup(scope, varName)).type.toString();
-                        proc.addInstruction(new LOADLOCAL(proc.variableNumber(varName)));
-                        proc.addInstruction(new GETFIELD(proc.fieldNumber(type, fieldName),
-                                                         proc.structNumber(type)));
+                        generateRecordGetField(ex, proc, table, scope);
                     } else {
                         System.out.println(ex);
                         proc.addInstruction(new LOADLOCAL(proc.variableNumber(ex.toString())));
@@ -168,9 +149,18 @@ public class Call extends Stmt {
                 }
             }
         }
-        proc.addInstruction(new CALL(proc.procedureNumber(name))); 
-
     }
+
+    public void generateRecordGetField(Object ex, CodeProcedure proc, SymbolTable table, Object scope) {
+        String varName = ((Var)ex).expr.toString();
+        String fieldName = ((Var)ex).toString();
+        String type = ((VarDecl)table.lookup(scope, varName)).type.toString();
+        proc.addInstruction(new LOADLOCAL(proc.variableNumber(varName)));
+        proc.addInstruction(new GETFIELD(proc.fieldNumber(type, fieldName),
+                                         proc.structNumber(type)));        
+    }
+
+
 
     public String printAst(int indentLevel) {
         StringBuilder sb = new StringBuilder();
