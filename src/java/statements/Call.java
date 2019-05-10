@@ -129,7 +129,11 @@ public class Call extends Stmt {
                     if (((Var)ex).expr != null) {
                         CodeGenerationHelper.generateRecordGetField(ex, proc, table, scope);
                     } else {
-                        proc.addInstruction(new LOADLOCAL(proc.variableNumber(ex.toString())));
+                        if (proc.variableNumber(ex.toString()) == -1) {
+                            proc.addInstruction(new LOADGLOBAL(proc.getCodeFile().globalVariableNumber(ex.toString())));
+                        } else {
+                            proc.addInstruction(new LOADLOCAL(proc.variableNumber(ex.toString())));                            
+                        }
                     }
                 } else if (ex instanceof Literal) {
                     proc.addInstruction(CodeGenerationHelper.literalHelper(((Literal)ex), proc));
