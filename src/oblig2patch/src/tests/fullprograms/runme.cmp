@@ -104,11 +104,11 @@ begin
     
       test();
       inOutTest();
-    
-      // dummy := new Complex;
-      // dummy.Real := 1.0;
-      // dummy.Imag := 2.0
-      // printCmplx(dummy)
+      
+      dummy := new Complex;
+      dummy.Real := 1.0;
+      dummy.Imag := 2.0;
+      printCmplx(dummy);
 
 
       printline("DONE")
