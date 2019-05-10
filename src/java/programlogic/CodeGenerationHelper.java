@@ -71,6 +71,10 @@ public class CodeGenerationHelper {
             ? IntType.TYPE
             : type.equals("printline")
             ? StringType.TYPE
+            : type.equals("printstr")
+            ? StringType.TYPE
+            : returntypeIsUserDefined(type)
+            ? StringType.TYPE
             : VoidType.TYPE;    // TODO: Literals can never be void. Fix
     }
 
@@ -218,6 +222,14 @@ public class CodeGenerationHelper {
         proc.addInstruction(new LOADLOCAL(proc.variableNumber(varName)));
         proc.addInstruction(new GETFIELD(proc.fieldNumber(type, fieldName),
                                          proc.structNumber(type)));        
+    }
+    
+    public static boolean returntypeIsUserDefined(String type) {
+        return !(type.equals("string") ||
+                 type.equals("float")  ||
+                 type.equals("int")    ||
+                 type.equals("bool")   ||
+                 type.equals("null"));
     }
 }
 
