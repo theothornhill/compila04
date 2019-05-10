@@ -44,16 +44,10 @@ public class ProcDecl extends Decl {
         typecheckIfReturnTypeIsMatching();            
     }
 
-    public boolean returntypeIsUserDefined() {
-        return !(type.equals("string") ||
-                 type.equals("float")  ||
-                 type.equals("int")    ||
-                 type.equals("bool")   ||
-                 type.equals("null"));
-    }
+
 
     public void typecheckReturnType() throws Exception {
-        if (returntypeIsUserDefined()) {
+        if (CodeGenerationHelper.returntypeIsUserDefined(type.toString())) {
             if (table.lookup(this, type.toString()) == null)
                 throw new Exception("Undeclared user defined return type " + type);
             
