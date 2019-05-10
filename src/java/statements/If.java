@@ -1,6 +1,7 @@
 import java.util.*;
 import bytecode.*;
 import bytecode.type.*;
+import bytecode.instructions.*;
 
 public class If extends Stmt {
     LinkedList<Stmt> sl2;
@@ -64,14 +65,32 @@ public class If extends Stmt {
     }
 
     public void generateCode(CodeProcedure proc, SymbolTable table, Object scope) {
-        
+        int jump;
+        int trueClause;
+        int falseClause;
+        int end;
+        if (e instanceof BinaryExpr) {
+            ((BinaryExpr)e).generateCode(proc, table, scope);
+
+            jump = proc.addInstruction(new NOP());
+            CodeGenerationHelper.stmtTraverser(sl, proc.getCodeFile(), proc, table, scope);
+            trueClause = proc.addInstruction(new NOP());
+
+            falseClause = proc.addInstruction(new NOP());
+            CodeGenerationHelper.stmtTraverser(sl2, proc.getCodeFile(), proc, table, scope);
+            end = proc.addInstruction(new NOP());
+
+            proc.replaceInstruction(trueClause, new JMP(end));
+            proc.replaceInstruction(jump, new JMPFALSE(falseClause));
+        }        
     }
 
     public void generateCode(CodeFile codeFile, CodeProcedure proc, SymbolTable table, Object scope) {
-        CodeGenerationHelper.exprHelper(proc, e, table, scope);
-        CodeGenerationHelper.stmtTraverser(sl, codeFile, proc, table, scope);
-        if (sl2 != null)
-            CodeGenerationHelper.stmtTraverser(sl2, codeFile, proc, table, scope);
+        // CodeGenerationHelper.exprHelper(proc, e, table, scope);
+        // CodeGenerationHelper.stmtTraverser(sl, codeFile, proc, table, scope);
+        // if (sl2 != null)
+        //     CodeGenerationHelper.stmtTraverser(sl2, codeFile, proc, table, scope);
+
     }    
 
     public String printAst(int indentLevel) {
