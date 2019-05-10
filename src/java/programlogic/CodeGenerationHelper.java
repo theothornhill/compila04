@@ -104,7 +104,7 @@ public class CodeGenerationHelper {
                 if (stmt instanceof Assign) {
                     ((Assign) stmt).generateCode(proc, table, scope);
                 } else if (stmt instanceof If) {
-                    // ((If) stmt).generateCode(codeFile, proc, table, scope);
+                    ((If) stmt).generateCode(proc, table, scope);
                 } else {
                     stmt.generateCode(proc, table, scope); 
                 }
