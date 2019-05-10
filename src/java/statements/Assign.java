@@ -115,8 +115,7 @@ public class Assign extends Stmt {
                     generateRecordPutField(e2, proc, table, scope);
                     return;
                 }
-        }
-        else if (e instanceof BinaryExpr) {
+        } else if (e instanceof BinaryExpr) {
             ((BinaryExpr)e).generateCode(proc, table, scope);
             if (e2 instanceof Var) {
                 if (((Var)e2).expr != null) {
@@ -125,15 +124,19 @@ public class Assign extends Stmt {
                     return;
                 }
             }
-        }
-        else if (e instanceof Var)
+        } else if (e instanceof Var)
             proc.addInstruction(new LOADLOCAL(proc.variableNumber(e.toString())));
         else if (e instanceof New) {
             ((New)e).generateCode(proc, table, scope);
         } else if (e instanceof Call) {
             ((Call)e).generateCode(proc, table, scope);
         }
-        proc.addInstruction(new STORELOCAL(proc.variableNumber(e2.toString())));
+        if (proc.variableNumber(e2.toString()) == -1) {
+            proc.addInstruction(new STOREGLOBAL(proc.getCodeFile().globalVariableNumber(e2.toString())));
+        } else {
+            proc.addInstruction(new STORELOCAL(proc.variableNumber(e2.toString())));        
+        }
+
     }
 
     public void generateRecordPutField(Object ex, CodeProcedure proc,
@@ -141,8 +144,11 @@ public class Assign extends Stmt {
         String varName = ((Var)ex).expr.toString();
         String fieldName = ((Var)ex).toString();
         String type = ((VarDecl)table.lookup(scope, varName)).type.toString();
-        // System.out.println("did this happen?" + varName + "." + fieldName);
-        proc.addInstruction(new LOADLOCAL(proc.variableNumber(varName)));
+        if (proc.variableNumber(varName) == -1) {
+            proc.addInstruction(new LOADGLOBAL(proc.getCodeFile().globalVariableNumber(varName)));
+        } else {
+            proc.addInstruction(new LOADLOCAL(proc.variableNumber(varName)));            
+        }
         proc.addInstruction(new PUTFIELD(proc.fieldNumber(type, fieldName),
                                          proc.structNumber(type)));        
     }
