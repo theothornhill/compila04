@@ -61,12 +61,17 @@ public class Return extends Stmt {
     }
 
     public void generateCode(CodeProcedure proc, SymbolTable table, Object scope) {
-        // CodeGenerationHelper.returnHelper(proc, table, scope);
         if (e != null) {
-            if (e instanceof BinaryExpr)
-                ((BinaryExpr)e).generateCode(proc, table, scope);
-            else
-                proc.addInstruction(new LOADLOCAL(proc.variableNumber(e.toString())));
+            if (e instanceof BinaryExpr) {
+                ((BinaryExpr)e).generateCode(proc, table, scope);                
+            } else if (e instanceof Var) {
+                if (((Var)e).expr != null) {
+                    System.out.println(e.toString());
+                }
+                proc.addInstruction(new LOADLOCAL(proc.variableNumber(e.toString()))); 
+            } else {
+                proc.addInstruction(new LOADLOCAL(proc.variableNumber(e.toString())));                
+            }
         }
     }
     
