@@ -72,7 +72,6 @@ program           ::= PROGRAM NAME:name BEGIN decl_list:dl END
                                     program.setLexicalScopeLevel(currentLevel+1);
                                     program.typeCheck();   
                                     table = program.getTable();
-                                    CodeGenerationHelper.printTable(table);
                                :}                             
                     ; 
 
