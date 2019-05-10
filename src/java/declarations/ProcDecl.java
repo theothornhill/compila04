@@ -119,21 +119,12 @@ public class ProcDecl extends Decl {
         this.lexicalScopeLevel = scope;
         if (pl != null) {
             pl.stream().forEach(d -> d.setLexicalScopeLevel(lexicalScopeLevel+1));
-            // pl.stream().forEach(d ->
-            //                     System.out.println("" + d.name + ": scope " + d.lexicalScopeLevel +
-            //                                        " createdby " + d.createdBy));            
         }
         if (dl != null) {
             dl.stream().forEach(d -> d.setLexicalScopeLevel(lexicalScopeLevel+1));
-            // dl.stream().forEach(d ->
-            //                     System.out.println("" + d.name + ": scope " + d.lexicalScopeLevel +
-            //                                        " createdby " + d.createdBy));            
         }
         if (sl != null) {
             sl.stream().forEach(d -> d.setLexicalScopeLevel(lexicalScopeLevel+1));
-            // sl.stream().forEach(d ->
-            //                     System.out.println("" + d.name + ": scope " + d.lexicalScopeLevel +
-            //                                        " createdby " + d.createdBy));            
         }
     }
 
@@ -153,9 +144,6 @@ public class ProcDecl extends Decl {
 
     public void generateCode(CodeFile codeFile) {
         codeFile.addProcedure(this.name);
-        // meant to handle if it is a library procedure, and as such just update
-        // at once
-        // System.out.println(this.name);
         if (CodeGenerationHelper.isLibraryProcedure(this.name)) {
             // codeFile.updateProcedure(new CodeProcedure(this.name, IntType.TYPE, codeFile));
         } else {
@@ -178,9 +166,6 @@ public class ProcDecl extends Decl {
     public void generateCode(CodeProcedure proc) {
         CodeFile codeFile = proc.getCodeFile();
         codeFile.addProcedure(this.name);
-        // meant to handle if it is a library procedure, and as such just update
-        // at once
-        // System.out.println(this.name);
         if (CodeGenerationHelper.isLibraryProcedure(this.name)) {
             codeFile.updateProcedure(new CodeProcedure(this.name, IntType.TYPE, codeFile));
         } else {
