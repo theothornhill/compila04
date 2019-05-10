@@ -11,9 +11,7 @@ begin
       retval := new Complex;
       retval.Real := a.Real + b.Real;
       retval.Imag := a.Imag + b.Imag;
-      printfloat(retval.Real);
-      printfloat(retval.Imag)
-      // return retval
+      return retval
   end;
  
   proc Max ( a : int , b : int ) : int 
@@ -26,21 +24,19 @@ begin
       else
          res := b
       fi;
-      printint(res)
-      // return res
+      return res
   end;
   
-  // proc printCmplx( pr : Complex ) 
-  // begin
-  // in
-  //     // printstr("Real ");
-  //     printfloat((pr).Real);
-  //     // printline("");
-  //     // printstr("Imag ");
-  //     printfloat((pr).Imag)
-  //     // printline("")
-      
-  // end;
+  proc printCmplx( pr : Complex ) 
+  begin
+  in
+      printstr("Real ");
+      printfloat((pr).Real);
+      printline("");
+      printstr("Imag ");
+      printfloat((pr).Imag);
+      printline("")
+  end;
   
   proc test()
   begin
@@ -59,34 +55,33 @@ begin
       c1.Imag := 2;
       c2.Real := 3;
       c2.Imag := 4;
-      Add(c1, c2);
-      // printCmplx(Add(c1, c2))
+      printCmplx(Add(c1, c2));
 
       x:=3;
       y:=7;
       max := Max(y, x)
   end;
   
-  // proc printStr(str : string) 
-  // begin
-  // /*    str := "Navn " + str; */
-  // in
-  //       // printstr(str)
-  // end;
+  proc printStr(str : string) 
+  begin
+  in
+        str := "Navn " + str; 
+        printstr(str)
+  end;
   
-  // proc inOutTest()
-  // begin
-  //     var v1 : int ;
-  //     var v2 : int 
-  // in
-  //     // printline("skriv v1");
-  //     // v1 := readint()
-  //     // printline("skriv v2");
-  //     // v2 := readint();
-  //     // printstr("Storst ");
-  //     // printint(Max(v1, v2));
-  //     // printline("")
-  // end;
+  proc inOutTest()
+  begin
+      var v1 : int ;
+      var v2 : int 
+  in
+      printline("skriv v1");
+      v1 := readint();
+      printline("skriv v2");
+      v2 := readint();
+      printstr("Storst ");
+      printint(Max(v1, v2));
+      printline("")
+  end;
   
   proc Main() 
   begin
@@ -96,19 +91,19 @@ begin
   in
 
       num := 6.480740;
-      // printfloat( num );
-      // printline("");
+      printfloat( num );
+      printline("");
 
       num2 := 7;
-      // printint(num2);
-      // printline("");
+      printint(num2);
+      printline("");
     
-      // navn := "TestNavn";
-      // printStr(navn);
-      // printline("");
+      navn := "TestNavn";
+      printStr(navn);
+      printline("");
     
-      test()
-      // inOutTest();
+      test();
+      inOutTest();
     
       // dummy := new Complex;
       // dummy.Real := 1.0;
@@ -116,6 +111,6 @@ begin
       // printCmplx(dummy)
 
 
-      // printline("DONE")
+      printline("DONE")
   end
 end
