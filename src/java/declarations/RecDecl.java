@@ -51,9 +51,6 @@ public class RecDecl extends Decl {
         this.lexicalScopeLevel = scope;
         if (pl != null) {
             pl.stream().forEach(d -> d.setLexicalScopeLevel(lexicalScopeLevel+1));
-            // pl.stream().forEach(d ->
-            //                     System.out.println("" + d.name + ": scope " + d.lexicalScopeLevel +
-            //                                        " createdby " + d.createdBy));                        
         }
     }
 
@@ -68,6 +65,7 @@ public class RecDecl extends Decl {
     }
     
     public void generateCode(CodeFile codeFile) {
+        // As for now structs are added globally. Fix later maybe?
         codeFile.addStruct(this.name);
         CodeGenerationHelper.paramTraverser(pl, struct);
         codeFile.updateStruct(struct);
