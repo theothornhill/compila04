@@ -27,11 +27,7 @@ public class Main {
                 CodeFile codeFile = new CodeFile();
 
                 program.generateCode(codeFile);
-                // program.generateCode();
-                // program.printTable();
 
-                codeFile.setMain("Main"); // This needs to go somewhere else?
-                
                 byte[] bytecode = codeFile.getBytecode();
 
                 DataOutputStream stream = new DataOutputStream(new FileOutputStream("/Users/theodor/Dropbox/Studier/fag/INF5110/compila04/example.bin"));

@@ -3,16 +3,20 @@ import bytecode.*;
 
 public class Program extends Decl implements AttributeGrammar {
     LinkedList<Decl> declarations;
+    Object mainUppercase;
+    Object mainLowercase;
     public Program(String name, LinkedList<Decl> declarations) {
         this.name = name;
         this.declarations = declarations;
     }
 
     public void typeCheck() throws Exception {
-        if (table.lookup(this, "Main") == null &&
-            table.lookup(this, "main") == null) {
+        mainUppercase = table.lookup(this, "Main");
+        mainLowercase = table.lookup(this, "main");
+        if (mainUppercase == null && mainLowercase == null) {
             throw new Exception("No Main procedure declared in program");
         }
+
         TypeCheckHelper.typeCheckDecls(declarations);
     }
 
@@ -43,6 +47,12 @@ public class Program extends Decl implements AttributeGrammar {
 
     public void generateCode(CodeFile codeFile) {
         CodeGenerationHelper.declTraverser(declarations, codeFile);
+        if (mainLowercase != null)
+            codeFile.setMain("main");
+        else 
+            codeFile.setMain("Main");
+        
+
     }
 
     public void generateCode(CodeProcedure proc) {
