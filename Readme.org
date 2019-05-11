@@ -1,5 +1,10 @@
-* Information
-
+* Compila - a small language on the JVM
+  =compila= is a language created for the =java virtual machine= based on a smaller
+  custom made implementation of bytecode instructions created by Professor
+  Martin Steffen from UiO. This implementation attempts to implement the main
+  control structures in a programming language, all the way from lexing and
+  parsing (using =cup= and =jflex=), through creation of a symbol table and code
+  generation using earlier mentioned bytecode implementation. 
 ** Name
 Theodor Thornhill - theodokt
 
@@ -7,6 +12,35 @@ Theodor Thornhill - theodokt
 theodokt@ifi.uio.no | theodorthornhill@icloud.com
 * Introduction
 ** Information about this project
+   Many dragons lie ahead, but these are some thoughts I have regarding the
+   current implementation.
+*** Notes 
+**** Discussion
+***** Data structure - symbol table
+      I have implemented the [[file:src/java/programlogic/SymbolTable.java::}][symbol table]] as a =HashMap= with =String= as key and
+      =Object= as value. I've chosen to view a normal java class as a =HashMap= of its
+      own, where instance variables act as nested key,value-pairs. In this way I
+      have to do quite a lot of casting, but I gain a fairly flexible data
+      structure. I thought a lot and hard about this, and couldn't really find
+      another way. As such to implement the lexical scoping, I let every object in
+      the data structure know what scope created it. This enables me to traverse
+      backwards in the symbol tree without having to rely on explicit naming of
+      the different scopes on the same level.
+***** Attribute grammar
+      I have included an =Interface= called [[file:src/java/programlogic/AttributeGrammar.java::}][AttributeGrammar]] that the [[file:src/java/declarations/Decl.java::}][decls]] and
+      [[file:src/java/statements/Stmt.java::}][stmts]] implement. This is what helps me implement the [[file:src/java/programlogic/SymbolTable.java::}][symbol table]], and is
+      used during the bottom-up parsing. 
+***** Other choices
+      There is one test reporting syntax error, which according to the slides
+      should be syntactically correct. I am not sure how to respond to this,
+      since the lexer wants to report this as a float, and as such it is not
+      syntactically correct. The test I am referring to is [[file:src/oblig2patch/src/tests/oblig2/errors/type6_fail.cmp::program%20type6_fail][type6_fail]].
+***** Struggles
+      One of my tests are not passing, and it is involving the =ref - deref=
+      correspondance. I believe the point of that feature is to have mutable
+      state, and the [[file:src/oblig2patch/src/bytecode/type/RefType.java::}][RefType]] class provided in the library seems to refer to
+      structs rather than local/global variables. I chose not to worry to much
+      about this, since [[file:src/oblig2patch/src/tests/fullprograms/runme.cmp::program%20runme][runme.cmp]] isn't using that feature. 
 *** Project structure
     This is an overview of the hierarchy of the project. 
     #+BEGIN_SRC shell :results output  :exports both
@@ -140,6 +174,7 @@ init:
 mkdir:
 
 generate:
+    [jflex] Generated: Lexer.java
       [cup] This is CUP v0.11a beta 20060608
       [cup] Authors : Scott E. Hudson, Frank Flannery, Andrea Flexeder, Michael Petter and C. Scott Ananian
       [cup] Bugreports to petter@cs.tum.edu
@@ -151,11 +186,11 @@ generate:
       [cup] use option force="true" to override
 
 compile:
-    [javac] /Users/theodor/Dropbox/Studier/fag/INF5110/compila04/build.xml:62: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] /Users/theodor/Dropbox/Studier/fag/INF5110/compila04/build.xml:63: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
     [javac] Compiling 91 source files to /Users/theodor/Dropbox/Studier/fag/INF5110/compila04/build/classes
     [javac] Note: Some input files use or override a deprecated API.
     [javac] Note: Recompile with -Xlint:deprecation for details.
-    [javac] /Users/theodor/Dropbox/Studier/fag/INF5110/compila04/build.xml:63: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] /Users/theodor/Dropbox/Studier/fag/INF5110/compila04/build.xml:64: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
 
 build:
 
@@ -556,21 +591,4 @@ run:
 BUILD SUCCESSFUL
 Total time: 1 second
 #+end_example
-
-* Notes 
-** Discussion
-*** Data structure
-    I have implemented the [[file:src/java/programlogic/SymbolTable.java::}][symbol table]] as a =HashMap= with =String= as key and
-    =Object= as value. I've chosen to view a normal java class as a =HashMap= of its
-    own, where instance variables act as nested key,value-pairs. In this way I
-    have to do quite a lot of casting, but I gain a fairly flexible data
-    structure. I thought a lot and hard about this, and couldn't really find
-    another way. As such to implement the lexical scoping, I let every object in
-    the data structure know what scope created it. This enables me to traverse
-    backwards in the symbol tree without having to rely on explicit naming of
-    the different scopes on the same level. I discuss this further in [[*Attribute grammar][Attribute grammar]]
-*** Attribute grammar
-    I have included an =Interface= called [[file:src/java/programlogic/AttributeGrammar.java::}][AttributeGrammar]] that the [[file:src/java/declarations/Decl.java::}][decls]] and
-    [[file:src/java/statements/Stmt.java::}][stmts]] implement. This is what helps me implement the [[file:src/java/programlogic/SymbolTable.java::}][symbol table]], and is
-    used during the bottom-up parsing. 
 
