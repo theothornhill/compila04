@@ -45,10 +45,6 @@ public class Call extends Stmt {
                 else 
                     e = (Expr)el.get(i);
                 if (e != null) {
-                    if (e.type != null)
-                        if (e instanceof RefVar) {
-                            e.type = new Type("reftype");                            
-                        }
                     if (!p.type.equals(e.type.toString()))
                         throw new Exception("argument " + e + ": type " + e.type +
                                             " is not the same type as param " + p +
@@ -127,6 +123,7 @@ public class Call extends Stmt {
         if (el != null) {
             for (Object ex : el) {
                 if (ex instanceof RefVar) {
+                    proc.addInstruction(new LOADLOCAL(proc.variableNumber(ex.toString())));                            
                 } else if (ex instanceof Var) {
                     // For when we are dealing with a struct
                     if (((Var)ex).expr != null) {
