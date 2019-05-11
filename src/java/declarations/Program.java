@@ -60,15 +60,11 @@ public class Program extends Decl implements AttributeGrammar {
     }
 
     public void addToSymbolTable() throws Exception {
-        try {
-            if (declarations != null) {
-                for (Decl d : declarations) {
-                    table.insert(d);
-                    d.addToSymbolTable();
-                }
+        if (declarations != null) {
+            for (Decl d : declarations) {
+                table.insert(d);
+                d.addToSymbolTable();
             }
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 

@@ -79,20 +79,14 @@ public class ProcDecl extends Decl {
     }
 
     public void addToSymbolTable() throws Exception {
-        try {
-            if (pl != null)
-                for (Param p : pl)
-                    table.insert(p);
-            if (dl != null)
-                for (Decl d : dl) {
-                    table.insert(d);
-                    d.addToSymbolTable();
-                }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
+        if (pl != null)
+            for (Param p : pl)
+                table.insert(p);
+        if (dl != null)
+            for (Decl d : dl) {
+                table.insert(d);
+                d.addToSymbolTable();
+            }
     }
 
     public void generateCode(CodeFile codeFile) {

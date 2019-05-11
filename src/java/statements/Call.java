@@ -20,6 +20,8 @@ public class Call extends Stmt {
             setTypeFromProcedure(procedure);
             sameNumberOfArguments(procedure);
             typeCheckParams(procedure);
+        } else {
+            TypeCheckHelper.typeCheckArguments(el, table, scope);
         }
     }
 

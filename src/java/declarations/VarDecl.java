@@ -36,13 +36,9 @@ public class VarDecl extends Decl {
         type.setLexicalScopeLevel(lexicalScopeLevel+1);
     }
 
-    public void addToSymbolTable() {
-        try {
-            table.insert(name);
-            table.insert(type);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public void addToSymbolTable() throws Exception {
+        table.insert(name);
+        table.insert(type);
     }
 
     public void generateCode(CodeFile codeFile) {

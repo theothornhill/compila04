@@ -26,11 +26,7 @@ public class Not extends Expr {
     }
 
     public void addToSymbolTable(SymbolTable table) {
-        try {
-            table.insert(expr);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        table.insert(expr);
     }
 
     public void generateCode(CodeProcedure proc, SymbolTable table, Object scope) {

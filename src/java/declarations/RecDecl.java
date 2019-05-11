@@ -44,12 +44,8 @@ public class RecDecl extends Decl {
     }
 
     public void addToSymbolTable() throws Exception {
-        try {
-            for (Param p : pl) {
-                table.insert(p);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+        for (Param p : pl) {
+            table.insert(p);
         }
     }
     

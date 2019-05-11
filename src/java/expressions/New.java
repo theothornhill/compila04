@@ -21,12 +21,8 @@ public class New extends Expr {
             throw new Exception("Argument of new is not declared");
     }
 
-    public void addToSymbolTable(SymbolTable table) {
-        try {
-            table.insert(name);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public void addToSymbolTable(SymbolTable table) throws Exception {
+        table.insert(name);
     }
 
     public void generateCode(CodeProcedure proc, SymbolTable table, Object scope) {
