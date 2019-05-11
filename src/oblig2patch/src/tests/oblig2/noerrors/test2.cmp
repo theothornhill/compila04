@@ -1,0 +1,17 @@
+program test2
+begin
+    proc Main()
+    begin
+       var i : int
+    in
+       i := 0;
+       while i < 5
+       do
+         printline("");
+         printstr("Printing in loop: ");
+         i := i + 1;
+         printint(i);
+         printline("")
+       od
+    end
+end

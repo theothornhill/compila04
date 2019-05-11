@@ -1,6 +1,7 @@
 import java.util.*;
 import bytecode.*;
 import bytecode.type.*;
+import bytecode.instructions.*;
 
 public class While extends Stmt {
     Object e;
@@ -52,8 +53,21 @@ public class While extends Stmt {
                              CodeProcedure proc,
                              SymbolTable table,
                              Object scope) {
-        CodeGenerationHelper.exprHelper(proc, e, table, scope);
+        int jump;
+        int trueClause;
+        int falseClause;
+        int end;
+        jump = proc.addInstruction(new NOP());
+
+        if (e instanceof BinaryExpr) {
+            ((BinaryExpr)e).generateCode(proc, table, scope);
+        }
+        trueClause = proc.addInstruction(new NOP());
+        falseClause = proc.addInstruction(new NOP());
         CodeGenerationHelper.stmtTraverser(sl, codeFile, proc, table, scope);
+        proc.addInstruction(new JMP(jump));
+        end = proc.addInstruction(new NOP());
+        proc.replaceInstruction(trueClause, new JMPFALSE(end));
     }
     
     public String printAst(int indentLevel) {

@@ -107,6 +107,8 @@ public class CodeGenerationHelper {
                     ((Assign) stmt).generateCode(proc, table, scope);
                 } else if (stmt instanceof If) {
                     ((If) stmt).generateCode(proc, table, scope);
+                } else if (stmt instanceof While) {
+                    ((While) stmt).generateCode(codeFile, proc, table, scope);
                 } else {
                     stmt.generateCode(proc, table, scope); 
                 }
