@@ -84,8 +84,11 @@ public class ProcDecl extends Decl {
                 for (Param p : pl)
                     table.insert(p);
             if (dl != null)
-                for (Decl d : dl)
+                for (Decl d : dl) {
                     table.insert(d);
+                    d.addToSymbolTable();
+                }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
