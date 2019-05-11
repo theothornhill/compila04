@@ -58,18 +58,19 @@ public class If extends Stmt {
         int end;
         if (e instanceof BinaryExpr) {
             ((BinaryExpr)e).generateCode(proc, table, scope);
+        } else if (e instanceof Not) {
+            ((Not)e).generateCode(proc, table, scope);
+        }
+        jump = proc.addInstruction(new NOP());
+        CodeGenerationHelper.stmtTraverser(sl, proc.getCodeFile(), proc, table, scope);
+        trueClause = proc.addInstruction(new NOP());
 
-            jump = proc.addInstruction(new NOP());
-            CodeGenerationHelper.stmtTraverser(sl, proc.getCodeFile(), proc, table, scope);
-            trueClause = proc.addInstruction(new NOP());
+        falseClause = proc.addInstruction(new NOP());
+        CodeGenerationHelper.stmtTraverser(sl2, proc.getCodeFile(), proc, table, scope);
+        end = proc.addInstruction(new NOP());
 
-            falseClause = proc.addInstruction(new NOP());
-            CodeGenerationHelper.stmtTraverser(sl2, proc.getCodeFile(), proc, table, scope);
-            end = proc.addInstruction(new NOP());
-
-            proc.replaceInstruction(trueClause, new JMP(end));
-            proc.replaceInstruction(jump, new JMPFALSE(falseClause));
-        }        
+        proc.replaceInstruction(trueClause, new JMP(end));
+        proc.replaceInstruction(jump, new JMPFALSE(falseClause));
     }
 
     // public void generateCode(CodeFile codeFile, CodeProcedure proc, SymbolTable table, Object scope) {
