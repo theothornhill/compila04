@@ -1,5 +1,6 @@
 import bytecode.*;
 import bytecode.type.*;
+import bytecode.instructions.*;
 
 public class Not extends Expr {
     CodeType t;
@@ -9,14 +10,18 @@ public class Not extends Expr {
     }
 
     public void typeCheck(SymbolTable table, Object scope) throws Exception {
-        Object e = table.lookup(scope, ((Var)expr).name);
+        Object e = null;
+        if (expr instanceof Var) 
+            e = table.lookup(scope, ((Var)expr).name);
         if (expr instanceof Expr) {
             ((Expr)expr).typeCheck(table, scope);
             if (!((Expr)expr).type.equals("bool"))
                 throw new Exception("Argument of not operator not of type bool");            
         }
-        if (!((BinaryExpr)expr).isBoolean) {
-            throw new Exception("Result of binary expression must be boolean");
+        if (expr instanceof BinaryExpr) {
+            if (!((BinaryExpr)expr).isBoolean) {
+                throw new Exception("Result of binary expression must be boolean");
+            }            
         }
     }
 
@@ -29,8 +34,13 @@ public class Not extends Expr {
     }
 
     public void generateCode(CodeProcedure proc, SymbolTable table, Object scope) {
-        
-    }    
+        if (expr != null) {
+            if (expr instanceof BinaryExpr) {
+                ((BinaryExpr)expr).generateCode(proc, table, scope);                
+            } 
+            proc.addInstruction(new NOT());                
+        }
+    }
 
     public String toString() {
         return expr.toString();
