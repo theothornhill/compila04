@@ -16,9 +16,7 @@ public class Main {
     public static Program compile(String[] args) throws Exception {
         Lexer lex = new Lexer(new FileReader(args[0]));
         parser parser = new parser(lex);
-        Symbol returnSymbol;
         Program program = null;
-        int currentLevel = 0;
         try {
             program = (Program)parser.parse().value;            
         } catch (Exception e) {
@@ -26,7 +24,6 @@ public class Main {
         }
         program.addToSymbolTable();
         program.setCreatorOf();
-        program.setLexicalScopeLevel(currentLevel+1);
         program.typeCheck();   
         return program;
     }
