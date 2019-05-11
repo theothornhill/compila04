@@ -56,8 +56,11 @@ public class Compiler {
         stream.write(bytecode);
         stream.close();
         VirtualMachine vm = new VirtualMachine("/Users/theodor/Dropbox/Studier/fag/INF5110/compila04/example.bin");
-        // vm.list();
-        vm.run();        
+        if (args.length > 1) {
+            vm.list();            
+        } else {
+            vm.run();                    
+        }
     }
 
     public static void main(String[] args) throws Exception {

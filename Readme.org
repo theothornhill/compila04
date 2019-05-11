@@ -5,7 +5,6 @@ Theodor Thornhill - theodokt
 
 ** Email
 theodokt@ifi.uio.no | theodorthornhill@icloud.com
-
 * Introduction
 ** Information about this project
 *** Project structure
@@ -78,7 +77,6 @@ theodokt@ifi.uio.no | theodorthornhill@icloud.com
 *** Special info
    I have chosen the =in= from =begin - in - end= to be strict and only accept
    when the =in= is present.
-
 * How to build and run
 
 You need to have =ant=  and =java= on your system, which also is recommended tool for this
@@ -103,9 +101,9 @@ menu:
      [echo] clean                     - Cleans up the project
      [echo] build                     - Build compiler
      [echo] run                       - Run compiler
-     [echo] test-fullprograms         - Test compiler programs
-     [echo] test-fail                 - Test compiler parsing fails
+     [echo] list-runme                - Test compiler parsing passes
      [echo] test-passing              - Test compiler parsing passes
+     [echo] test-fail                 - Test compiler parsing fails
 
 BUILD SUCCESSFUL
 Total time: 0 seconds
@@ -140,36 +138,24 @@ Buildfile: /Users/theodor/Dropbox/Studier/fag/INF5110/compila04/build.xml
 init:
 
 mkdir:
-    [mkdir] Created dir: /Users/theodor/Dropbox/Studier/fag/INF5110/compila04/build/classes
 
 generate:
-    [jflex] Generated: Lexer.java
       [cup] This is CUP v0.11a beta 20060608
       [cup] Authors : Scott E. Hudson, Frank Flannery, Andrea Flexeder, Michael Petter and C. Scott Ananian
       [cup] Bugreports to petter@cs.tum.edu
       [cup] checking, whether this run is necessary
-      [cup] Either Parserfile or Symbolfile didn't exist
-      [cup] Parserfile src-gen/parser.java isn't actual
-      [cup] Symbolfile src-gen/sym.java isn't actual
-      [cup] ------- CUP v0.11a beta 20060608 Parser Generation Summary -------
-      [cup]   0 errors and 0 warnings
-      [cup]   54 terminals, 27 non-terminals, and 80 productions declared, 
-      [cup]   producing 145 unique parse states.
-      [cup]   0 terminals declared but not used.
-      [cup]   0 non-terminals declared but not used.
-      [cup]   0 productions never reduced.
-      [cup]   0 conflicts detected (0 expected).
-      [cup]   Code written to "parser.java", and "sym.java".
-      [cup] ---------------------------------------------------- (v0.11a beta 20060608)
+      [cup] Parserfile and symbolfile are existing
+      [cup] Parserfile src-gen/parser.java is actual
+      [cup] Symbolfilesrc-gen/sym.java is actual
+      [cup] skipping generation of ./src/cuplex/compila.cup
+      [cup] use option force="true" to override
 
 compile:
-    [javac] /Users/theodor/Dropbox/Studier/fag/INF5110/compila04/build.xml:63: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
-    [javac] Compiling 88 source files to /Users/theodor/Dropbox/Studier/fag/INF5110/compila04/build/classes
+    [javac] /Users/theodor/Dropbox/Studier/fag/INF5110/compila04/build.xml:62: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 91 source files to /Users/theodor/Dropbox/Studier/fag/INF5110/compila04/build/classes
     [javac] Note: Some input files use or override a deprecated API.
     [javac] Note: Recompile with -Xlint:deprecation for details.
-    [javac] Note: /Users/theodor/Dropbox/Studier/fag/INF5110/compila04/src-gen/parser.java uses unchecked or unsafe operations.
-    [javac] Note: Recompile with -Xlint:unchecked for details.
-    [javac] /Users/theodor/Dropbox/Studier/fag/INF5110/compila04/build.xml:64: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] /Users/theodor/Dropbox/Studier/fag/INF5110/compila04/build.xml:63: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
 
 build:
 
@@ -192,24 +178,87 @@ Buildfile: /Users/theodor/Dropbox/Studier/fag/INF5110/compila04/build.xml
 init:
 
 test-fail:
-     [java] Syntax error on: [line: 0, column: 0, value: null]
+     [java] Double declaration of symbol Tmp
      [java] 
-     [java] Couldn't repair and continue parse
-     [java] Syntax error on: [line: 4, column: 5, value: x]
+     [java] 2
+     [java] Double declaration of symbol a
      [java] 
-     [java] Couldn't repair and continue parse at character 3 of input
-     [java] Syntax error on: [line: 2, column: 17, value: )]
+     [java] 2
+     [java] Symbol bar is not declared
      [java] 
-     [java] Couldn't repair and continue parse at character 1 of input
-     [java] Syntax error on: [line: 5, column: 1, value: end]
+     [java] 2
+     [java] No Main procedure declared in program
      [java] 
-     [java] Couldn't repair and continue parse at character 4 of input
-     [java] Syntax error on: [line: 4, column: 4, value: f]
+     [java] 2
+     [java] 32
+     [java] 0
+     [java] Return type differs from stated returntype
      [java] 
-     [java] Couldn't repair and continue parse at character 3 of input
-     [java] Syntax error on: [line: 2, column: 24, value: )]
+     [java] 2
+     [java] Return type differs from stated returntype
      [java] 
-     [java] Couldn't repair and continue parse at character 1 of input
+     [java] 2
+     [java] Procedure requires 2 arguments, but was given 1 arguments
+     [java] 
+     [java] 2
+     [java] argument true: type bool is not the same type as param val2: type int
+     [java] 
+     [java] 2
+     [java] Undeclared user defined return type notexist
+     [java] 
+     [java] 2
+     [java] Return type differs from stated returntype
+     [java] 
+     [java] 2
+     [java] Wrong type in assignment on tmp and 42
+     [java] 
+     [java] 2
+     [java] Condition in if-statement must be boolean
+     [java] 
+     [java] 2
+     [java] Wrong type in assignment on tmp and BinaryExpr@6f6745d6
+     [java] 
+     [java] 2
+     [java] Condition in while-statement must be boolean
+     [java] 
+     [java] 2
+     [java] Record not declared
+     [java] 
+     [java] 2
+     [java] Syntax error on line: 5, [42.]
+     [java] Permission ("java.lang.RuntimePermission" "exitVM") was not granted.
+     [java] 
+     [java] 1
+     [java] Attribute not declared
+     [java] 
+     [java] 2
+     [java] Argument of new is not declared
+     [java] 
+     [java] 2
+     [java] Symbol bar is not declared
+     [java] 
+     [java] 2
+     [java] Attribute not declared
+     [java] 
+     [java] 2
+     [java] Argument of not operator not of type bool
+     [java] 
+     [java] 2
+     [java] Arguments of artihmetic operation not correct type
+     [java] 
+     [java] 2
+     [java] Arguments of logical operation not correct type
+     [java] 
+     [java] 2
+     [java] Argument of new is not declared
+     [java] 
+     [java] 2
+     [java] Argument of not operator not of type bool
+     [java] 
+     [java] 2
+     [java] Arguments of relational operation not correct type
+     [java] 
+     [java] 2
 
 BUILD SUCCESSFUL
 Total time: 0 seconds
@@ -231,825 +280,242 @@ Buildfile: /Users/theodor/Dropbox/Studier/fag/INF5110/compila04/build.xml
 init:
 
 test-passing:
-     [java] (PROGRAM (NAME x)
-     [java] )
-     [java] (PROGRAM (NAME x)
-     [java] )
-     [java] (PROGRAM (NAME A_A)
-     [java]   (VAR (TYPE x) (NAME x))
-     [java]   (VAR (REFTYPE (TYPE x)) (NAME x))
-     [java]   (VAR (REFTYPE (REFTYPE (TYPE x))) (NAME x))
-     [java] )
-     [java] (PROGRAM (NAME R)
-     [java]   (STRUCT (NAME abc)
-     [java]   )
-     [java]   (STRUCT (NAME ef)
-     [java]     (PARAM_DECL (TYPE int) (NAME x))
-     [java]   )
-     [java]   (STRUCT (NAME a5)
-     [java]     (PARAM_DECL (TYPE int) (NAME x))
-     [java]     (PARAM_DECL (TYPE bool) (NAME y))
-     [java]   )
-     [java] )
-     [java] (PROGRAM (NAME R)
-     [java]   (VAR (TYPE x) (NAME x))
-     [java]   (STRUCT (NAME abc)
-     [java]   )
-     [java]   (VAR (REFTYPE (REFTYPE (TYPE x))) (NAME x))
-     [java]   (STRUCT (NAME ef)
-     [java]     (PARAM_DECL (TYPE int) (NAME x))
-     [java]   )
-     [java]   (STRUCT (NAME a5)
-     [java]     (PARAM_DECL (TYPE int) (NAME x))
-     [java]     (PARAM_DECL (REFTYPE (TYPE x)) (NAME y))
-     [java]   )
-     [java]   (VAR (REFTYPE (TYPE x)) (NAME x))
-     [java] )
-     [java] (PROGRAM (NAME p)
-     [java]   (PROC_DECL (TYPE void) (NAME a)
-     [java]   )
-     [java]   (PROC_DECL (TYPE int) (NAME a)
-     [java]   )
-     [java]   (PROC_DECL (TYPE int) (NAME a)
-     [java]     (PARAM_DECL (TYPE int) (NAME a))
+     [java] 42.042.042
+     [java] 0
+     [java] ""
+     [java] "Printing in loop: "1""
+     [java] ""
+     [java] "Printing in loop: "2""
+     [java] ""
+     [java] "Printing in loop: "3""
+     [java] ""
+     [java] "Printing in loop: "4""
+     [java] ""
+     [java] "Printing in loop: "5""
      [java] 
-     [java]   )
-     [java]   (PROC_DECL (TYPE int) (NAME a)
-     [java]     (PARAM_DECL (TYPE int) (NAME a))
-     [java]     (PARAM_DECL (TYPE bool) (NAME b))
-     [java] 
-     [java]   )
-     [java]   (PROC_DECL (TYPE int) (NAME a)
-     [java]     (PARAM_DECL (TYPE int) (NAME a))
-     [java] 
-     [java]     (VAR (TYPE int) (NAME x))
-     [java]     (STRUCT (NAME x)
-     [java]     )
-     [java]     (PROC_DECL (TYPE void) (NAME b)
-     [java]       (PARAM_DECL (TYPE int) (NAME b))
-     [java] 
-     [java]     )
-     [java] 
-     [java]     (ASSIGN_STMT
-     [java]       (VAR (NAME x))
-     [java]       (INT_LITERAL 5)
-     [java]     )
-     [java]     (ASSIGN_STMT
-     [java]       (VAR (NAME x))
-     [java]       (INT_LITERAL 5)
-     [java]     )
-     [java]   )
-     [java] )
-     [java] (PROGRAM (NAME p_p)
-     [java]   (PROC_DECL (TYPE void) (NAME a)
-     [java]     (ASSIGN_STMT
-     [java]       (VAR (NAME x))
-     [java]       (INT_LITERAL 5)
-     [java]     )
-     [java]     (ASSIGN_STMT
-     [java]       (VAR (NAME x))
-     [java]       (BINARY_OPERATION +
-     [java]         (INT_LITERAL 6)
-     [java]         (BINARY_OPERATION +
-     [java]           (INT_LITERAL 6)
-     [java]           (INT_LITERAL 8)
-     [java]         )
-     [java]       )
-     [java]     )
-     [java]     (ASSIGN_STMT
-     [java]       (VAR (NAME x))
-     [java]       (BINARY_OPERATION +
-     [java]         (INT_LITERAL 6)
-     [java]         (BINARY_OPERATION *
-     [java]           (INT_LITERAL 6)
-     [java]           (INT_LITERAL 8)
-     [java]         )
-     [java]       )
-     [java]     )
-     [java]     (ASSIGN_STMT
-     [java]       (VAR (NAME x))
-     [java]       (NOT (BINARY_OPERATION +
-     [java]           (INT_LITERAL 6)
-     [java]           (BINARY_OPERATION *
-     [java]             (INT_LITERAL 6)
-     [java]             (INT_LITERAL 8)
-     [java]           )
-     [java]         )
-     [java]       )
-     [java]     )
-     [java]     (ASSIGN_STMT
-     [java]       (VAR (NAME x))
-     [java]       (BINARY_OPERATION &&
-     [java]         (VAR (NAME a))
-     [java]         (BINARY_OPERATION ||
-     [java]           (VAR (NAME b))
-     [java]           (BINARY_OPERATION *
-     [java]             (VAR (NAME c))
-     [java]             (BINARY_OPERATION +
-     [java]               (INT_LITERAL 4)
-     [java]               (BINARY_OPERATION ^
-     [java]                 (INT_LITERAL 2)
-     [java]                 (BINARY_OPERATION &&
-     [java]                   (INT_LITERAL 5)
-     [java]                   (NOT (VAR (NAME x))
-     [java]                   )
-     [java]                 )
-     [java]               )
-     [java]             )
-     [java]           )
-     [java]         )
-     [java]       )
-     [java]     )
-     [java]     (ASSIGN_STMT
-     [java]       (VAR (NAME x))
-     [java]       (BINARY_OPERATION &&
-     [java]         (VAR (NAME a))
-     [java]         (BINARY_OPERATION ||
-     [java]           (VAR (NAME b))
-     [java]           (BINARY_OPERATION +
-     [java]             (BINARY_OPERATION <
-     [java]               (BINARY_OPERATION <
-     [java]                 (VAR (NAME c))
-     [java]                 (INT_LITERAL 4)
-     [java]               )
-     [java]               (INT_LITERAL 4)
-     [java]             )
-     [java]             (BINARY_OPERATION ^
-     [java]               (INT_LITERAL 2)
-     [java]               (BINARY_OPERATION &&
-     [java]                 (INT_LITERAL 5)
-     [java]                 (NOT (VAR (NAME x))
-     [java]                 )
-     [java]               )
-     [java]             )
-     [java]           )
-     [java]         )
-     [java]       )
-     [java]     )
-     [java]     (ASSIGN_STMT
-     [java]       (VAR (NAME x))
-     [java]       (BINARY_OPERATION <
-     [java]         (VAR (NAME a))
-     [java]         (BINARY_OPERATION +
-     [java]           (VAR (NAME b))
-     [java]           (BINARY_OPERATION <
-     [java]             (VAR (NAME x))
-     [java]             (VAR (NAME d))
-     [java]           )
-     [java]         )
-     [java]       )
-     [java]     )
-     [java]     (ASSIGN_STMT
-     [java]       (VAR (NAME x))
-     [java]       (NEW a)
-     [java]     )
-     [java]     (ASSIGN_STMT
-     [java]       (VAR (NAME x))
-     [java]       (FLOAT_LITERAL 5.5)
-     [java]     )
-     [java]     (ASSIGN_STMT
-     [java]       (VAR (NAME x))
-     [java]       (REFVAR (NAME x))
-     [java]     )
-     [java]     (ASSIGN_STMT
-     [java]       (VAR (NAME x))
-     [java]       (DEREFVAR (NAME x))
-     [java]     )
-     [java]     (ASSIGN_STMT
-     [java]       (VAR (NAME x))
-     [java]       (VAR (NAME e)) (NAME x)
-     [java]       )
-     [java]     )
-     [java]     (ASSIGN_STMT
-     [java]       (VAR (NAME x))
-     [java]       (DEREFVAR(VAR (NAME e)) (NAME x)
-     [java]       )
-     [java]     )
-     [java]     (ASSIGN_STMT
-     [java]       (VAR (NAME x))
-     [java]       (STRING_LITERAL "abs")
-     [java]     )
-     [java]     (ASSIGN_STMT
-     [java]       (VAR (NAME x))
-     [java]       (FLOAT_LITERAL 01.0)
-     [java]     )
-     [java]   )
-     [java] )
-     [java] (PROGRAM (NAME p)
-     [java]   (PROC_DECL (TYPE void) (NAME a)
-     [java]     (ASSIGN_STMT
-     [java]       (DEREFVAR (NAME x))
-     [java]       (FLOAT_LITERAL 01.0)
-     [java]     )
-     [java]     (ASSIGN_STMT
-     [java]       (DEREFVAR (NAME x))
-     [java]       (FLOAT_LITERAL 01.0)
-     [java]     )
-     [java]     (IF (INT_LITERAL 1)
-     [java]     )
-     [java]     (IF (INT_LITERAL 2)
-     [java]     )
-     [java]     (IF (INT_LITERAL 2)
-     [java]       (ASSIGN_STMT
-     [java]         (VAR (NAME x))
-     [java]         (BINARY_OPERATION +
-     [java]           (VAR (NAME x))
-     [java]           (INT_LITERAL 1)
-     [java]         )
-     [java]       )
-     [java]       (ASSIGN_STMT
-     [java]         (VAR (NAME x))
-     [java]         (BINARY_OPERATION +
-     [java]           (VAR (NAME x))
-     [java]           (INT_LITERAL 1)
-     [java]         )
-     [java]       )
-     [java]       (ASSIGN_STMT
-     [java]         (VAR (NAME x))
-     [java]         (BINARY_OPERATION +
-     [java]           (VAR (NAME x))
-     [java]           (INT_LITERAL 1)
-     [java]         )
-     [java]       )
-     [java]       (ASSIGN_STMT
-     [java]         (VAR (NAME x))
-     [java]         (BINARY_OPERATION +
-     [java]           (VAR (NAME x))
-     [java]           (INT_LITERAL 1)
-     [java]         )
-     [java]       )
-     [java]       (ASSIGN_STMT
-     [java]         (VAR (NAME x))
-     [java]         (BINARY_OPERATION +
-     [java]           (VAR (NAME x))
-     [java]           (INT_LITERAL 1)
-     [java]         )
-     [java]       )
-     [java]       (ELSE
-     [java]         (ASSIGN_STMT
-     [java]           (VAR (NAME x))
-     [java]           (BINARY_OPERATION +
-     [java]             (VAR (NAME x))
-     [java]             (INT_LITERAL 1)
-     [java]           )
-     [java]         )
-     [java]         (ASSIGN_STMT
-     [java]           (VAR (NAME x))
-     [java]           (BINARY_OPERATION <=
-     [java]             (VAR (NAME x))
-     [java]             (INT_LITERAL 1)
-     [java]           )
-     [java]         )
-     [java]       )
-     [java]     )
-     [java]     (WHILE (NULL_LITERAL null)
-     [java]       (RETURN)
-     [java]       (CALL_STMT (NAME f)
-     [java]         (INT_LITERAL 2)
-     [java]       )
-     [java]       (CALL_STMT (NAME f)
-     [java]         (INT_LITERAL 4)
-     [java]         (INT_LITERAL 4)
-     [java]         (INT_LITERAL 4)
-     [java]         (INT_LITERAL 5)
-     [java]       )
-     [java]       (RETURN (BINARY_OPERATION +
-     [java]           (INT_LITERAL 1)
-     [java]           (INT_LITERAL 2)
-     [java]         )
-     [java]       )
-     [java]       (IF (INT_LITERAL 2)
-     [java]       )
-     [java]     )
-     [java]   )
-     [java] )
+     [java] 0
+     [java] 4242.0
+     [java] 0
+     [java] 43.042
+     [java] 0
+     [java] 32
+     [java] 0
 
 BUILD SUCCESSFUL
 Total time: 0 seconds
 #+end_example
 
-** Running all the full programs
-   Lot of output here as well, so I'll keep it in the =README=.
-#+NAME: full-programs
-#+BEGIN_SRC shell :results output
-ant test-fullprograms
+** Printout of generated bytecode
+This is the bytecode you will get when running with the list option. 
+#+BEGIN_SRC shell :results output :exports both
+ant list-runme
 #+END_SRC
 
-#+RESULTS: full-programs
+#+RESULTS:
 #+begin_example
 Buildfile: /Users/theodor/Dropbox/Studier/fag/INF5110/compila04/build.xml
 
 init:
 
-test-fullprograms:
-     [java] (PROGRAM (NAME euclid)
-     [java]   (PROC_DECL (TYPE int) (NAME gcd)
-     [java]     (PARAM_DECL (TYPE int) (NAME a))
-     [java]     (PARAM_DECL (TYPE int) (NAME b))
+list-runme:
+     [java] Loading from file: /Users/theodor/Dropbox/Studier/fag/INF5110/compila04/example.bin
+     [java] Variables:
+     [java] 0: var void dummy
+     [java] Procedures:
+     [java] 0: proc string Add(void 0, void 1)
+     [java]     var void 2
+     [java]     0: new Complex
+     [java]     3: storelocal 2
+     [java]     6: loadlocal 0
+     [java]     9: getfield Complex[0] {float}
+     [java]     14: loadlocal 1
+     [java]     17: getfield Complex[0] {float}
+     [java]     22: add
+     [java]     23: loadlocal 2
+     [java]     26: putfield Complex[0] {float}
+     [java]     31: loadlocal 0
+     [java]     34: getfield Complex[1] {float}
+     [java]     39: loadlocal 1
+     [java]     42: getfield Complex[1] {float}
+     [java]     47: add
+     [java]     48: loadlocal 2
+     [java]     51: putfield Complex[1] {float}
+     [java]     56: loadlocal 2
+     [java]     59: return
+     [java] 1: proc int Max(int 0, int 1)
+     [java]     var int 2
+     [java]     0: loadlocal 0
+     [java]     3: loadlocal 1
+     [java]     6: gt
+     [java]     7: jmpfalse 19
+     [java]     10: loadlocal 0
+     [java]     13: storelocal 2
+     [java]     16: jmp 26
+     [java]     19: nop
+     [java]     20: loadlocal 1
+     [java]     23: storelocal 2
+     [java]     26: nop
+     [java]     27: loadlocal 2
+     [java]     30: return
+     [java] 2: proc void printCmplx(void 0)
+     [java]     0: pushstring ""Real ""
+     [java]     3: call printstr {3}
+     [java]     6: loadlocal 0
+     [java]     9: getfield Complex[0] {float}
+     [java]     14: call printfloat {4}
+     [java]     17: pushstring """"
+     [java]     20: call printline {5}
+     [java]     23: pushstring ""Imag ""
+     [java]     26: call printstr {3}
+     [java]     29: loadlocal 0
+     [java]     32: getfield Complex[1] {float}
+     [java]     37: call printfloat {4}
+     [java]     40: pushstring """"
+     [java]     43: call printline {5}
+     [java]     46: return
+     [java] 3: proc string printstr()
+     [java] 4: proc float printfloat()
+     [java] 5: proc string printline()
+     [java] 6: proc string printstr()
+     [java] 7: proc float printfloat()
+     [java] 8: proc string printline()
+     [java] 9: proc void test()
+     [java]     var void 0
+     [java]     var void 1
+     [java]     var void 2
+     [java]     var int 3
+     [java]     var int 4
+     [java]     var int 5
+     [java]     0: new Complex
+     [java]     3: storelocal 0
+     [java]     6: new Complex
+     [java]     9: storelocal 1
+     [java]     12: pushint 1
+     [java]     17: loadlocal 0
+     [java]     20: putfield Complex[0] {float}
+     [java]     25: pushint 2
+     [java]     30: loadlocal 0
+     [java]     33: putfield Complex[1] {float}
+     [java]     38: pushint 3
+     [java]     43: loadlocal 1
+     [java]     46: putfield Complex[0] {float}
+     [java]     51: pushint 4
+     [java]     56: loadlocal 1
+     [java]     59: putfield Complex[1] {float}
+     [java]     64: loadlocal 0
+     [java]     67: loadlocal 1
+     [java]     70: call Add {0}
+     [java]     73: call printCmplx {2}
+     [java]     76: pushint 3
+     [java]     81: storelocal 3
+     [java]     84: pushint 7
+     [java]     89: storelocal 4
+     [java]     92: loadlocal 4
+     [java]     95: loadlocal 3
+     [java]     98: call Max {1}
+     [java]     101: storelocal 5
+     [java]     104: return
+     [java] 10: proc void printStr(string 0)
+     [java]     0: pushstring ""Navn ""
+     [java]     3: loadlocal 0
+     [java]     6: add
+     [java]     7: storelocal 0
+     [java]     10: loadlocal 0
+     [java]     13: call printstr {3}
+     [java]     16: return
+     [java] 11: proc string printstr()
+     [java] 12: proc void inOutTest()
+     [java]     var int 0
+     [java]     var int 1
+     [java]     0: pushstring ""skriv v1""
+     [java]     3: call printline {5}
+     [java]     6: call readint {14}
+     [java]     9: storelocal 0
+     [java]     12: pushstring ""skriv v2""
+     [java]     15: call printline {5}
+     [java]     18: call readint {14}
+     [java]     21: storelocal 1
+     [java]     24: pushstring ""Storst ""
+     [java]     27: call printstr {3}
+     [java]     30: loadlocal 0
+     [java]     33: loadlocal 1
+     [java]     36: call Max {1}
+     [java]     39: call printint {18}
+     [java]     42: pushstring """"
+     [java]     45: call printline {5}
+     [java]     48: return
+     [java] 13: proc string printline()
+     [java] 14: proc int readint()
+     [java] 15: proc string printline()
+     [java] 16: proc int readint()
+     [java] 17: proc string printstr()
+     [java] 18: proc int printint()
+     [java] 19: proc string printline()
+     [java] 20: proc void Main()
+     [java]     var float 0
+     [java]     var int 1
+     [java]     var string 2
+     [java]     0: pushfloat 6.48074
+     [java]     5: storelocal 0
+     [java]     8: loadlocal 0
+     [java]     11: call printfloat {4}
+     [java]     14: pushstring """"
+     [java]     17: call printline {5}
+     [java]     20: pushint 7
+     [java]     25: storelocal 1
+     [java]     28: loadlocal 1
+     [java]     31: call printint {18}
+     [java]     34: pushstring """"
+     [java]     37: call printline {5}
+     [java]     40: pushstring ""TestNavn""
+     [java]     43: storelocal 2
+     [java]     46: loadlocal 2
+     [java]     49: call printStr {10}
+     [java]     52: pushstring """"
+     [java]     55: call printline {5}
+     [java]     58: call test {9}
+     [java]     61: call inOutTest {12}
+     [java]     64: new Complex
+     [java]     67: storeglobal dummy{void}
+     [java]     70: pushfloat 1.0
+     [java]     75: loadglobal dummy
+     [java]     78: putfield Complex[0] {float}
+     [java]     83: pushfloat 2.0
+     [java]     88: loadglobal dummy
+     [java]     91: putfield Complex[1] {float}
+     [java]     96: loadglobal dummy
+     [java]     99: call printCmplx {2}
+     [java]     102: pushstring ""DONE""
+     [java]     105: call printline {5}
+     [java]     108: return
+     [java] 21: proc float printfloat()
+     [java] 22: proc string printline()
+     [java] 23: proc int printint()
+     [java] 24: proc string printline()
+     [java] 25: proc string printline()
+     [java] 26: proc string printline()
+     [java] Structs:
+     [java] 0: Complex
+     [java]     0: float
+     [java]     1: float
+     [java] Constants:
+     [java] 0: "Real "
+     [java] 1: ""
+     [java] 2: "Imag "
+     [java] 3: ""
+     [java] 4: "Navn "
+     [java] 5: "skriv v1"
+     [java] 6: "skriv v2"
+     [java] 7: "Storst "
+     [java] 8: ""
+     [java] 9: ""
+     [java] 10: ""
+     [java] 11: "TestNavn"
+     [java] 12: ""
+     [java] 13: "DONE"
+     [java] STARTWITH: Main
      [java] 
-     [java]     (VAR (TYPE int) (NAME res))
-     [java] 
-     [java]     (IF (BINARY_OPERATION =
-     [java]         (VAR (NAME a))
-     [java]         (INT_LITERAL 0)
-     [java]       )
-     [java]       (ASSIGN_STMT
-     [java]         (VAR (NAME res))
-     [java]         (VAR (NAME b))
-     [java]       )
-     [java]       (ELSE
-     [java]         (WHILE (BINARY_OPERATION <>
-     [java]             (VAR (NAME b))
-     [java]             (INT_LITERAL 0)
-     [java]           )
-     [java]           (IF (BINARY_OPERATION >
-     [java]               (VAR (NAME a))
-     [java]               (VAR (NAME b))
-     [java]             )
-     [java]             (ASSIGN_STMT
-     [java]               (VAR (NAME a))
-     [java]               (BINARY_OPERATION -
-     [java]                 (VAR (NAME a))
-     [java]                 (VAR (NAME b))
-     [java]               )
-     [java]             )
-     [java]             (ELSE
-     [java]               (ASSIGN_STMT
-     [java]                 (VAR (NAME b))
-     [java]                 (BINARY_OPERATION -
-     [java]                   (VAR (NAME b))
-     [java]                   (VAR (NAME a))
-     [java]                 )
-     [java]               )
-     [java]             )
-     [java]           )
-     [java]         )
-     [java]         (ASSIGN_STMT
-     [java]           (VAR (NAME res))
-     [java]           (VAR (NAME a))
-     [java]         )
-     [java]       )
-     [java]     )
-     [java]     (RETURN (VAR (NAME res))
-     [java]     )
-     [java]   )
-     [java]   (PROC_DECL (TYPE void) (NAME Main)
-     [java]     (CALL_STMT (NAME printint)
-     [java]       (CALL_STMT (NAME gcd)
-     [java]         (INT_LITERAL 6)
-     [java]         (INT_LITERAL 19)
-     [java]       )
-     [java]     )
-     [java]     (CALL_STMT (NAME printline)
-     [java]       (STRING_LITERAL "")
-     [java]     )
-     [java]     (CALL_STMT (NAME printint)
-     [java]       (CALL_STMT (NAME gcd)
-     [java]         (INT_LITERAL 6)
-     [java]         (INT_LITERAL 9)
-     [java]       )
-     [java]     )
-     [java]     (CALL_STMT (NAME printline)
-     [java]       (STRING_LITERAL "")
-     [java]     )
-     [java]     (CALL_STMT (NAME printint)
-     [java]       (CALL_STMT (NAME gcd)
-     [java]         (INT_LITERAL 629)
-     [java]         (INT_LITERAL 592)
-     [java]       )
-     [java]     )
-     [java]     (CALL_STMT (NAME printline)
-     [java]       (STRING_LITERAL "")
-     [java]     )
-     [java]   )
-     [java] )
-     [java] (PROGRAM (NAME ComplexAddition)
-     [java]   (STRUCT (NAME Complex)
-     [java]     (PARAM_DECL (TYPE float) (NAME Real))
-     [java]     (PARAM_DECL (TYPE float) (NAME Imag))
-     [java]   )
-     [java]   (PROC_DECL (TYPE void) (NAME Swap)
-     [java]     (PARAM_DECL (REFTYPE (TYPE int)) (NAME a))
-     [java]     (PARAM_DECL (REFTYPE (TYPE int)) (NAME b))
-     [java] 
-     [java]     (VAR (TYPE int) (NAME tmp))
-     [java] 
-     [java]     (ASSIGN_STMT
-     [java]       (VAR (NAME tmp))
-     [java]       (VAR (NAME a))
-     [java]     )
-     [java]     (ASSIGN_STMT
-     [java]       (VAR (NAME a))
-     [java]       (VAR (NAME b))
-     [java]     )
-     [java]     (ASSIGN_STMT
-     [java]       (VAR (NAME b))
-     [java]       (VAR (NAME tmp))
-     [java]     )
-     [java]   )
-     [java]   (PROC_DECL (TYPE Complex) (NAME Add)
-     [java]     (PARAM_DECL (TYPE Complex) (NAME a))
-     [java]     (PARAM_DECL (TYPE Complex) (NAME b))
-     [java] 
-     [java]     (VAR (TYPE Complex) (NAME retval))
-     [java] 
-     [java]     (ASSIGN_STMT
-     [java]       (VAR (NAME retval))
-     [java]       (NEW Complex)
-     [java]     )
-     [java]     (ASSIGN_STMT
-     [java]       (VAR (NAME retval)) (NAME Real)
-     [java]       )
-     [java]       (BINARY_OPERATION +
-     [java]         (VAR (NAME a)) (NAME Real)
-     [java]         )
-     [java]         (VAR (NAME b)) (NAME Real)
-     [java]         )
-     [java]       )
-     [java]     )
-     [java]     (ASSIGN_STMT
-     [java]       (VAR (NAME retval)) (NAME Imag)
-     [java]       )
-     [java]       (BINARY_OPERATION +
-     [java]         (VAR (NAME a)) (NAME Imag)
-     [java]         )
-     [java]         (VAR (NAME b)) (NAME Imag)
-     [java]         )
-     [java]       )
-     [java]     )
-     [java]     (RETURN (VAR (NAME retval))
-     [java]     )
-     [java]   )
-     [java]   (PROC_DECL (TYPE int) (NAME Max)
-     [java]     (PARAM_DECL (TYPE int) (NAME a))
-     [java]     (PARAM_DECL (TYPE int) (NAME b))
-     [java] 
-     [java]     (IF (BINARY_OPERATION >
-     [java]         (VAR (NAME a))
-     [java]         (VAR (NAME b))
-     [java]       )
-     [java]       (RETURN (VAR (NAME a))
-     [java]       )
-     [java]     )
-     [java]     (RETURN (VAR (NAME b))
-     [java]     )
-     [java]   )
-     [java]   (PROC_DECL (TYPE void) (NAME main)
-     [java]     (PROC_DECL (TYPE float) (NAME Square)
-     [java]       (PARAM_DECL (TYPE float) (NAME val))
-     [java] 
-     [java]       (RETURN (BINARY_OPERATION ^
-     [java]           (VAR (NAME val))
-     [java]           (FLOAT_LITERAL 2.0)
-     [java]         )
-     [java]       )
-     [java]     )
-     [java]     (VAR (TYPE float) (NAME num))
-     [java] 
-     [java]     (ASSIGN_STMT
-     [java]       (VAR (NAME num))
-     [java]       (FLOAT_LITERAL 6.480740)
-     [java]     )
-     [java]     (CALL_STMT (NAME print_float)
-     [java]       (VAR (NAME num))
-     [java]     )
-     [java]     (CALL_STMT (NAME print_str)
-     [java]       (STRING_LITERAL " squared is ")
-     [java]     )
-     [java]     (CALL_STMT (NAME print_float)
-     [java]       (CALL_STMT (NAME Square)
-     [java]         (VAR (NAME num))
-     [java]       )
-     [java]     )
-     [java]     (RETURN)
-     [java]   )
-     [java] )
-     [java] (PROGRAM (NAME plog)
-     [java]   (PROC_DECL (TYPE void) (NAME symbols)
-     [java]     (PARAM_DECL (TYPE int) (NAME n))
-     [java]     (PARAM_DECL (TYPE string) (NAME zz))
-     [java] 
-     [java]     (VAR (TYPE int) (NAME i))
-     [java] 
-     [java]     (ASSIGN_STMT
-     [java]       (VAR (NAME i))
-     [java]       (INT_LITERAL 0)
-     [java]     )
-     [java]     (WHILE (BINARY_OPERATION <
-     [java]         (VAR (NAME i))
-     [java]         (VAR (NAME n))
-     [java]       )
-     [java]       (CALL_STMT (NAME printstr)
-     [java]         (VAR (NAME zz))
-     [java]       )
-     [java]       (ASSIGN_STMT
-     [java]         (VAR (NAME i))
-     [java]         (BINARY_OPERATION +
-     [java]           (VAR (NAME i))
-     [java]           (INT_LITERAL 1)
-     [java]         )
-     [java]       )
-     [java]     )
-     [java]   )
-     [java]   (PROC_DECL (TYPE void) (NAME skriv_plog)
-     [java]     (VAR (TYPE int) (NAME h))
-     [java]     (VAR (TYPE int) (NAME j))
-     [java] 
-     [java]     (ASSIGN_STMT
-     [java]       (VAR (NAME h))
-     [java]       (INT_LITERAL 5)
-     [java]     )
-     [java]     (ASSIGN_STMT
-     [java]       (VAR (NAME j))
-     [java]       (INT_LITERAL 0)
-     [java]     )
-     [java]     (WHILE (BINARY_OPERATION <
-     [java]         (VAR (NAME j))
-     [java]         (VAR (NAME h))
-     [java]       )
-     [java]       (CALL_STMT (NAME symbols)
-     [java]         (VAR (NAME j))
-     [java]         (STRING_LITERAL " ")
-     [java]       )
-     [java]       (CALL_STMT (NAME symbols)
-     [java]         (INT_LITERAL 1)
-     [java]         (STRING_LITERAL "X")
-     [java]       )
-     [java]       (CALL_STMT (NAME symbols)
-     [java]         (BINARY_OPERATION *
-     [java]           (BINARY_OPERATION -
-     [java]             (VAR (NAME h))
-     [java]             (BINARY_OPERATION -
-     [java]               (VAR (NAME j))
-     [java]               (INT_LITERAL 1)
-     [java]             )
-     [java]           )
-     [java]           (INT_LITERAL 2)
-     [java]         )
-     [java]         (STRING_LITERAL " ")
-     [java]       )
-     [java]       (CALL_STMT (NAME symbols)
-     [java]         (INT_LITERAL 1)
-     [java]         (STRING_LITERAL "X")
-     [java]       )
-     [java]       (CALL_STMT (NAME printline)
-     [java]         (STRING_LITERAL "")
-     [java]       )
-     [java]       (ASSIGN_STMT
-     [java]         (VAR (NAME j))
-     [java]         (BINARY_OPERATION +
-     [java]           (VAR (NAME j))
-     [java]           (INT_LITERAL 1)
-     [java]         )
-     [java]       )
-     [java]     )
-     [java]   )
-     [java]   (PROC_DECL (TYPE void) (NAME Main)
-     [java]     (CALL_STMT (NAME skriv_plog))
-     [java]   )
-     [java] )
-     [java] (PROGRAM (NAME runme)
-     [java]   (STRUCT (NAME Complex)
-     [java]     (PARAM_DECL (TYPE float) (NAME Real))
-     [java]     (PARAM_DECL (TYPE float) (NAME Imag))
-     [java]   )
-     [java]   (VAR (TYPE Complex) (NAME dummy))
-     [java]   (PROC_DECL (TYPE Complex) (NAME Add)
-     [java]     (PARAM_DECL (TYPE Complex) (NAME a))
-     [java]     (PARAM_DECL (TYPE Complex) (NAME b))
-     [java] 
-     [java]     (VAR (TYPE Complex) (NAME retval))
-     [java] 
-     [java]     (ASSIGN_STMT
-     [java]       (VAR (NAME retval))
-     [java]       (NEW Complex)
-     [java]     )
-     [java]     (ASSIGN_STMT
-     [java]       (VAR (NAME retval)) (NAME Real)
-     [java]       )
-     [java]       (BINARY_OPERATION +
-     [java]         (VAR (NAME a)) (NAME Real)
-     [java]         )
-     [java]         (VAR (NAME b)) (NAME Real)
-     [java]         )
-     [java]       )
-     [java]     )
-     [java]     (ASSIGN_STMT
-     [java]       (VAR (NAME retval)) (NAME Imag)
-     [java]       )
-     [java]       (BINARY_OPERATION +
-     [java]         (VAR (NAME a)) (NAME Imag)
-     [java]         )
-     [java]         (VAR (NAME b)) (NAME Imag)
-     [java]         )
-     [java]       )
-     [java]     )
-     [java]     (RETURN (VAR (NAME retval))
-     [java]     )
-     [java]   )
-     [java]   (PROC_DECL (TYPE int) (NAME Max)
-     [java]     (PARAM_DECL (TYPE int) (NAME a))
-     [java]     (PARAM_DECL (TYPE int) (NAME b))
-     [java] 
-     [java]     (VAR (TYPE int) (NAME res))
-     [java] 
-     [java]     (IF (BINARY_OPERATION >
-     [java]         (VAR (NAME a))
-     [java]         (VAR (NAME b))
-     [java]       )
-     [java]       (ASSIGN_STMT
-     [java]         (VAR (NAME res))
-     [java]         (VAR (NAME a))
-     [java]       )
-     [java]       (ELSE
-     [java]         (ASSIGN_STMT
-     [java]           (VAR (NAME res))
-     [java]           (VAR (NAME b))
-     [java]         )
-     [java]       )
-     [java]     )
-     [java]     (RETURN (VAR (NAME res))
-     [java]     )
-     [java]   )
-     [java]   (PROC_DECL (TYPE void) (NAME printCmplx)
-     [java]     (PARAM_DECL (TYPE Complex) (NAME pr))
-     [java] 
-     [java]     (CALL_STMT (NAME printstr)
-     [java]       (STRING_LITERAL "Real ")
-     [java]     )
-     [java]     (CALL_STMT (NAME printfloat)
-     [java]       (VAR (NAME pr)) (NAME Real)
-     [java]       )
-     [java]     )
-     [java]     (CALL_STMT (NAME printline)
-     [java]       (STRING_LITERAL "")
-     [java]     )
-     [java]     (CALL_STMT (NAME printstr)
-     [java]       (STRING_LITERAL "Imag ")
-     [java]     )
-     [java]     (CALL_STMT (NAME printfloat)
-     [java]       (VAR (NAME pr)) (NAME Imag)
-     [java]       )
-     [java]     )
-     [java]     (CALL_STMT (NAME printline)
-     [java]       (STRING_LITERAL "")
-     [java]     )
-     [java]   )
-     [java]   (PROC_DECL (TYPE void) (NAME test)
-     [java]     (VAR (TYPE Complex) (NAME c1))
-     [java]     (VAR (TYPE Complex) (NAME c2))
-     [java]     (VAR (TYPE Complex) (NAME cAdd))
-     [java]     (VAR (TYPE int) (NAME x))
-     [java]     (VAR (TYPE int) (NAME y))
-     [java]     (VAR (TYPE int) (NAME max))
-     [java] 
-     [java]     (ASSIGN_STMT
-     [java]       (VAR (NAME c1))
-     [java]       (NEW Complex)
-     [java]     )
-     [java]     (ASSIGN_STMT
-     [java]       (VAR (NAME c2))
-     [java]       (NEW Complex)
-     [java]     )
-     [java]     (ASSIGN_STMT
-     [java]       (VAR (NAME c1)) (NAME Real)
-     [java]       )
-     [java]       (INT_LITERAL 1)
-     [java]     )
-     [java]     (ASSIGN_STMT
-     [java]       (VAR (NAME c1)) (NAME Imag)
-     [java]       )
-     [java]       (INT_LITERAL 2)
-     [java]     )
-     [java]     (ASSIGN_STMT
-     [java]       (VAR (NAME c2)) (NAME Real)
-     [java]       )
-     [java]       (INT_LITERAL 3)
-     [java]     )
-     [java]     (ASSIGN_STMT
-     [java]       (VAR (NAME c2)) (NAME Imag)
-     [java]       )
-     [java]       (INT_LITERAL 4)
-     [java]     )
-     [java]     (CALL_STMT (NAME printCmplx)
-     [java]       (CALL_STMT (NAME Add)
-     [java]         (VAR (NAME c1))
-     [java]         (VAR (NAME c2))
-     [java]       )
-     [java]     )
-     [java]     (ASSIGN_STMT
-     [java]       (VAR (NAME x))
-     [java]       (INT_LITERAL 3)
-     [java]     )
-     [java]     (ASSIGN_STMT
-     [java]       (VAR (NAME y))
-     [java]       (INT_LITERAL 7)
-     [java]     )
-     [java]     (ASSIGN_STMT
-     [java]       (VAR (NAME max))
-     [java]       (CALL_STMT (NAME Max)
-     [java]         (VAR (NAME y))
-     [java]         (VAR (NAME x))
-     [java]       )
-     [java]     )
-     [java]   )
-     [java]   (PROC_DECL (TYPE void) (NAME printStr)
-     [java]     (PARAM_DECL (TYPE string) (NAME str))
-     [java] 
-     [java]     (CALL_STMT (NAME printstr)
-     [java]       (VAR (NAME str))
-     [java]     )
-     [java]   )
-     [java]   (PROC_DECL (TYPE void) (NAME inOutTest)
-     [java]     (VAR (TYPE int) (NAME v1))
-     [java]     (VAR (TYPE int) (NAME v2))
-     [java] 
-     [java]     (CALL_STMT (NAME printline)
-     [java]       (STRING_LITERAL "skriv v1")
-     [java]     )
-     [java]     (ASSIGN_STMT
-     [java]       (VAR (NAME v1))
-     [java]       (CALL_STMT (NAME readint))
-     [java]     )
-     [java]     (CALL_STMT (NAME printline)
-     [java]       (STRING_LITERAL "skriv v2")
-     [java]     )
-     [java]     (ASSIGN_STMT
-     [java]       (VAR (NAME v2))
-     [java]       (CALL_STMT (NAME readint))
-     [java]     )
-     [java]     (CALL_STMT (NAME printstr)
-     [java]       (STRING_LITERAL "Storst ")
-     [java]     )
-     [java]     (CALL_STMT (NAME printint)
-     [java]       (CALL_STMT (NAME Max)
-     [java]         (VAR (NAME v1))
-     [java]         (VAR (NAME v2))
-     [java]       )
-     [java]     )
-     [java]     (CALL_STMT (NAME printline)
-     [java]       (STRING_LITERAL "")
-     [java]     )
-     [java]   )
-     [java]   (PROC_DECL (TYPE void) (NAME Main)
-     [java]     (VAR (TYPE float) (NAME num))
-     [java]     (VAR (TYPE int) (NAME num2))
-     [java]     (VAR (TYPE string) (NAME navn))
-     [java] 
-     [java]     (ASSIGN_STMT
-     [java]       (VAR (NAME num))
-     [java]       (FLOAT_LITERAL 6.480740)
-     [java]     )
-     [java]     (CALL_STMT (NAME printfloat)
-     [java]       (VAR (NAME num))
-     [java]     )
-     [java]     (CALL_STMT (NAME printline)
-     [java]       (STRING_LITERAL "")
-     [java]     )
-     [java]     (ASSIGN_STMT
-     [java]       (VAR (NAME num2))
-     [java]       (INT_LITERAL 7)
-     [java]     )
-     [java]     (CALL_STMT (NAME printint)
-     [java]       (VAR (NAME num2))
-     [java]     )
-     [java]     (CALL_STMT (NAME printline)
-     [java]       (STRING_LITERAL "")
-     [java]     )
-     [java]     (ASSIGN_STMT
-     [java]       (VAR (NAME navn))
-     [java]       (STRING_LITERAL "TestNavn")
-     [java]     )
-     [java]     (CALL_STMT (NAME printStr)
-     [java]       (VAR (NAME navn))
-     [java]     )
-     [java]     (CALL_STMT (NAME printline)
-     [java]       (STRING_LITERAL "")
-     [java]     )
-     [java]     (CALL_STMT (NAME test))
-     [java]     (CALL_STMT (NAME inOutTest))
-     [java]     (ASSIGN_STMT
-     [java]       (VAR (NAME dummy))
-     [java]       (NEW Complex)
-     [java]     )
-     [java]     (ASSIGN_STMT
-     [java]       (VAR (NAME dummy)) (NAME Real)
-     [java]       )
-     [java]       (FLOAT_LITERAL 1.0)
-     [java]     )
-     [java]     (ASSIGN_STMT
-     [java]       (VAR (NAME dummy)) (NAME Imag)
-     [java]       )
-     [java]       (FLOAT_LITERAL 2.0)
-     [java]     )
-     [java]     (CALL_STMT (NAME printCmplx)
-     [java]       (VAR (NAME dummy))
-     [java]     )
-     [java]     (CALL_STMT (NAME printline)
-     [java]       (STRING_LITERAL "DONE")
-     [java]     )
-     [java]   )
-     [java] )
+     [java] 0
 
 BUILD SUCCESSFUL
 Total time: 0 seconds
@@ -1063,7 +529,7 @@ ant run
 #+END_SRC
 
 * Results of run
-
+ 
 #+RESULTS: test-run
 #+begin_example
 Buildfile: /Users/theodor/Dropbox/Studier/fag/INF5110/compila04/build.xml
@@ -1071,108 +537,40 @@ Buildfile: /Users/theodor/Dropbox/Studier/fag/INF5110/compila04/build.xml
 init:
 
 run:
-     [java] (PROGRAM (NAME firsttest)
-     [java]   (VAR (TYPE int) (NAME x))
-     [java]   (STRUCT (NAME Complex)
-     [java]     (PARAM_DECL (TYPE float) (NAME Real))
-     [java]     (PARAM_DECL (TYPE int) (NAME Imag))
-     [java]     (PARAM_DECL (TYPE string) (NAME Another))
-     [java]   )
-     [java]   (PROC_DECL (TYPE void) (NAME Main)
-     [java]     (PARAM_DECL (TYPE int) (NAME a))
+     [java] 6.48074""
+     [java] 7""
+     [java] "Navn ""TestNavn"""
+     [java] "Real "4.0""
+     [java] "Imag "6.0""
+     [java] "skriv v1"
+54
+     [java] "skriv v2"
+234
+     [java] "Storst "234""
+     [java] "Real "1.0""
+     [java] "Imag "2.0""
+     [java] "DONE"
      [java] 
-     [java]     (STRUCT (NAME C)
-     [java]       (PARAM_DECL (TYPE float) (NAME One))
-     [java]     )
-     [java] 
-     [java]     (ASSIGN_STMT
-     [java]       (VAR (NAME a))
-     [java]       (INT_LITERAL 5)
-     [java]     )
-     [java]     (IF (BINARY_OPERATION +
-     [java]         (INT_LITERAL 5)
-     [java]         (INT_LITERAL 5)
-     [java]       )
-     [java]       (CALL_STMT (NAME Main)
-     [java]         (STRING_LITERAL "halla")
-     [java]       )
-     [java]     )
-     [java]   )
-     [java] )
-     [java] Loading from file: /Users/theodor/Dropbox/Studier/fag/INF5110/compila04/example.bin
-     [java] Variables:
-     [java] 0: var int x
-     [java] Procedures:
-     [java] 0: proc void Main(int 0)
-     [java]     var int 1
-     [java]     var int 2
-     [java]     var string 3
-     [java]     0: add
-     [java]     1: call Main {0}
-     [java]     4: return
-     [java] Structs:
-     [java] 0: Complex
-     [java]     0: float
-     [java]     1: int
-     [java]     2: string
-     [java] 1: C
-     [java]     0: float
-     [java] Constants:
-     [java] 0: Added constant here asshole
-     [java] STARTWITH: Main
+     [java] 0
 
 BUILD SUCCESSFUL
-Total time: 0 seconds
+Total time: 1 second
 #+end_example
 
 * Notes 
-** Thoughts
-*** Expressions need to know what they evaluate to.
-    For example, I need to know if the =not= expression is legal. =not= cannot
-    negate arithmetic, only boolean values. Maybe create a different class for
-    logical operations compared to arithmetic  operations?
-*** What can expressions be?
-**** literals - they are self evaluating
-**** compound expressions - they need to recur, or bottom out to literal
-**** call-stmt - evaluates its parameters, can be literals or exprs
-**** var-refvar-derefvar - recurs exprs again
-**** binary operators can be logical, relational or arit. 
-**** unary only =not=
-**** call is only =stmt=, others inherit from =expr=
-*** Initializing scope
-    I've chosen to not initialize scope in a separate method, but include it in
-    its constructor wherever necessary. That means for instance that we create a
-    new =SymbolTable= whenever we create a =Program=, =ProcDecl= and so forth. Using
-    the attribute grammar we fill the tables with information.
-*** Exp can only be Expr and Stmt (call)
-** [0/1] CodeGenerationHelper
-   - [ ] [[file:src/java/programlogic/CodeGenerationHelper.java::public%20static%20CodeType%20exprEelper(CodeFile%20codeFile,%20Object%20node)%20{][exprHelper]]
-** [0/5] Statements
-   Add code for generateCode
-     - [ ] [[file:src/java/statements/While.java::public%20void%20generateCode(CodeFile%20codeFile)%20{%20}][while]] 
-     - [ ] [[file:src/java/statements/Call.java::public%20void%20generateCode(CodeFile%20codeFile)%20{%20}][call]]
-     - [ ] [[file:src/java/statements/If.java::public%20void%20generateCode(CodeFile%20codeFile)%20{%20}][if]]
-     - [ ] [[file:src/java/statements/Return.java::public%20void%20generateCode(CodeFile%20codeFile)%20{%20}][return]]
-     - [ ] [[file:src/java/statements/Assign.java::public%20void%20generateCode(CodeFile%20codeFile)%20{%20}][assign]]
-** [0/5] Declarations
-   - [ ] [[file:src/java/declarations/ProcDecl.java::public%20void%20generateCode(CodeFile%20codeFile)%20{][proc]]
-   - [ ] [[file:src/java/declarations/Param.java::public%20void%20generateCode(CodeStruct%20struct)%20{][param]]
-   - [ ] [[file:src/java/declarations/Program.java::public%20void%20generateCode(CodeFile%20codeFile)%20{][program]]
-   - [ ] [[file:src/java/declarations/RecDecl.java::public%20void%20generateCode(CodeFile%20codeFile)%20{][recdecl]]
-   - [ ] [[file:src/java/declarations/VarDecl.java::public%20void%20generateCode(CodeFile%20codeFile)%20{][vardecl]]
-
-** [0/7] Expressions
-   - [ ] [[file:src/java/expressions/BinaryExpr.java::public%20void%20generateCode(CodeFile%20codeFile)%20{%20}][Binaryexpr]]
-   - [ ] [[file:src/java/expressions/Var.java::public%20void%20generateCode(CodeFile%20codeFile)%20{%20}][var]]
-   - [ ][[file:src/java/expressions/DerefVar.java::public%20void%20generateCode(CodeFile%20codeFile)%20{][ derefvar]]
-   - [ ] [[file:src/java/expressions/Literal.java::public%20void%20generateCode(CodeFile%20codeFile)%20{][literal]]
-   - [ ] [[file:src/java/expressions/NestedExpr.java::public%20void%20generateCode(CodeFile%20codeFile)%20{][nestedexpr]]
-   - [ ] [[file:src/java/expressions/New.java::public%20void%20generateCode(CodeFile%20codeFile)%20{][new]]
-   - [ ] [[file:src/java/expressions/Not.java::public%20void%20generateCode(CodeFile%20codeFile)%20{][not]]
-   - [ ] [[file:src/java/expressions/RefVar.java::public%20void%20generateCode(CodeFile%20codeFile)%20{][refvar]]
-
-** [0/2] Literals
-   - [ ] How to handle the [[file:src/cuplex/compila.lex::"true"%20{%20return%20symbol(sym.TRUE,%20yytext());%20}%20"false"%20{%20return%20symbol(sym.FALSE,%20yytext());%20}][bool literal]] 
-   - [ ] Literals can never be [[file:src/java/expressions/Literal.java:::%20VoidType.TYPE;%20//%20TODO:%20Literals%20can%20never%20be%20void.%20Fix][void]]. Error report?
-
+** Discussion
+*** Data structure
+    I have implemented the [[file:src/java/programlogic/SymbolTable.java::}][symbol table]] as a =HashMap= with =String= as key and
+    =Object= as value. I've chosen to view a normal java class as a =HashMap= of its
+    own, where instance variables act as nested key,value-pairs. In this way I
+    have to do quite a lot of casting, but I gain a fairly flexible data
+    structure. I thought a lot and hard about this, and couldn't really find
+    another way. As such to implement the lexical scoping, I let every object in
+    the data structure know what scope created it. This enables me to traverse
+    backwards in the symbol tree without having to rely on explicit naming of
+    the different scopes on the same level. I discuss this further in [[*Attribute grammar][Attribute grammar]]
+*** Attribute grammar
+    I have included an =Interface= called [[file:src/java/programlogic/AttributeGrammar.java::}][AttributeGrammar]] that the [[file:src/java/declarations/Decl.java::}][decls]] and
+    [[file:src/java/statements/Stmt.java::}][stmts]] implement. This is what helps me implement the [[file:src/java/programlogic/SymbolTable.java::}][symbol table]], and is
+    used during the bottom-up parsing. 
 

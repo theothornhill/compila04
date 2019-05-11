@@ -5,6 +5,7 @@
 		<echo>clean                     - Cleans up the project</echo>
 		<echo>build                     - Build compiler</echo>
 		<echo>run                       - Run compiler</echo>
+        <echo>list-runme                - Test compiler parsing passes</echo>
         <echo>test-passing              - Test compiler parsing passes</echo>
         <echo>test-fail                 - Test compiler parsing fails</echo>
 	</target>
@@ -72,7 +73,15 @@
           <arg value="src/oblig2patch/src/tests/fullprograms/runme.cmp"/>
 		</java>
 	</target>
-    
+
+    <!-- Run the system  -->
+	<target name="list-runme" depends="init">
+		<java classname="Compiler" classpathref="path-run">
+          <arg value="src/oblig2patch/src/tests/fullprograms/runme.cmp"/>
+          <arg value="list"/>
+		</java>
+	</target>
+
     <!-- Test the system -->
     <target name="test-passing" depends="init">
 		<java classname="Compiler" classpathref="path-run">
