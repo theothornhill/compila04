@@ -43,14 +43,15 @@ public class BinaryExpr extends Expr {
                 this.type = new Type("float");
                 else
                     throw new Exception("Arguments of divsion operation not correct type");
-            }
-            else if (e1.type.equals("int")  && e2.type.equals("int"))
-                this.type = new Type("int");
-            else if (e1.type.equals("int") && e2.type.equals("float") ||
-                     e1.type.equals("float") && e2.type.equals("int") ||
-                     e1.type.equals("float") && e2.type.equals("float"))
-                this.type = new Type("float");
-            else
+            } else if (e1.type.equals("int")  && e2.type.equals("int")) {
+                this.type = new Type("int");                
+            } else if (e1.type.equals("int") && e2.type.equals("float") ||
+                       e1.type.equals("float") && e2.type.equals("int") ||
+                       e1.type.equals("float") && e2.type.equals("float")) {
+                this.type = new Type("float");                
+            } else if (e1.type.equals("string") && e2.type.equals("string")) {
+                this.type = new Type("string");
+            } else
                 throw new Exception("Arguments of artihmetic operation not correct type");
         } else if (isBoolean) {
             if (e1.type.equals("int") && e2.type.equals("bool")    ||
@@ -82,8 +83,8 @@ public class BinaryExpr extends Expr {
         Var v = null;
         Param p = null;
         if (e instanceof Var) {
-            ((Expr)e).typeCheck(table, scope);
-            if (((Var)e).expr != null)
+            ((Var)e).typeCheck(table, scope);
+            if (((Var)e).expr != null) 
                 exp = table.lookup(scope, ((Var)e).expr.toString());
             else
                 exp = table.lookup(scope, ((Var)e).name.toString());  
