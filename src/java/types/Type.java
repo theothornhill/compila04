@@ -14,8 +14,8 @@ public class Type implements AttributeGrammar {
     }
 
     public Type(Type t) {
-        this.t = t;
-        this.type = "reftype";
+        this.t = new Type(t.toString());
+        this.type = t.toString();
         // codetype = setCodeType(type.toString());
     }
 
