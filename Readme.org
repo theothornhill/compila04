@@ -304,7 +304,7 @@ Testing the program outputs a lot of output as for now, maybe I will clean it up
 at some point. Right now I wont include it in the =README=, but you can find it in
 the source of the =README=.
 #+NAME: test
-#+BEGIN_SRC shell :results output
+#+BEGIN_SRC shell :results output :exports both
 ant test-passing
 #+END_SRC
 
