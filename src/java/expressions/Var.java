@@ -14,9 +14,14 @@ public class Var extends Expr {
     }
 
     public void typeCheck(SymbolTable table, Object scope) throws Exception {
-        Object v = table.lookup(scope, name);
+        Object v = null;
+        if (expr != null)
+            v = table.lookup(scope, expr.toString());
+        else
+            v = table.lookup(scope, name);
+        
         if (v == null)
-            throw new Exception("Variable " + name + " not declared");
+            throw new Exception("Variable " + expr + "." + name + " not declared");
         checkIfRecord(table, scope);
         setTypeFromExpr(v);
     }
