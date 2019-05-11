@@ -31,8 +31,31 @@ public class Assign extends Stmt {
             if (targetVar.expr != null) {
                 typeCheckIfRecord(table, scope, (VarDecl)assignTarget);
             }
-        } if (assignTarget instanceof Param)
-              System.out.println("YOU NEED TO FIX PARAMS IN ASSIGN!!!");
+        } if (assignTarget instanceof Param) {
+
+            typeCheckIfParam(table, scope, (Param)assignTarget);
+        }
+
+    }
+
+    public void typeCheckIfParam(SymbolTable table, Object scope, Param assignTarget) throws Exception {
+        if (table.lookup(scope, assignTarget.name) == null)
+            throw new Exception("Param not declared");
+        if (e instanceof Call) {
+            if (!TypeCheckHelper.isLibraryProcedure(e.toString())) {
+                ((Call)e).typeCheck(table, scope);
+                if (!((Call)e).type.equals(assignTarget.type.toString())) {
+                    throw new Exception("Wrong type in assignment");                
+                }
+            }
+        } else {
+            ((Expr)e).typeCheck(table, scope);
+            if (!((Expr)e).type.equals(assignTarget.type.toString())) {
+                if (!TypeCheckHelper.isAssignable(assignTarget, (Expr)e)) {
+                    throw new Exception("Wrong type in assignment on " + assignTarget + " and " + e); 
+                } 
+            }
+        }    
     }
 
     public void typeCheckIfVar(SymbolTable table, Object scope, VarDecl assignTarget) throws Exception {
@@ -99,12 +122,13 @@ public class Assign extends Stmt {
         // System.out.println(target.getClass());
         if (e instanceof Literal) {
             proc.addInstruction(CodeGenerationHelper.literalHelper(((Literal)e), proc));
-            if (target instanceof Var)
+            if (target instanceof Var) {
                 if (((Var)target).expr != null) {
                     // we need to load a variable and put in record field
                     generateRecordPutField(target, proc, table, scope);
                     return;
-                }
+                }                
+            }
         } else if (e instanceof BinaryExpr) {
             ((BinaryExpr)e).generateCode(proc, table, scope);
             if (target instanceof Var) {
