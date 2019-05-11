@@ -16,8 +16,6 @@ public class VarDecl extends Decl {
     }
 
     public void typeCheck() throws Exception {
-        // if (table.lookup(this.getCreatedBy(), this.name, lexicalScopeLevel) != null)
-        //     throw new Exception("Symbol " + this.name + " already declared");
     }
 
 
@@ -47,15 +45,11 @@ public class VarDecl extends Decl {
         }
     }
 
-    // Adds a global variable. This is because vardecl when called from Program
-    // adds directly to the codefiles namespace.
     public void generateCode(CodeFile codeFile) {
         codeFile.addVariable(this.name);
         codeFile.updateVariable(this.name, t);
     }
 
-    // This is a local variable for the procedure. VarDecls are allowed in
-    // Programs and ProcDecls, but only procedures need the local variables
     public void generateCode(CodeProcedure proc) {
         proc.addLocalVariable(this.name, this.t);
     }

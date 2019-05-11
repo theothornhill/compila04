@@ -2,34 +2,18 @@ import java.util.*;
 import bytecode.*;
 
 public class Program extends Decl implements AttributeGrammar {
-    String name;
     LinkedList<Decl> declarations;
-    public SymbolTable table = new SymbolTable();
-    public Object createdBy;
-    public int lexicalScopeLevel;
-
     public Program(String name, LinkedList<Decl> declarations) {
         this.name = name;
         this.declarations = declarations;
     }
 
     public void typeCheck() throws Exception {
-        if (table.lookup(this, "Main") == null
-            && table.lookup(this, "main") == null) {
+        if (table.lookup(this, "Main") == null &&
+            table.lookup(this, "main") == null) {
             throw new Exception("No Main procedure declared in program");
         }
-        typecheckDeclarationsInProgram();
-    }
-
-    public void typecheckDeclarationsInProgram() throws Exception {
-        try {
-            for (Decl d : declarations) {
-                d.typeCheck();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
+        TypeCheckHelper.typeCheckDecls(declarations);
     }
 
     public int getLexicalScopeLevel() {
@@ -55,9 +39,6 @@ public class Program extends Decl implements AttributeGrammar {
 
     public void setLexicalScopeLevel(int scope) {
         declarations.stream().forEach(d -> d.setLexicalScopeLevel(scope));
-        // declarations.stream().forEach(d ->
-        //            System.out.println("" + d.name + ": scope " + d.lexicalScopeLevel +
-        //                               " createdby " + d.createdBy));
     }
 
     public void generateCode(CodeFile codeFile) {
@@ -76,11 +57,9 @@ public class Program extends Decl implements AttributeGrammar {
                     d.addToSymbolTable();
                 }
             }
-                
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     public void printTable(SymbolTable table) {

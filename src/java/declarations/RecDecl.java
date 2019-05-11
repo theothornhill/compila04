@@ -15,18 +15,7 @@ public class RecDecl extends Decl {
     }
 
     public void typeCheck() throws Exception {
-        typecheckParamsInRecDecl();
-    }
-
-    public void typecheckParamsInRecDecl() {
-        try {
-            if (pl != null)
-                for (Param p : pl) {
-                    p.typeCheck(table, this);
-                }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        TypeCheckHelper.typeCheckParams(pl, table, this);
     }
 
     public int getLexicalScopeLevel() {
@@ -72,9 +61,8 @@ public class RecDecl extends Decl {
     }
 
     public void generateCode(CodeProcedure proc) {
-        // proc.getCodeFile().addStruct(this.name);
-        // CodeGenerationHelper.paramTraverser(pl, struct);
-        // codeFile.updateStruct(struct);
+        // Do I need to add to procedures? This adds globally
+        this.generateCode(proc.getCodeFile());
     }
 
     public String printAst(int indentLevel) {

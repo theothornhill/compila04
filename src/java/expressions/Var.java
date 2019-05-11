@@ -15,12 +15,18 @@ public class Var extends Expr {
 
     public void typeCheck(SymbolTable table, Object scope) throws Exception {
         Object v = table.lookup(scope, name);
+        if (v == null)
+            throw new Exception("Variable " + name + " not declared");
+        checkIfRecord(table, scope);
+        setTypeFromExpr(v);
+    }
+
+    public void checkIfRecord(SymbolTable table, Object scope) throws Exception {
         RecDecl r = null;
         Param p = null;
         if (expr != null) {
             ((Expr)expr).typeCheck(table, scope);
             r = (RecDecl)table.lookup(scope, ((Expr)expr).type.toString());
-            System.out.println(expr);
             if (r == null)
                 throw new Exception("Record not declared");
             p = (Param)table.lookup(r, name);
@@ -28,18 +34,19 @@ public class Var extends Expr {
                 throw new Exception("Attribute not declared");
         }
 
-        if (v == null)
-            throw new Exception("Variable " + name + " not declared");
-        if (v instanceof Param) {
-            this.type = ((Param)v).type;
-        } else if (v instanceof Literal) {
-            this.type = new Type(((Literal)v).type.toString());
-        } else if (v instanceof Expr) {
-            Expr variable = (Expr)v;
-            this.type = variable.type;            
-        } else if (v instanceof Decl) {
-            Decl variable = (Decl)v;
-            this.type = variable.type;
+    }
+
+    public void setTypeFromExpr(Object variable) {
+        if (variable instanceof Param) {
+            this.type = ((Param)variable).type;
+        } else if (variable instanceof Literal) {
+            this.type = new Type(((Literal)variable).type.toString());
+        } else if (variable instanceof Expr) {
+            Expr vari = (Expr)variable;
+            this.type = vari.type;            
+        } else if (variable instanceof Decl) {
+            Decl vari = (Decl)variable;
+            this.type = vari.type;
         } else if (this instanceof RefVar) {
             this.type = new Type("reftype");
         }

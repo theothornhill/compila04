@@ -37,61 +37,11 @@ public class ProcDecl extends Decl {
         ProcDecl proc = null;
         if (table.lookup(this, this.name) instanceof ProcDecl)
             table.lookup(this, this.name);
-        typecheckReturnType();
-        typecheckParamsInProcDecl();
-        typecheckDeclarationsInProcDecl();
-        typecheckStatementsInProcDecl();
-        typecheckIfReturnTypeIsMatching();            
-    }
-
-
-
-    public void typecheckReturnType() throws Exception {
-        if (CodeGenerationHelper.returntypeIsUserDefined(type.toString())) {
-            if (table.lookup(this, type.toString()) == null)
-                throw new Exception("Undeclared user defined return type " + type);
-            
-        }
-    }
-
-    public void typecheckIfReturnTypeIsMatching() throws Exception {
-        if (sl != null && sl.getLast() instanceof Return)
-            if (!sl.getLast().type.equals(this.type.toString()))
-                throw new Exception("Not matching return type");
-    }
-
-    public void typecheckParamsInProcDecl() {
-        try {
-            if (pl != null)
-                for (Param p : pl) {
-                    p.typeCheck();
-                }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void typecheckDeclarationsInProcDecl() {
-        try {
-            if (dl != null)
-                for (Decl d : dl) {
-                    d.addToSymbolTable();
-                    d.typeCheck();
-                }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void typecheckStatementsInProcDecl() {
-        try {
-            if (sl != null)
-                for (Stmt s : sl) {
-                    s.typeCheck(this.table, this);
-                }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        TypeCheckHelper.typeCheckReturnType(table, this);
+        TypeCheckHelper.typeCheckParams(pl, table, this);
+        TypeCheckHelper.typeCheckDecls(dl);
+        TypeCheckHelper.typeCheckStatements(sl, table, this);
+        TypeCheckHelper.typeCheckIfReturnTypeIsMatching(sl, this);
     }
 
     public Object getCreatedBy() {
@@ -144,44 +94,23 @@ public class ProcDecl extends Decl {
 
     public void generateCode(CodeFile codeFile) {
         codeFile.addProcedure(this.name);
-        if (CodeGenerationHelper.isLibraryProcedure(this.name)) {
-            // codeFile.updateProcedure(new CodeProcedure(this.name, IntType.TYPE, codeFile));
-        } else {
+        if (!CodeGenerationHelper.isLibraryProcedure(this.name)) {
             proc = type == null
                 ? CodeGenerationHelper.newProc(name, null, codeFile)
                 : CodeGenerationHelper.newProc(name, type.toString(), codeFile);
                 
             CodeGenerationHelper.paramTraverser(pl, proc, table, this);
-
             CodeGenerationHelper.declTraverser(dl, proc);
-
             CodeGenerationHelper.stmtTraverser(sl, codeFile, proc, table, this);
             // Handle the return statement differently?
             proc.addInstruction(new RETURN());
-            codeFile.updateProcedure(proc);            
+            codeFile.updateProcedure(proc);
         }
-
     }
 
     public void generateCode(CodeProcedure proc) {
         CodeFile codeFile = proc.getCodeFile();
-        codeFile.addProcedure(this.name);
-        if (CodeGenerationHelper.isLibraryProcedure(this.name)) {
-            codeFile.updateProcedure(new CodeProcedure(this.name, IntType.TYPE, codeFile));
-        } else {
-            proc = type == null
-                ? CodeGenerationHelper.newProc(name, null, codeFile)
-                : CodeGenerationHelper.newProc(name, type.toString(), codeFile);
-                
-            CodeGenerationHelper.paramTraverser(pl, proc, table, this);
-
-            CodeGenerationHelper.declTraverser(dl, proc);
-
-            CodeGenerationHelper.stmtTraverser(sl, codeFile, proc, table, this);
-            // Handle the return statement differently?
-            proc.addInstruction(new RETURN());
-            codeFile.updateProcedure(proc);            
-        }
+        this.generateCode(codeFile);
     }
 
     private String printType(int indentLevel) {
@@ -194,23 +123,20 @@ public class ProcDecl extends Decl {
         sb.append(printType(indentLevel));
         sb.append(PrintHelper.printName(name));
         if (pl != null) {
-            for (Param param : pl) {
+            for (Param param : pl)
                 sb.append(PrintHelper.printParam(param, indentLevel+1));
-            }
             sb.append("\n");
         }
 
         if (dl != null) {
-            for (Decl decl : dl) {
+            for (Decl decl : dl)
                 sb.append(PrintHelper.printDecl(decl, indentLevel+1));
-            }            
             sb.append("\n");
         }
 
         if (sl != null) {
-            for (Stmt stmt : sl) {
+            for (Stmt stmt : sl)
                 sb.append(PrintHelper.printStmt(stmt, indentLevel+1));
-            }            
         }
         sb.append(PrintHelper.endWithParen(indentLevel));
         return sb.toString();

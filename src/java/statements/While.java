@@ -17,18 +17,7 @@ public class While extends Stmt {
             throw new Exception("Condition in while-statement must be boolean");
         }
         if (sl != null)
-            typecheckStmtList(table, scope, sl);
-    }
-
-    public void typecheckStmtList(SymbolTable table, Object scope, LinkedList<Stmt> stmts) throws Exception {
-        try {
-            for (Stmt s : stmts) {
-                s.typeCheck(table, scope);
-            }
-            
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+            TypeCheckHelper.typeCheckStatements(sl, table, scope);
     }
 
     public Object getCreatedBy() {
@@ -48,8 +37,7 @@ public class While extends Stmt {
     }
 
     public void addToSymbolTable(SymbolTable table) {
-        // table.insert("Expr", e);
-        // sl.stream().forEach(s -> table.insert(s.toString(), s));
+
     }
 
     public void generateCode(CodeFile codeFile, SymbolTable table, Object scope) {

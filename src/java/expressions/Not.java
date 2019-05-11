@@ -1,7 +1,6 @@
 import bytecode.*;
 import bytecode.type.*;
 
-// Must take a boolean value and return its negation. 
 public class Not extends Expr {
     CodeType t;
     public Not(Object expr) {
@@ -17,7 +16,7 @@ public class Not extends Expr {
                 throw new Exception("Argument of not operator not of type bool");            
         }
         if (!((BinaryExpr)expr).isBoolean) {
-            throw new Exception("Condition in if-statement must be boolean");
+            throw new Exception("Result of binary expression must be boolean");
         }
     }
 

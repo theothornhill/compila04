@@ -12,69 +12,72 @@ public class Call extends Stmt {
 
     public void typeCheck(SymbolTable table, Object scope) throws Exception {
         if (!CodeGenerationHelper.isLibraryProcedure(name)) {
-            typecheckArguments(table, scope);
-            int procedureParamNumber = 0;
-            int exprParamNumber = 0;
+            TypeCheckHelper.typeCheckArguments(el, table, scope);
             Object proc = table.lookup(scope, name);
-            // Is procedure declared?
             if (proc == null)
                 throw new Exception("Procedure not declared");
             ProcDecl procedure = (ProcDecl)proc;
-            this.type = new Type(procedure.type.toString());
-            // Need to account for when one or the other is null...
-            if (procedure.pl != null)
-                procedureParamNumber = procedure.pl.size();
-            if (el != null)
-                exprParamNumber = el.size();
-                    
-            if (procedureParamNumber != exprParamNumber)
-                throw new Exception("Procedure requires " + procedureParamNumber + 
-                                    " arguments, but was given " + exprParamNumber +
-                                    " arguments");
+            setTypeFromProcedure(procedure);
+            sameNumberOfArguments(procedure);
+            typeCheckParams(procedure);
+        }
+    }
 
-            LinkedList<Param> params = procedure.getParams();
-            if (params != null && el != null) {
-                for (int i = 0; i < el.size(); i++) {
-                    Expr e = null;
-                    Call c = null;
-                    Param p = params.get(i);
-                    if (el.get(i) instanceof Call)
-                        c = (Call)el.get(i);
-                    else 
-                        e = (Expr)el.get(i);
-                    if (e != null) {
-                        if (e.type != null)
-                            if (e instanceof RefVar) {
-                                e.type = new Type("reftype");                            
-                            }
-                        if (!p.type.equals(e.type.toString()))
-                            throw new Exception("argument " + e + ": type " + e.type +
+    public void sameNumberOfArguments(ProcDecl procedure) throws Exception {
+        int procedureParamNumber = numberOfParams(procedure);
+        int exprParamNumber = numberOfExprs();
+                    
+        if (procedureParamNumber != exprParamNumber)
+            throw new Exception("Procedure requires " + procedureParamNumber + 
+                                " arguments, but was given " + exprParamNumber +
+                                " arguments");
+    }
+
+    public void typeCheckParams(ProcDecl procedure) throws Exception {
+        LinkedList<Param> params = procedure.getParams();
+        if (params != null && el != null) {
+            for (int i = 0; i < el.size(); i++) {
+                Expr e = null;
+                Call c = null;
+                Param p = params.get(i);
+                if (el.get(i) instanceof Call)
+                    c = (Call)el.get(i);
+                else 
+                    e = (Expr)el.get(i);
+                if (e != null) {
+                    if (e.type != null)
+                        if (e instanceof RefVar) {
+                            e.type = new Type("reftype");                            
+                        }
+                    if (!p.type.equals(e.type.toString()))
+                        throw new Exception("argument " + e + ": type " + e.type +
+                                            " is not the same type as param " + p +
+                                            ": type " + p.type);                    
+                }
+                if (c != null)
+                    if (c.type != null)
+                        if (!p.type.equals(c.type.toString()))
+                            throw new Exception("argument " + c + ": type " + c.type +
                                                 " is not the same type as param " + p +
-                                                ": type " + p.type);                    
-                    }
-                    if (c != null)
-                        if (c.type != null)
-                            if (!p.type.equals(c.type.toString()))
-                                throw new Exception("argument " + c + ": type " + c.type +
-                                                    " is not the same type as param " + p +
-                                                    ": type " + p.type);
-                }            
+                                                ": type " + p.type);
             }            
         }
     }
 
-    public void typecheckArguments(SymbolTable table, Object scope) throws Exception {
-        try {
-            if (el != null)
-                for (Object e : el) {
-                    if (e instanceof Expr)
-                        ((Expr)e).typeCheck(table, scope);
-                    if (e instanceof Call)
-                        ((Call)e).typeCheck(table, scope);
-                }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public int numberOfParams(ProcDecl procedure) {
+        if (procedure.pl != null)
+            return procedure.pl.size();
+        return 0;
+    }
+
+    public int numberOfExprs() {
+        if (el != null)
+            return el.size();
+        return 0;
+    }
+
+    public void setTypeFromProcedure(ProcDecl procedure) {
+        this.type =  new Type(procedure.type.toString());
     }
 
     public Object getCreatedBy() {

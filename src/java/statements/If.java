@@ -35,29 +35,16 @@ public class If extends Stmt {
     public void typeCheck(SymbolTable table, Object scope) throws Exception {
         ((Expr)e).typeCheck(table, scope);
         if (!(((Expr)e).type.equals("bool"))) {
-            throw new Exception("Condition in while-statement must be boolean");
+            throw new Exception("Condition in if-statement must be boolean");
         }
         if (sl != null)
-            typecheckStmtList(table, scope, sl);
+            TypeCheckHelper.typeCheckStatements(sl, table, scope);
         if (sl2 != null)
-            typecheckStmtList(table, scope, sl2);
-    }
-
-    public void typecheckStmtList(SymbolTable table, Object scope, LinkedList<Stmt> stmts) throws Exception {
-        try {
-            for (Stmt s : stmts) {
-                s.typeCheck(table, scope);
-            }
-            
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+            TypeCheckHelper.typeCheckStatements(sl2, table, scope);
     }
 
     public void addToSymbolTable(SymbolTable table) {
-        // // table.insert("Expr", CodeGenerationHelper.getTable(e));
-        // sl.stream().forEach(s -> table.insert(s.toString(), s));
-        // sl2.stream().forEach(s -> table.insert(s.toString(), s));
+
     }
 
     public void generateCode(CodeFile codeFile, SymbolTable table, Object scope) {
@@ -85,13 +72,10 @@ public class If extends Stmt {
         }        
     }
 
-    public void generateCode(CodeFile codeFile, CodeProcedure proc, SymbolTable table, Object scope) {
-        // CodeGenerationHelper.exprHelper(proc, e, table, scope);
-        // CodeGenerationHelper.stmtTraverser(sl, codeFile, proc, table, scope);
-        // if (sl2 != null)
-        //     CodeGenerationHelper.stmtTraverser(sl2, codeFile, proc, table, scope);
+    // public void generateCode(CodeFile codeFile, CodeProcedure proc, SymbolTable table, Object scope) {
 
-    }    
+
+    // }    
 
     public String printAst(int indentLevel) {
         StringBuilder sb = new StringBuilder();

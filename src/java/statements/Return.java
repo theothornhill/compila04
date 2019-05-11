@@ -44,9 +44,7 @@ public class Return extends Stmt {
                 ((Expr)e).typeCheck(table, scope);
                 // Sets the return type based on the expressions it has
                 this.type = new Type(((Expr)e).type.toString()); 
-
             }
-            
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -66,7 +64,7 @@ public class Return extends Stmt {
                 ((BinaryExpr)e).generateCode(proc, table, scope);                
             } else if (e instanceof Var) {
                 if (((Var)e).expr != null) {
-                    System.out.println(e.toString());
+                    System.out.println("FIXME: RETURN");
                 }
                 proc.addInstruction(new LOADLOCAL(proc.variableNumber(e.toString()))); 
             } else {

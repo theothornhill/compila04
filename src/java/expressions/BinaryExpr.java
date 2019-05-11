@@ -7,8 +7,6 @@ public class BinaryExpr extends Expr {
     Object e2;
     Object op;
     Instruction operator;
-    // Booleans for type-checker. In example we need our type checker to know
-    // when expressions are boolean
     public boolean isLogical;
     public boolean isArit;
     public boolean isBoolean;
@@ -20,7 +18,6 @@ public class BinaryExpr extends Expr {
         setOperationType(op.toString());
     }
 
-    // This is not proper type checking. Think through this.
     public void setOperationType(String op) {
         if (op.equals("||") || op.equals("&&"))
             isLogical = true;
@@ -72,7 +69,6 @@ public class BinaryExpr extends Expr {
         }
         else
             throw new Exception("Arguments of operation not correct type");
-
     }
 
     public void typeCheck(SymbolTable table, Object scope) throws Exception {
@@ -86,6 +82,7 @@ public class BinaryExpr extends Expr {
         Var v = null;
         Param p = null;
         if (e instanceof Var) {
+            ((Expr)e).typeCheck(table, scope);
             if (((Var)e).expr != null)
                 exp = table.lookup(scope, ((Var)e).expr.toString());
             else

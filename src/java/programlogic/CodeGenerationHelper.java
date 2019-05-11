@@ -3,9 +3,6 @@ import bytecode.type.*;
 import bytecode.instructions.*;
 import java.util.LinkedList;
 
-// The idea of this helper class is to act like a factory for exprs. The problem
-// with the expressions is that they can be a statement or expression. Therefore
-// I need an elegant way to assign the values. 
 public class CodeGenerationHelper {
     public static void exprHelper(CodeProcedure proc,
                                   Object node,
@@ -103,6 +100,7 @@ public class CodeGenerationHelper {
                                      CodeProcedure proc,
                                      SymbolTable table,
                                      Object scope) {
+        // Generalize this completely
         if (sl != null) {
             for (Stmt stmt : sl) {
                 if (stmt instanceof Assign) {
@@ -152,8 +150,7 @@ public class CodeGenerationHelper {
                                      CodeProcedure proc) {
         if (dl != null) {
             for (Decl decl : dl) {
-                // if (decl instanceof VarDecl)
-                    decl.generateCode(proc);
+                decl.generateCode(proc);
             }            
         }
     }
@@ -163,27 +160,8 @@ public class CodeGenerationHelper {
     }
 
     public static boolean isLibraryProcedure(String name) {
-        return name.equals("printint") ||
-            name.equals("printfloat")  ||
-            name.equals("printstr")    ||
-            name.equals("printline")   ||
-            name.equals("readint")     ||
-            name.equals("readfloat")   ||
-            name.equals("readchar")    ||
-            name.equals("readstring")  ||
-            name.equals("readline");
-
+        return TypeCheckHelper.isLibraryProcedure(name);
     }
-
-    // public static SymbolTable getTable(Object node) {
-    //     return node instanceof Expr
-    //         ? ((Expr) node).getTable()
-    //         : node instanceof Call
-    //         ? ((Call) node).getTable()
-    //         : node instanceof Literal
-    //         ? ((Literal) node).getTable()
-    //         : null;
-    // }
 
     public static void printTable(SymbolTable table) {
         System.out.println(table);

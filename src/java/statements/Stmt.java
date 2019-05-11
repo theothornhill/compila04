@@ -5,7 +5,7 @@ import bytecode.type.*;
 public abstract class Stmt implements AttributeGrammar {
     String name;
     Object e;
-    Object e2;
+    Object target;
     LinkedList<Stmt> sl;
     public Type type;
     public Object createdBy;
