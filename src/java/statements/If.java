@@ -28,10 +28,6 @@ public class If extends Stmt {
         // nothing yet
     }
 
-    public void setLexicalScopeLevel(int scope) {
-        this.lexicalScopeLevel = scope;
-    }
-
     public void typeCheck(SymbolTable table, Object scope) throws Exception {
         ((Expr)e).typeCheck(table, scope);
         if (!(((Expr)e).type.equals("bool"))) {
@@ -41,10 +37,6 @@ public class If extends Stmt {
             TypeCheckHelper.typeCheckStatements(sl, table, scope);
         if (sl2 != null)
             TypeCheckHelper.typeCheckStatements(sl2, table, scope);
-    }
-
-    public void addToSymbolTable(SymbolTable table) {
-
     }
 
     public void generateCode(CodeFile codeFile, SymbolTable table, Object scope) {

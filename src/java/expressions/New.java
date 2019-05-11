@@ -21,10 +21,6 @@ public class New extends Expr {
             throw new Exception("Argument of new is not declared");
     }
 
-    public void addToSymbolTable(SymbolTable table) throws Exception {
-        table.insert(name);
-    }
-
     public void generateCode(CodeProcedure proc, SymbolTable table, Object scope) {
         proc.addInstruction(new NEW(proc.structNumber(type.toString())));
         

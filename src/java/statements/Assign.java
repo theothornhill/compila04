@@ -107,13 +107,6 @@ public class Assign extends Stmt {
         // Does not do anything yet
     }
 
-    public void setLexicalScopeLevel(int scope) {
-        this.lexicalScopeLevel = scope;
-    }
-
-    public void addToSymbolTable(SymbolTable table) {
-    }
-
     public void generateCode(CodeFile codeFile, SymbolTable table, Object scope) {
 
     }

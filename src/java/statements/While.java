@@ -33,14 +33,6 @@ public class While extends Stmt {
         // Nothing yet
     }
 
-    public void setLexicalScopeLevel(int scope) {
-        this.lexicalScopeLevel = scope;
-    }
-
-    public void addToSymbolTable(SymbolTable table) {
-
-    }
-
     public void generateCode(CodeFile codeFile, SymbolTable table, Object scope) {
         
     }

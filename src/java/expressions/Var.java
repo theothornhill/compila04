@@ -57,15 +57,6 @@ public class Var extends Expr {
         }
     }
 
-    public void addToSymbolTable(SymbolTable table) {
-        try {
-            table.insert(name);
-            table.insert(expr);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
     public void setType(Type t) {
         this.type = t;
     }

@@ -24,10 +24,6 @@ public class Return extends Stmt {
 
     }
 
-    public void setLexicalScopeLevel(int scope) {
-        this.lexicalScopeLevel = scope;
-    }
-
     public void typeCheck(SymbolTable table, Object scope) throws Exception {
         Object proc = table.lookup(scope, ((ProcDecl)scope).name);
         if (proc == null)
@@ -44,10 +40,6 @@ public class Return extends Stmt {
             // Sets the return type based on the expressions it has
             this.type = new Type(((Expr)e).type.toString()); 
         }
-    }
-
-    public void addToSymbolTable(SymbolTable table) {
-
     }
 
     public void generateCode(CodeFile codeFile, SymbolTable table, Object scope) {

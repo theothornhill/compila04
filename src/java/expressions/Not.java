@@ -25,10 +25,6 @@ public class Not extends Expr {
         }
     }
 
-    public void addToSymbolTable(SymbolTable table) {
-        table.insert(expr);
-    }
-
     public void generateCode(CodeProcedure proc, SymbolTable table, Object scope) {
         if (expr != null) {
             if (expr instanceof BinaryExpr) {

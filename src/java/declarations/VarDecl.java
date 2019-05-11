@@ -31,11 +31,6 @@ public class VarDecl extends Decl {
         type.setCreatedBy(this);
     }
 
-    public void setLexicalScopeLevel(int scope) {
-        this.lexicalScopeLevel = scope;
-        type.setLexicalScopeLevel(lexicalScopeLevel+1);
-    }
-
     public void addToSymbolTable() throws Exception {
         table.insert(name);
         table.insert(type);

@@ -11,14 +11,6 @@ public class NestedExpr extends Expr {
         this.type = new Type(((Expr)expr).type.toString());
     }
 
-    public void addToSymbolTable(SymbolTable table) {
-        try {
-            table.insert(expr);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
     public void generateCode(CodeProcedure proc, SymbolTable table, Object scope) {
         CodeGenerationHelper.exprHelper(proc, expr, table, scope);
     }

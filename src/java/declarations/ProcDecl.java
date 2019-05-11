@@ -65,19 +65,6 @@ public class ProcDecl extends Decl {
             sl.stream().forEach(d -> d.setCreatedBy(this));
     }
 
-    public void setLexicalScopeLevel(int scope) {
-        this.lexicalScopeLevel = scope;
-        if (pl != null) {
-            pl.stream().forEach(d -> d.setLexicalScopeLevel(lexicalScopeLevel+1));
-        }
-        if (dl != null) {
-            dl.stream().forEach(d -> d.setLexicalScopeLevel(lexicalScopeLevel+1));
-        }
-        if (sl != null) {
-            sl.stream().forEach(d -> d.setLexicalScopeLevel(lexicalScopeLevel+1));
-        }
-    }
-
     public void addToSymbolTable() throws Exception {
         if (pl != null)
             for (Param p : pl)

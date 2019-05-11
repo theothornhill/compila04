@@ -18,10 +18,6 @@ public class RecDecl extends Decl {
         TypeCheckHelper.typeCheckParams(pl, table, this);
     }
 
-    public int getLexicalScopeLevel() {
-        return lexicalScopeLevel;
-    }
-
     // Attribute grammar annotation methods
     public Object getCreatedBy() {
         return this.createdBy;
@@ -34,13 +30,6 @@ public class RecDecl extends Decl {
     public void setCreatorOf() {
         if (pl != null)
             pl.stream().forEach(p -> p.setCreatedBy(this));
-    }
-
-    public void setLexicalScopeLevel(int scope) {
-        this.lexicalScopeLevel = scope;
-        if (pl != null) {
-            pl.stream().forEach(d -> d.setLexicalScopeLevel(lexicalScopeLevel+1));
-        }
     }
 
     public void addToSymbolTable() throws Exception {

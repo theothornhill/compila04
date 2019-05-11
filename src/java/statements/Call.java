@@ -90,19 +90,6 @@ public class Call extends Stmt {
         // Nothing yet
     }
 
-    public void setLexicalScopeLevel(int scope) {
-        this.lexicalScopeLevel = scope;
-    }
-
-    public void addToSymbolTable(SymbolTable table) {
-        try {
-            table.insert("call");
-            table.insert(name);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
     public void generateCode(CodeFile codeFile, SymbolTable table, Object scope) {
 
     }

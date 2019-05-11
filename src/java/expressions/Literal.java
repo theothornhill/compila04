@@ -22,16 +22,8 @@ public class Literal extends Expr {
         
     }
 
-    public void addToSymbolTable(SymbolTable table) {
-        try {
-            table.insert(type);
-            table.insert(value);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
     public void generateCode(CodeProcedure proc, SymbolTable table, Object scope) {
+
     }
 
     public String getType() {

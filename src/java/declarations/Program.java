@@ -20,10 +20,6 @@ public class Program extends Decl implements AttributeGrammar {
         TypeCheckHelper.typeCheckDecls(declarations);
     }
 
-    public int getLexicalScopeLevel() {
-        return this.lexicalScopeLevel;
-    }
-
     public SymbolTable getTable() {
         return this.table;
     }
@@ -41,18 +37,12 @@ public class Program extends Decl implements AttributeGrammar {
         declarations.stream().forEach(d -> d.setCreatedBy(this));
     }
 
-    public void setLexicalScopeLevel(int scope) {
-        declarations.stream().forEach(d -> d.setLexicalScopeLevel(scope));
-    }
-
     public void generateCode(CodeFile codeFile) {
         CodeGenerationHelper.declTraverser(declarations, codeFile);
         if (mainLowercase != null)
             codeFile.setMain("main");
         else 
             codeFile.setMain("Main");
-        
-
     }
 
     public void generateCode(CodeProcedure proc) {

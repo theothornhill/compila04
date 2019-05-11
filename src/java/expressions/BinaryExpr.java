@@ -112,9 +112,6 @@ public class BinaryExpr extends Expr {
                  p.type.equals("bool"));
     }
 
-    public void addToSymbolTable(SymbolTable table) {
-    }
-
     public void generateCode(CodeProcedure proc, SymbolTable table, Object scope) {
         // CodeGenerationHelper.exprHelper(proc, e1, table, scope);
         // CodeGenerationHelper.exprHelper(proc, e2, table, scope);
