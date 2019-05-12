@@ -25,7 +25,7 @@ public class Not extends Expr {
         }
     }
 
-    public void generateCode(CodeProcedure proc, SymbolTable table, Object scope) {
+    public void generateCode(CodeProcedure proc, SymbolTable table, Object scope) throws Exception {
         if (expr != null) {
             if (expr instanceof BinaryExpr) {
                 ((BinaryExpr)expr).generateCode(proc, table, scope);                

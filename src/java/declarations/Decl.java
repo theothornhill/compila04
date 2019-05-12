@@ -8,8 +8,8 @@ public abstract class Decl implements AttributeGrammar {
     public abstract String printAst(int indentLevel);
     public abstract void typeCheck() throws Exception;
     public abstract void addToSymbolTable() throws Exception;
-    public abstract void generateCode(CodeFile codeFile);
-    public abstract void generateCode(CodeProcedure proc);
+    public abstract void generateCode(CodeFile codeFile) throws Exception;
+    public abstract void generateCode(CodeProcedure proc) throws Exception;
 
     public SymbolTable getTable() {
         return this.table;

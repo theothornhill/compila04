@@ -7,7 +7,7 @@ public class CodeGenerationHelper {
     public static void exprHelper(CodeProcedure proc,
                                   Object node,
                                   SymbolTable table,
-                                  Object scope) {
+                                  Object scope) throws Exception {
         if (node instanceof Expr)
             ((Expr) node).generateCode(proc, table, scope);
         else if (node instanceof Call)
@@ -75,7 +75,7 @@ public class CodeGenerationHelper {
             : VoidType.TYPE;    // TODO: Literals can never be void. Fix
     }
 
-    public static CodeProcedure newProc(String name, String type, CodeFile codeFile) {
+    public static CodeProcedure newProc(String name, String type, CodeFile codeFile) throws Exception {
         CodeProcedure proc;
         if (type == null) {
             proc = new CodeProcedure(name, VoidType.TYPE, codeFile);
@@ -87,7 +87,7 @@ public class CodeGenerationHelper {
 
     public static void exprTraverser(LinkedList<Object> el,
                                      CodeProcedure proc, SymbolTable table,
-                                     Object scope) {
+                                     Object scope) throws Exception {
         if (el != null)  {
             for (Object e : el) {
                 CodeGenerationHelper.exprHelper(proc, e, table, scope);
@@ -99,7 +99,7 @@ public class CodeGenerationHelper {
                                      CodeFile codeFile,
                                      CodeProcedure proc,
                                      SymbolTable table,
-                                     Object scope) {
+                                     Object scope) throws Exception {
         // Generalize this completely
         if (sl != null) {
             for (Stmt stmt : sl) {
@@ -140,7 +140,7 @@ public class CodeGenerationHelper {
 
     // Generates code for all the declarations connected to a codeFile
     public static void declTraverser(LinkedList<Decl> dl,
-                                     CodeFile codeFile) {
+                                     CodeFile codeFile) throws Exception {
         if (dl != null) {
             for (Decl decl : dl) {
                 decl.generateCode(codeFile);
@@ -149,7 +149,7 @@ public class CodeGenerationHelper {
     }
 
     public static void declTraverser(LinkedList<Decl> dl,
-                                     CodeProcedure proc) {
+                                     CodeProcedure proc) throws Exception {
         if (dl != null) {
             for (Decl decl : dl) {
                 decl.generateCode(proc);

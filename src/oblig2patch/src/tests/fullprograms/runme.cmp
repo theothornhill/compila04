@@ -18,7 +18,7 @@ begin
   begin
       var res : int
   in
-      if a > b 
+      if a > b
       then  
           res := a
       else

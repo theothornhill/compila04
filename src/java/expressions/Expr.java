@@ -7,5 +7,5 @@ public abstract class Expr {
     public SymbolTable table = new SymbolTable();
     public abstract String printAst(int indentLevel);
     public abstract void typeCheck(SymbolTable table, Object scope) throws Exception;
-    public abstract void generateCode(CodeProcedure proc, SymbolTable table, Object object);
+    public abstract void generateCode(CodeProcedure proc, SymbolTable table, Object object) throws Exception;
 }

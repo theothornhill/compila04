@@ -43,7 +43,7 @@ public class If extends Stmt {
         
     }
 
-    public void generateCode(CodeProcedure proc, SymbolTable table, Object scope) {
+    public void generateCode(CodeProcedure proc, SymbolTable table, Object scope) throws Exception {
         int jump;
         int trueClause;
         int falseClause;

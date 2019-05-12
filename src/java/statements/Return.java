@@ -46,7 +46,7 @@ public class Return extends Stmt {
         
     }
 
-    public void generateCode(CodeProcedure proc, SymbolTable table, Object scope) {
+    public void generateCode(CodeProcedure proc, SymbolTable table, Object scope) throws Exception {
         if (e != null) {
             if (e instanceof BinaryExpr) {
                 ((BinaryExpr)e).generateCode(proc, table, scope);                

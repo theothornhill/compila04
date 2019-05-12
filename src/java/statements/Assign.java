@@ -111,7 +111,7 @@ public class Assign extends Stmt {
 
     }
 
-    public void generateCode(CodeProcedure proc, SymbolTable table, Object scope) {
+    public void generateCode(CodeProcedure proc, SymbolTable table, Object scope) throws Exception {
         // System.out.println(target.getClass());
         if (e instanceof Literal) {
             proc.addInstruction(CodeGenerationHelper.literalHelper(((Literal)e), proc));

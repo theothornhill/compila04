@@ -76,7 +76,7 @@ public class ProcDecl extends Decl {
             }
     }
 
-    public void generateCode(CodeFile codeFile) {
+    public void generateCode(CodeFile codeFile) throws Exception {
         codeFile.addProcedure(this.name);
         if (!CodeGenerationHelper.isLibraryProcedure(this.name)) {
             proc = type == null
@@ -92,7 +92,7 @@ public class ProcDecl extends Decl {
         }
     }
 
-    public void generateCode(CodeProcedure proc) {
+    public void generateCode(CodeProcedure proc) throws Exception {
         CodeFile codeFile = proc.getCodeFile();
         this.generateCode(codeFile);
     }

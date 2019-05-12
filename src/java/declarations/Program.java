@@ -37,7 +37,7 @@ public class Program extends Decl implements AttributeGrammar {
         declarations.stream().forEach(d -> d.setCreatedBy(this));
     }
 
-    public void generateCode(CodeFile codeFile) {
+    public void generateCode(CodeFile codeFile) throws Exception {
         CodeGenerationHelper.declTraverser(declarations, codeFile);
         if (mainLowercase != null)
             codeFile.setMain("main");

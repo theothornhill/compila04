@@ -44,7 +44,7 @@ public class While extends Stmt {
     public void generateCode(CodeFile codeFile,
                              CodeProcedure proc,
                              SymbolTable table,
-                             Object scope) {
+                             Object scope) throws Exception {
         int jump;
         int trueClause;
         int falseClause;
