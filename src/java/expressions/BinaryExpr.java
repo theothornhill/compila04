@@ -63,8 +63,10 @@ public class BinaryExpr extends Expr {
                 throw new Exception("Arguments of relational operation not correct type");
             this.type = new Type("bool");
         } else if (isLogical) {
-            if (e1.type.equals("bool") && e2.type.equals("bool"))
+            if (e1.type.equals("bool") && e2.type.equals("bool")) {
                 this.type = new Type("bool");
+            }
+
             else
                 throw new Exception("Arguments of logical operation not correct type");
         }
@@ -74,14 +76,21 @@ public class BinaryExpr extends Expr {
 
     public void typeCheck(SymbolTable table, Object scope) throws Exception {
         typeCheckExpr(e1, table, scope);
+        System.out.println(op + " " + isLogical);
         typeCheckExpr(e2, table, scope);
         setExprType(((Expr)e1), ((Expr)e2));
+
     }
 
     public void typeCheckExpr(Object e, SymbolTable table, Object scope) throws Exception {
         Object exp = table.lookup(scope, e.toString());
         Var v = null;
         Param p = null;
+
+        if (this instanceof BinaryExpr) {
+            ((Expr)e).typeCheck(table, scope);
+        }
+
         if (e instanceof Var) {
             ((Var)e).typeCheck(table, scope);
             if (((Var)e).expr != null) 
@@ -112,7 +121,7 @@ public class BinaryExpr extends Expr {
                  p.type.equals("bool"));
     }
 
-    public void generateCode(CodeProcedure proc, SymbolTable table, Object scope) {
+    public void generateCode(CodeProcedure proc, SymbolTable table, Object scope) throws Exception {
         // CodeGenerationHelper.exprHelper(proc, e1, table, scope);
         // CodeGenerationHelper.exprHelper(proc, e2, table, scope);
         codeGenExpr(e1, proc, table, scope);
@@ -123,8 +132,12 @@ public class BinaryExpr extends Expr {
     }
 
     public void codeGenExpr(Object ex, CodeProcedure proc,
-                            SymbolTable table, Object scope) {
-        if (ex instanceof Literal)
+                            SymbolTable table, Object scope) throws Exception {
+        if (ex instanceof BinaryExpr) {
+            ((BinaryExpr)ex).generateCode(proc, table, scope);
+        } else if (ex instanceof NestedExpr) {
+            ((NestedExpr)ex).generateCode(proc, table, scope);
+        } else if (ex instanceof Literal)
             proc.addInstruction(CodeGenerationHelper.literalHelper(((Literal)ex), proc));
         else if (ex instanceof Var) {
             if (((Var)ex).expr != null) {
@@ -144,5 +157,10 @@ public class BinaryExpr extends Expr {
         sb.append(PrintHelper.endWithParen(indentLevel));
         return sb.toString();
     }
+
+    public String toString() {
+        return "" + e1 + " " + op + " " + e2 + ": " + type;
+    }
+        
 
 }

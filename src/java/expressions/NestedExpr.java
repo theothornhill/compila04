@@ -11,8 +11,10 @@ public class NestedExpr extends Expr {
         this.type = new Type(((Expr)expr).type.toString());
     }
 
-    public void generateCode(CodeProcedure proc, SymbolTable table, Object scope) {
-        CodeGenerationHelper.exprHelper(proc, expr, table, scope);
+    public void generateCode(CodeProcedure proc, SymbolTable table, Object scope) throws Exception {
+        if (expr instanceof BinaryExpr) {
+            ((BinaryExpr)expr).generateCode(proc, table, scope);
+        }
     }
     
     public String toString() {

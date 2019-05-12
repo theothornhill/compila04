@@ -55,6 +55,8 @@ public class While extends Stmt {
             ((BinaryExpr)e).generateCode(proc, table, scope);
         } else if (e instanceof Not) {
             ((Not)e).generateCode(proc, table, scope);
+        } else if (e instanceof NestedExpr) {
+            ((NestedExpr)e).generateCode(proc, table, scope);
         }
         trueClause = proc.addInstruction(new NOP());
         falseClause = proc.addInstruction(new NOP());

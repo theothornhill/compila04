@@ -48,10 +48,13 @@ public class If extends Stmt {
         int trueClause;
         int falseClause;
         int end;
+
         if (e instanceof BinaryExpr) {
             ((BinaryExpr)e).generateCode(proc, table, scope);
         } else if (e instanceof Not) {
             ((Not)e).generateCode(proc, table, scope);
+        } else if (e instanceof NestedExpr) {
+            ((NestedExpr)e).generateCode(proc, table, scope);
         }
         jump = proc.addInstruction(new NOP());
         CodeGenerationHelper.stmtTraverser(sl, proc.getCodeFile(), proc, table, scope);

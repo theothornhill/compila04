@@ -20,33 +20,35 @@ public class CodeGenerationHelper {
             proc.addLocalVariable(lit.getValue().toString(), lit.getCodeType());
         }
         else
-            System.out.println("Bug in Codegenerationhelper");
+            throw new Exception ("Bug in codegenerationhelper");
+        
     }
 
-    public static Instruction instructionHelper(CodeProcedure proc, Object op) {
-        return op.toString().equals("+")
-            ? new ADD()
-            : op.toString().equals("-")
-            ? new SUB()
-            : op.toString().equals("/")
-            ? new DIV()
-            : op.toString().equals("*")
-            ? new MUL()
-            : op.toString().equals("<")
-            ? new LT()
-            : op.toString().equals("<=")
-            ? new LTEQ()
-            : op.toString().equals(">")
-            ? new GT()
-            : op.toString().equals(">=")
-            ? new GTEQ()
-            : op.toString().equals("<>")
-            ? new NEQ()
-            : op.toString().equals("||")
-            ? new OR()
-            : op.toString().equals("&&")
-            ? new AND()
-            : null;             // TODO: This seems like a terrible idea
+    public static Instruction instructionHelper(CodeProcedure proc, Object op) throws Exception {
+        if (op.toString().equals("+"))
+            return new ADD();
+        else if (op.toString().equals("-"))
+            return new SUB();
+        else if (op.toString().equals("/"))
+            return new DIV();
+        else if (op.toString().equals("*"))
+            return new MUL();
+        else if (op.toString().equals("<"))
+            return new LT();
+        else if (op.toString().equals("<="))
+            return new LTEQ();
+        else if (op.toString().equals(">"))
+            return new GT();
+        else if (op.toString().equals(">="))
+            return new GTEQ();
+        else if (op.toString().equals("<>"))
+            return new NEQ();
+        else if (op.toString().equals("||"))
+            return new OR();
+        else if (op.toString().equals("&&"))
+            return new AND();
+        else
+            throw new Exception("Wrong operand type");
     }
 
     // Return the literal value. Helps when you want to know what codetype a
