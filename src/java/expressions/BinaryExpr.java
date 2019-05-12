@@ -76,7 +76,6 @@ public class BinaryExpr extends Expr {
 
     public void typeCheck(SymbolTable table, Object scope) throws Exception {
         typeCheckExpr(e1, table, scope);
-        System.out.println(op + " " + isLogical);
         typeCheckExpr(e2, table, scope);
         setExprType(((Expr)e1), ((Expr)e2));
 
