@@ -11,6 +11,6 @@ public abstract class Stmt implements AttributeGrammar {
     public Object createdBy;
     public abstract String printAst(int indentLevel);
     public abstract void typeCheck(SymbolTable table, Object scope) throws Exception;
-    public abstract void generateCode(CodeFile codeFile, SymbolTable table, Object scope);
-    public abstract void generateCode(CodeProcedure proc, SymbolTable table, Object scope);
+    public abstract void generateCode(CodeFile codeFile, SymbolTable table, Object scope) throws Exception;
+    public abstract void generateCode(CodeProcedure proc, SymbolTable table, Object scope) throws Exception;
 }

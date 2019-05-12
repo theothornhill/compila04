@@ -94,7 +94,7 @@ public class Call extends Stmt {
 
     }
 
-    public void generateCode(CodeProcedure proc, SymbolTable table, Object scope) {
+    public void generateCode(CodeProcedure proc, SymbolTable table, Object scope) throws Exception {
         // CodeGenerationHelper.exprTraverser(el, proc, table, scope);
         if (CodeGenerationHelper.isLibraryProcedure(name)) {
             proc.getCodeFile().addProcedure(name);
@@ -108,7 +108,8 @@ public class Call extends Stmt {
 
     }
 
-    public void traverseExprs(CodeProcedure proc, SymbolTable table, Object scope) {
+    public void traverseExprs(CodeProcedure proc, SymbolTable table, Object
+        scope) throws Exception {
         if (el != null) {
             for (Object ex : el) {
                 if (ex instanceof RefVar) {
