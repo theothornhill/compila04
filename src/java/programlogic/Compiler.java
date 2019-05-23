@@ -52,10 +52,10 @@ public class Compiler {
         program.generateCode(codeFile);
         byte[] bytecode = codeFile.getBytecode();
         
-        DataOutputStream stream = new DataOutputStream(new FileOutputStream("/Users/theodor/Dropbox/Studier/fag/INF5110/compila04/example.bin"));
+        DataOutputStream stream = new DataOutputStream(new FileOutputStream(args[1]));
         stream.write(bytecode);
         stream.close();
-        VirtualMachine vm = new VirtualMachine("/Users/theodor/Dropbox/Studier/fag/INF5110/compila04/example.bin");
+        VirtualMachine vm = new VirtualMachine(args[1]);
         if (args.length > 1) {
             vm.list();            
         } else {

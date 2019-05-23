@@ -71,6 +71,7 @@
 	<target name="run" depends="init">
 		<java classname="Compiler" classpathref="path-run">
           <arg value="src/oblig2patch/src/tests/fullprograms/runme.cmp"/>
+          <arg value="example.bin"/>
 		</java>
 	</target>
 
