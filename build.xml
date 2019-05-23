@@ -72,6 +72,7 @@
 		<java classname="Compiler" classpathref="path-run">
           <arg value="src/oblig2patch/src/tests/fullprograms/runme.cmp"/>
           <arg value="example.bin"/>
+          <arg value="null"/>
 		</java>
 	</target>
 
@@ -79,6 +80,7 @@
 	<target name="list-runme" depends="init">
 		<java classname="Compiler" classpathref="path-run">
           <arg value="src/oblig2patch/src/tests/fullprograms/runme.cmp"/>
+          <arg value="example.bin"/>
           <arg value="list"/>
 		</java>
 	</target>
@@ -87,18 +89,28 @@
     <target name="test-passing" depends="init">
 		<java classname="Compiler" classpathref="path-run">
           <arg value="src/oblig2patch/src/tests/oblig2/noerrors/test1.cmp"/>
+          <arg value="example.bin"/>
+          <arg value="null"/>
 		</java>
 		<java classname="Compiler" classpathref="path-run">
           <arg value="src/oblig2patch/src/tests/oblig2/noerrors/test2.cmp"/>
+          <arg value="example.bin"/>
+          <arg value="null"/>
 		</java>
 		<java classname="Compiler" classpathref="path-run">
           <arg value="src/oblig2patch/src/tests/oblig2/noerrors/test3.cmp"/>
+          <arg value="example.bin"/>
+          <arg value="null"/>
 		</java>
 		<java classname="Compiler" classpathref="path-run">
           <arg value="src/oblig2patch/src/tests/oblig2/noerrors/test4.cmp"/>
+          <arg value="example.bin"/>
+          <arg value="null"/>
 		</java>
         <java classname="Compiler" classpathref="path-run">
           <arg value="src/oblig2patch/src/tests/oblig2/noerrors/test5.cmp"/>
+          <arg value="example.bin"/>
+          <arg value="null"/>
 		</java>
 	</target>
 
@@ -106,85 +118,140 @@
     <target name="test-fail" depends="init">
 		<java classname="Compiler" classpathref="path-run">
           <arg value="src/oblig2patch/src/tests/oblig2/errors/general1_fail.cmp"/>
+          <arg value="example.bin"/>
+          <arg value="null"/>
 		</java>
         <java classname="Compiler" classpathref="path-run">
           <arg value="src/oblig2patch/src/tests/oblig2/errors/general2_fail.cmp"/>
+          <arg value="example.bin"/>
+          <arg value="null"/>
 		</java>
         <java classname="Compiler" classpathref="path-run">
           <arg value="src/oblig2patch/src/tests/oblig2/errors/general3_fail.cmp"/>
+          <arg value="example.bin"/>
+          <arg value="null"/>
 		</java>
         <java classname="Compiler" classpathref="path-run">
           <arg value="src/oblig2patch/src/tests/oblig2/errors/general4_fail.cmp"/>
+          <arg value="example.bin"/>
+          <arg value="null"/>
 		</java>
         <java classname="Compiler" classpathref="path-run">
           <arg value="src/oblig2patch/src/tests/oblig2/errors/general5_fail.cmp"/>
+          <arg value="example.bin"/>
+          <arg value="null"/>
 		</java>
         <java classname="Compiler" classpathref="path-run">
           <arg value="src/oblig2patch/src/tests/oblig2/errors/procedure2_fail.cmp"/>
+          <arg value="example.bin"/>
+          <arg value="null"/>
 		</java>
         <java classname="Compiler" classpathref="path-run">
           <arg value="src/oblig2patch/src/tests/oblig2/errors/procedure3_fail.cmp"/>
+          <arg value="example.bin"/>
+          <arg value="null"/>
 		</java>
         <java classname="Compiler" classpathref="path-run">
           <arg value="src/oblig2patch/src/tests/oblig2/errors/procedure4_fail.cmp"/>
+          <arg value="example.bin"/>
+          <arg value="null"/>
 		</java>
         <java classname="Compiler" classpathref="path-run">
           <arg value="src/oblig2patch/src/tests/oblig2/errors/procedure5_fail.cmp"/>
+          <arg value="example.bin"/>
+          <arg value="null"/>
 		</java>
         <java classname="Compiler" classpathref="path-run">
           <arg value="src/oblig2patch/src/tests/oblig2/errors/procedure_unknown_returntype_fail.cmp"/>
+          <arg value="example.bin"/>
+          <arg value="null"/>
 		</java>
         <java classname="Compiler" classpathref="path-run">
           <arg value="src/oblig2patch/src/tests/oblig2/errors/return_contradicting_expression_fail.cmp"/>
+          <arg value="example.bin"/>
+          <arg value="null"/>
 		</java>
         <java classname="Compiler" classpathref="path-run">
           <arg value="src/oblig2patch/src/tests/oblig2/errors/type1_fail.cmp"/>
+          <arg value="example.bin"/>
+          <arg value="null"/>
 		</java>
         <java classname="Compiler" classpathref="path-run">
           <arg value="src/oblig2patch/src/tests/oblig2/errors/type2_fail.cmp"/>
+          <arg value="example.bin"/>
+          <arg value="null"/>
 		</java>
         <java classname="Compiler" classpathref="path-run">
           <arg value="src/oblig2patch/src/tests/oblig2/errors/type3_fail.cmp"/>
+          <arg value="example.bin"/>
+          <arg value="null"/>
 		</java>
         <java classname="Compiler" classpathref="path-run">
           <arg value="src/oblig2patch/src/tests/oblig2/errors/type4_fail.cmp"/>
+          <arg value="example.bin"/>
+          <arg value="null"/>
 		</java>
         <java classname="Compiler" classpathref="path-run">
           <arg value="src/oblig2patch/src/tests/oblig2/errors/type5_fail.cmp"/>
+          <arg value="example.bin"/>
+          <arg value="null"/>
 		</java>
         <java classname="Compiler" classpathref="path-run">
           <arg value="src/oblig2patch/src/tests/oblig2/errors/type6_fail.cmp"/>
+          <arg value="example.bin"/>
+          <arg value="null"/>
 		</java>
         <java classname="Compiler" classpathref="path-run">
           <arg value="src/oblig2patch/src/tests/oblig2/errors/type7_fail.cmp"/>
+          <arg value="example.bin"/>
+          <arg value="null"/>
 		</java>
         <java classname="Compiler" classpathref="path-run">
           <arg value="src/oblig2patch/src/tests/oblig2/errors/undeclared_new_argument_fail.cmp"/>
+          <arg value="example.bin"/>
+          <arg value="null"/>
 		</java>
         <java classname="Compiler" classpathref="path-run">
           <arg value="src/oblig2patch/src/tests/oblig2/errors/undeclared_struct_fail.cmp"/>
+          <arg value="example.bin"/>
+          <arg value="null"/>
 		</java>
         <java classname="Compiler" classpathref="path-run">
           <arg value="src/oblig2patch/src/tests/oblig2/errors/undeclared_struct_var_fail.cmp"/>
+          <arg value="example.bin"/>
+          <arg value="null"/>
 		</java>
         <java classname="Compiler" classpathref="path-run">
           <arg value="src/oblig2patch/src/tests/oblig2/errors/variable_scope_shadow_fail.cmp"/>
+          <arg value="example.bin"/>
+          <arg value="null"/>
 		</java>
         <java classname="Compiler" classpathref="path-run">
           <arg value="src/oblig2patch/src/tests/oblig2/errors/wrong_arith_operand_type_fail.cmp"/>
+          <arg value="example.bin"/>
+          <arg value="null"/>
 		</java>
         <java classname="Compiler" classpathref="path-run">
           <arg value="src/oblig2patch/src/tests/oblig2/errors/wrong_log_exp_type_fail.cmp"/>
+          <arg value="example.bin"/>
+          <arg value="null"/>
 		</java>
         <java classname="Compiler" classpathref="path-run">
           <arg value="src/oblig2patch/src/tests/oblig2/errors/wrong_new_arg_type_fail.cmp"/>
+          <arg value="example.bin"/>
+          <arg value="null"/>
 		</java>
         <java classname="Compiler" classpathref="path-run">
           <arg value="src/oblig2patch/src/tests/oblig2/errors/wrong_not_operand_type_fail.cmp"/>
+          <arg value="example.bin"/>
+          <arg value="null"/>
 		</java>
         <java classname="Compiler" classpathref="path-run">
           <arg value="src/oblig2patch/src/tests/oblig2/errors/wrong_rel_operand_type_fail.cmp"/>
+          <arg value="example.bin"/>
+          <arg value="null"/>
 		</java>
+
 	</target>
 
 </project>

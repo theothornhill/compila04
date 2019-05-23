@@ -12,18 +12,24 @@ import runtime.*;
 
 
 public class Compiler {
+    private String inFilename = null;
+    private String binFilename = null;
+    private String runList = null;
+
     public String syntaxError;
     public String error;
     public Program program;
     public CodeFile codeFile;
     public String[] args;
     
-    public Compiler(String[] args) {
-        this.args = args;
+    public Compiler(String inFilename, String binFilename, String runList) {
+        this.inFilename = inFilename;
+        this.binFilename = binFilename;
+        this.runList = runList;
     }
 
     public int compile(String[] args) throws Exception {
-        Lexer lex = new Lexer(new FileReader(args[0]));
+        Lexer lex = new Lexer(new FileReader(inFilename));
         parser parser = new parser(lex);
         program = null;
         codeFile = new CodeFile();
@@ -52,11 +58,11 @@ public class Compiler {
         program.generateCode(codeFile);
         byte[] bytecode = codeFile.getBytecode();
         
-        DataOutputStream stream = new DataOutputStream(new FileOutputStream(args[1]));
+        DataOutputStream stream = new DataOutputStream(new FileOutputStream(binFilename));
         stream.write(bytecode);
         stream.close();
-        VirtualMachine vm = new VirtualMachine(args[1]);
-        if (args.length > 1) {
+        VirtualMachine vm = new VirtualMachine(binFilename);
+        if (!runList.equals("null")) {
             vm.list();            
         } else {
             vm.run();                    
@@ -64,7 +70,7 @@ public class Compiler {
     }
 
     public static void main(String[] args) throws Exception {
-        Compiler compiler = new Compiler(args);
+        Compiler compiler = new Compiler(args[0], args[1], args[2]);
         int result;
         try {
             result = compiler.compile(args);
